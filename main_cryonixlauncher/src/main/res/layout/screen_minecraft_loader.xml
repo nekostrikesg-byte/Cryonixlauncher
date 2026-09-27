@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
+    android:background="@color/cryonix_background">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Loader" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
+    <RadioGroup android:id="@+id/loader_group" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+        <RadioButton android:id="@+id/loader_vanilla" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="true" android:text="Vanilla" android:textColor="@color/cryonix_text"/>
+        <RadioButton android:id="@+id/loader_fabric" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Fabric" android:textColor="@color/cryonix_text"/>
+    </RadioGroup>
+    <Spinner android:id="@+id/fabric_version" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:enabled="false"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Fabric loader versions are resolved for the selected Minecraft version." android:textColor="@color/cryonix_text_secondary" android:textSize="12sp"/>
+</LinearLayout>
