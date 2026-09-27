@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="48" android:viewportHeight="48">
+    <path android:fillColor="@color/cryonix_icon" android:pathData="M22,6h4v16h16v4H26v16h-4V26H6v-4h16z"/>
+</vector>
