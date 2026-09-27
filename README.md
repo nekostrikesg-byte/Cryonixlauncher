@@ -53,13 +53,13 @@ Local profiles are for launcher configuration and local workflows. They do not b
 
 ## Project Structure
 
-Android launcher code is under:
+Android launcher code is split by language and responsibility:
 
-`main_cryonixlauncher/src/main/`
+`main_cryonixlauncher/src/main/java/` — Java compatibility/UI layer
 
-Kotlin code should be placed under:
+`main_cryonixlauncher/src/main/kotlin/` — Kotlin launcher logic, state, configuration, and orchestration
 
-`main_cryonixlauncher/src/main/java/` or a dedicated Kotlin source directory.
+`main_cryonixlauncher/src/main/cpp/` — C/C++ native code and JNI implementations
 
 Existing Minecraft launcher Java code is under:
 
@@ -75,7 +75,7 @@ Android layouts are under:
 
 Cryonix currently contains the Android launcher UI and the foundation for Minecraft version, account, loader, renderer, and launch management.
 
-The architecture is being moved toward Kotlin-first development, with Java kept for compatibility and C/C++ used for native performance and graphics integration.
+The project now has separate Java, Kotlin, and native C/C++ source areas. Kotlin owns new launcher logic, Java remains a compatibility/UI layer, and C/C++ is used behind JNI for native functionality.
 
 Full Minecraft execution still requires the runtime, library and asset downloader, Java runtime integration, authentication, native renderer integrations, and the final game process bridge.
 
