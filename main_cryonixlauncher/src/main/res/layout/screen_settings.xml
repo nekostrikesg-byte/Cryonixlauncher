@@ -2,55 +2,63 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cryonix_background"
-    android:fillViewport="true">
+    android:background="@color/cryonix_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/screen_padding">
+        android:padding="24dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings"
+            android:text="Settings"
             android:textColor="@color/cryonix_text"
             android:textSize="30sp"
             android:textStyle="bold"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="Make Cryonix Launcher feel like yours."
+            android:text="Keep the launcher simple and focused."
             android:textColor="@color/cryonix_text_secondary"
             android:textSize="14sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Switch
+            android:id="@+id/settings_keep_screen_on"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/section_gap"
-            android:text="@string/appearance"
-            android:textColor="@color/cryonix_accent_soft"
-            android:textStyle="bold"/>
+            android:layout_marginTop="22dp"
+            android:text="Keep screen on while Minecraft is preparing"
+            android:textColor="@color/cryonix_text"/>
 
-        <Button android:id="@+id/settings_personalization" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:layout_marginTop="8dp" android:text="@string/personalization" android:textAllCaps="false"/>
-        <Button android:id="@+id/settings_icons" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="@string/icons" android:textAllCaps="false"/>
-        <Button android:id="@+id/settings_wallpaper" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="@string/wallpaper" android:textAllCaps="false"/>
+        <Switch
+            android:id="@+id/settings_auto_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Refresh Minecraft metadata when opening the launcher"
+            android:textColor="@color/cryonix_text"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/settings_about"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/section_gap"
-            android:text="Behavior"
-            android:textColor="@color/cryonix_accent_soft"
-            android:textStyle="bold"/>
+            android:layout_marginTop="26dp"
+            android:padding="16dp"
+            android:background="@drawable/bg_card"
+            android:text="Cryonix Launcher 0.1.0&#10;Kotlin-first launcher UI and Minecraft management."
+            android:textColor="@color/cryonix_text_secondary"
+            android:textSize="14sp"/>
 
-        <Switch android:id="@+id/settings_gestures" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="@string/gestures" android:textColor="@color/cryonix_text"/>
-        <Switch android:id="@+id/settings_dock" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="@string/dock" android:textColor="@color/cryonix_text"/>
-        <Switch android:id="@+id/settings_search" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="@string/search" android:textColor="@color/cryonix_text"/>
-
-        <Button android:id="@+id/settings_about" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:layout_marginTop="@dimen/section_gap" android:text="@string/about_cryonix" android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/settings_done"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="@color/cryonix_surface_alt"
+            android:text="Done"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>
