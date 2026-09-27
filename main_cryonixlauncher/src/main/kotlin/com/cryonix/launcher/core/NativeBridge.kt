@@ -3,12 +3,27 @@ package com.cryonix.launcher.core
 /**
  * Small JNI boundary for native Cryonix functionality.
  *
- * Keep platform/native implementation in src/main/cpp.
+ * Native code is optional for launcher startup. A missing native library
+ * must not prevent the Kotlin launcher UI from opening.
  */
 internal object NativeBridge {
-    init {
-        System.loadLibrary("cryonix_native")
+    private var loaded = false
+
+    private fun ensureLoaded() {
+        if (loaded) return
+        runCatching {
+            System.loadLibrary("cryonix_native")
+            loaded = true
+        }
     }
 
-    external fun status(): String
+    fun status(): String {
+        ensureLoaded()
+        if (!loaded) return "Native layer unavailable"
+
+        return runCatching { nativeStatus() }
+            .getOrElse { "Native layer unavailable" }
+    }
+
+    private external fun nativeStatus(): String
 }
