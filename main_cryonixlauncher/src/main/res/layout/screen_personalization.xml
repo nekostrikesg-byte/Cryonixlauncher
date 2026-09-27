@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cryonix_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/personalization" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Tune colors, layout and visual density." android:textColor="@color/cryonix_text_secondary"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/section_gap" android:text="Theme" android:textColor="@color/cryonix_accent_soft" android:textStyle="bold"/>
+        <RadioGroup android:id="@+id/theme_group" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/theme_system" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Follow system" android:textColor="@color/cryonix_text"/>
+            <RadioButton android:id="@+id/theme_dark" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cryonix Dark" android:textColor="@color/cryonix_text"/>
+            <RadioButton android:id="@+id/theme_light" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Light" android:textColor="@color/cryonix_text"/>
+        </RadioGroup>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/section_gap" android:text="Layout" android:textColor="@color/cryonix_accent_soft" android:textStyle="bold"/>
+        <SeekBar android:id="@+id/grid_density" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Switch android:id="@+id/show_labels" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="Show app labels" android:textColor="@color/cryonix_text"/>
+    </LinearLayout>
+</ScrollView>
