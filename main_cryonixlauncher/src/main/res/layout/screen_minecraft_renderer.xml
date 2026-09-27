@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
+    android:background="@color/cryonix_background">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Renderer" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
+    <RadioGroup android:id="@+id/renderer_group" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+        <RadioButton android:id="@+id/renderer_system" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="true" android:text="System / OpenGL" android:textColor="@color/cryonix_text"/>
+        <RadioButton android:id="@+id/renderer_ltw" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="LTW" android:textColor="@color/cryonix_text"/>
+        <RadioButton android:id="@+id/renderer_holy" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Holy GL4ES" android:textColor="@color/cryonix_text"/>
+        <RadioButton android:id="@+id/renderer_mobile_glues" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Mobile Glues" android:textColor="@color/cryonix_text"/>
+        <RadioButton android:id="@+id/renderer_vulkan" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Vulkan" android:textColor="@color/cryonix_text"/>
+    </RadioGroup>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Renderer backends are profiles. Native libraries must be supplied through the Cryonix runtime integration for the target Android ABI." android:textColor="@color/cryonix_text_secondary" android:textSize="12sp"/>
+</LinearLayout>
