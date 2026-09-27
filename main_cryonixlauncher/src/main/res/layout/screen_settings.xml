@@ -231,7 +231,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/settings_global_renderer"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
@@ -261,12 +261,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Selected: Kryton Wrapper"
+                    android:text="Selected: Krypton Wrapper"
                     android:textColor="@color/cryonix_text_secondary"
                     android:textSize="15sp"/>
-            </LinearLayout>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_chevron_down"
+                android:tint="@color/cryonix_icon"/>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/settings_vulkan"
                 android:layout_width="match_parent"
                 android:layout_height="128dp"
@@ -291,9 +298,16 @@
                     android:text="Selected: Turnip"
                     android:textColor="@color/cryonix_text_secondary"
                     android:textSize="15sp"/>
-            </LinearLayout>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_chevron_down"
+                android:tint="@color/cryonix_icon"/>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/settings_graphics"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
@@ -326,9 +340,16 @@
                     android:text="Selected: Only set to OpenGL on first launch"
                     android:textColor="@color/cryonix_text_secondary"
                     android:textSize="15sp"/>
-            </LinearLayout>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_chevron_down"
+                android:tint="@color/cryonix_icon"/>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/settings_resolution_rule"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
@@ -360,7 +381,14 @@
                     android:text="Selected: Percentage"
                     android:textColor="@color/cryonix_text_secondary"
                     android:textSize="15sp"/>
-            </LinearLayout>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_chevron_down"
+                android:tint="@color/cryonix_icon"/>
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
