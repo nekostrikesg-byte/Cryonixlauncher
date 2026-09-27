@@ -19,13 +19,13 @@ Heavy work should stay away from the main Android UI thread. Native code is used
 
 ## Languages
 
-Cryonix is primarily built with **Kotlin**.
+Cryonix is **Kotlin-first**.
 
-- **Kotlin** — main Android application, UI, launcher systems, Minecraft management, configuration, networking, and most new code
-- **Java** — used only where Java/JVM compatibility or existing Minecraft libraries require it
+- **Kotlin** — primary Android application, UI, launcher systems, Minecraft management, configuration, networking, and orchestration
+- **Java** — reserved for compatibility code or external Minecraft/JVM libraries when Kotlin should not replace an existing Java integration
 - **C/C++** — native performance code, graphics/renderer bridges, JNI, and Android native integrations
 
-Kotlin is the main development language for the mobile launcher. Java is kept to a smaller compatibility layer instead of being the main language.
+The current launcher implementation is Kotlin. Java is not used as the primary application layer.
 
 ## Minecraft Launcher
 
@@ -55,17 +55,13 @@ Local profiles are for launcher configuration and local workflows. They do not b
 
 Android launcher code is split by language and responsibility:
 
-`main_cryonixlauncher/src/main/java/` — Java compatibility/UI layer
+`main_cryonixlauncher/src/main/kotlin/` — **primary Kotlin application layer**
 
-`main_cryonixlauncher/src/main/kotlin/` — Kotlin launcher logic, state, configuration, and orchestration
+`main_cryonixlauncher/src/main/java/` — Java compatibility layer; use only when Java/JVM integration is required
 
 `main_cryonixlauncher/src/main/cpp/` — C/C++ native code and JNI implementations
 
-Existing Minecraft launcher Java code is under:
-
-`main_cryonixlauncher/src/main/java/com/cryonix/launcher/minecraft/`
-
-Native C/C++ code should be placed under the Android native source tree and connected through JNI when required.
+Minecraft launcher models, services, launch planning, and Android activities are now implemented under the Kotlin source tree.
 
 Android layouts are under:
 
@@ -73,15 +69,15 @@ Android layouts are under:
 
 ## Current Status
 
-Cryonix currently contains the Android launcher UI and the foundation for Minecraft version, account, loader, renderer, and launch management.
+Cryonix now uses Kotlin as the main launcher implementation. The launcher activities, Minecraft models, metadata services, local profiles, renderer registry, and launch planning are Kotlin.
 
-The project now has separate Java, Kotlin, and native C/C++ source areas. Kotlin owns new launcher logic, Java remains a compatibility/UI layer, and C/C++ is used behind JNI for native functionality.
+Java remains available for compatibility-only integrations. C/C++ remains isolated behind the native/JNI layer.
 
 Full Minecraft execution still requires the runtime, library and asset downloader, Java runtime integration, authentication, native renderer integrations, and the final game process bridge.
 
 ## Goals
 
-1. Make Kotlin the main launcher language.
+1. Keep Kotlin as the main launcher language.
 2. Keep Java usage small and focused on compatibility.
 3. Use C/C++ for native performance and graphics work.
 4. Keep startup and navigation fast.
