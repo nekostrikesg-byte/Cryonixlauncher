@@ -1,7 +1,6 @@
 package com.cryonix.launcher
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import com.cryonix.launcher.minecraft.MinecraftActivity
@@ -30,22 +29,11 @@ class MainActivity : Activity() {
             refresh = ::refreshMetadata,
             render = ::renderState
         )
-        renderState()
-        if (store.autoRefresh) refreshMetadata()
     }
 
     override fun onResume() {
         super.onResume()
         if (::store.isInitialized) renderState()
-    }
-
-    private fun openMinecraft(section: String? = null, launchNow: Boolean = false) {
-        startActivity(
-            Intent(this, MinecraftActivity::class.java).apply {
-                section?.let { putExtra(MinecraftActivity.EXTRA_SECTION, it) }
-                putExtra(MinecraftActivity.EXTRA_LAUNCH_NOW, launchNow)
-            }
-        )
     }
 
     private fun renderState() {
