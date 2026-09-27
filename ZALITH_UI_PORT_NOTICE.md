@@ -1,13 +1,27 @@
-# Zalith Launcher UI source notice
+# Zalith 2+ UI source port
 
-Cryonix Launcher contains a UI-only port/reimplementation based on the public visual architecture and interaction patterns of Zalith Launcher 2 / Zalith Launcher 2+.
+Cryonix Launcher includes a port of the relevant **Zalith Launcher 2+ Kotlin UI source files** under:
 
-Upstream projects:
-- Zalith Launcher 2: https://github.com/ZalithLauncher/ZalithLauncher2
-- Zalith Launcher 2+: https://github.com/Star1xr/ZalithLauncher2Plus
+`third_party/zalith_ui_port/src/main/java/com/movtery/zalithlauncher/`
 
-The upstream Zalith Launcher 2 project is licensed under GPL-3.0 and includes additional attribution/name requirements. Cryonix Launcher is intentionally named and branded separately.
+The port currently contains the home-screen, accounts, settings, settings-layout, custom-home, and related view-model Kotlin sources used by those screens.
 
-This port does not include Zalith/Pojav game-launching services, authentication services, download services, runtime management, renderer service implementations, or other backend engine code.
+Upstream sources:
+- https://github.com/Star1xr/ZalithLauncher2Plus
+- https://github.com/ZalithLauncher/ZalithLauncher2
 
-Cryonix-specific UI, branding, launcher state, and Android integration remain maintained in the Cryonix Launcher source tree.
+These upstream sources are retained in an isolated third-party directory because Zalith 2+ is a Jetpack Compose application with a substantially different dependency graph from Cryonix's current native Android/XML architecture. The live Cryonix screens are implemented separately in:
+
+- `ui/home/ZalithHomeScreen.kt`
+- `ui/accounts/ZalithAccountsScreen.kt`
+- `ui/settings/ZalithSettingsScreen.kt`
+
+Those live controllers adapt the same home/account/settings interaction model to Cryonix's existing architecture rather than importing the full Zalith/Pojav runtime.
+
+## License and attribution
+
+The imported upstream source remains under its original GPL-3.0 licensing and retains its upstream copyright headers. See `third_party/zalith_ui_port` and the upstream LICENSE.
+
+Zalith Launcher 2+ identifies itself as an unofficial modified version of Zalith Launcher 2 and documents its GPL-3.0 inheritance. Cryonix is independently branded **Cryonix Launcher** and the home screen visibly identifies this build as an **Unofficial Modified Version**.
+
+This port does **not** copy Zalith/Pojav game-launching, authentication, downloader, renderer, or runtime services into the live Cryonix implementation.
