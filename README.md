@@ -71,17 +71,6 @@ Cryonix currently contains the Android launcher UI and the foundation for Minecr
 
 Full Minecraft execution still requires the runtime, library and asset downloader, Java runtime integration, authentication, native renderer integrations, and the final game process bridge.
 
-## Goals
-
-1. Keep the launcher lightweight.
-2. Keep startup and navigation fast.
-3. Avoid unnecessary background work.
-4. Use native code where it provides a real performance benefit.
-5. Support multiple Minecraft versions and loaders.
-6. Provide clear errors and useful logs.
-7. Keep downloaded game files verified.
-8. Keep the launcher modular and easy to maintain.
-
 ## Development
 
 Build with Android Studio and JDK 17.
