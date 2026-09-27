@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.cryonix.launcher.R
@@ -12,6 +11,7 @@ import com.cryonix.launcher.minecraft.model.GameAccount
 import com.cryonix.launcher.minecraft.model.LoaderProfile
 import com.cryonix.launcher.minecraft.model.MinecraftVersion
 import com.cryonix.launcher.minecraft.model.RendererProfile
+import com.cryonix.launcher.ui.accounts.ZalithAccountsScreen
 import kotlin.concurrent.thread
 
 class MinecraftActivity : Activity() {
@@ -102,34 +102,10 @@ class MinecraftActivity : Activity() {
     }
 
     private fun showAccounts() {
-        val input = EditText(this).apply {
-            hint = "Profile name"
-            setSingleLine(true)
-            setText(store.profileName)
-            setSelection(text.length)
+        ZalithAccountsScreen.showLocalProfile(this, store) {
+            statusText.text = "Profile saved: " + store.profileName
+            renderState()
         }
-
-        AlertDialog.Builder(this)
-            .setTitle("Local profile")
-            .setMessage(
-                "Use a local launcher profile for offline setup. " +
-                    "Online Minecraft services still require a valid Microsoft account."
-            )
-            .setView(input)
-            .setPositiveButton("Save") { _, _ ->
-                val account = LocalProfileStore(this).create(input.text.toString())
-                store.profileName = account.name
-                store.profileId = account.id
-                statusText.text = "Profile saved: " + account.name
-                renderState()
-            }
-            .setNeutralButton("Use Player") { _, _ ->
-                store.profileName = "Player"
-                store.profileId = null
-                renderState()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
     }
 
     private fun showLoader() {
