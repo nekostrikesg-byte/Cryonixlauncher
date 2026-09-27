@@ -1,89 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="24dp"
     android:background="@color/cryonix_background">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/screen_padding">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cryonix"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="26sp"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Your space. Your way."
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="13sp"/>
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/home_settings"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/settings"
-                android:src="@android:drawable/ic_menu_preferences"/>
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/home_search"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/control_height"
-            android:layout_marginTop="20dp"
-            android:background="@color/cryonix_surface"
-            android:hint="@string/search_apps"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:textColor="@color/cryonix_text"
-            android:textColorHint="@color/cryonix_text_secondary"/>
+        android:layout_weight="0.9"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/section_gap"
-            android:text="@string/favorites"
+            android:text="CRYONIX"
             android:textColor="@color/cryonix_text"
-            android:textSize="17sp"
+            android:textSize="28sp"
             android:textStyle="bold"/>
 
-        <GridLayout
-            android:id="@+id/favorites_grid"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Simple. Fast. Yours."
+            android:textColor="@color/cryonix_text_secondary"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="LAUNCHER"
+            android:textColor="@color/cryonix_accent"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/home_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="4"
-            android:rowCount="1"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="8dp"
+            android:text="Ready"
+            android:textColor="@color/cryonix_text"
+            android:textSize="15sp"/>
 
-        <Space
+        <ImageButton
+            android:id="@+id/home_settings"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_button"
+            android:contentDescription="@string/settings"
+            android:padding="14dp"
+            android:src="@drawable/ic_settings"
+            android:tint="@color/cryonix_text"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.35"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minecraft"
+            android:textColor="@color/cryonix_text"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/home_version"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Version: not selected"
+            android:textColor="@color/cryonix_text_secondary"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/home_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Profile: Player"
+            android:textColor="@color/cryonix_text_secondary"
+            android:textSize="14sp"/>
 
         <Button
-            android:id="@+id/all_apps_button"
+            android:id="@+id/home_launch"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/cryonix_accent"
+            android:text="Launch Minecraft"
+            android:textAllCaps="false"
+            android:textColor="@color/cryonix_button_text"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage"
+            android:textColor="@color/cryonix_text"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/home_versions"
             android:layout_width="match_parent"
             android:layout_height="@dimen/control_height"
-            android:text="@string/all_apps"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/cryonix_surface_alt"
+            android:text="Versions"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/home_accounts"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height"
+            android:backgroundTint="@color/cryonix_surface_alt"
+            android:text="Accounts"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/home_loader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height"
+            android:backgroundTint="@color/cryonix_surface_alt"
+            android:text="Loader"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/home_renderer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height"
+            android:backgroundTint="@color/cryonix_surface_alt"
+            android:text="Renderer"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/home_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/control_height"
+            android:backgroundTint="@color/cryonix_surface"
+            android:text="Refresh"
             android:textAllCaps="false"/>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>
