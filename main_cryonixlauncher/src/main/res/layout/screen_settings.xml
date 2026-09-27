@@ -1,64 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cryonix_background">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:layout_height="72dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="28dp"
+        android:paddingEnd="18dp">
+
+        <ImageButton
+            android:id="@+id/settings_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/cryonix_icon"/>
+
+        <ImageButton
+            android:id="@+id/settings_home"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Home"
+            android:padding="8dp"
+            android:src="@drawable/ic_home"
+            android:tint="@color/cryonix_icon"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:layout_weight="1"
+            android:layout_marginStart="24dp"
+            android:text="Settings - Renderer"
             android:textColor="@color/cryonix_text"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:textSize="22sp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Keep the launcher simple and focused."
-            android:textColor="@color/cryonix_text_secondary"
-            android:textSize="14sp"/>
+        <ImageButton
+            android:id="@+id/settings_versions"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Versions"
+            android:padding="10dp"
+            android:src="@drawable/ic_folder"
+            android:tint="@color/cryonix_icon"/>
 
-        <Switch
-            android:id="@+id/settings_keep_screen_on"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:text="Keep screen on while Minecraft is preparing"
-            android:textColor="@color/cryonix_text"/>
+        <ImageButton
+            android:id="@+id/settings_accounts"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Accounts"
+            android:padding="9dp"
+            android:src="@drawable/ic_accounts"
+            android:tint="@color/cryonix_icon"/>
 
-        <Switch
-            android:id="@+id/settings_auto_refresh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Refresh Minecraft metadata when opening the launcher"
-            android:textColor="@color/cryonix_text"/>
+        <ImageButton
+            android:id="@+id/settings_download"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Download"
+            android:padding="10dp"
+            android:src="@drawable/ic_download"
+            android:tint="@color/cryonix_icon"/>
 
-        <TextView
-            android:id="@+id/settings_about"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:padding="16dp"
-            android:background="@drawable/bg_card"
-            android:text="Cryonix Launcher 0.1.0&#10;Kotlin-first launcher UI and Minecraft management."
-            android:textColor="@color/cryonix_text_secondary"
-            android:textSize="14sp"/>
+        <LinearLayout
+            android:id="@+id/settings_pill"
+            android:layout_width="166dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_reference_pill"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp">
 
-        <Button
-            android:id="@+id/settings_done"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/control_height"
-            android:layout_marginTop="18dp"
-            android:backgroundTint="@color/cryonix_surface_alt"
-            android:text="Done"
-            android:textAllCaps="false"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_settings"
+                android:tint="@color/cryonix_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Settings"
+                android:textColor="@color/cryonix_text"
+                android:textSize="16sp"/>
+        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+
+    <LinearLayout
+        android:layout_width="132dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="72dp"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:id="@+id/settings_nav_renderer"
+            android:layout_width="112dp"
+            android:layout_height="78dp"
+            android:background="@drawable/bg_reference_pill"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_renderer"
+                android:tint="@color/cryonix_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Renderer"
+                android:textColor="@color/cryonix_text"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_nav_game"
+            android:layout_width="112dp"
+            android:layout_height="82dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_rocket"
+                android:tint="@color/cryonix_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game"
+                android:textColor="@color/cryonix_text"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_nav_controls"
+            android:layout_width="112dp"
+            android:layout_height="82dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_gamepad"
+                android:tint="@color/cryonix_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Controls"
+                android:textColor="@color/cryonix_text"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_nav_gamepad"
+            android:layout_width="112dp"
+            android:layout_height="82dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_gamepad"
+                android:tint="@color/cryonix_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gamepad"
+                android:textColor="@color/cryonix_text"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_nav_launcher"
+            android:layout_width="112dp"
+            android:layout_height="82dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_cube"
+                android:tint="@color/cryonix_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Launcher"
+                android:textColor="@color/cryonix_text"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="54dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/cryonix_divider"/>
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_java"
+            android:tint="@color/cryonix_icon"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="18dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/settings_global_renderer"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:background="@drawable/bg_reference_row"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="24dp"
+                android:paddingEnd="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Global Renderer"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="The global default renderer uses a dynamic library translation layer to ensure the game runs smoothly on mobile devices"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/settings_global_renderer_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Selected: Kryton Wrapper"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_vulkan"
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_reference_row"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vulkan Driver"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/settings_vulkan_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Selected: Turnip"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_graphics"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_reference_row"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Graphics API"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Set the graphics API used by Minecraft 26.2+"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/settings_graphics_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Selected: Only set to OpenGL on first launch"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_resolution_rule"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_reference_row"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resolution Rule"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Choose how the game window resolution is calculated"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Selected: Percentage"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_reference_row"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="24dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resolution Scale"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
