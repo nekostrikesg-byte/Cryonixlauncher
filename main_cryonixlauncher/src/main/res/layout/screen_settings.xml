@@ -237,7 +237,6 @@
                 android:layout_height="136dp"
                 android:background="@drawable/bg_reference_row"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:paddingStart="24dp"
                 android:paddingEnd="18dp">
 
@@ -280,7 +279,6 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_reference_row"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:paddingStart="24dp">
 
                 <TextView
@@ -314,7 +312,6 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_reference_row"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:paddingStart="24dp">
 
                 <TextView
@@ -356,7 +353,6 @@
                 android:layout_marginTop="18dp"
                 android:background="@drawable/bg_reference_row"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:paddingStart="24dp">
 
                 <TextView
@@ -396,7 +392,6 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_reference_row"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:paddingStart="24dp"
                 android:paddingBottom="20dp">
 
