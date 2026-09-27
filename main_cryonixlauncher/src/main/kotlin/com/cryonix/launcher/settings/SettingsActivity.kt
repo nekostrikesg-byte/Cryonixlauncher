@@ -60,7 +60,7 @@ class SettingsActivity : Activity() {
 
     private fun rendererLabel(renderer: RendererProfile.Backend): String =
         when (renderer) {
-            RendererProfile.Backend.SYSTEM -> "Kryton Wrapper"
+            RendererProfile.Backend.SYSTEM -> "Krypton Wrapper"
             RendererProfile.Backend.OPENGL -> "OpenGL"
             RendererProfile.Backend.LTW -> "LTW"
             RendererProfile.Backend.HOLY_GL4ES -> "Holy GL4ES"
