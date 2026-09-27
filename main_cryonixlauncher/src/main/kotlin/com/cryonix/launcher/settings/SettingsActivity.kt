@@ -1,7 +1,6 @@
 package com.cryonix.launcher.settings
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
@@ -12,6 +11,7 @@ import com.cryonix.launcher.R
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.model.RendererProfile
+import com.cryonix.launcher.ui.settings.ZalithSettingsScreen
 
 class SettingsActivity : Activity() {
     override fun onCreate(state: Bundle?) {
@@ -56,42 +56,7 @@ class SettingsActivity : Activity() {
     private fun showRendererPicker(
         store: MinecraftSettingsStore,
         valueView: TextView
-    ) {
-        val choices = arrayOf(
-            "Krypton Wrapper",
-            "OpenGL",
-            "LTW",
-            "Holy GL4ES",
-            "Mobile GLUES",
-            "Vulkan"
-        )
-
-        val current = when (store.renderer) {
-            RendererProfile.Backend.SYSTEM -> 0
-            RendererProfile.Backend.OPENGL -> 1
-            RendererProfile.Backend.LTW -> 2
-            RendererProfile.Backend.HOLY_GL4ES -> 3
-            RendererProfile.Backend.MOBILE_GLUES -> 4
-            RendererProfile.Backend.VULKAN -> 5
-        }
-
-        AlertDialog.Builder(this)
-            .setTitle("Global Renderer")
-            .setSingleChoiceItems(choices, current) { dialog, which ->
-                store.renderer = when (which) {
-                    0 -> RendererProfile.Backend.SYSTEM
-                    1 -> RendererProfile.Backend.OPENGL
-                    2 -> RendererProfile.Backend.LTW
-                    3 -> RendererProfile.Backend.HOLY_GL4ES
-                    4 -> RendererProfile.Backend.MOBILE_GLUES
-                    else -> RendererProfile.Backend.VULKAN
-                }
-                valueView.text = "Selected: " + choices[which]
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
+    ) = ZalithSettingsScreen.showRendererPicker(this, store, valueView)
 
     private fun rendererLabel(renderer: RendererProfile.Backend): String =
         when (renderer) {
