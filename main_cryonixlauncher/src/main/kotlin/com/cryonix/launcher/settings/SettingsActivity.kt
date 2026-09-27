@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.ScrollView
 import android.widget.TextView
 import com.cryonix.launcher.MainActivity
+import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.R
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
@@ -33,8 +34,7 @@ class SettingsActivity : Activity() {
                 .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
         }
         findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener {
-            startActivity(Intent(this, MinecraftActivity::class.java)
-                .putExtra(MinecraftActivity.EXTRA_SECTION, "accounts"))
+            startActivity(Intent(this, AccountsActivity::class.java))
         }
         findViewById<ImageButton>(R.id.settings_download).setOnClickListener {
             startActivity(Intent(this, MinecraftActivity::class.java)
