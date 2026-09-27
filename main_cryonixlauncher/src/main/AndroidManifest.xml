@@ -9,7 +9,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".MinecraftActivity"
+            android:name=".minecraft.MinecraftActivity"
             android:exported="false"/>
 
         <activity
