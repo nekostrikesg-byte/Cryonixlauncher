@@ -6,6 +6,7 @@ add_library(
     cryonix_native
     SHARED
     cryonix_native.cpp
+    native_status.c
 )
 
 find_library(
