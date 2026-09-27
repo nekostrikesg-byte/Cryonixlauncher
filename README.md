@@ -1,31 +1,31 @@
 # Cryonix Launcher
 
-Cryonix Launcher is an Android launcher focused on a clean interface, low overhead, and Minecraft Java support.
+Cryonix Launcher is an Android launcher focused on low overhead, fast navigation, and Minecraft Java support on mobile.
 
 ## Performance
 
 Cryonix is designed to keep the launcher lightweight and responsive.
 
-- Fast app launching
+- Fast startup and app launching
 - Low background overhead
-- Simple Android UI
+- Lightweight Android UI
 - Efficient version and installation management
 - Separate Minecraft runtime configuration
-- Native code support for performance-critical components
+- Native C/C++ for performance-critical components
 - Renderer selection for Android graphics backends
 - Memory and device compatibility checks
 
-The goal is to keep the launcher itself lightweight while moving heavy work, such as game runtime and native rendering, away from the main Android UI thread.
+Heavy work should stay away from the main Android UI thread. Native code is used where it can provide useful performance or graphics benefits.
 
-## How Cryonix is made
+## Languages
 
-Cryonix uses three main languages:
+Cryonix is primarily built with **Kotlin**.
 
-- Kotlin — Android application and UI components
-- Java — Minecraft launcher logic, version management, accounts, loaders, and runtime management
-- C++ — native performance components, renderer bridges, and Android native integrations
+- **Kotlin** — main Android application, UI, launcher systems, Minecraft management, configuration, networking, and most new code
+- **Java** — used only where Java/JVM compatibility or existing Minecraft libraries require it
+- **C/C++** — native performance code, graphics/renderer bridges, JNI, and Android native integrations
 
-Kotlin and Java handle the Android and launcher layers. C++ is used where native performance or graphics integration is required.
+Kotlin is the main development language for the mobile launcher. Java is kept to a smaller compatibility layer instead of being the main language.
 
 ## Minecraft Launcher
 
@@ -53,23 +53,43 @@ Local profiles are for launcher configuration and local workflows. They do not b
 
 ## Project Structure
 
-main_cryonixlauncher/ contains the Android launcher.
+Android launcher code is under:
 
-Minecraft launcher code is located in:
+`main_cryonixlauncher/src/main/`
 
-main_cryonixlauncher/src/main/java/com/cryonix/launcher/minecraft/
+Kotlin code should be placed under:
 
-Android layouts are located in:
+`main_cryonixlauncher/src/main/java/` or a dedicated Kotlin source directory.
 
-main_cryonixlauncher/src/main/res/layout/
+Existing Minecraft launcher Java code is under:
 
-Native C++ components can be added under the Android native source tree when required.
+`main_cryonixlauncher/src/main/java/com/cryonix/launcher/minecraft/`
+
+Native C/C++ code should be placed under the Android native source tree and connected through JNI when required.
+
+Android layouts are under:
+
+`main_cryonixlauncher/src/main/res/layout/`
 
 ## Current Status
 
 Cryonix currently contains the Android launcher UI and the foundation for Minecraft version, account, loader, renderer, and launch management.
 
+The architecture is being moved toward Kotlin-first development, with Java kept for compatibility and C/C++ used for native performance and graphics integration.
+
 Full Minecraft execution still requires the runtime, library and asset downloader, Java runtime integration, authentication, native renderer integrations, and the final game process bridge.
+
+## Goals
+
+1. Make Kotlin the main launcher language.
+2. Keep Java usage small and focused on compatibility.
+3. Use C/C++ for native performance and graphics work.
+4. Keep startup and navigation fast.
+5. Avoid unnecessary background work.
+6. Support multiple Minecraft versions and loaders.
+7. Provide clear errors and useful logs.
+8. Keep downloaded game files verified.
+9. Keep the launcher modular and easy to maintain.
 
 ## Development
 
