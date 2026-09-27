@@ -1,80 +1,212 @@
 # ❄️ Cryonix Launcher
 
-> **A modern, fast and customizable Android launcher built with the Cryonix identity.**
+> **A modern Android launcher and Minecraft Java launcher built with the Cryonix identity.**
 
-Cryonix Launcher is a clean Android home experience designed around simplicity, customization and a distinctive Cryonix visual style.
-
-The project is being built around a polished home screen, app drawer, search, personalization, widgets, wallpaper support and launcher-specific settings.
+Cryonix Launcher combines a clean Android home experience with a dedicated Minecraft Java launcher architecture for Android.
 
 ## ✦ Cryonix
 
-**Cryonix Launcher** is more than a home screen.
+- ⚡ Fast, focused launcher UI
+- 🎨 Cryonix dark visual system
+- 📱 Android-first design
+- 🔎 App and Minecraft version search
+- 🧩 Modular launcher architecture
+- ⛏️ Minecraft Java installation management
+- 🧵 Vanilla and Fabric support foundation
+- 🎮 Renderer profiles for OpenGL, LTW, Holy GL4ES, Mobile Glues and Vulkan
 
-- ⚡ Fast and responsive
-- 🎨 Modern and customizable
-- 🧊 Clean and focused
-- 🔎 Quick app search
-- 🧩 Widget-ready
-- 📱 Designed for Android
-- 🛠️ Built for continued development
+## ⛏️ Minecraft Launcher
 
-The Cryonix visual language uses a dark foundation, soft surfaces and a focused accent color. Branding is intentionally used in selected areas instead of repeating the name on every screen.
+Cryonix is being built to manage Minecraft Java installations instead of shipping a fixed, outdated version list.
 
-## ✨ Features
+### Versions
 
-### 🏠 Home Screen
-- Cryonix home experience
-- Favorites area
-- App search
-- Launcher settings access
-- Custom launcher dock
-- Space for widgets and shortcuts
+The launcher resolves Mojang's official Java version manifest at runtime. This is designed to cover:
 
-### 📱 App Drawer
-- Browse installed applications
-- Search applications quickly
-- Reusable app-list UI
-- App information screen
+- Latest release
+- Previous releases
+- Snapshots
+- Older versions exposed by the official manifest
+- Per-version metadata
+- SHA-1 integrity information
 
-### 🔎 Search
-- Dedicated launcher search
-- Search-ready app results
-- Simple, distraction-free interface
+The selected version can become an installation profile with its own loader, renderer, runtime and mods.
 
-### ⚙️ Settings
-Dedicated areas for:
-- Appearance
-- Personalization
-- Icons
-- Wallpaper
-- Gestures
-- Dock
+### Accounts
+
+**Microsoft account**
+- Browser/device authentication integration
+- Ownership validation
+- Online services when the account is authorized
+
+**Local profile**
+- Local launcher profile for configuration and offline/local workflows
+- Useful for launcher testing and local configuration
+- Not an authentication or ownership bypass
+
+Minecraft requires a Microsoft account for normal play and ownership-based access, so Cryonix does not implement cracked/offline authentication bypasses.
+
+### Loaders
+
+**Vanilla**
+- Default Minecraft installation mode
+- Uses official version metadata
+
+**Fabric**
+- Fabric metadata lookup
+- Compatible loader selection per Minecraft version
+- Per-installation mods directory
+
+Planned loader adapters: Forge, NeoForge and Quilt.
+
+### Renderers
+
+Cryonix uses a renderer adapter layer so the game runtime is not permanently tied to one graphics backend.
+
+Available profiles in the architecture:
+
+- System / OpenGL
+- LTW
+- Holy GL4ES
+- Mobile Glues
+- Vulkan
+
+Each renderer must provide compatible Android native libraries, ABI support, graphics initialization and Minecraft-version compatibility. Unsupported combinations should fall back safely or be rejected with a useful error.
+
+### Java Runtime
+
+A real Minecraft launcher needs a runtime manager that can:
+
+- Detect the Java version required by an installation
+- Download/install a compatible runtime
+- Select the correct runtime per Minecraft version
+- Handle Android CPU ABI differences
+- Validate runtime files
+- Keep separate runtimes when versions require them
+
+### Installation Pipeline
+
+1. Select Minecraft version
+2. Check device compatibility
+3. Select Microsoft/local profile
+4. Select Vanilla or Fabric
+5. Select renderer
+6. Select compatible Java runtime
+7. Resolve version metadata
+8. Download required libraries/assets
+9. Verify downloaded files
+10. Prepare game arguments
+11. Start the selected runtime
+12. Show logs and launch errors
+
+## 📂 Minecraft Code
+
+Minecraft launcher code lives under:
+
+main_cryonixlauncher/src/main/java/com/cryonix/launcher/minecraft/
+
+Current foundation:
+
+- MinecraftVersion — version model
+- GameAccount — Microsoft/local profile model
+- LoaderProfile — Vanilla/Fabric model
+- RendererProfile — graphics backend model
+- VersionManifestService — Mojang version metadata
+- FabricMetaService — Fabric metadata
+- RendererRegistry — renderer profiles
+- LaunchRequest — installation launch configuration
+- LaunchPlan — validated launch arguments
+- LaunchPlanBuilder — launch-plan builder
+- LocalProfileStore — local profile storage
+
+Minecraft UI resources are under main_cryonixlauncher/src/main/res/layout/ and include the Minecraft home, version, account, loader, renderer and version-item layouts.
+
+Architecture details are documented in MINECRAFT_ARCHITECTURE.md.
+
+## 🏠 Android Launcher
+
+Cryonix also provides:
+
+- Home screen
+- App drawer
 - Search
-- About Cryonix Launcher
+- Settings
+- Personalization
+- Widgets
+- Wallpaper
+- App information
+- Custom dock
+- Cryonix branding
 
-### 🎨 Personalization
-Designed to support:
-- Theme selection
-- Layout density
-- App labels
-- Launcher appearance
-- Future accent and visual options
+## 🛣️ Roadmap
 
-### 🧩 Widgets
-A dedicated widget area is included in the launcher UI foundation.
+### Phase 1 — Cryonix UI
+- [x] Cryonix home UI
+- [x] Settings and personalization UI
+- [x] Minecraft launcher UI
+- [x] Version selector UI
+- [x] Account selector UI
+- [x] Loader selector UI
+- [x] Renderer selector UI
 
-### 🖼️ Wallpaper
-A dedicated wallpaper experience is included for selecting and applying launcher backgrounds.
+### Phase 2 — Minecraft Core
+- [x] Mojang version manifest integration
+- [x] Fabric metadata integration
+- [x] Vanilla/Fabric installation model
+- [x] Renderer adapter model
+- [x] Launch-plan model
+- [ ] Full version metadata parser
+- [ ] Library downloader
+- [ ] Asset downloader
+- [ ] SHA-1 verification
+- [ ] Installation manager
+- [ ] Java runtime manager
+- [ ] Real game process/runtime bridge
 
-### ℹ️ App Information
-The launcher UI provides:
-- App icon
-- App name
-- Package information
-- Open action
-- Uninstall action
+### Phase 3 — Accounts & Compatibility
+- [ ] Microsoft OAuth/device authentication
+- [ ] Secure token storage
+- [ ] Ownership verification
+- [ ] Account switching
+- [ ] Device/ABI compatibility checks
+- [ ] RAM and storage checks
+- [ ] Java-version compatibility checks
 
-## 🧊 Cryonix Design
+### Phase 4 — Renderers
+- [ ] System OpenGL runtime
+- [ ] LTW runtime adapter
+- [ ] Holy GL4ES runtime adapter
+- [ ] Mobile Glues runtime adapter
+- [ ] Vulkan runtime adapter
+- [ ] Renderer capability detection
+- [ ] Automatic fallback
+- [ ] Per-version renderer compatibility
+
+### Phase 5 — Mods & Advanced Features
+- [ ] Fabric mod installation
+- [ ] Mod profile management
+- [ ] Resource packs
+- [ ] Shader packs
+- [ ] Worlds management
+- [ ] Separate game instances
+- [ ] Import/export installations
+- [ ] Crash/log viewer
+- [ ] Automatic recovery
+
+## 🔐 Safety & Licensing
+
+Cryonix does not bundle proprietary Minecraft game files.
+
+The launcher architecture is designed to download required files from appropriate official metadata/download sources and verify them before use.
+
+The project will not:
+- Store Microsoft passwords
+- Bypass Microsoft authentication
+- Bypass Minecraft ownership checks
+- Ship pirated Minecraft assets
+- Execute unverified downloaded binaries
+
+## 🧊 Design
 
 | Element | Cryonix Style |
 |---|---|
@@ -85,145 +217,24 @@ The launcher UI provides:
 | Secondary text | Muted neutral |
 | UI | Clean and minimal |
 
-## 📂 Project Structure
-
-The launcher UI resources live inside:
-
-`main_cryonixlauncher/src/main/res/`
-
-Current resource foundation:
-
-```text
-res/
-├── layout/
-│   ├── activity_launcher.xml
-│   ├── screen_all_apps.xml
-│   ├── screen_search.xml
-│   ├── screen_settings.xml
-│   ├── screen_personalization.xml
-│   ├── screen_widgets.xml
-│   ├── screen_wallpaper.xml
-│   ├── screen_app_info.xml
-│   ├── screen_about.xml
-│   ├── item_app.xml
-│   ├── item_setting.xml
-│   └── view_launcher_dock.xml
-│
-└── values/
-    ├── colors.xml
-    ├── dimens.xml
-    ├── strings.xml
-    └── styles.xml
-```
-
-The structure keeps the launcher UI modular and easy to expand.
-
-## 🚀 Development
-
-Cryonix Launcher is under active development.
-
-The current repository contains the UI/resource foundation. Functionality will be progressively connected to Android launcher APIs and application-management logic.
-
-Planned development areas include:
-
-- Android launcher activity
-- Default-home integration
-- Installed-app discovery
-- App launching
-- App search
-- Favorites
-- Drag-and-drop
-- Home-screen pages
-- Gesture navigation
-- Widget hosting
-- Wallpaper integration
-- Icon customization
-- Theme switching
-- Launcher preferences
-- Performance optimization
-
-## 🛣️ Roadmap
-
-### Phase 1 — Cryonix UI
-- [x] Cryonix branding foundation
-- [x] Home screen XML
-- [x] App drawer XML
-- [x] Search screen XML
-- [x] Settings screen XML
-- [x] Personalization screen XML
-- [x] Widget screen XML
-- [x] Wallpaper screen XML
-- [x] App info XML
-- [x] About screen XML
-- [x] Shared Cryonix colors and dimensions
-
-### Phase 2 — Launcher Core
-- [ ] Android launcher manifest configuration
-- [ ] Default launcher support
-- [ ] Installed application loading
-- [ ] Application launching
-- [ ] App drawer functionality
-- [ ] Search functionality
-- [ ] Favorites management
-
-### Phase 3 — Customization
-- [ ] Home-screen pages
-- [ ] Drag and drop
-- [ ] Icon packs
-- [ ] Theme system
-- [ ] Wallpaper picker
-- [ ] Widget hosting
-- [ ] Gesture configuration
-
-### Phase 4 — Cryonix Experience
-- [ ] Advanced launcher animations
-- [ ] Performance optimization
-- [ ] Accessibility improvements
-- [ ] More personalization
-- [ ] Cryonix-exclusive UI components
-- [ ] Stable release preparation
-
-## 🛠️ Technology
-
-Cryonix Launcher is being developed for Android.
-
-The interface uses Android resource XML with reusable layouts and shared values. The project is intended to remain modular so launcher functionality can evolve without rebuilding the UI structure.
-
-## 🎯 Project Goals
-
-**Simple** — important actions should be easy to reach.
-
-**Fast** — the launcher should feel lightweight and responsive.
-
-**Personal** — users should be able to shape their home screen.
-
-**Distinctive** — Cryonix should have a recognizable identity.
-
-**Maintainable** — the project should remain organized as features grow.
-
 ## 🤝 Contributing
-
-Contributions, improvements and ideas are welcome.
-
-When contributing:
 
 1. Keep changes focused.
 2. Follow the Cryonix visual language.
-3. Prefer reusable Android resources over duplicated layouts.
-4. Keep branding consistent.
-5. Test launcher behavior before submitting changes.
-6. Clearly describe what your change adds or fixes.
+3. Keep Minecraft runtime code modular.
+4. Do not commit proprietary Minecraft files.
+5. Do not commit account tokens or secrets.
+6. Verify downloaded resources before execution.
+7. Document new runtime, loader or renderer integrations.
 
 ## 📜 License
 
 See the repository for the current license and project terms.
 
-If no license has been added yet, the project remains subject to the rights of its copyright holder.
-
 ---
 
 # ❄️ Cryonix Launcher
 
-**Built for a cleaner Android experience.**
+**Android launcher. Minecraft Java launcher architecture. One Cryonix experience.**
 
 > **Cryonix — Make your space yours.**
