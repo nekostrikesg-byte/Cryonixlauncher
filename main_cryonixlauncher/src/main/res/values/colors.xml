@@ -6,6 +6,7 @@
     <color name="cryonix_panel">#363940</color>
     <color name="cryonix_blue">#B0C6FF</color>
     <color name="cryonix_accent">#B0C6FF</color>
+    <color name="cryonix_accent_soft">#8FA8E6</color>
     <color name="cryonix_selected">#3F4659</color>
     <color name="cryonix_text">#D9DCE5</color>
     <color name="cryonix_text_secondary">#AEB2BC</color>
