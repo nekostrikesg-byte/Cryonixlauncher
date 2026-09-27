@@ -6,6 +6,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.minecraft.MinecraftActivity
+import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.settings.SettingsActivity
 
@@ -28,7 +29,7 @@ object ZalithHomeScreen {
             openMinecraft(activity, "versions")
         }
         activity.findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
-            openMinecraft(activity, "accounts")
+            activity.startActivity(Intent(activity, AccountsActivity::class.java))
         }
         activity.findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
             refresh()
