@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
+    android:background="@color/cryonix_background">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Minecraft Versions" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
+    <TextView android:id="@+id/version_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Loading official version manifest…" android:textColor="@color/cryonix_text_secondary"/>
+    <EditText android:id="@+id/version_filter" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:layout_marginTop="16dp" android:hint="Search versions" android:background="@color/cryonix_surface" android:paddingHorizontal="18dp" android:textColor="@color/cryonix_text" android:textColorHint="@color/cryonix_text_secondary"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/version_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="12dp"/>
+</LinearLayout>
