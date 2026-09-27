@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
+    android:background="@color/cryonix_background">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Minecraft Accounts" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
+    <Button android:id="@+id/account_microsoft" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:layout_marginTop="18dp" android:text="Sign in with Microsoft" android:textAllCaps="false"/>
+    <Button android:id="@+id/account_local" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="Create local profile" android:textAllCaps="false"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/section_gap" android:text="Microsoft accounts are required for Minecraft play and ownership. Local profiles are launcher profiles and must not bypass authentication or ownership checks." android:textColor="@color/cryonix_text_secondary" android:textSize="12sp"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/account_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="12dp"/>
+</LinearLayout>
