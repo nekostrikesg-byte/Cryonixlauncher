@@ -4,13 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.widget.ImageButton
 import android.widget.TextView
-import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
-import com.cryonix.launcher.minecraft.VersionManifestService
 import com.cryonix.launcher.settings.SettingsActivity
-import kotlin.concurrent.thread
 
 /**
  * Cryonix implementation of the Zalith 2+ home-screen interaction model.
