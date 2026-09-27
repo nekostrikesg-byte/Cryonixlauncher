@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cryonix_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CRYONIX / MINECRAFT" android:textColor="@color/cryonix_accent" android:textSize="25sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/minecraft_selected_version" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Select a Minecraft version" android:textColor="@color/cryonix_text_secondary"/>
+        <Button android:id="@+id/minecraft_play" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:layout_marginTop="20dp" android:text="PLAY MINECRAFT" android:textAllCaps="false"/>
+        <Button android:id="@+id/minecraft_versions" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="Versions" android:textAllCaps="false"/>
+        <Button android:id="@+id/minecraft_accounts" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="Accounts" android:textAllCaps="false"/>
+        <Button android:id="@+id/minecraft_loader" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="Vanilla / Fabric" android:textAllCaps="false"/>
+        <Button android:id="@+id/minecraft_renderer" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:text="Renderer" android:textAllCaps="false"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/section_gap" android:text="Game files are resolved from official metadata/download sources. Cryonix does not bundle proprietary Minecraft files." android:textColor="@color/cryonix_text_secondary" android:textSize="12sp"/>
+    </LinearLayout>
+</ScrollView>
