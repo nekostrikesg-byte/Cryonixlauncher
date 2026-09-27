@@ -3,12 +3,12 @@ package com.cryonix.launcher
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.TextView
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.VersionManifestService
 import com.cryonix.launcher.settings.SettingsActivity
+import com.cryonix.launcher.ui.home.ZalithHomeScreen
 import kotlin.concurrent.thread
 
 class MainActivity : Activity() {
@@ -24,26 +24,12 @@ class MainActivity : Activity() {
         versionText = findViewById(R.id.home_version)
         statusText = findViewById(R.id.home_status)
 
-        findViewById<TextView>(R.id.home_launch).setOnClickListener {
-            openMinecraft(launchNow = true)
-        }
-        findViewById<ImageButton>(R.id.home_versions).setOnClickListener {
-            openMinecraft("versions")
-        }
-        findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
-            openMinecraft("accounts")
-        }
-        findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
-            refreshMetadata()
-        }
-        findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-
-        findViewById<TextView>(R.id.home_add_account).setOnClickListener {
-            openMinecraft("accounts")
-        }
-
+        ZalithHomeScreen.bind(
+            activity = this,
+            store = store,
+            refresh = ::refreshMetadata,
+            render = ::renderState
+        )
         renderState()
         if (store.autoRefresh) refreshMetadata()
     }
