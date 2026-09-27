@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.view.View
+import android.widget.ScrollView
 import android.widget.TextView
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
@@ -19,44 +19,47 @@ class SettingsActivity : Activity() {
         setContentView(R.layout.screen_settings)
 
         val store = MinecraftSettingsStore(this)
+        val scroll = findViewById<ScrollView>(R.id.settings_scroll)
         val rendererValue = findViewById<TextView>(R.id.settings_global_renderer_value)
         rendererValue.text = "Selected: " + rendererLabel(store.renderer)
 
-        findViewById<ImageButton>(R.id.settings_back).setOnClickListener {
-            finish()
-        }
+        findViewById<ImageButton>(R.id.settings_back).setOnClickListener { finish() }
         findViewById<ImageButton>(R.id.settings_home).setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
         findViewById<ImageButton>(R.id.settings_versions).setOnClickListener {
-            startActivity(
-                Intent(this, MinecraftActivity::class.java)
-                    .putExtra(MinecraftActivity.EXTRA_SECTION, "versions")
-            )
+            startActivity(Intent(this, MinecraftActivity::class.java)
+                .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
         }
         findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener {
-            startActivity(
-                Intent(this, MinecraftActivity::class.java)
-                    .putExtra(MinecraftActivity.EXTRA_SECTION, "accounts")
-            )
+            startActivity(Intent(this, MinecraftActivity::class.java)
+                .putExtra(MinecraftActivity.EXTRA_SECTION, "accounts"))
         }
         findViewById<ImageButton>(R.id.settings_download).setOnClickListener {
-            startActivity(
-                Intent(this, MinecraftActivity::class.java)
-                    .putExtra(MinecraftActivity.EXTRA_SECTION, "versions")
-            )
+            startActivity(Intent(this, MinecraftActivity::class.java)
+                .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
         }
 
-        findViewById<View>(R.id.settings_global_renderer).setOnClickListener {
-            showRendererPicker(store, rendererValue)
+        findViewById<android.view.View>(R.id.settings_global_renderer).setOnClickListener {
+            ZalithSettingsScreen.showRendererPicker(this, store, rendererValue)
         }
+
+        bindNav(scroll, R.id.settings_nav_renderer, R.id.settings_section_renderer)
+        bindNav(scroll, R.id.settings_nav_game, R.id.settings_section_game)
+        bindNav(scroll, R.id.settings_nav_controls, R.id.settings_section_controls)
+        bindNav(scroll, R.id.settings_nav_gamepad, R.id.settings_section_gamepad)
+        bindNav(scroll, R.id.settings_nav_launcher, R.id.settings_section_launcher)
+        bindNav(scroll, null, R.id.settings_section_java)
     }
 
-    private fun showRendererPicker(
-        store: MinecraftSettingsStore,
-        valueView: TextView
-    ) = ZalithSettingsScreen.showRendererPicker(this, store, valueView)
+    private fun bindNav(scroll: ScrollView, navId: Int?, targetId: Int) {
+        if (navId == null) return
+        findViewById<android.view.View>(navId).setOnClickListener {
+            val target = findViewById<android.view.View>(targetId)
+            scroll.post { scroll.smoothScrollTo(0, target.top) }
+        }
+    }
 
     private fun rendererLabel(renderer: RendererProfile.Backend): String =
         when (renderer) {
