@@ -5,7 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.LinearLayout
+import android.view.View
 import android.widget.TextView
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
@@ -48,7 +48,7 @@ class SettingsActivity : Activity() {
             )
         }
 
-        findViewById<LinearLayout>(R.id.settings_global_renderer).setOnClickListener {
+        findViewById<View>(R.id.settings_global_renderer).setOnClickListener {
             showRendererPicker(store, rendererValue)
         }
     }
@@ -58,7 +58,7 @@ class SettingsActivity : Activity() {
         valueView: TextView
     ) {
         val choices = arrayOf(
-            "Kryton Wrapper",
+            "Krypton Wrapper",
             "OpenGL",
             "LTW",
             "Holy GL4ES",
