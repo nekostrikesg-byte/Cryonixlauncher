@@ -235,41 +235,48 @@
                 android:id="@+id/settings_global_renderer"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="24dp"
-                android:paddingEnd="18dp">
+                android:background="@drawable/bg_reference_row">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Global Renderer"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="20sp"/>
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="The global default renderer uses a dynamic library translation layer to ensure the game runs smoothly on mobile devices"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="60dp">
 
-                <TextView
-                    android:id="@+id/settings_global_renderer_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Selected: Krypton Wrapper"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="18dp"
-                android:src="@drawable/ic_chevron_down"
-                android:tint="@color/cryonix_icon"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Global Renderer"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="The global default renderer uses a dynamic library translation layer to ensure the game runs smoothly on mobile devices"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/settings_global_renderer_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Selected: Krypton Wrapper"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="18dp"
+                    android:src="@drawable/ic_chevron_down"
+                    android:tint="@color/cryonix_icon"/>
             </FrameLayout>
 
             <FrameLayout
@@ -277,32 +284,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="128dp"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="24dp">
+                android:background="@drawable/bg_reference_row">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vulkan Driver"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="20sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="60dp">
 
-                <TextView
-                    android:id="@+id/settings_vulkan_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Selected: Turnip"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="18dp"
-                android:src="@drawable/ic_chevron_down"
-                android:tint="@color/cryonix_icon"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vulkan Driver"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/settings_vulkan_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Selected: Turnip"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="18dp"
+                    android:src="@drawable/ic_download"
+                    android:tint="@color/cryonix_icon"/>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="68dp"
+                    android:src="@drawable/ic_chevron_down"
+                    android:tint="@color/cryonix_icon"/>
             </FrameLayout>
 
             <FrameLayout
@@ -310,40 +333,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="24dp">
+                android:background="@drawable/bg_reference_row">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Graphics API"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="20sp"/>
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Set the graphics API used by Minecraft 26.2+"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="60dp">
 
-                <TextView
-                    android:id="@+id/settings_graphics_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Selected: Only set to OpenGL on first launch"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="18dp"
-                android:src="@drawable/ic_chevron_down"
-                android:tint="@color/cryonix_icon"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Graphics API"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Set the graphics API used by Minecraft 26.2+"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/settings_graphics_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Selected: Only set to OpenGL on first launch"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="18dp"
+                    android:src="@drawable/ic_chevron_down"
+                    android:tint="@color/cryonix_icon"/>
             </FrameLayout>
 
             <FrameLayout
@@ -351,39 +382,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:layout_marginTop="18dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="24dp">
+                android:background="@drawable/bg_reference_row">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Resolution Rule"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="20sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="60dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Choose how the game window resolution is calculated"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resolution Rule"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="20sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Selected: Percentage"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="15sp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="18dp"
-                android:src="@drawable/ic_chevron_down"
-                android:tint="@color/cryonix_icon"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Choose how the game window resolution is calculated"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Selected: Percentage"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="18dp"
+                    android:src="@drawable/ic_chevron_down"
+                    android:tint="@color/cryonix_icon"/>
             </FrameLayout>
 
             <LinearLayout
@@ -392,8 +431,8 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_reference_row"
                 android:gravity="center_vertical"
-                android:paddingStart="24dp"
-                android:paddingBottom="20dp">
+                android:orientation="vertical"
+                android:paddingStart="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
