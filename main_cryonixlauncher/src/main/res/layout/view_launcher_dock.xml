@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/launcher_dock"
+    android:layout_width="match_parent"
+    android:layout_height="76dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="12dp"
+    android:background="@color/cryonix_surface">
+
+    <ImageButton android:id="@+id/dock_phone" android:layout_width="56dp" android:layout_height="56dp" android:background="@android:color/transparent" android:contentDescription="Phone"/>
+    <ImageButton android:id="@+id/dock_messages" android:layout_width="56dp" android:layout_height="56dp" android:background="@android:color/transparent" android:contentDescription="Messages"/>
+    <ImageButton android:id="@+id/dock_all_apps" android:layout_width="56dp" android:layout_height="56dp" android:background="@android:color/transparent" android:contentDescription="@string/all_apps"/>
+    <ImageButton android:id="@+id/dock_browser" android:layout_width="56dp" android:layout_height="56dp" android:background="@android:color/transparent" android:contentDescription="Browser"/>
+    <ImageButton android:id="@+id/dock_camera" android:layout_width="56dp" android:layout_height="56dp" android:background="@android:color/transparent" android:contentDescription="Camera"/>
+</LinearLayout>
