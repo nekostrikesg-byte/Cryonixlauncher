@@ -67,6 +67,14 @@ Android layouts are under:
 
 `main_cryonixlauncher/src/main/res/layout/`
 
+## UI
+
+Cryonix includes a UI-only port inspired by the public Zalith Launcher 2 / Zalith Launcher 2+ interface structure. The port covers the Cryonix home screen, renderer settings layout, navigation treatment, colors, rounded surfaces, and launcher icons.
+
+The Zalith/Pojav backend is **not** included in this UI port. Cryonix does not import Zalith authentication, game downloading, Java runtime management, game launching, renderer service implementations, or other backend services as part of this work.
+
+See [ZALITH_UI_PORT_NOTICE.md](ZALITH_UI_PORT_NOTICE.md) for the upstream source and license notice.
+
 ## Current Status
 
 Cryonix now uses Kotlin as the main launcher implementation. The launcher activities, Minecraft models, metadata services, local profiles, renderer registry, and launch planning are Kotlin.
