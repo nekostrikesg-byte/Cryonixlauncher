@@ -3,7 +3,7 @@ package com.cryonix.launcher
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
@@ -13,7 +13,6 @@ import kotlin.concurrent.thread
 
 class MainActivity : Activity() {
     private lateinit var versionText: TextView
-    private lateinit var profileText: TextView
     private lateinit var statusText: TextView
     private lateinit var store: MinecraftSettingsStore
 
@@ -23,29 +22,26 @@ class MainActivity : Activity() {
 
         store = MinecraftSettingsStore(this)
         versionText = findViewById(R.id.home_version)
-        profileText = findViewById(R.id.home_profile)
         statusText = findViewById(R.id.home_status)
 
-        findViewById<Button>(R.id.home_launch).setOnClickListener {
+        findViewById<TextView>(R.id.home_launch).setOnClickListener {
             openMinecraft(launchNow = true)
         }
-        findViewById<Button>(R.id.home_versions).setOnClickListener {
+        findViewById<ImageButton>(R.id.home_versions).setOnClickListener {
             openMinecraft("versions")
         }
-        findViewById<Button>(R.id.home_accounts).setOnClickListener {
+        findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
             openMinecraft("accounts")
         }
-        findViewById<Button>(R.id.home_loader).setOnClickListener {
-            openMinecraft("loader")
-        }
-        findViewById<Button>(R.id.home_renderer).setOnClickListener {
-            openMinecraft("renderer")
-        }
-        findViewById<Button>(R.id.home_refresh).setOnClickListener {
+        findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
             refreshMetadata()
         }
-        findViewById<android.widget.ImageButton>(R.id.home_settings).setOnClickListener {
+        findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.home_add_account).setOnClickListener {
+            openMinecraft("accounts")
         }
 
         renderState()
@@ -67,14 +63,15 @@ class MainActivity : Activity() {
     }
 
     private fun renderState() {
-        versionText.text = "Version: " + (store.selectedVersionId ?: "not selected")
-        profileText.text = "Profile: " + store.profileName
+        versionText.text = if (store.selectedVersionId == null) {
+            "No installed versions"
+        } else {
+            store.selectedVersionId
+        }
     }
 
     private fun refreshMetadata() {
-        statusText.text = "Refreshing official Minecraft metadata…"
-        findViewById<Button>(R.id.home_refresh).isEnabled = false
-
+        statusText.text = "Refreshing"
         thread {
             val result = runCatching {
                 VersionManifestService().fetchVersions()
@@ -83,13 +80,12 @@ class MainActivity : Activity() {
             }
 
             runOnUiThread {
-                findViewById<Button>(R.id.home_refresh).isEnabled = true
                 result.onSuccess {
                     store.selectedVersionId = it.id
-                    statusText.text = "Ready · latest release: " + it.id
+                    statusText.text = "Ready"
                     renderState()
                 }.onFailure {
-                    statusText.text = "Ready · metadata refresh failed"
+                    statusText.text = "Ready"
                 }
             }
         }
