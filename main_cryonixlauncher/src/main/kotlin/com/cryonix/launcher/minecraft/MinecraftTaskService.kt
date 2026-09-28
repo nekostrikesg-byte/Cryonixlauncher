@@ -4,9 +4,14 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import androidx.core.app.NotificationManagerCompat
+import com.cryonix.launcher.runtime.CryonixMojoEngine
+import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import kotlin.concurrent.thread
 
 class MinecraftTaskService : Service() {
+    private var lastText = "Preparing…"
+    private var lastProgress = 0
+
     companion object {
         const val EXTRA_INSTANCE = "instance"
         const val EXTRA_VERSION = "version"
@@ -59,7 +64,7 @@ class MinecraftTaskService : Service() {
         activeThread = thread(name = "cryonix-minecraft-task") {
             try {
                 val manager = MinecraftDownloadManager(this)
-                manager.install(instance, version, object : MinecraftDownloadManager.ProgressListener {
+                val result = manager.install(instance, version, object : MinecraftDownloadManager.ProgressListener {
                     override fun onStage(stage: String, completed: Int, total: Int) {
                         val value = if (total <= 0) 0 else (completed * 100 / total).coerceIn(0, 100)
                         update(stage, value, control)
@@ -71,7 +76,17 @@ class MinecraftTaskService : Service() {
                         update("Downloading • " + name, value, control)
                     }
                 }, control)
-                update("Minecraft files installed", 100, control)
+                update("Minecraft files installed • checking runtime", 100, control)
+                val check = CryonixMojoEngine(this).preflight(result)
+                if (check.ready) {
+                    CryonixMojoEngine(this).launch(
+                        result,
+                        MinecraftSettingsStore(this).memoryMb,
+                        MinecraftSettingsStore(this).profileName
+                    ).onFailure { error -> update("Engine blocked • " + (error.message ?: "unknown error"), 100, control) }
+                } else {
+                    update("Installed • " + check.message, 100, control)
+                }
             } catch (_: InterruptedException) {
                 if (control.stopped) update("Task stopped", 0, control)
             } catch (error: Throwable) {
@@ -89,6 +104,8 @@ class MinecraftTaskService : Service() {
 
     private fun update(text: String, progress: Int, control: MinecraftTaskControl) {
         if (!active || control.stopped) return
+        lastText = text
+        lastProgress = progress
         NotificationManagerCompat.from(this).notify(
             MinecraftTaskNotification.NOTIFICATION_ID,
             MinecraftTaskNotification.build(
@@ -103,7 +120,14 @@ class MinecraftTaskService : Service() {
 
     private fun refreshNotification() {
         val control = activeControl ?: return
-        update(if (control.paused) "Paused" else "Running", 0, control)
+        if (control.paused) {
+            NotificationManagerCompat.from(this).notify(
+                MinecraftTaskNotification.NOTIFICATION_ID,
+                MinecraftTaskNotification.build(this, "Cryonix Minecraft task", "Paused • " + lastText, lastProgress, true)
+            )
+        } else {
+            update(lastText, lastProgress, control)
+        }
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
