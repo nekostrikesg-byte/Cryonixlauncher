@@ -60,6 +60,30 @@ class MinecraftSettingsStore(context: Context) {
         get() = preferences.getBoolean(KEY_AUTO_REFRESH, false)
         set(value) = preferences.edit().putBoolean(KEY_AUTO_REFRESH, value).apply()
 
+    var instances: List<String>
+        get() = preferences.getString(KEY_INSTANCES, "")
+            .orEmpty()
+            .split("|")
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .distinct()
+        private set(value) = preferences.edit()
+            .putString(KEY_INSTANCES, value.joinToString("|"))
+            .apply()
+
+    fun addInstance(name: String): Boolean {
+        val clean = name.trim().replace("|", "")
+        if (clean.isEmpty()) return false
+        val current = instances
+        if (current.any { it.equals(clean, ignoreCase = true) }) return false
+        instances = current + clean
+        return true
+    }
+
+    fun removeInstance(name: String) {
+        instances = instances.filterNot { it == name }
+    }
+
     var keepScreenOn: Boolean
         get() = preferences.getBoolean(KEY_KEEP_SCREEN_ON, true)
         set(value) = preferences.edit().putBoolean(KEY_KEEP_SCREEN_ON, value).apply()
@@ -78,6 +102,7 @@ class MinecraftSettingsStore(context: Context) {
         const val KEY_MEMORY = "memory_mb"
         const val KEY_TOUCH = "touch_controls"
         const val KEY_AUTO_REFRESH = "auto_refresh"
+        const val KEY_INSTANCES = "instances"
         const val KEY_KEEP_SCREEN_ON = "keep_screen_on"
     }
 }
