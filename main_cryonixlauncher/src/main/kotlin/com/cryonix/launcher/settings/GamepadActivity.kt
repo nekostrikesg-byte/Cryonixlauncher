@@ -11,8 +11,8 @@ class GamepadActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.screen_gamepad)
-        findViewById<TextView>(R.id.gamepad_back).setOnClickListener { UiMotion.press(it); finish() }
-        findViewById<TextView>(R.id.gamepad_mapping).setOnClickListener { UiMotion.press(it); AlertDialog.Builder(this).setTitle("Controller Mapping").setMessage("No controller is connected.\nConnect a gamepad to configure buttons.").setPositiveButton("OK",null).show() }
+        findViewById<TextView>(R.id.gamepad_back).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.gamepad_mapping).setOnClickListener { AlertDialog.Builder(this).setTitle("Controller Mapping").setMessage("No controller is connected.\nConnect a gamepad to configure buttons.").setPositiveButton("OK",null).show() }
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
     }
