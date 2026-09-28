@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cryonixlauncher</string>
+
     <string name="home_title">Home</string>
+    <string name="home">Home</string>
     <string name="search_apps">Search apps</string>
     <string name="all_apps">All apps</string>
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
+    <string name="settings_1">Settings</string>
     <string name="personalization">Personalization</string>
     <string name="wallpaper">Wallpaper</string>
     <string name="widgets">Widgets</string>
@@ -18,4 +21,23 @@
     <string name="dock">Dock</string>
     <string name="privacy">Privacy</string>
     <string name="version">Version</string>
+
+    <string name="instances">Instances</string>
+    <string name="accounts">Accounts</string>
+    <string name="downloads">Downloads</string>
+    <string name="cryonix_logo">Cryonix logo</string>
+    <string name="cryonix_launcher">Cryonix Launcher</string>
+    <string name="youtube">YouTube</string>
+    <string name="discord">Discord</string>
+    <string name="ishan1">Ishan profile</string>
+    <string name="cryonix_player_logo">Cryonix player logo</string>
+    <string name="launch">Launch</string>
+    <string name="instances_1">Instances</string>
+    <string name="_0">0</string>
+    <string name="text_1">Text</string>
+    <string name="launch_tasks">Launch Tasks</string>
+    <string name="text">Text</string>
+    <string name="preparing_launch_metadata">Preparing launch metadata…</string>
+    <string name="version_not_selected_10_profile_player_1">Version: not selected, Profile: Player</string>
+    <string name="overall_task_progress">Overall task progress</string>
 </resources>
