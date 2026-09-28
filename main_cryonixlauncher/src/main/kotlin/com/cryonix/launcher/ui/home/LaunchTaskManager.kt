@@ -22,7 +22,7 @@ object LaunchTaskManager {
 
         panel.visibility = View.VISIBLE
         title.text = "Minecraft install"
-        val instance = store.instances.firstOrNull()
+        val instance = store.selectedInstanceName?.takeIf { it in store.instances } ?: store.instances.firstOrNull()
         val version = store.selectedVersionId
             ?: instance?.let { store.instanceConfig(it).versionId }
         val profile = store.profileName
