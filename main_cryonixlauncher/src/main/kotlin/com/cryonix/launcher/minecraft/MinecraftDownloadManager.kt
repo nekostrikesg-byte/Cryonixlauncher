@@ -206,8 +206,8 @@ class MinecraftDownloadManager(private val context: Context) {
         val keys = objects.keys()
         while (keys.hasNext()) {
             val key = keys.next()
-            val object = objects.optJSONObject(key) ?: continue
-            val sha1 = object.optString("hash")
+            val assetObject = objects.optJSONObject(key) ?: continue
+            val sha1 = assetObject.optString("hash")
             if (sha1.length != 40) continue
             result += Asset(
                 "https://resources.download.minecraft.net/" + sha1.take(2) + "/" + sha1,
