@@ -161,6 +161,7 @@
                     android:textSize="13sp"/>
 
                 <TextView
+                    android:id="@+id/home_add_instance"
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:layout_marginStart="12dp"
@@ -210,6 +211,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/home_minecraft_card"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -261,6 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
+                        android:id="@+id/home_cs_card"
                         android:text="CS Client"
                         android:textColor="@color/cryonix_text"
                         android:textSize="14sp"/>
@@ -292,6 +295,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
+                        android:id="@+id/home_fabric_card"
                         android:text="Fabric Modpack"
                         android:textColor="@color/cryonix_text"
                         android:textSize="14sp"/>
@@ -384,6 +388,7 @@
                 android:textSize="13sp"/>
 
             <TextView
+                android:id="@+id/home_manage_instances"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
@@ -395,6 +400,7 @@
                 android:textSize="13sp"/>
 
             <TextView
+                android:id="@+id/home_edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="8dp"
@@ -406,6 +412,7 @@
                 android:textSize="13sp"/>
 
             <TextView
+                android:id="@+id/home_settings_row"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="8dp"
