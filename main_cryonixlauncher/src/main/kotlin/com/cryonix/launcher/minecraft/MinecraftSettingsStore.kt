@@ -36,6 +36,26 @@ class MinecraftSettingsStore(context: Context) {
         }.getOrDefault(RendererProfile.Backend.SYSTEM)
         set(value) = preferences.edit().putString(KEY_RENDERER, value.name).apply()
 
+    var vulkanDriver: String
+        get() = preferences.getString(KEY_VULKAN, "Turnip") ?: "Turnip"
+        set(value) = preferences.edit().putString(KEY_VULKAN, value).apply()
+
+    var graphicsApi: String
+        get() = preferences.getString(KEY_GRAPHICS, "OpenGL") ?: "OpenGL"
+        set(value) = preferences.edit().putString(KEY_GRAPHICS, value).apply()
+
+    var resolutionRule: String
+        get() = preferences.getString(KEY_RESOLUTION, "Percentage · 100%") ?: "Percentage · 100%"
+        set(value) = preferences.edit().putString(KEY_RESOLUTION, value).apply()
+
+    var memoryMb: Int
+        get() = preferences.getInt(KEY_MEMORY, 2048)
+        set(value) = preferences.edit().putInt(KEY_MEMORY, value).apply()
+
+    var touchControls: Boolean
+        get() = preferences.getBoolean(KEY_TOUCH, true)
+        set(value) = preferences.edit().putBoolean(KEY_TOUCH, value).apply()
+
     var autoRefresh: Boolean
         get() = preferences.getBoolean(KEY_AUTO_REFRESH, false)
         set(value) = preferences.edit().putBoolean(KEY_AUTO_REFRESH, value).apply()
@@ -52,6 +72,11 @@ class MinecraftSettingsStore(context: Context) {
         const val KEY_LOADER = "loader"
         const val KEY_LOADER_VERSION = "loader_version"
         const val KEY_RENDERER = "renderer"
+        const val KEY_VULKAN = "vulkan_driver"
+        const val KEY_GRAPHICS = "graphics_api"
+        const val KEY_RESOLUTION = "resolution_rule"
+        const val KEY_MEMORY = "memory_mb"
+        const val KEY_TOUCH = "touch_controls"
         const val KEY_AUTO_REFRESH = "auto_refresh"
         const val KEY_KEEP_SCREEN_ON = "keep_screen_on"
     }
