@@ -65,7 +65,7 @@ class AccountsActivity : Activity() {
             }
             val remove = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(dp(44), dp(44))
-                text = "×"
+                this.text = "×"
                 gravity = android.view.Gravity.CENTER
                 textSize = 20f
                 setTextColor(getColor(if (isActive) R.color.cryonix_button_text else R.color.cryonix_text_secondary))
