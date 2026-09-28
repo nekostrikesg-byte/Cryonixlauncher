@@ -113,7 +113,10 @@ object HomeScreen {
             isClickable = true
             setPadding(dp(activity, 12), dp(activity, 8), dp(activity, 8), dp(activity, 8))
             setBackgroundResource(R.drawable.bg_reference_row)
-            setOnClickListener { LaunchTaskManager.start(activity, store) }
+            setOnClickListener {
+                store.selectedInstanceName = name
+                LaunchTaskManager.start(activity, store)
+            }
         }
 
         val icon = ImageButton(activity).apply {
@@ -124,6 +127,7 @@ object HomeScreen {
             setPadding(dp(activity, 6), dp(activity, 6), dp(activity, 6), dp(activity, 6))
             setOnClickListener {
                 UiMotion.press(this)
+                store.selectedInstanceName = name
                 LaunchTaskManager.start(activity, store)
             }
         }
