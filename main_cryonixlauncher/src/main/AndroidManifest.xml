@@ -14,6 +14,7 @@
         <activity android:name=".instances.InstanceDetailActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".instances.ServerHubActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.CursorStudioActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".runtime.MinecraftEngineActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.AboutActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
 
         <activity android:name=".instances.InstancesActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
