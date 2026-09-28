@@ -46,22 +46,39 @@ class AccountsActivity : Activity() {
     }
 
     private fun createProfile() {
-        val input = EditText(this).apply {
-            hint = "Profile name"
-            setSingleLine(true)
-            setText(settings.profileName)
-            setSelection(text.length)
+        val dialog = android.app.Dialog(this)
+        dialog.setContentView(R.layout.dialog_offline_profile)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window?.setDimAmount(0.62f)
+        dialog.window?.addFlags(android.view.WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+
+        val card = dialog.findViewById<View>(R.id.offline_dialog_card)
+        val input = dialog.findViewById<EditText>(R.id.offline_profile_name)
+        input.setText(settings.profileName)
+        input.setSelection(input.text.length)
+
+        dialog.findViewById<View>(R.id.offline_cancel).setOnClickListener {
+            UiMotion.press(it)
+            UiMotion.morphOut(card) { dialog.dismiss() }
         }
-        AlertDialog.Builder(this)
-            .setTitle("Create Local Profile")
-            .setView(input)
-            .setPositiveButton("Save") { _, _ ->
-                val account = LocalProfileStore(this).create(input.text.toString())
-                settings.profileName = account.name
-                settings.profileId = account.id
-                render()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
+        dialog.findViewById<View>(R.id.offline_create).setOnClickListener {
+            UiMotion.press(it)
+            val account = LocalProfileStore(this).create(input.text.toString())
+            settings.profileName = account.name
+            settings.profileId = account.id
+            render()
+            UiMotion.morphOut(card) { dialog.dismiss() }
+        }
+
+        dialog.setOnShowListener {
+            dialog.window?.setLayout(
+                (resources.displayMetrics.widthPixels * 0.55f).toInt(),
+                android.view.WindowManager.LayoutParams.WRAP_CONTENT
+            )
+            UiMotion.morphIn(card)
+            input.requestFocus()
+            dialog.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+        }
+        dialog.show()
     }
 }
