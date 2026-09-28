@@ -23,11 +23,10 @@
                 android:id="@+id/home_home"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/bg_reference_launch"
+                android:background="@drawable/bg_reference_pill"
                 android:contentDescription="Home"
-                android:padding="12dp"
-                android:src="@drawable/ic_home"
-                android:tint="@color/cryonix_button_text"/>
+                android:padding="7dp"
+                android:src="@drawable/cryonix_logo"/>
 
             <ImageButton
                 android:id="@+id/home_versions"
@@ -60,7 +59,7 @@
                 android:contentDescription="Downloads"
                 android:padding="12dp"
                 android:src="@drawable/ic_download"
-                android:tint="@color/cryonix_icon"/>
+                android:tint="@color/cryonix_cyan"/>
 
             <ImageButton
                 android:id="@+id/home_settings"
@@ -88,11 +87,10 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:src="@drawable/ic_cube"
-                    android:tint="@color/cryonix_accent"
-                    android:contentDescription="Cryonix"/>
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/cryonix_logo"
+                    android:contentDescription="Cryonix logo"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -169,12 +167,11 @@
                     android:textStyle="bold"/>
 
                 <ImageView
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
                     android:layout_marginTop="4dp"
-                    android:src="@drawable/ic_cube"
-                    android:tint="@color/cryonix_accent_soft"
-                    android:contentDescription="Player"/>
+                    android:src="@drawable/cryonix_logo"
+                    android:contentDescription="Cryonix player logo"/>
 
                 <TextView
                     android:id="@+id/home_launch"
@@ -234,7 +231,7 @@
                         android:background="@drawable/bg_reference_pill"
                         android:gravity="center"
                         android:text="+"
-                        android:textColor="@color/cryonix_text"
+                        android:textColor="@color/cryonix_cyan"
                         android:textSize="21sp"/>
                 </LinearLayout>
 
@@ -250,7 +247,6 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"/>
-
                 </HorizontalScrollView>
             </LinearLayout>
 
@@ -264,29 +260,20 @@
                 android:paddingEnd="14dp">
 
                 <TextView
-                    android:id="@+id/home_manage_instances"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="▣  Manage Instances"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="10sp"/>
-
-                <TextView
                     android:id="@+id/home_new_instance"
-                    android:layout_width="150dp"
+                    android:layout_width="180dp"
                     android:layout_height="34dp"
                     android:background="@drawable/bg_reference_pill"
                     android:gravity="center"
                     android:text="+  New Instance"
-                    android:textColor="@color/cryonix_accent_soft"
+                    android:textColor="@color/cryonix_cyan"
                     android:textSize="10sp"/>
 
                 <TextView
                     android:id="@+id/home_edit_profile"
-                    android:layout_width="110dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:gravity="center"
                     android:text="Edit Profile"
@@ -295,7 +282,7 @@
 
                 <TextView
                     android:id="@+id/home_settings_row"
-                    android:layout_width="78dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="⚙ Settings"
