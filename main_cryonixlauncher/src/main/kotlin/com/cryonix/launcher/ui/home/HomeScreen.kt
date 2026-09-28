@@ -120,7 +120,7 @@ object HomeScreen {
         }
 
         val icon = ImageButton(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(48, 48)
+            layoutParams = LinearLayout.LayoutParams(dp(activity, 48), dp(activity, 48))
             setImageResource(R.drawable.ic_grass_block)
             background = null
             contentDescription = "Launch $name"
@@ -143,7 +143,7 @@ object HomeScreen {
         }
 
         val play = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(42, 42).apply {
+            layoutParams = LinearLayout.LayoutParams(dp(activity, 42), dp(activity, 42)).apply {
                 marginStart = 6
             }
             text = "▶"
@@ -158,7 +158,7 @@ object HomeScreen {
         }
 
         val delete = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(38, 42).apply {
+            layoutParams = LinearLayout.LayoutParams(dp(activity, 38), dp(activity, 42)).apply {
                 marginStart = 5
             }
             text = "×"
@@ -176,7 +176,7 @@ object HomeScreen {
         card.addView(title)
         card.addView(play)
         card.addView(delete)
-        val params = LinearLayout.LayoutParams(290, 72).apply {
+        val params = LinearLayout.LayoutParams(dp(activity, 290), dp(activity, 72)).apply {
             marginEnd = 10
         }
         card.layoutParams = params
@@ -223,7 +223,7 @@ object HomeScreen {
     private fun showCompactDialog(activity: Activity, dialog: AlertDialog) {
         dialog.setOnShowListener {
             val density = activity.resources.displayMetrics.density
-            dialog.window?.setLayout((340 * density).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
+            dialog.window?.setLayout(dp(activity, 340), ViewGroup.LayoutParams.WRAP_CONTENT)
         }
         dialog.show()
     }
