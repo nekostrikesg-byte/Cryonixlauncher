@@ -13,7 +13,6 @@ import com.cryonix.launcher.ui.UiMotion
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
-import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.model.RendererProfile
 import com.cryonix.launcher.instances.InstancesActivity
