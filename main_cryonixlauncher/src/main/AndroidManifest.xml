@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
 
     <application
         android:allowBackup="false"
@@ -9,6 +12,11 @@
         android:roundIcon="@drawable/cryonix_logo"
         android:theme="@style/CryonixTheme"
         android:supportsRtl="true">
+
+        <service
+            android:name=".minecraft.MinecraftTaskService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"/>
 
         <activity android:name=".instances.NewInstanceActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".instances.InstanceDetailActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
