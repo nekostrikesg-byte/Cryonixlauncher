@@ -1,0 +1,4 @@
+[submodule "engine/mojo"]
+	path = engine/mojo
+	url = https://github.com/MojoLauncher/MojoLauncher.git
+	branch = v3_openjdk
