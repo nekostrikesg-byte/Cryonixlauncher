@@ -132,13 +132,15 @@ class InstancesActivity : Activity() {
 
     private fun showCompactDialog(dialog: AlertDialog) {
         dialog.setOnShowListener {
-            val density = resources.displayMetrics.density
             dialog.window?.setLayout(dp(340), ViewGroup.LayoutParams.WRAP_CONTENT)
         }
         dialog.show()
     }
 
-    private fun dp(value: Int): Int =\n        (value * resources.displayMetrics.density).toInt()\n\n    private fun bindPressAnimations(root: View) {
+    private fun dp(value: Int): Int =
+        (value * resources.displayMetrics.density).toInt()
+
+    private fun bindPressAnimations(root: View) {
         if (root.isClickable) UiMotion.bindPress(root)
         if (root is ViewGroup) {
             for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
