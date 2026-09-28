@@ -254,7 +254,7 @@
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:src="@drawable/ic_cube"
-                        android:tint="@color/cryonix_purple"
+                        android:tint="@color/cryonix_blue"
                         android:contentDescription="Modpack"/>
 
                     <TextView
