@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="28dp" android:background="@color/cryonix_background">
+<TextView android:id="@+id/downloads_back" android:layout_width="100dp" android:layout_height="48dp" android:gravity="center" android:text="‹  Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_reference_pill"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Downloads &amp; Tasks" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
+<ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="18dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+<TextView android:layout_width="match_parent" android:layout_height="76dp" android:background="@drawable/bg_reference_row" android:padding="16dp" android:text="Assets&#10;Ready • 100%" android:textColor="@color/cryonix_text" android:textSize="14sp"/>
+<ProgressBar android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="10dp" android:max="100" android:progress="72" style="?android:attr/progressBarStyleHorizontal" android:progressTint="@color/cryonix_accent"/>
+<TextView android:layout_width="match_parent" android:layout_height="76dp" android:layout_marginTop="10dp" android:background="@drawable/bg_reference_row" android:padding="16dp" android:text="Libraries&#10;Queued • 72%" android:textColor="@color/cryonix_text" android:textSize="14sp"/>
+<ProgressBar android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="10dp" android:max="100" android:progress="38" style="?android:attr/progressBarStyleHorizontal" android:progressTint="@color/cryonix_accent"/>
+</LinearLayout></ScrollView>
+</LinearLayout>
