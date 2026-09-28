@@ -26,12 +26,6 @@
             android:exported="false"/>
 
         <activity
-            android:name=".minecraft.MinecraftActivity"
-            android:screenOrientation="landscape"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false"/>
-
-        <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboardHidden"
