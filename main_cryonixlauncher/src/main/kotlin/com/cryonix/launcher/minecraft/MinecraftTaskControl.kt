@@ -1,6 +1,8 @@
 package com.cryonix.launcher.minecraft
 
 class MinecraftTaskControl {
+    private val lock = Object()
+
     @Volatile var paused: Boolean = false
         private set
 
@@ -12,24 +14,26 @@ class MinecraftTaskControl {
     }
 
     fun resume() {
-        if (!stopped) synchronized(this) {
+        if (!stopped) {
             paused = false
-            (this as java.lang.Object).notifyAll()
+            synchronized(lock) {
+                lock.notifyAll()
+            }
         }
     }
 
     fun stop() {
         stopped = true
         paused = false
-        synchronized(this) {
-            (this as java.lang.Object).notifyAll()
+        synchronized(lock) {
+            lock.notifyAll()
         }
     }
 
     fun awaitIfPaused() {
-        synchronized(this) {
+        synchronized(lock) {
             while (paused && !stopped) {
-                (this as java.lang.Object).wait(250L)
+                lock.wait(250L)
             }
         }
         if (stopped) throw InterruptedException("Task stopped")
