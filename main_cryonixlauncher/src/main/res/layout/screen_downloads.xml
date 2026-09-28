@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="28dp" android:background="@color/cryonix_background">
-<TextView android:id="@+id/downloads_back" android:layout_width="100dp" android:layout_height="48dp" android:gravity="center" android:text="‹  Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_reference_pill"/>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Downloads &amp; Tasks" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
-<ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="18dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-<TextView android:layout_width="match_parent" android:layout_height="76dp" android:background="@drawable/bg_reference_row" android:padding="16dp" android:text="Assets&#10;Ready • 100%" android:textColor="@color/cryonix_text" android:textSize="14sp"/>
-<ProgressBar android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="10dp" android:max="100" android:progress="72" style="?android:attr/progressBarStyleHorizontal" android:progressTint="@color/cryonix_accent"/>
-<TextView android:layout_width="match_parent" android:layout_height="76dp" android:layout_marginTop="10dp" android:background="@drawable/bg_reference_row" android:padding="16dp" android:text="Libraries&#10;Queued • 72%" android:textColor="@color/cryonix_text" android:textSize="14sp"/>
-<ProgressBar android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="10dp" android:max="100" android:progress="38" style="?android:attr/progressBarStyleHorizontal" android:progressTint="@color/cryonix_accent"/>
-</LinearLayout></ScrollView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="14dp" android:background="@color/cryonix_background">
+<LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical">
+<TextView android:id="@+id/downloads_back" android:layout_width="70dp" android:layout_height="40dp" android:gravity="center" android:text="‹ Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_reference_pill"/>
+<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Downloads &amp; Tasks" android:textColor="@color/cryonix_text" android:textSize="18sp" android:textStyle="bold"/>
+</LinearLayout>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Only real backend tasks are shown here. The current branch can fetch official version metadata; Minecraft file downloads are not connected yet." android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
+<LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="12dp" android:orientation="vertical">
+<TextView android:id="@+id/downloads_status" android:layout_width="match_parent" android:layout_height="78dp" android:background="@drawable/bg_reference_card" android:gravity="center_vertical" android:padding="14dp" android:text="No active downloads" android:textColor="@color/cryonix_text" android:textSize="12sp"/>
+<ProgressBar android:id="@+id/downloads_progress" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="10dp" android:visibility="gone" style="?android:attr/progressBarStyleHorizontal"/>
+<TextView android:id="@+id/downloads_refresh" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="10dp" android:gravity="center" android:text="REFRESH OFFICIAL METADATA" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_reference_launch" android:textSize="10sp"/>
+</LinearLayout>
 </LinearLayout>
