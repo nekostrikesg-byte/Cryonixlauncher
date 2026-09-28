@@ -20,7 +20,7 @@ class InstanceDetailActivity : Activity() {
         name = intent.getStringExtra(EXTRA_NAME).orEmpty()
         findViewById<View>(R.id.instance_detail_back).setOnClickListener { finish() }
         findViewById<View>(R.id.instance_detail_edit).setOnClickListener {
-            startActivity(Intent(this, NewInstanceActivity::class.java))
+            startActivity(Intent(this, NewInstanceActivity::class.java).putExtra(NewInstanceActivity.EXTRA_NAME, name))
         }
         findViewById<View>(R.id.instance_detail_duplicate).setOnClickListener { duplicate() }
         findViewById<View>(R.id.instance_detail_delete).setOnClickListener { delete() }
