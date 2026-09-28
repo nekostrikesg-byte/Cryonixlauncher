@@ -14,7 +14,7 @@ class AboutActivity : Activity() {
         super.onCreate(state)
         setContentView(R.layout.screen_about)
         findViewById<View>(R.id.about_back).setOnClickListener { finish() }
-        findViewById<TextView>(R.id.about_version).text = "Version " + LauncherInfo.VERSION
+        findViewById<TextView>(R.id.about_version).text = "Version " + LauncherInfo().version
         findViewById<View>(R.id.about_github).setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/nekostrikesg-byte/Cryonixlauncher")))
         }
