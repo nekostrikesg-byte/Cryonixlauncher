@@ -7,6 +7,7 @@ import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.minecraft.MinecraftDownloadManager
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
+import com.cryonix.launcher.runtime.CryonixMojoEngine
 import com.cryonix.launcher.ui.UiMotion
 import kotlin.concurrent.thread
 
@@ -65,10 +66,38 @@ object LaunchTaskManager {
             if (installed) {
                 activity.runOnUiThread {
                     title.text = "Minecraft files ready"
-                    status.text = "Installed • Phase 1 complete for " + version
+                    val check = CryonixMojoEngine(activity).preflight(
+                        com.cryonix.launcher.minecraft.MinecraftInstallResult(
+                            versionId = version,
+                            instanceName = instance,
+                            gameDirectory = java.io.File(activity.filesDir, "minecraft/instances/" + instance + "/game"),
+                            versionJson = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + ".json"),
+                            clientJar = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + "/" + version + ".jar"),
+                            libraryCount = 0,
+                            assetCount = 0,
+                            totalBytes = 0L
+                        )
+                    )
+                    status.text = if (check.ready) "Runtime ready • starting Minecraft engine…" else "Files ready • " + check.message
                     progress.progress = 100
                     bottomProgress.progress = 100
                     percent.text = "100%"
+                    if (check.ready) {
+                        CryonixMojoEngine(activity).launch(
+                            com.cryonix.launcher.minecraft.MinecraftInstallResult(
+                                versionId = version,
+                                instanceName = instance,
+                                gameDirectory = java.io.File(activity.filesDir, "minecraft/instances/" + instance + "/game"),
+                                versionJson = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + ".json"),
+                                clientJar = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + "/" + version + ".jar"),
+                                libraryCount = 0,
+                                assetCount = 0,
+                                totalBytes = 0L
+                            ),
+                            store.memoryMb,
+                            store.profileName
+                        ).onFailure { error -> status.text = "Engine blocked • " + (error.message ?: "unknown error") }
+                    }
                 }
                 return@thread
             }
@@ -99,11 +128,21 @@ object LaunchTaskManager {
             }.onSuccess {
                 activity.runOnUiThread {
                     title.text = "Minecraft files ready"
-                    status.text = "Installed • " + it.libraryCount + " libraries • " +
-                        it.assetCount + " assets"
+                    val check = CryonixMojoEngine(activity).preflight(it)
+                    status.text = if (check.ready) "Runtime ready • starting Minecraft engine…" else
+                        "Installed • " + it.libraryCount + " libraries • " + it.assetCount + " assets • " + check.message
                     progress.progress = 100
                     bottomProgress.progress = 100
                     percent.text = "100%"
+                    if (check.ready) {
+                        CryonixMojoEngine(activity).launch(it, store.memoryMb, store.profileName)
+                            .onFailure { error ->
+                                activity.runOnUiThread {
+                                    title.text = "Minecraft engine blocked"
+                                    status.text = error.message ?: "Native game engine is not available"
+                                }
+                            }
+                    }
                 }
             }.onFailure {
                 activity.runOnUiThread {
