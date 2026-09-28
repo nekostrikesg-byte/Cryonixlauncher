@@ -8,70 +8,70 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="18dp">
+        android:padding="16dp">
 
         <LinearLayout
-            android:layout_width="70dp"
+            android:layout_width="68dp"
             android:layout_height="match_parent"
             android:background="@drawable/bg_reference_pill"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="18dp"
-            android:paddingBottom="18dp">
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp">
 
             <ImageButton
-                android:layout_width="52dp"
-                android:layout_height="52dp"
+                android:id="@+id/home_home"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/bg_reference_launch"
                 android:contentDescription="Home"
-                android:padding="13dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_home"
                 android:tint="@color/cryonix_button_text"/>
 
             <ImageButton
                 android:id="@+id/home_versions"
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="18dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Instances"
-                android:padding="13dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_cube"
                 android:tint="@color/cryonix_icon"/>
 
             <ImageButton
                 android:id="@+id/home_accounts"
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Accounts"
-                android:padding="13dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_accounts"
                 android:tint="@color/cryonix_icon"/>
 
             <ImageButton
                 android:id="@+id/home_refresh"
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
                 android:background="@android:color/transparent"
-                android:contentDescription="Download"
-                android:padding="13dp"
+                android:contentDescription="Downloads"
+                android:padding="12dp"
                 android:src="@drawable/ic_download"
                 android:tint="@color/cryonix_icon"/>
 
             <ImageButton
                 android:id="@+id/home_settings"
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Settings"
-                android:padding="13dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_settings"
                 android:tint="@color/cryonix_icon"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -79,19 +79,19 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
+                android:layout_height="64dp"
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="58dp"
-                    android:layout_height="58dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
                     android:src="@drawable/ic_cube"
-                    android:tint="@color/cryonix_accent_soft"
+                    android:tint="@color/cryonix_accent"
                     android:contentDescription="Cryonix"/>
 
                 <LinearLayout
@@ -99,24 +99,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingStart="14dp">
+                    android:paddingStart="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CRYONIX"
+                        android:text="CRYONIX LAUNCHER"
                         android:textColor="@color/cryonix_text"
-                        android:textSize="30sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.08"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LAUNCHER"
-                        android:textColor="@color/cryonix_accent_soft"
-                        android:textSize="12sp"
-                        android:letterSpacing="0.25"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -124,323 +116,217 @@
                         android:text="PLAY  /  CUSTOMIZE  /  EXPLORE"
                         android:textColor="@color/cryonix_text_secondary"
                         android:textSize="8sp"
-                        android:letterSpacing="0.28"/>
+                        android:letterSpacing="0.22"/>
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/home_youtube"
+                    android:layout_width="88dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_reference_row"
+                    android:gravity="center"
+                    android:text="▶ YouTube"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/home_discord"
+                    android:layout_width="82dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/bg_reference_row"
+                    android:gravity="center"
+                    android:text="● Discord"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="10sp"/>
 
                 <TextView
                     android:id="@+id/home_profile"
-                    android:layout_width="130dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bg_reference_pill"
-                    android:gravity="center"
-                    android:text="●  ishan1 ⌄"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="13sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="INSTANCES"
-                    android:textColor="@color/cryonix_text"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.05"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4/4"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="13sp"/>
-
-                <TextView
-                    android:id="@+id/home_add_instance"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="154dp"
+                    android:layout_height="44dp"
                     android:layout_marginStart="12dp"
                     android:background="@drawable/bg_reference_pill"
                     android:gravity="center"
-                    android:text="+"
+                    android:text="●  ishan1  ⌄"
                     android:textColor="@color/cryonix_text"
-                    android:textSize="26sp"/>
+                    android:textSize="12sp"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="136dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/home_weekly_card"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_reference_card"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        android:src="@drawable/ic_grass_block"
-                        android:contentDescription="Cryonix Client"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="Cryonix Client"
-                        android:textColor="@color/cryonix_text"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:id="@+id/home_weekly_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="fabric-loader-0.16.9-1.20.1"
-                        android:textColor="@color/cryonix_text_secondary"
-                        android:textSize="10sp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/home_minecraft_card"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/bg_reference_card"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        android:src="@drawable/ic_cube"
-                        android:tint="@color/cryonix_accent_soft"
-                        android:contentDescription="Minecraft"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="Minecraft 1.20.1"
-                        android:textColor="@color/cryonix_text"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Vanilla"
-                        android:textColor="@color/cryonix_accent_soft"
-                        android:textSize="10sp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/home_cs_card"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/bg_reference_card"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        android:src="@drawable/ic_cube"
-                        android:tint="@color/cryonix_blue"
-                        android:contentDescription="Modpack"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="CS Client"
-                        android:textColor="@color/cryonix_text"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Modpack"
-                        android:textColor="@color/cryonix_accent_soft"
-                        android:textSize="10sp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/home_fabric_card"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/bg_reference_card"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        android:src="@drawable/ic_grass_block"
-                        android:contentDescription="Modpack"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="Fabric Modpack"
-                        android:textColor="@color/cryonix_text"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Modpack"
-                        android:textColor="@color/cryonix_accent_soft"
-                        android:textSize="10sp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/home_launch"
-                android:layout_width="420dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/bg_reference_launch"
-                android:gravity="center"
-                android:text="▶  LAUNCH"
-                android:textColor="@color/cryonix_button_text"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:layout_marginTop="22dp"
-                android:background="@drawable/bg_reference_card"
-                android:gravity="center_vertical"
-                android:paddingStart="18dp"
-                android:paddingEnd="18dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="●  Discord     ›       ▶  YouTube     ›"
-                    android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="13sp"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CRYONIX LAUNCHER"
+                    android:text="PLAYER"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/ic_cube"
+                    android:tint="@color/cryonix_accent_soft"
+                    android:contentDescription="Player"/>
+
+                <TextView
+                    android:id="@+id/home_launch"
+                    android:layout_width="360dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_reference_launch"
+                    android:gravity="center"
+                    android:text="▶  LAUNCH"
+                    android:textColor="@color/cryonix_button_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/home_runtime"
+                    android:layout_width="260dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_reference_row"
+                    android:gravity="center"
+                    android:text="☕ Java 8   •   ◌  2048 MB RAM"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="10sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="INSTANCES"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/home_instance_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/cryonix_text_secondary"
+                        android:textSize="11sp"/>
+
+                    <TextView
+                        android:id="@+id/home_add_instance"
+                        android:layout_width="40dp"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_reference_pill"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="21sp"/>
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:id="@+id/home_instances_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"/>
+
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_reference_card"
+                android:gravity="center_vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <TextView
+                    android:id="@+id/home_manage_instances"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="▣  Manage Instances"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/home_new_instance"
+                    android:layout_width="150dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_reference_pill"
+                    android:gravity="center"
+                    android:text="+  New Instance"
                     android:textColor="@color/cryonix_accent_soft"
-                    android:textSize="8sp"
-                    android:letterSpacing="0.15"/>
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/home_edit_profile"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="Edit Profile"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/home_settings_row"
+                    android:layout_width="78dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="⚙ Settings"
+                    android:textColor="@color/cryonix_text_secondary"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/home_version"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/home_status"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:visibility="gone"/>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_reference_card"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/home_add_account"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@drawable/bg_reference_pill"
-                android:gravity="center"
-                android:text="✎&#10;&#10;ishan1"
-                android:textColor="@color/cryonix_text"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:text="● Offline"
-                android:textColor="@color/cryonix_text_secondary"
-                android:textSize="11sp"/>
-
-            <TextView
-                android:id="@+id/home_version"
-                android:layout_width="match_parent"
-                android:layout_height="76dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:padding="14dp"
-                android:text="No installed versions"
-                android:textColor="@color/cryonix_text"
-                android:textSize="13sp"/>
-
-            <TextView
-                android:id="@+id/home_manage_instances"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:text="▣   Manage Instances     ›"
-                android:textColor="@color/cryonix_text"
-                android:textSize="13sp"/>
-
-            <TextView
-                android:id="@+id/home_edit_profile"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:text="●   Edit Profile"
-                android:textColor="@color/cryonix_text"
-                android:textSize="13sp"/>
-
-            <TextView
-                android:id="@+id/home_settings_row"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_reference_row"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:text="⚙   Settings"
-                android:textColor="@color/cryonix_text"
-                android:textSize="13sp"/>
-            
-            <TextView
-                android:id="@+id/home_status"
-                android:layout_width="1dp"
-                android:layout_height="1dp"
-                android:visibility="gone"/>
-        </LinearLayout>
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/task_manager_panel"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="84dp"
         android:background="@drawable/bg_reference_card"
         android:elevation="18dp"
         android:orientation="vertical"
-        android:padding="18dp"
+        android:padding="16dp"
         android:visibility="gone">
 
         <LinearLayout
@@ -455,35 +341,35 @@
                 android:layout_weight="1"
                 android:text="Launch Tasks"
                 android:textColor="@color/cryonix_text"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/task_manager_close"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:background="@drawable/bg_reference_pill"
                 android:gravity="center"
                 android:text="×"
                 android:textColor="@color/cryonix_text"
-                android:textSize="22sp"/>
+                android:textSize="21sp"/>
         </LinearLayout>
 
         <TextView
             android:id="@+id/task_manager_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:text="Preparing launch metadata…"
             android:textColor="@color/cryonix_accent_soft"
-            android:textSize="13sp"/>
+            android:textSize="12sp"/>
 
         <ProgressBar
             android:id="@+id/task_manager_progress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="7dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:max="100"
             android:progress="0"
             android:progressTint="@color/cryonix_accent"/>
@@ -492,36 +378,38 @@
             android:id="@+id/task_manager_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bg_reference_row"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text="Version: not selected&#10;Profile: Player&#10;Loader: vanilla&#10;Renderer: system"
             android:textColor="@color/cryonix_text"
-            android:textSize="11sp"/>
+            android:textSize="10sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Overall task progress"
                     android:textColor="@color/cryonix_text_secondary"
-                    android:textSize="11sp"/>
+                    android:textSize="10sp"/>
+
                 <TextView
                     android:id="@+id/task_manager_percent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8%"
                     android:textColor="@color/cryonix_accent"
-                    android:textSize="11sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"/>
             </LinearLayout>
 
@@ -529,22 +417,11 @@
                 android:id="@+id/task_manager_progress_bottom"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="9dp"
-                android:layout_marginTop="7dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="6dp"
                 android:max="100"
                 android:progress="8"
                 android:progressTint="@color/cryonix_accent"/>
-
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_reference_row"
-            android:padding="12dp"
-            android:text="ASSETS &amp; DOWNLOADS&#10;✓ Version metadata&#10;• Asset index — queued&#10;• Game assets — queued&#10;• Libraries — queued&#10;• Runtime — queued"
-            android:textColor="@color/cryonix_text_secondary"
-            android:textSize="11sp"/>
     </LinearLayout>
 </FrameLayout>
