@@ -1,0 +1,6 @@
+# Android / Gradle generated files
+.gradle/
+**/build/
+**/.platform/caches/build/
+*.iml
+local.properties
