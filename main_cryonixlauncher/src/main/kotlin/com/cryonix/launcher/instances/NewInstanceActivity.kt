@@ -110,9 +110,19 @@ class NewInstanceActivity : Activity() {
         } ?: ""
         val selectedMemory = memory.selectedItem.toString().substringBefore(" ").toIntOrNull() ?: 2048
         val selectedResolution = resolution.selectedItem.toString()
+        val selectedVersion = version.selectedItem?.toString()?.takeUnless { it == "No versions found" }
+        if (selectedVersion.isNullOrBlank()) {
+            status.text = "Select a valid Minecraft version first"
+            return
+        }
+        store.selectedVersionId = selectedVersion
+        store.loader = selectedLoader
+        store.loaderVersion = selectedLoaderVersion
+        store.memoryMb = selectedMemory
+        store.resolutionRule = selectedResolution
         store.saveInstanceConfig(
             store.instanceConfig(name).copy(
-                versionId = version.selectedItem?.toString()?.takeUnless { it == "No versions found" },
+                versionId = selectedVersion,
                 loader = selectedLoader,
                 loaderVersion = selectedLoaderVersion,
                 javaRuntime = "Automatic",
