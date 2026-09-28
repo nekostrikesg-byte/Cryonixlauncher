@@ -423,4 +423,83 @@
                 android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/task_manager_panel"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginStart="88dp"
+        android:background="@drawable/bg_reference_card"
+        android:elevation="18dp"
+        android:orientation="vertical"
+        android:padding="18dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/task_manager_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Launch Tasks"
+                android:textColor="@color/cryonix_text"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/task_manager_close"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_reference_pill"
+                android:gravity="center"
+                android:text="×"
+                android:textColor="@color/cryonix_text"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/task_manager_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Preparing launch metadata…"
+            android:textColor="@color/cryonix_accent_soft"
+            android:textSize="13sp"/>
+
+        <ProgressBar
+            android:id="@+id/task_manager_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="@color/cryonix_accent"/>
+
+        <TextView
+            android:id="@+id/task_manager_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_reference_row"
+            android:padding="12dp"
+            android:text="Version: not selected&#10;Profile: Player&#10;Loader: vanilla&#10;Renderer: system"
+            android:textColor="@color/cryonix_text"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_reference_row"
+            android:padding="12dp"
+            android:text="ASSETS &amp; DOWNLOADS&#10;✓ Version metadata&#10;• Asset index — queued&#10;• Game assets — queued&#10;• Libraries — queued&#10;• Runtime — queued"
+            android:textColor="@color/cryonix_text_secondary"
+            android:textSize="11sp"/>
+    </LinearLayout>
 </FrameLayout>
