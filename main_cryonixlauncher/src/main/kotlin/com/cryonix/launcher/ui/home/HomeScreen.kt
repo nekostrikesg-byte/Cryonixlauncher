@@ -8,7 +8,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
-import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.instances.InstancesActivity
 import com.cryonix.launcher.downloads.DownloadsActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
@@ -35,7 +34,8 @@ object HomeScreen {
         }
         activity.findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
             UiMotion.press(it)
-            refresh()
+            activity.startActivity(Intent(activity, DownloadsActivity::class.java))
+            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         activity.findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
             UiMotion.press(it)
