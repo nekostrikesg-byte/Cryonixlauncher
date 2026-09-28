@@ -147,17 +147,30 @@ class MinecraftDownloadManager(private val context: Context) {
             val library = array.optJSONObject(i) ?: continue
             if (!isAllowed(library.optJSONArray("rules"))) continue
 
-            val downloads = library.optJSONObject("downloads") ?: continue
-            val artifact = downloads.optJSONObject("artifact")
+            val downloads = library.optJSONObject("downloads")
+            val artifact = downloads?.optJSONObject("artifact")
             if (artifact != null) {
                 val path = artifact.optString("path")
                 val url = artifact.optString("url")
                 if (path.isNotBlank() && url.isNotBlank()) {
                     result += Artifact(url, path, artifact.optString("sha1").ifBlank { null })
                 }
+            } else {
+                val coordinates = library.optString("name")
+                val parts = coordinates.split(":")
+                if (parts.size >= 3) {
+                    val groupPath = parts[0].replace('.', '/')
+                    val path = groupPath + "/" + parts[1] + "/" + parts[2] + "/" +
+                        parts[1] + "-" + parts[2] + ".jar"
+                    result += Artifact(
+                        "https://libraries.minecraft.net/" + path,
+                        path,
+                        null
+                    )
+                }
             }
 
-            val classifiers = downloads.optJSONObject("classifiers")
+            val classifiers = downloads?.optJSONObject("classifiers")
             val nativeName = selectNativeClassifier(library.optJSONObject("natives"))
             if (classifiers != null && nativeName != null) {
                 val native = classifiers.optJSONObject(nativeName)
