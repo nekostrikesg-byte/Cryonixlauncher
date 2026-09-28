@@ -7,7 +7,6 @@ import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.VersionManifestService
 import com.cryonix.launcher.settings.SettingsActivity
 import com.cryonix.launcher.ui.home.HomeScreen
-import com.cryonix.launcher.ui.UiMotion
 import kotlin.concurrent.thread
 
 class MainActivity : Activity() {
@@ -23,7 +22,6 @@ class MainActivity : Activity() {
         versionText = findViewById(R.id.home_version)
         statusText = findViewById(R.id.home_status)
 
-        UiMotion.morphIn(findViewById(android.R.id.content))
 
         HomeScreen.bind(
             activity = this,
