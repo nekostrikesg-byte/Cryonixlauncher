@@ -9,6 +9,8 @@ import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.minecraft.MinecraftActivity
+import com.cryonix.launcher.instances.InstancesActivity
+import com.cryonix.launcher.downloads.DownloadsActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.settings.SettingsActivity
 import com.cryonix.launcher.ui.UiMotion
@@ -23,8 +25,7 @@ object HomeScreen {
 
         activity.findViewById<ImageButton>(R.id.home_versions).setOnClickListener {
             UiMotion.press(it)
-            activity.startActivity(Intent(activity, MinecraftActivity::class.java)
-                .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
+            activity.startActivity(Intent(activity, InstancesActivity::class.java))
             activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         activity.findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
