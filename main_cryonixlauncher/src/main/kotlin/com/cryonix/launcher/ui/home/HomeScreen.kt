@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.ScrollView
+import android.widget.PopupMenu
 import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
@@ -43,18 +43,22 @@ object HomeScreen {
         activity.findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
             activity.startActivity(Intent(activity, SettingsActivity::class.java))
         }
-        activity.findViewById<TextView>(R.id.home_profile).setOnClickListener {
-            showCompactDialog(
-                activity,
-                AlertDialog.Builder(activity)
-                    .setTitle("Profile")
-                    .setMessage("ishan1 • Offline")
-                    .setPositiveButton("Accounts") { _, _ ->
-                        activity.startActivity(Intent(activity, AccountsActivity::class.java))
-                    }
-                    .setNegativeButton("Close", null)
-                    .create()
-            )
+        activity.findViewById<TextView>(R.id.home_profile).setOnClickListener { anchor ->
+            val popup = PopupMenu(activity, anchor)
+            popup.menu.add("ishan1  •  Offline")
+            popup.menu.add("Accounts").setOnMenuItemClickListener {
+                activity.startActivity(Intent(activity, AccountsActivity::class.java))
+                true
+            }
+            popup.menu.add("Edit Profile").setOnMenuItemClickListener {
+                activity.startActivity(Intent(activity, AccountsActivity::class.java))
+                true
+            }
+            popup.menu.add("Settings").setOnMenuItemClickListener {
+                activity.startActivity(Intent(activity, SettingsActivity::class.java))
+                true
+            }
+            popup.show()
         }
         activity.findViewById<View>(R.id.home_add_instance).setOnClickListener {
             showAddInstanceDialog(activity, store)
