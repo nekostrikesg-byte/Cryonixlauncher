@@ -49,8 +49,7 @@ class SettingsActivity : Activity() {
             startActivity(Intent(this, AccountsActivity::class.java))
         }
         findViewById<ImageButton>(R.id.settings_download).setOnClickListener { UiMotion.press(it);
-            startActivity(Intent(this, MinecraftActivity::class.java)
-                .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
+            startActivity(Intent(this, DownloadsActivity::class.java))
         }
 
         findViewById<android.view.View>(R.id.settings_global_renderer).setOnClickListener { chooseRenderer() }
