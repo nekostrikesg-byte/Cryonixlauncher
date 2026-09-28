@@ -81,7 +81,7 @@ Cryonix now uses Kotlin as the main launcher implementation. The launcher activi
 
 Java remains available for compatibility-only integrations. C/C++ remains isolated behind the native/JNI layer.
 
-Full Minecraft execution still requires the runtime, library and asset downloader, Java runtime integration, authentication, native renderer integrations, and the final game process bridge.
+Phase 2 now adds the Android Java runtime selector, runtime preflight, and a stable Mojo-compatible game-engine boundary. Full gameplay still requires the Android JRE package plus the native LWJGL/GLFW/renderer implementation and authenticated game-session bridge; the launcher will not fake-launch when those components are absent.
 
 ## Goals
 
