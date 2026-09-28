@@ -10,7 +10,7 @@ class DownloadsActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.screen_downloads)
-        findViewById<TextView>(R.id.downloads_back).setOnClickListener { UiMotion.press(it); finish() }
+        findViewById<TextView>(R.id.downloads_back).setOnClickListener { finish() }
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
     }
