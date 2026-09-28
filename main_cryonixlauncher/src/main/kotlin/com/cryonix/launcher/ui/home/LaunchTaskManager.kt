@@ -20,6 +20,8 @@ object LaunchTaskManager {
         val status = activity.findViewById<TextView>(R.id.task_manager_status)
         val details = activity.findViewById<TextView>(R.id.task_manager_details)
         val progress = activity.findViewById<ProgressBar>(R.id.task_manager_progress)
+        val bottomProgress = activity.findViewById<ProgressBar>(R.id.task_manager_progress_bottom)
+        val percent = activity.findViewById<TextView>(R.id.task_manager_percent)
 
         token++
         val run = token
@@ -35,6 +37,8 @@ object LaunchTaskManager {
         status.text = "Preparing launch metadata…"
         details.text = "Version: $version\nProfile: $profile\nLoader: $loader\nRenderer: $renderer"
         progress.progress = 8
+        bottomProgress.progress = 8
+        percent.text = "8%"
 
         val stages = listOf(
             "Reading instance metadata…" to 20,
@@ -51,6 +55,8 @@ object LaunchTaskManager {
             val (label, value) = stages[index]
             status.text = label
             progress.progress = value
+            bottomProgress.progress = value
+            percent.text = "$value%"
             handler.postDelayed({ step(index + 1) }, 520)
         }
         handler.postDelayed({ step(0) }, 320)
