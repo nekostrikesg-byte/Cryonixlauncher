@@ -38,17 +38,17 @@ class SettingsActivity : Activity() {
         gameValue = findViewById(R.id.settings_game_value)
 
         findViewById<ImageButton>(R.id.settings_back).setOnClickListener { finish() }
-        findViewById<ImageButton>(R.id.settings_home).setOnClickListener { UiMotion.press(it);
+        findViewById<ImageButton>(R.id.settings_home).setOnClickListener { 
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-        findViewById<ImageButton>(R.id.settings_versions).setOnClickListener { UiMotion.press(it);
+        findViewById<ImageButton>(R.id.settings_versions).setOnClickListener { 
             startActivity(Intent(this, InstancesActivity::class.java))
         }
-        findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener { UiMotion.press(it);
+        findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener { 
             startActivity(Intent(this, AccountsActivity::class.java))
         }
-        findViewById<ImageButton>(R.id.settings_download).setOnClickListener { UiMotion.press(it);
+        findViewById<ImageButton>(R.id.settings_download).setOnClickListener { 
             startActivity(Intent(this, DownloadsActivity::class.java))
         }
 
@@ -57,11 +57,11 @@ class SettingsActivity : Activity() {
         findViewById<android.view.View>(R.id.settings_graphics).setOnClickListener { chooseGraphics() }
         findViewById<android.view.View>(R.id.settings_resolution_rule).setOnClickListener { chooseResolution() }
         findViewById<android.view.View>(R.id.settings_game_value).setOnClickListener { chooseGame() }
-        findViewById<android.view.View>(R.id.settings_sidebar_renderer).setOnClickListener { UiMotion.press(it); bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer) }
-        findViewById<android.view.View>(R.id.settings_sidebar_game).setOnClickListener { UiMotion.press(it); startActivity(Intent(this, InstancesActivity::class.java)) }
-        findViewById<android.view.View>(R.id.settings_sidebar_controls).setOnClickListener { UiMotion.press(it); startActivity(Intent(this, ControlsActivity::class.java)) }
-        findViewById<android.view.View>(R.id.settings_sidebar_launcher).setOnClickListener { UiMotion.press(it); startActivity(Intent(this, MainActivity::class.java)) }
-        findViewById<android.view.View>(R.id.settings_sidebar_java).setOnClickListener { UiMotion.press(it); showInfo("Java", "Automatic runtime selection is enabled. Runtime management will be connected to the Java backend later.") }
+        findViewById<android.view.View>(R.id.settings_sidebar_renderer).setOnClickListener {  bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer) }
+        findViewById<android.view.View>(R.id.settings_sidebar_game).setOnClickListener {  startActivity(Intent(this, InstancesActivity::class.java)) }
+        findViewById<android.view.View>(R.id.settings_sidebar_controls).setOnClickListener {  startActivity(Intent(this, ControlsActivity::class.java)) }
+        findViewById<android.view.View>(R.id.settings_sidebar_launcher).setOnClickListener {  startActivity(Intent(this, MainActivity::class.java)) }
+        findViewById<android.view.View>(R.id.settings_sidebar_java).setOnClickListener {  showInfo("Java", "Automatic runtime selection is enabled. Runtime management will be connected to the Java backend later.") }
 
         findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
 
@@ -78,7 +78,7 @@ class SettingsActivity : Activity() {
 
     private fun bindNav(navId: Int, targetId: Int) {
         val scroll = findViewById<ScrollView>(R.id.settings_scroll)
-        findViewById<android.view.View>(navId).setOnClickListener { UiMotion.press(it);
+        findViewById<android.view.View>(navId).setOnClickListener { 
             val target = findViewById<android.view.View>(targetId)
             scroll.post { scroll.smoothScrollTo(0, target.top) }
         }
