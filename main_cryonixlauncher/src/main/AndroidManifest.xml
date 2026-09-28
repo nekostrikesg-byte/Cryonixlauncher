@@ -10,6 +10,12 @@
         android:theme="@style/CryonixTheme"
         android:supportsRtl="true">
 
+        <activity android:name=".instances.NewInstanceActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".instances.InstanceDetailActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".instances.ServerHubActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".settings.CursorStudioActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".settings.AboutActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+
         <activity android:name=".instances.InstancesActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".downloads.DownloadsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.ControlsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
