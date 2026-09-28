@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="28dp" android:background="@color/cryonix_background">
-<TextView android:id="@+id/instances_back" android:layout_width="100dp" android:layout_height="48dp" android:gravity="center" android:text="‹  Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_reference_pill"/>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Instances" android:textColor="@color/cryonix_text" android:textSize="28sp" android:textStyle="bold"/>
-<TextView android:id="@+id/instances_add" android:layout_width="180dp" android:layout_height="48dp" android:layout_gravity="end" android:gravity="center" android:text="+  Add Instance" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_reference_launch"/>
-<ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="14dp"><LinearLayout android:id="@+id/instances_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><TextView android:layout_width="match_parent" android:layout_height="76dp" android:background="@drawable/bg_reference_row" android:padding="18dp" android:gravity="center_vertical" android:text="Cryonix Client&#10;Fabric 1.20.1 • Active" android:textColor="@color/cryonix_text" android:textSize="14sp"/></LinearLayout></ScrollView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="22dp"
+    android:background="@color/cryonix_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/instances_back"
+            android:layout_width="82dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_reference_pill"
+            android:gravity="center"
+            android:text="‹  Back"
+            android:textColor="@color/cryonix_text"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="INSTANCES"
+            android:textColor="@color/cryonix_text"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/instances_add"
+            android:layout_width="160dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_reference_launch"
+            android:gravity="center"
+            android:text="+  New Instance"
+            android:textColor="@color/cryonix_button_text"
+            android:textSize="11sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/instances_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_reference_row"
+        android:gravity="center"
+        android:padding="18dp"
+        android:text="No instances yet. Create one to show it on the launcher."
+        android:textColor="@color/cryonix_text_secondary"
+        android:textSize="12sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:id="@+id/instances_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </ScrollView>
 </LinearLayout>
