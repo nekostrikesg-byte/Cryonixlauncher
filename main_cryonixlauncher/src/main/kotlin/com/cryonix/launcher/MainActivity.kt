@@ -42,6 +42,7 @@ class MainActivity : Activity() {
         } else {
             store.selectedVersionId
         }
+        HomeScreen.renderInstances(this, store)
     }
 
     private fun refreshMetadata() {
