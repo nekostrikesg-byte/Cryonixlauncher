@@ -20,7 +20,7 @@ object LaunchTaskManager {
 
         panel.visibility = View.VISIBLE
         title.text = "Launch preflight"
-        val version = store.selectedVersionId
+        val version = store.selectedVersionId ?: store.instances.firstOrNull()?.let { store.instanceConfig(it).versionId }
         val profile = store.profileName
         val renderer = store.renderer.name.lowercase()
         details.text = "Version: " + (version ?: "not selected") +
