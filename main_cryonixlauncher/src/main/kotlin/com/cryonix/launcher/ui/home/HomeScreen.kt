@@ -63,15 +63,6 @@ object HomeScreen {
         activity.findViewById<View>(R.id.home_add_instance).setOnClickListener {
             showAddInstanceDialog(activity, store)
         }
-        activity.findViewById<View>(R.id.home_new_instance).setOnClickListener {
-            showAddInstanceDialog(activity, store)
-        }
-        activity.findViewById<View>(R.id.home_edit_profile).setOnClickListener {
-            activity.startActivity(Intent(activity, AccountsActivity::class.java))
-        }
-        activity.findViewById<View>(R.id.home_settings_row).setOnClickListener {
-            activity.startActivity(Intent(activity, SettingsActivity::class.java))
-        }
         activity.findViewById<TextView>(R.id.task_manager_close).setOnClickListener {
             LaunchTaskManager.close(activity)
         }
