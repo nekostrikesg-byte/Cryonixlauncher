@@ -11,9 +11,9 @@ class ControlsActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.screen_controls)
-        findViewById<TextView>(R.id.controls_back).setOnClickListener { UiMotion.press(it); finish() }
-        findViewById<TextView>(R.id.controls_touch).setOnClickListener { UiMotion.press(it); choose("Touch Layout", arrayOf("Classic", "Compact", "Floating")) }
-        findViewById<TextView>(R.id.controls_sensitivity).setOnClickListener { UiMotion.press(it); choose("Sensitivity", arrayOf("Low", "Normal", "High")) }
+        findViewById<TextView>(R.id.controls_back).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.controls_touch).setOnClickListener { choose("Touch Layout", arrayOf("Classic", "Compact", "Floating")) }
+        findViewById<TextView>(R.id.controls_sensitivity).setOnClickListener { choose("Sensitivity", arrayOf("Low", "Normal", "High")) }
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
     }
