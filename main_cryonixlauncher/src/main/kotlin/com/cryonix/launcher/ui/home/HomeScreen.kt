@@ -222,11 +222,13 @@ object HomeScreen {
 
     private fun showCompactDialog(activity: Activity, dialog: AlertDialog) {
         dialog.setOnShowListener {
-            val density = activity.resources.displayMetrics.density
             dialog.window?.setLayout(dp(activity, 340), ViewGroup.LayoutParams.WRAP_CONTENT)
         }
         dialog.show()
     }
+
+    private fun dp(activity: Activity, value: Int): Int =
+        (value * activity.resources.displayMetrics.density).toInt()
 
     private fun bindPressAnimations(root: View) {
         if (root.isClickable) UiMotion.bindPress(root)
