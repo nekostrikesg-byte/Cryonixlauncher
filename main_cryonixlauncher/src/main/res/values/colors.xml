@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="cryonix_background">#1C1F26</color>
-    <color name="cryonix_surface">#292C33</color>
-    <color name="cryonix_surface_alt">#363940</color>
-    <color name="cryonix_panel">#363940</color>
-    <color name="cryonix_blue">#B0C6FF</color>
-    <color name="cryonix_accent">#B0C6FF</color>
-    <color name="cryonix_accent_soft">#8FA8E6</color>
-    <color name="cryonix_selected">#3F4659</color>
-    <color name="cryonix_text">#D9DCE5</color>
-    <color name="cryonix_text_secondary">#AEB2BC</color>
-    <color name="cryonix_icon">#E3E5EC</color>
-    <color name="cryonix_button_text">#20232A</color>
-    <color name="cryonix_divider">#454850</color>
-    <color name="cryonix_muted">#777B85</color>
+    <color name="cryonix_background">#020612</color>
+    <color name="cryonix_background_2">#050A18</color>
+    <color name="cryonix_surface">#080F23</color>
+    <color name="cryonix_surface_alt">#0C1530</color>
+    <color name="cryonix_panel">#0A1127</color>
+    <color name="cryonix_panel_2">#0D1733</color>
+    <color name="cryonix_blue">#2E6BFF</color>
+    <color name="cryonix_blue_bright">#1976FF</color>
+    <color name="cryonix_purple">#693BFF</color>
+    <color name="cryonix_accent">#6C48FF</color>
+    <color name="cryonix_accent_soft">#8B7CFF</color>
+    <color name="cryonix_selected">#18255A</color>
+    <color name="cryonix_text">#F2F4FF</color>
+    <color name="cryonix_text_secondary">#8790AE</color>
+    <color name="cryonix_icon">#DCE5FF</color>
+    <color name="cryonix_button_text">#FFFFFF</color>
+    <color name="cryonix_divider">#1A2850</color>
+    <color name="cryonix_border">#24366E</color>
+    <color name="cryonix_muted">#56617F</color>
 </resources>
