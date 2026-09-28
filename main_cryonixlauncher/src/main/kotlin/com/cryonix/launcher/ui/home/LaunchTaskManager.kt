@@ -1,8 +1,6 @@
 package com.cryonix.launcher.ui.home
 
 import android.app.Activity
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -11,9 +9,6 @@ import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.ui.UiMotion
 
 object LaunchTaskManager {
-    private val handler = Handler(Looper.getMainLooper())
-    private var token = 0
-
     fun start(activity: Activity, store: MinecraftSettingsStore) {
         val panel = activity.findViewById<View>(R.id.task_manager_panel)
         val title = activity.findViewById<TextView>(R.id.task_manager_title)
@@ -23,47 +18,32 @@ object LaunchTaskManager {
         val bottomProgress = activity.findViewById<ProgressBar>(R.id.task_manager_progress_bottom)
         val percent = activity.findViewById<TextView>(R.id.task_manager_percent)
 
-        token++
-        val run = token
         panel.visibility = View.VISIBLE
-        UiMotion.morphIn(panel)
-
-        val version = store.selectedVersionId ?: "not selected"
+        title.text = "Launch preflight"
+        val version = store.selectedVersionId
         val profile = store.profileName
-        val loader = store.loader.lowercase()
         val renderer = store.renderer.name.lowercase()
+        details.text = "Version: " + (version ?: "not selected") +
+            "\nProfile: " + profile +
+            "\nLoader: " + store.loader.lowercase() +
+            "\nRenderer: " + renderer +
+            "\nMemory: " + store.memoryMb + " MB"
 
-        title.text = "Launch Tasks"
-        status.text = "Preparing launch metadata…"
-        details.text = "Version: $version\nProfile: $profile\nLoader: $loader\nRenderer: $renderer"
-        progress.progress = 8
-        bottomProgress.progress = 8
-        percent.text = "8%"
-
-        val stages = listOf(
-            "Reading instance metadata…" to 20,
-            "Checking version manifest…" to 35,
-            "Preparing asset downloads…" to 52,
-            "Preparing libraries…" to 68,
-            "Preparing runtime…" to 84,
-            "Launch task ready" to 100
-        )
-
-        fun step(index: Int) {
-            if (run != token) return
-            if (index >= stages.size) return
-            val (label, value) = stages[index]
-            status.text = label
-            progress.progress = value
-            bottomProgress.progress = value
-            percent.text = "$value%"
-            handler.postDelayed({ step(index + 1) }, 520)
+        if (version.isNullOrBlank()) {
+            status.text = "Blocked • Select a Minecraft version first"
+            progress.progress = 0
+            bottomProgress.progress = 0
+            percent.text = "0%"
+        } else {
+            status.text = "Ready for launch adapter"
+            progress.progress = 100
+            bottomProgress.progress = 100
+            percent.text = "100%"
         }
-        handler.postDelayed({ step(0) }, 320)
+        UiMotion.morphIn(panel)
     }
 
     fun close(activity: Activity) {
-        token++
         val panel = activity.findViewById<View>(R.id.task_manager_panel) ?: return
         UiMotion.morphOut(panel) { panel.visibility = View.GONE }
     }
