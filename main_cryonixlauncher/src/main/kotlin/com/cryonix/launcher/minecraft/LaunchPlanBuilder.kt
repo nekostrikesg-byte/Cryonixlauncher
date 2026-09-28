@@ -8,7 +8,7 @@ class LaunchPlanBuilder {
             add("--version")
             add(request.version.id)
             add("--launcher-brand")
-            add("Cryonix Launcher")
+            add("Cryonixlauncher")
             add("--loader")
             add(request.loader.type.name.lowercase())
             if (request.loader.loaderVersion.isNotEmpty()) {
