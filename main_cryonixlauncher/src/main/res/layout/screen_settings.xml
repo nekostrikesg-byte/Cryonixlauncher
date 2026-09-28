@@ -60,7 +60,7 @@
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:padding="5dp" android:src="@drawable/ic_renderer" android:tint="@color/cryonix_icon"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="9dp" android:orientation="vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="General" android:textColor="@color/cryonix_text" android:textSize="13sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Updates, animation, download server" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Launcher preferences and metadata" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
                     </LinearLayout>
                     <TextView android:layout_width="24dp" android:layout_height="match_parent" android:gravity="center" android:text="›" android:textColor="@color/cryonix_muted" android:textSize="20sp"/>
                 </LinearLayout>
@@ -69,7 +69,7 @@
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:padding="5dp" android:src="@drawable/ic_rocket" android:tint="@color/cryonix_icon"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="9dp" android:orientation="vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Game" android:textColor="@color/cryonix_text" android:textSize="13sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Java, JVM arguments, game options" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Memory, loader and version" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
                     </LinearLayout>
                     <TextView android:layout_width="24dp" android:layout_height="match_parent" android:gravity="center" android:text="›" android:textColor="@color/cryonix_muted" android:textSize="20sp"/>
                 </LinearLayout>
@@ -78,7 +78,7 @@
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:padding="5dp" android:src="@drawable/ic_cube" android:tint="@color/cryonix_icon"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="9dp" android:orientation="vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Display" android:textColor="@color/cryonix_text" android:textSize="13sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Resolution, VSync, FPS" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Resolution and display cutout" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
                     </LinearLayout>
                     <TextView android:layout_width="24dp" android:layout_height="match_parent" android:gravity="center" android:text="›" android:textColor="@color/cryonix_muted" android:textSize="20sp"/>
                 </LinearLayout>
@@ -87,7 +87,7 @@
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:padding="5dp" android:src="@drawable/ic_gamepad" android:tint="@color/cryonix_icon"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="9dp" android:orientation="vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Controls" android:textColor="@color/cryonix_text" android:textSize="13sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Buttons, mouse, gyro, gamepad" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Open the dedicated controls screens" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
                     </LinearLayout>
                     <TextView android:layout_width="24dp" android:layout_height="match_parent" android:gravity="center" android:text="›" android:textColor="@color/cryonix_muted" android:textSize="20sp"/>
                 </LinearLayout>
@@ -96,7 +96,7 @@
                     <ImageView android:layout_width="28dp" android:layout_height="28dp" android:padding="5dp" android:src="@drawable/ic_settings" android:tint="@color/cryonix_icon"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="9dp" android:orientation="vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Advanced" android:textColor="@color/cryonix_text" android:textSize="13sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Everything else" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Utilities and launcher options" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
                     </LinearLayout>
                     <TextView android:layout_width="24dp" android:layout_height="match_parent" android:gravity="center" android:text="›" android:textColor="@color/cryonix_muted" android:textSize="20sp"/>
                 </LinearLayout>
@@ -125,15 +125,15 @@
                     <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Resolution" android:textColor="@color/cryonix_text" android:textSize="12sp"/>
                     <TextView android:id="@+id/settings_resolution_value" android:layout_width="100dp" android:layout_height="match_parent" android:layout_gravity="end" android:gravity="center" android:text="100%" android:textColor="@color/cryonix_text_secondary" android:textSize="10sp"/>
                 </FrameLayout>
-                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="VSync    •    Off&#10;Alternate surface for lower latency" android:textColor="@color/cryonix_text" android:textSize="11sp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Display cutout usage is controlled below. VSync/FPS are not exposed because the current game backend does not implement them." android:textColor="@color/cryonix_text" android:textSize="11sp"/>
 
                 <TextView android:id="@+id/settings_section_controls" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Controls" android:textColor="@color/cryonix_text" android:textSize="15sp" android:textStyle="bold"/>
-                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="7dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Swipe mode&#10;Touch, mouse, gyro and gamepad" android:textColor="@color/cryonix_text" android:textSize="11sp"/>
-                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Always gyro mouse&#10;Keep gyro input active while playing" android:textColor="@color/cryonix_text" android:textSize="11sp"/>
+                <TextView android:id="@+id/settings_controls_screen" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="7dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Touch &amp; controls&#10;Open the existing controls configuration" android:textColor="@color/cryonix_text" android:textSize="11sp" android:clickable="true" android:focusable="true"/>
+                <TextView android:id="@+id/settings_gamepad_screen" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Gamepad&#10;Open the existing gamepad configuration" android:textColor="@color/cryonix_text" android:textSize="11sp" android:clickable="true" android:focusable="true"/>
 
                 <TextView android:id="@+id/settings_section_launcher" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Advanced" android:textColor="@color/cryonix_text" android:textSize="15sp" android:textStyle="bold"/>
-                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="7dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Force English&#10;Override the launcher language" android:textColor="@color/cryonix_text" android:textSize="11sp"/>
-                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Animation speed&#10;Controls menu and page transitions" android:textColor="@color/cryonix_text" android:textSize="11sp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="7dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Cursor Studio&#10;Native pointer presets" android:textColor="@color/cryonix_text" android:textSize="11sp" android:clickable="true" android:focusable="true"/>
+                <TextView android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="About &amp; Credits&#10;Project version and source" android:textColor="@color/cryonix_text" android:textSize="11sp" android:clickable="true" android:focusable="true"/>
                 <TextView android:id="@+id/settings_cursor_studio" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="Cursor Studio\nNative pointer presets for mouse/trackpad" android:textColor="@color/cryonix_text" android:textSize="11sp" android:clickable="true" android:focusable="true"/>
                 <TextView android:id="@+id/settings_about" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="4dp" android:background="@drawable/bg_reference_row" android:gravity="center_vertical" android:paddingStart="12dp" android:text="About &amp; Credits\nVersion, project and licenses" android:textColor="@color/cryonix_text" android:textSize="11sp" android:clickable="true" android:focusable="true"/>
                 <TextView android:id="@+id/settings_section_java" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Java runtime" android:textColor="@color/cryonix_text_secondary" android:textSize="11sp" android:textStyle="bold"/>
