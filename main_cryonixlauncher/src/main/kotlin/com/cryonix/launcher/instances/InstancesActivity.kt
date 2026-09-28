@@ -13,8 +13,8 @@ class InstancesActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.screen_instances)
-        findViewById<TextView>(R.id.instances_back).setOnClickListener { UiMotion.press(it); finish() }
-        findViewById<TextView>(R.id.instances_add).setOnClickListener { UiMotion.press(it); addInstance() }
+        findViewById<TextView>(R.id.instances_back).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.instances_add).setOnClickListener { addInstance() }
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
     }
