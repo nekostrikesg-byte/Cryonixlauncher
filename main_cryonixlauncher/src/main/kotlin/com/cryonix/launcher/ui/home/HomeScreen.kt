@@ -66,9 +66,6 @@ object HomeScreen {
         activity.findViewById<View>(R.id.home_new_instance).setOnClickListener {
             showAddInstanceDialog(activity, store)
         }
-        activity.findViewById<View>(R.id.home_manage_instances).setOnClickListener {
-            activity.startActivity(Intent(activity, InstancesActivity::class.java))
-        }
         activity.findViewById<View>(R.id.home_edit_profile).setOnClickListener {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
         }
@@ -99,9 +96,12 @@ object HomeScreen {
                 textSize = 12f
                 setTextColor(activity.getColor(R.color.cryonix_text_secondary))
                 gravity = Gravity.CENTER
-                setPadding(20, 10, 20, 10)
+                setPadding(dp(activity, 20), dp(activity, 10), dp(activity, 20), dp(activity, 10))
             }
-            list.addView(empty, LinearLayout.LayoutParams(250, 72))
+            list.addView(
+                empty,
+                LinearLayout.LayoutParams(dp(activity, 250), dp(activity, 72))
+            )
         } else {
             names.forEach { name ->
                 list.addView(createInstanceCard(activity, store, name))
@@ -120,7 +120,7 @@ object HomeScreen {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             isClickable = true
-            setPadding(12, 8, 8, 8)
+            setPadding(dp(activity, 12), dp(activity, 8), dp(activity, 8), dp(activity, 8))
             setBackgroundResource(R.drawable.bg_reference_row)
             setOnClickListener { LaunchTaskManager.start(activity, store) }
         }
@@ -130,7 +130,7 @@ object HomeScreen {
             setImageResource(R.drawable.ic_grass_block)
             background = null
             contentDescription = "Launch $name"
-            setPadding(6, 6, 6, 6)
+            setPadding(dp(activity, 6), dp(activity, 6), dp(activity, 6), dp(activity, 6))
             setOnClickListener {
                 UiMotion.press(this)
                 LaunchTaskManager.start(activity, store)
@@ -139,7 +139,7 @@ object HomeScreen {
 
         val title = TextView(activity).apply {
             layoutParams = LinearLayout.LayoutParams(0, -2, 1f).apply {
-                marginStart = 8
+                marginStart = dp(activity, 8)
             }
             text = name
             textSize = 13f
@@ -150,7 +150,7 @@ object HomeScreen {
 
         val play = TextView(activity).apply {
             layoutParams = LinearLayout.LayoutParams(dp(activity, 42), dp(activity, 42)).apply {
-                marginStart = 6
+                marginStart = dp(activity, 6)
             }
             text = "▶"
             gravity = Gravity.CENTER
@@ -165,7 +165,7 @@ object HomeScreen {
 
         val delete = TextView(activity).apply {
             layoutParams = LinearLayout.LayoutParams(dp(activity, 38), dp(activity, 42)).apply {
-                marginStart = 5
+                marginStart = dp(activity, 5)
             }
             text = "×"
             gravity = Gravity.CENTER
@@ -182,10 +182,9 @@ object HomeScreen {
         card.addView(title)
         card.addView(play)
         card.addView(delete)
-        val params = LinearLayout.LayoutParams(dp(activity, 290), dp(activity, 72)).apply {
-            marginEnd = 10
+        card.layoutParams = LinearLayout.LayoutParams(dp(activity, 290), dp(activity, 72)).apply {
+            marginEnd = dp(activity, 10)
         }
-        card.layoutParams = params
         return card
     }
 
