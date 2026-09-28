@@ -113,7 +113,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LAUNCHER PLUS"
+                        android:text="LAUNCHER"
                         android:textColor="@color/cryonix_accent_soft"
                         android:textSize="12sp"
                         android:letterSpacing="0.25"/>
@@ -338,7 +338,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CRYONIX LAUNCHER PLUS"
+                    android:text="CRYONIX LAUNCHER"
                     android:textColor="@color/cryonix_accent_soft"
                     android:textSize="8sp"
                     android:letterSpacing="0.15"/>
