@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="false"
-        android:label="Cryonix Launcher"
+        android:label="Cryonixlauncher"
         android:theme="@style/CryonixTheme"
         android:supportsRtl="true">
 
