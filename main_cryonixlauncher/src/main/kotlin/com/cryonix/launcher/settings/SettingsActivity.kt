@@ -1,28 +1,37 @@
 package com.cryonix.launcher.settings
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ScrollView
 import android.widget.TextView
 import com.cryonix.launcher.MainActivity
-import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.R
+import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.model.RendererProfile
-import com.cryonix.launcher.ui.settings.ZalithSettingsScreen
 
 class SettingsActivity : Activity() {
+    private lateinit var store: MinecraftSettingsStore
+    private lateinit var rendererValue: TextView
+    private lateinit var vulkanValue: TextView
+    private lateinit var graphicsValue: TextView
+    private lateinit var resolutionValue: TextView
+    private lateinit var gameValue: TextView
+
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.screen_settings)
 
-        val store = MinecraftSettingsStore(this)
-        val scroll = findViewById<ScrollView>(R.id.settings_scroll)
-        val rendererValue = findViewById<TextView>(R.id.settings_global_renderer_value)
-        rendererValue.text = "Selected: " + rendererLabel(store.renderer)
+        store = MinecraftSettingsStore(this)
+        rendererValue = findViewById(R.id.settings_global_renderer_value)
+        vulkanValue = findViewById(R.id.settings_vulkan_value)
+        graphicsValue = findViewById(R.id.settings_graphics_value)
+        resolutionValue = findViewById(R.id.settings_resolution_value)
+        gameValue = findViewById(R.id.settings_game_value)
 
         findViewById<ImageButton>(R.id.settings_back).setOnClickListener { finish() }
         findViewById<ImageButton>(R.id.settings_home).setOnClickListener {
@@ -41,24 +50,106 @@ class SettingsActivity : Activity() {
                 .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
         }
 
-        findViewById<android.view.View>(R.id.settings_global_renderer).setOnClickListener {
-            ZalithSettingsScreen.showRendererPicker(this, store, rendererValue)
-        }
+        findViewById<android.view.View>(R.id.settings_global_renderer).setOnClickListener { chooseRenderer() }
+        findViewById<android.view.View>(R.id.settings_vulkan).setOnClickListener { chooseVulkan() }
+        findViewById<android.view.View>(R.id.settings_graphics).setOnClickListener { chooseGraphics() }
+        findViewById<android.view.View>(R.id.settings_resolution_rule).setOnClickListener { chooseResolution() }
+        findViewById<android.view.View>(R.id.settings_game_value).setOnClickListener { chooseGame() }
+        findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
 
-        bindNav(scroll, R.id.settings_nav_renderer, R.id.settings_section_renderer)
-        bindNav(scroll, R.id.settings_nav_game, R.id.settings_section_game)
-        bindNav(scroll, R.id.settings_nav_controls, R.id.settings_section_controls)
-        bindNav(scroll, R.id.settings_nav_gamepad, R.id.settings_section_gamepad)
-        bindNav(scroll, R.id.settings_nav_launcher, R.id.settings_section_launcher)
-        bindNav(scroll, null, R.id.settings_section_java)
+        bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer)
+        bindNav(R.id.settings_nav_game, R.id.settings_section_game)
+        bindNav(R.id.settings_nav_controls, R.id.settings_section_controls)
+        bindNav(R.id.settings_nav_gamepad, R.id.settings_section_gamepad)
+        bindNav(R.id.settings_nav_launcher, R.id.settings_section_launcher)
+        bindNav(R.id.settings_nav_java, R.id.settings_section_java)
+        refresh()
     }
 
-    private fun bindNav(scroll: ScrollView, navId: Int?, targetId: Int) {
-        if (navId == null) return
+    private fun bindNav(navId: Int, targetId: Int) {
+        val scroll = findViewById<ScrollView>(R.id.settings_scroll)
         findViewById<android.view.View>(navId).setOnClickListener {
             val target = findViewById<android.view.View>(targetId)
             scroll.post { scroll.smoothScrollTo(0, target.top) }
         }
+    }
+
+    private fun chooseRenderer() {
+        val values = arrayOf("Krypton Wrapper", "OpenGL", "LTW", "Holy GL4ES", "Mobile GLUES", "Vulkan")
+        val current = rendererLabel(store.renderer)
+        AlertDialog.Builder(this)
+            .setTitle("Global Renderer")
+            .setSingleChoiceItems(values, values.indexOf(current)) { dialog, which ->
+                store.renderer = when (which) {
+                    0 -> RendererProfile.Backend.SYSTEM
+                    1 -> RendererProfile.Backend.OPENGL
+                    2 -> RendererProfile.Backend.LTW
+                    3 -> RendererProfile.Backend.HOLY_GL4ES
+                    4 -> RendererProfile.Backend.MOBILE_GLUES
+                    else -> RendererProfile.Backend.VULKAN
+                }
+                dialog.dismiss()
+                refresh()
+            }.show()
+    }
+
+    private fun chooseVulkan() {
+        choose("Vulkan Driver", arrayOf("Turnip", "System", "Auto"), store.vulkanDriver) {
+            store.vulkanDriver = it
+            refresh()
+        }
+    }
+
+    private fun chooseGraphics() {
+        choose("Graphics API", arrayOf("OpenGL", "Vulkan"), store.graphicsApi) {
+            store.graphicsApi = it
+            refresh()
+        }
+    }
+
+    private fun chooseResolution() {
+        choose("Resolution Rule", arrayOf("Percentage · 100%", "Percentage · 75%", "Percentage · 50%", "Exact"), store.resolutionRule) {
+            store.resolutionRule = it
+            refresh()
+        }
+    }
+
+    private fun chooseGame() {
+        val values = arrayOf(1024, 1536, 2048, 3072, 4096)
+        AlertDialog.Builder(this)
+            .setTitle("Game Memory")
+            .setSingleChoiceItems(
+                values.map { "$it MB" }.toTypedArray(),
+                values.indexOf(store.memoryMb).coerceAtLeast(0)
+            ) { dialog, which ->
+                store.memoryMb = values[which]
+                dialog.dismiss()
+                refresh()
+            }.setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun choose(title: String, values: Array<String>, selected: String, save: (String) -> Unit) {
+        AlertDialog.Builder(this)
+            .setTitle(title)
+            .setSingleChoiceItems(values, values.indexOf(selected).coerceAtLeast(0)) { dialog, which ->
+                save(values[which])
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun showInfo(title: String, message: String) {
+        AlertDialog.Builder(this).setTitle(title).setMessage(message).setPositiveButton("OK", null).show()
+    }
+
+    private fun refresh() {
+        rendererValue.text = "Selected: " + rendererLabel(store.renderer)
+        vulkanValue.text = store.vulkanDriver
+        graphicsValue.text = store.graphicsApi
+        resolutionValue.text = store.resolutionRule
+        gameValue.text = "Version: Automatic\nLoader: undefined    •    Memory: undefined MB"
     }
 
     private fun rendererLabel(renderer: RendererProfile.Backend): String =
