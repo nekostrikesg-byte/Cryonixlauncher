@@ -1,6 +1,9 @@
 package com.cryonix.launcher
 
 import android.app.Activity
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
@@ -16,6 +19,10 @@ class MainActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.activity_launcher)
+
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 2401)
+        }
 
         store = MinecraftSettingsStore(this)
         versionText = findViewById(R.id.home_version)
