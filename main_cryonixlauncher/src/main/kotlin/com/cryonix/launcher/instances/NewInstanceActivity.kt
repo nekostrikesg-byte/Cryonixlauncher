@@ -22,6 +22,7 @@ class NewInstanceActivity : Activity() {
     private lateinit var resolution: Spinner
     private lateinit var status: TextView
     private var editingName: String? = null
+    private var editingConfig: MinecraftSettingsStore.InstanceConfig? = null
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -35,6 +36,7 @@ class NewInstanceActivity : Activity() {
         status = findViewById(R.id.new_instance_status)
         editingName = intent.getStringExtra(EXTRA_NAME)
         editingName?.let {
+            editingConfig = store.instanceConfig(it)
             findViewById<EditText>(R.id.new_instance_name).setText(it)
             findViewById<EditText>(R.id.new_instance_name).isEnabled = false
         }
@@ -62,7 +64,13 @@ class NewInstanceActivity : Activity() {
                 result.onSuccess {
                     val values = if (it.isEmpty()) listOf(store.selectedVersionId ?: "No versions found") else it
                     setSpinner(version, values)
-                    store.selectedVersionId?.let { selected -> version.setSelection(values.indexOf(selected).coerceAtLeast(0)) }
+                    val selected = editingConfig?.versionId ?: store.selectedVersionId
+                    selected?.let { id -> version.setSelection(values.indexOf(id).coerceAtLeast(0)) }
+                    editingConfig?.let { config ->
+                        loader.setSelection(if (config.loader == "FABRIC") 1 else 0)
+                        memory.setSelection(listOf(1024, 1536, 2048, 3072, 4096).indexOf(config.memoryMb).coerceAtLeast(0))
+                        resolution.setSelection(listOf("Percentage · 100%", "Percentage · 75%", "Percentage · 50%").indexOf(config.resolutionRule).coerceAtLeast(0))
+                    }
                     status.text = if (it.isEmpty()) "No release versions returned" else "Version metadata ready"
                 }.onFailure { status.text = "Could not load versions: " + (it.message ?: "network error") }
             }
