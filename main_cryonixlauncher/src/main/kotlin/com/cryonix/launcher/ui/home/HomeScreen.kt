@@ -119,8 +119,10 @@ object HomeScreen {
         val card = LinearLayout(activity).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
+            isClickable = true
             setPadding(12, 8, 8, 8)
             setBackgroundResource(R.drawable.bg_reference_row)
+            setOnClickListener { LaunchTaskManager.start(activity, store) }
         }
 
         val icon = ImageButton(activity).apply {
