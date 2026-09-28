@@ -50,7 +50,7 @@ class DownloadsActivity : Activity() {
     }
 
     private fun installSelectedVersion() {
-        val instance = store.instances.firstOrNull()
+        val instance = store.selectedInstanceName?.takeIf { it in store.instances } ?: store.instances.firstOrNull()
         val version = store.selectedVersionId
             ?: instance?.let { store.instanceConfig(it).versionId }
 
