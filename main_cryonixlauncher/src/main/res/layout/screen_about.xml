@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="@dimen/screen_padding"
-    android:background="@color/cryonix_background">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="CRYONIX"
-        android:textColor="@color/cryonix_accent"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.08"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Launcher"
-        android:textColor="@color/cryonix_text"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:gravity="center"
-        android:text="A clean, focused Android home experience built around the Cryonix brand."
-        android:textColor="@color/cryonix_text_secondary"
-        android:textSize="15sp"/>
-
-    <TextView android:id="@+id/about_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/version" android:textColor="@color/cryonix_text_secondary"/>
-    <Button android:id="@+id/about_privacy" android:layout_width="match_parent" android:layout_height="@dimen/control_height" android:layout_marginTop="@dimen/section_gap" android:text="@string/privacy" android:textAllCaps="false"/>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/cryonix_background">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="14dp">
+<TextView android:id="@+id/about_back" android:layout_width="70dp" android:layout_height="40dp" android:gravity="center" android:text="‹ Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_reference_pill"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22dp" android:text="CRYONIX" android:textColor="@color/cryonix_accent" android:textSize="32sp" android:textStyle="bold"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Minecraft Launcher" android:textColor="@color/cryonix_text" android:textSize="16sp"/>
+<TextView android:id="@+id/about_version" android:layout_width="match_parent" android:layout_height="46dp" android:layout_marginTop="16dp" android:gravity="center_vertical" android:paddingStart="12dp" android:background="@drawable/bg_reference_row" android:text="Version" android:textColor="@color/cryonix_text_secondary" android:textSize="10sp"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Cryonix is an Android Minecraft launcher layer focused on persistent instances, official metadata, renderer profiles and a clean mobile-landscape workflow." android:textColor="@color/cryonix_text_secondary" android:textSize="10sp"/>
+<TextView android:id="@+id/about_github" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="12dp" android:gravity="center" android:text="OPEN GITHUB PROJECT" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_reference_launch" android:textSize="10sp"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Credits\nCryonix Launcher contributors\nMinecraft and Microsoft are trademarks of their respective owners. Cryonix is not affiliated with Mojang or Microsoft." android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
 </LinearLayout>
+</ScrollView>
