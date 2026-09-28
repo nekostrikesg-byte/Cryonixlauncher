@@ -244,6 +244,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/home_cs_card"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -263,7 +264,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:id="@+id/home_cs_card"
                         android:text="CS Client"
                         android:textColor="@color/cryonix_text"
                         android:textSize="14sp"/>
@@ -277,6 +277,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/home_fabric_card"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -295,7 +296,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:id="@+id/home_fabric_card"
                         android:text="Fabric Modpack"
                         android:textColor="@color/cryonix_text"
                         android:textSize="14sp"/>
