@@ -3,7 +3,6 @@ package com.cryonix.launcher
 import android.app.Activity
 import android.os.Bundle
 import android.widget.TextView
-import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.VersionManifestService
 import com.cryonix.launcher.settings.SettingsActivity
