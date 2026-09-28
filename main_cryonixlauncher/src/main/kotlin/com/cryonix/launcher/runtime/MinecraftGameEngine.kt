@@ -23,7 +23,7 @@ interface MinecraftGameEngine {
     ): Result<Unit>
 }
 
-class CryonixMojoEngine(context: Context) : MinecraftGameEngine {
+class CryonixMojoEngine(private val context: Context) : MinecraftGameEngine {
     private val bridge = MinecraftRuntimeBridge(context)
 
     override val id: String = "mojo"
@@ -45,10 +45,16 @@ class CryonixMojoEngine(context: Context) : MinecraftGameEngine {
             )
         }
 
-        return Result.failure(
-            IllegalStateException(
-                "Android Java runtime is ready, but the Mojo/LWJGL game-surface engine is not bundled yet."
+        val native = runCatching { NativeMinecraftEngine(context) }.getOrNull()
+        if (native == null || !native.isReady()) {
+            return Result.failure(
+                IllegalStateException(
+                    "Android Java runtime is ready, but the real LWJGL/GLFW native engine package is not installed."
+                )
             )
+        }
+        return Result.failure(
+            IllegalStateException("Native engine reported ready, but process launch integration is incomplete.")
         )
     }
 }
