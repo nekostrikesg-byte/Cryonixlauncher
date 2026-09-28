@@ -29,6 +29,15 @@ class AccountsActivity : Activity() {
         findViewById<android.view.View>(R.id.accounts_add).setOnClickListener { UiMotion.press(it); createProfile() }
         findViewById<android.view.View>(R.id.accounts_add_button).setOnClickListener { UiMotion.press(it); createProfile() }
         render()
+        bindPressAnimations(findViewById(android.R.id.content))
+        UiMotion.morphIn(findViewById(android.R.id.content))
+    }
+
+    private fun bindPressAnimations(root: View) {
+        if (root.isClickable) UiMotion.bindPress(root)
+        if (root is ViewGroup) {
+            for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
+        }
     }
 
     private fun render() {
