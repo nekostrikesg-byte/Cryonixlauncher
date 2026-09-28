@@ -154,6 +154,7 @@ object HomeScreen {
             setBackgroundResource(R.drawable.bg_reference_launch)
             contentDescription = "Launch $name"
             setOnClickListener {
+                store.selectedInstanceName = name
                 LaunchTaskManager.start(activity, store)
             }
         }
