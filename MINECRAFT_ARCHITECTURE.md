@@ -84,3 +84,16 @@ Android/data/<package>/files/cryonix/
 Supporting all Minecraft versions does not mean every version can run on every phone. Java runtime requirements, Android API level, RAM, CPU architecture, graphics drivers, native renderer compatibility and mod-loader compatibility can all affect launchability.
 
 The launcher should therefore run a compatibility check before Play and explain why a selected version/backend combination is unsupported.
+
+
+## Phase 2 runtime boundary
+
+Cryonix now contains a runtime-selection and engine boundary under `runtime/`.
+
+- `JavaRuntimeManager` selects only verified Android-compatible runtimes installed in private app storage.
+- Minecraft version metadata determines the required Java major version.
+- `MinecraftRuntimeBridge` performs launch preflight without pretending that a desktop JVM can execute Minecraft on Android.
+- `MinecraftGameEngine` is the stable boundary for the Mojo/Pojav-compatible Android engine.
+- The current `CryonixMojoEngine` intentionally refuses to launch until the Android JRE plus the native LWJGL/GLFW/renderer engine are actually present.
+
+This separation is deliberate: Phase 1 downloads the official Mojang game files; Phase 2 connects those files to an Android Java/native engine. Proprietary Minecraft files are never committed to the repository.
