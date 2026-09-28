@@ -44,7 +44,7 @@ class AccountsActivity : Activity() {
         val profiles = settings.profiles()
         list.removeAllViews()
         val active = settings.activeProfileId()
-        status.text = if (profiles.isEmpty()) "No local profiles" else profiles.size.toString() + " local profile" + if (profiles.size == 1) "" else "s" + " • Active: " + settings.profileName
+        status.text = if (profiles.isEmpty()) "No local profiles" else profiles.size.toString() + " local profile" + (if (profiles.size == 1) "" else "s") + " • Active: " + settings.profileName
 
         profiles.forEach { profile ->
             val isActive = profile.id == active
