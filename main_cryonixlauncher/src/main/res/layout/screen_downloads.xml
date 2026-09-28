@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="14dp" android:background="@color/cryonix_background">
-<LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical">
-<TextView android:id="@+id/downloads_back" android:layout_width="70dp" android:layout_height="40dp" android:gravity="center" android:text="‹ Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_reference_pill"/>
-<TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Downloads &amp; Tasks" android:textColor="@color/cryonix_text" android:textSize="18sp" android:textStyle="bold"/>
-</LinearLayout>
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Only real backend tasks are shown here. The current branch can fetch official version metadata; Minecraft file downloads are not connected yet." android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
-<LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="12dp" android:orientation="vertical">
-<TextView android:id="@+id/downloads_status" android:layout_width="match_parent" android:layout_height="78dp" android:background="@drawable/bg_reference_card" android:gravity="center_vertical" android:padding="14dp" android:text="No active downloads" android:textColor="@color/cryonix_text" android:textSize="12sp"/>
-<ProgressBar android:id="@+id/downloads_progress" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="10dp" android:visibility="gone" style="?android:attr/progressBarStyleHorizontal"/>
-<TextView android:id="@+id/downloads_refresh" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="10dp" android:gravity="center" android:text="REFRESH OFFICIAL METADATA" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_reference_launch" android:textSize="10sp"/>
-</LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="14dp"
+    android:background="@color/cryonix_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/downloads_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="‹ Back"
+            android:textColor="@color/cryonix_text"
+            android:background="@drawable/bg_reference_pill"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="Downloads &amp; Tasks"
+            android:textColor="@color/cryonix_text"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Official Mojang Minecraft files are downloaded and SHA-1 verified. Runtime execution is a separate phase."
+        android:textColor="@color/cryonix_text_secondary"
+        android:textSize="9sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/downloads_status"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:background="@drawable/bg_reference_card"
+            android:gravity="center_vertical"
+            android:padding="14dp"
+            android:text="No active downloads"
+            android:textColor="@color/cryonix_text"
+            android:textSize="12sp"/>
+
+        <ProgressBar
+            android:id="@+id/downloads_progress"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleHorizontal"/>
+
+        <TextView
+            android:id="@+id/downloads_install"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="INSTALL SELECTED MINECRAFT"
+            android:textColor="@color/cryonix_button_text"
+            android:background="@drawable/bg_reference_launch"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/downloads_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="REFRESH OFFICIAL METADATA"
+            android:textColor="@color/cryonix_button_text"
+            android:background="@drawable/bg_reference_pill"
+            android:textSize="10sp"/>
+    </LinearLayout>
 </LinearLayout>
