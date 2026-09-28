@@ -25,9 +25,9 @@ class AccountsActivity : Activity() {
         nameView = findViewById(R.id.accounts_name)
         idView = findViewById(R.id.accounts_id)
 
-        findViewById<android.view.View>(R.id.accounts_back).setOnClickListener { UiMotion.press(it); finish() }
-        findViewById<android.view.View>(R.id.accounts_add).setOnClickListener { UiMotion.press(it); createProfile() }
-        findViewById<android.view.View>(R.id.accounts_add_button).setOnClickListener { UiMotion.press(it); createProfile() }
+        findViewById<android.view.View>(R.id.accounts_back).setOnClickListener { finish() }
+        findViewById<android.view.View>(R.id.accounts_add).setOnClickListener { createProfile() }
+        findViewById<android.view.View>(R.id.accounts_add_button).setOnClickListener { createProfile() }
         render()
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
