@@ -51,7 +51,7 @@ class InstancesActivity : Activity() {
             }
 
             val title = TextView(this).apply {
-                layoutParams = LinearLayout.LayoutParams(0, 64, 1f)
+                layoutParams = LinearLayout.LayoutParams(0, dp(64), 1f)
                 text = "$name\nVanilla • Ready"
                 textSize = 13f
                 setTextColor(getColor(R.color.cryonix_text))
@@ -59,7 +59,7 @@ class InstancesActivity : Activity() {
             }
 
             val info = TextView(this).apply {
-                layoutParams = LinearLayout.LayoutParams(42, 42).apply { marginStart = 8 }
+                layoutParams = LinearLayout.LayoutParams(dp(42), dp(42)).apply { marginStart = 8 }
                 text = "⋯"
                 gravity = Gravity.CENTER
                 textSize = 20f
@@ -69,7 +69,7 @@ class InstancesActivity : Activity() {
             }
 
             val delete = TextView(this).apply {
-                layoutParams = LinearLayout.LayoutParams(42, 42).apply { marginStart = 6 }
+                layoutParams = LinearLayout.LayoutParams(dp(42), dp(42)).apply { marginStart = 6 }
                 text = "×"
                 gravity = Gravity.CENTER
                 textSize = 20f
@@ -81,7 +81,7 @@ class InstancesActivity : Activity() {
             row.addView(title)
             row.addView(info)
             row.addView(delete)
-            list.addView(row, LinearLayout.LayoutParams(-1, 72).apply { topMargin = 8 })
+            list.addView(row, LinearLayout.LayoutParams(-1, dp(72)).apply { topMargin = dp(8) })
         }
 
         bindPressAnimations(list)
@@ -133,12 +133,12 @@ class InstancesActivity : Activity() {
     private fun showCompactDialog(dialog: AlertDialog) {
         dialog.setOnShowListener {
             val density = resources.displayMetrics.density
-            dialog.window?.setLayout((340 * density).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
+            dialog.window?.setLayout(dp(340), ViewGroup.LayoutParams.WRAP_CONTENT)
         }
         dialog.show()
     }
 
-    private fun bindPressAnimations(root: View) {
+    private fun dp(value: Int): Int =\n        (value * resources.displayMetrics.density).toInt()\n\n    private fun bindPressAnimations(root: View) {
         if (root.isClickable) UiMotion.bindPress(root)
         if (root is ViewGroup) {
             for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
