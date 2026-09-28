@@ -21,6 +21,7 @@ class NewInstanceActivity : Activity() {
     private lateinit var memory: Spinner
     private lateinit var resolution: Spinner
     private lateinit var status: TextView
+    private var editingName: String? = null
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -32,6 +33,11 @@ class NewInstanceActivity : Activity() {
         memory = findViewById(R.id.new_instance_memory)
         resolution = findViewById(R.id.new_instance_resolution)
         status = findViewById(R.id.new_instance_status)
+        editingName = intent.getStringExtra(EXTRA_NAME)
+        editingName?.let {
+            findViewById<EditText>(R.id.new_instance_name).setText(it)
+            findViewById<EditText>(R.id.new_instance_name).isEnabled = false
+        }
 
         findViewById<View>(R.id.new_instance_back).setOnClickListener { finish() }
         findViewById<View>(R.id.new_instance_create).setOnClickListener { create() }
@@ -86,7 +92,7 @@ class NewInstanceActivity : Activity() {
             findViewById<EditText>(R.id.new_instance_name).error = "Instance name required"
             return
         }
-        if (!store.addInstance(name)) {
+        if (editingName == null && !store.addInstance(name)) {
             findViewById<EditText>(R.id.new_instance_name).error = "Name is empty or already exists"
             return
         }
@@ -109,6 +115,8 @@ class NewInstanceActivity : Activity() {
         setResult(RESULT_OK)
         finish()
     }
+
+    companion object { const val EXTRA_NAME = "edit_instance_name" }
 
     private fun setSpinner(spinner: Spinner, values: List<String>) {
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, values)
