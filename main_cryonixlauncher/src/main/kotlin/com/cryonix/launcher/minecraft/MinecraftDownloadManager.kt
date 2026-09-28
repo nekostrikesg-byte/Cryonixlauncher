@@ -189,7 +189,7 @@ class MinecraftDownloadManager(private val context: Context) {
         return result.distinctBy { it.path }
     }
 
-    private fun collectAssetObjects(metadata: JSONObject, assetsDir: File): List<Asset> {
+    private fun collectAssetObjects(metadata: JSONObject, assetsDir: File, control: MinecraftTaskControl? = null): List<Asset> {
         val indexInfo = metadata.optJSONObject("assetIndex") ?: return emptyList()
         val indexUrl = indexInfo.optString("url")
         if (indexUrl.isBlank()) return emptyList()
