@@ -165,7 +165,7 @@
 
                 <TextView
                     android:id="@+id/home_launch"
-                    android:layout_width="min(380dp, 72%p)"
+                    android:layout_width="360dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="14dp"
                     android:background="@drawable/bg_reference_launch"
