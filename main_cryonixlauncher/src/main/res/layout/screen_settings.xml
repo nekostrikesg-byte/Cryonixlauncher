@@ -36,11 +36,11 @@
 
         <View android:layout_width="42dp" android:layout_height="1dp" android:layout_marginTop="12dp" android:background="@color/cryonix_divider"/>
 
-        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginTop="18dp" android:src="@drawable/ic_renderer" android:tint="@color/cryonix_accent_soft"/>
-        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginTop="22dp" android:src="@drawable/ic_rocket" android:tint="@color/cryonix_icon"/>
-        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginTop="22dp" android:src="@drawable/ic_gamepad" android:tint="@color/cryonix_icon"/>
-        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginTop="22dp" android:src="@drawable/ic_cube" android:tint="@color/cryonix_icon"/>
-        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginTop="22dp" android:src="@drawable/ic_java" android:tint="@color/cryonix_icon"/>
+        <ImageButton android:id="@+id/settings_sidebar_renderer" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginTop="10dp" android:background="@drawable/bg_reference_pill" android:contentDescription="Renderer" android:padding="10dp" android:src="@drawable/ic_renderer" android:tint="@color/cryonix_accent_soft"/>
+        <ImageButton android:id="@+id/settings_sidebar_game" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginTop="10dp" android:background="@android:color/transparent" android:contentDescription="Game" android:padding="10dp" android:src="@drawable/ic_rocket" android:tint="@color/cryonix_icon"/>
+        <ImageButton android:id="@+id/settings_sidebar_controls" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginTop="10dp" android:background="@android:color/transparent" android:contentDescription="Controls" android:padding="10dp" android:src="@drawable/ic_gamepad" android:tint="@color/cryonix_icon"/>
+        <ImageButton android:id="@+id/settings_sidebar_launcher" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginTop="10dp" android:background="@android:color/transparent" android:contentDescription="Launcher" android:padding="10dp" android:src="@drawable/ic_cube" android:tint="@color/cryonix_icon"/>
+        <ImageButton android:id="@+id/settings_sidebar_java" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginTop="10dp" android:background="@android:color/transparent" android:contentDescription="Java" android:padding="10dp" android:src="@drawable/ic_java" android:tint="@color/cryonix_icon"/>
     </LinearLayout>
 
     <LinearLayout
