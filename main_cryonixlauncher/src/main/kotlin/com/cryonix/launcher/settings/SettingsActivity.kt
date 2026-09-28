@@ -58,10 +58,10 @@ class SettingsActivity : Activity() {
         findViewById<android.view.View>(R.id.settings_resolution_rule).setOnClickListener { chooseResolution() }
         findViewById<android.view.View>(R.id.settings_game_value).setOnClickListener { chooseGame() }
         findViewById<android.view.View>(R.id.settings_sidebar_renderer).setOnClickListener {  bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer) }
-        findViewById<android.view.View>(R.id.settings_sidebar_game).setOnClickListener {  startActivity(Intent(this, InstancesActivity::class.java)) }
-        findViewById<android.view.View>(R.id.settings_sidebar_controls).setOnClickListener {  startActivity(Intent(this, ControlsActivity::class.java)) }
-        findViewById<android.view.View>(R.id.settings_sidebar_launcher).setOnClickListener {  startActivity(Intent(this, MainActivity::class.java)) }
-        findViewById<android.view.View>(R.id.settings_sidebar_java).setOnClickListener {  showInfo("Java", "Automatic runtime selection is enabled. Runtime management will be connected to the Java backend later.") }
+        findViewById<android.view.View>(R.id.settings_sidebar_game).setOnClickListener {  scrollTo(R.id.settings_section_game) }
+        findViewById<android.view.View>(R.id.settings_sidebar_controls).setOnClickListener {  scrollTo(R.id.settings_section_controls) }
+        findViewById<android.view.View>(R.id.settings_sidebar_launcher).setOnClickListener {  scrollTo(R.id.settings_section_launcher) }
+        findViewById<android.view.View>(R.id.settings_sidebar_java).setOnClickListener {  scrollTo(R.id.settings_section_java) }
 
         findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
 
@@ -74,6 +74,12 @@ class SettingsActivity : Activity() {
         refresh()
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
+    }
+
+    private fun scrollTo(targetId: Int) {
+        val scroll = findViewById<ScrollView>(R.id.settings_scroll)
+        val target = findViewById<View>(targetId)
+        scroll.post { scroll.smoothScrollTo(0, target.top) }
     }
 
     private fun bindNav(navId: Int, targetId: Int) {
