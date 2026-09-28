@@ -16,7 +16,6 @@
         <LinearLayout
         android:layout_width="76dp"
         android:layout_height="wrap_content"
-        android:minHeight="match_parent"
         android:background="@drawable/bg_reference_pill"
         android:gravity="center_horizontal"
         android:orientation="vertical"
