@@ -12,7 +12,7 @@
     </style>
 
     <style name="CryonixDialogTheme" parent="android:style/Theme.Material.Dialog.Alert">
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
         <item name="android:colorAccent">@color/cryonix_accent</item>
         <item name="android:textColorPrimary">@color/cryonix_text</item>
         <item name="android:textColorSecondary">@color/cryonix_text_secondary</item>
