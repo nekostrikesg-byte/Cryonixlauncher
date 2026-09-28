@@ -5,6 +5,9 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
+import android.view.View
+import android.view.ViewGroup
+import com.cryonix.launcher.ui.UiMotion
 import com.cryonix.launcher.R
 import com.cryonix.launcher.minecraft.LocalProfileStore
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
@@ -22,9 +25,9 @@ class AccountsActivity : Activity() {
         nameView = findViewById(R.id.accounts_name)
         idView = findViewById(R.id.accounts_id)
 
-        findViewById<android.view.View>(R.id.accounts_back).setOnClickListener { finish() }
-        findViewById<android.view.View>(R.id.accounts_add).setOnClickListener { createProfile() }
-        findViewById<android.view.View>(R.id.accounts_add_button).setOnClickListener { createProfile() }
+        findViewById<android.view.View>(R.id.accounts_back).setOnClickListener { UiMotion.press(it); finish() }
+        findViewById<android.view.View>(R.id.accounts_add).setOnClickListener { UiMotion.press(it); createProfile() }
+        findViewById<android.view.View>(R.id.accounts_add_button).setOnClickListener { UiMotion.press(it); createProfile() }
         render()
     }
 
