@@ -1,20 +1,6 @@
 cmake_minimum_required(VERSION 3.22.1)
-
-project("cryonix_native")
-
-add_library(
-    cryonix_native
-    SHARED
-    cryonix_native.cpp
-    native_status.c
-)
-
-find_library(
-    log-lib
-    log
-)
-
-target_link_libraries(
-    cryonix_native
-    ${log-lib}
-)
+project("cryonix_engine")
+add_library(cryonix_engine SHARED cryonix_engine.cpp)
+find_library(log-lib log)
+target_link_libraries(cryonix_engine ${log-lib})
+target_compile_features(cryonix_engine PRIVATE cxx_std_17)
