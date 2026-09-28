@@ -16,8 +16,8 @@
         <item name="android:colorAccent">@color/cryonix_accent</item>
         <item name="android:textColorPrimary">@color/cryonix_text</item>
         <item name="android:textColorSecondary">@color/cryonix_text_secondary</item>
-        <item name="android:windowMinWidthMajor">72%</item>
-        <item name="android:windowMinWidthMinor">72%</item>
+        <item name="android:windowMinWidthMajor">56%</item>
+        <item name="android:windowMinWidthMinor">68%</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.62</item>
     </style>
