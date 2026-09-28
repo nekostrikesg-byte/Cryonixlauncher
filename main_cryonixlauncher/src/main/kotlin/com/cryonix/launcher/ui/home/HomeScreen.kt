@@ -29,7 +29,6 @@ object HomeScreen {
         activity.findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
             UiMotion.press(it)
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
-            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         activity.findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
             UiMotion.press(it)
@@ -53,7 +52,6 @@ object HomeScreen {
         }
 
         bindPressAnimations(activity.findViewById(android.R.id.content))
-        UiMotion.morphIn(activity.findViewById(R.id.home_launch))
         render()
         if (store.autoRefresh) refresh()
     }
