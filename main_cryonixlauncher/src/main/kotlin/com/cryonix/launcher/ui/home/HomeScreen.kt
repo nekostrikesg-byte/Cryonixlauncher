@@ -47,7 +47,12 @@ object HomeScreen {
             activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        activity.findViewById<TextView>(R.id.task_manager_close).setOnClickListener {\n            UiMotion.press(it)\n            LaunchTaskManager.close(activity)\n        }\n\n        bindPressAnimations(activity.findViewById(android.R.id.content))
+        activity.findViewById<TextView>(R.id.task_manager_close).setOnClickListener {
+            UiMotion.press(it)
+            LaunchTaskManager.close(activity)
+        }
+
+        bindPressAnimations(activity.findViewById(android.R.id.content))
         UiMotion.morphIn(activity.findViewById(R.id.home_launch))
         render()
         if (store.autoRefresh) refresh()
