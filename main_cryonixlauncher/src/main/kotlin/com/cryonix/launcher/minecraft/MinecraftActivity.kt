@@ -11,7 +11,7 @@ import com.cryonix.launcher.minecraft.model.GameAccount
 import com.cryonix.launcher.minecraft.model.LoaderProfile
 import com.cryonix.launcher.minecraft.model.MinecraftVersion
 import com.cryonix.launcher.minecraft.model.RendererProfile
-import com.cryonix.launcher.ui.accounts.ZalithAccountsScreen
+import com.cryonix.launcher.accounts.AccountsActivity
 import kotlin.concurrent.thread
 
 class MinecraftActivity : Activity() {
@@ -102,10 +102,7 @@ class MinecraftActivity : Activity() {
     }
 
     private fun showAccounts() {
-        ZalithAccountsScreen.showLocalProfile(this, store) {
-            statusText.text = "Profile saved: " + store.profileName
-            renderState()
-        }
+        startActivity(Intent(this, AccountsActivity::class.java))
     }
 
     private fun showLoader() {
