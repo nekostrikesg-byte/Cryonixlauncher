@@ -1,6 +1,7 @@
 package com.cryonix.launcher.ui.home
 
 import android.app.Activity
+import android.content.Intent
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -22,18 +23,14 @@ object LaunchTaskManager {
         val percent = activity.findViewById<TextView>(R.id.task_manager_percent)
 
         panel.visibility = View.VISIBLE
-        title.text = "Minecraft install"
+        title.text = "Minecraft task"
         val instance = store.selectedInstanceName?.takeIf { it in store.instances } ?: store.instances.firstOrNull()
-        val version = store.selectedVersionId
-            ?: instance?.let { store.instanceConfig(it).versionId }
-        val profile = store.profileName
-        val renderer = store.renderer.name.lowercase()
-
+        val version = store.selectedVersionId ?: instance?.let { store.instanceConfig(it).versionId }
         details.text = "Instance: " + (instance ?: "none") +
             "\nVersion: " + (version ?: "not selected") +
-            "\nProfile: " + profile +
+            "\nProfile: " + store.profileName +
             "\nLoader: " + store.loader.lowercase() +
-            "\nRenderer: " + renderer +
+            "\nRenderer: " + store.renderer.name.lowercase() +
             "\nMemory: " + store.memoryMb + " MB"
 
         if (instance.isNullOrBlank()) {
@@ -56,101 +53,18 @@ object LaunchTaskManager {
 
         progress.max = 100
         bottomProgress.max = 100
-        status.text = "Checking installed Minecraft files…"
+        status.text = "Starting background task…"
+        percent.text = "0%"
         UiMotion.morphIn(panel)
 
-        thread {
-            val manager = MinecraftDownloadManager(activity)
-            val installed = manager.isInstalled(instance, version)
+        val intent = Intent(activity, com.cryonix.launcher.minecraft.MinecraftTaskService::class.java)
+            .putExtra(com.cryonix.launcher.minecraft.MinecraftTaskService.EXTRA_INSTANCE, instance)
+            .putExtra(com.cryonix.launcher.minecraft.MinecraftTaskService.EXTRA_VERSION, version)
 
-            if (installed) {
-                activity.runOnUiThread {
-                    title.text = "Minecraft files ready"
-                    val check = CryonixMojoEngine(activity).preflight(
-                        com.cryonix.launcher.minecraft.MinecraftInstallResult(
-                            versionId = version,
-                            instanceName = instance,
-                            gameDirectory = java.io.File(activity.filesDir, "minecraft/instances/" + instance + "/game"),
-                            versionJson = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + ".json"),
-                            clientJar = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + "/" + version + ".jar"),
-                            libraryCount = 0,
-                            assetCount = 0,
-                            totalBytes = 0L
-                        )
-                    )
-                    status.text = if (check.ready) "Runtime ready • starting Minecraft engine…" else "Files ready • " + check.message
-                    progress.progress = 100
-                    bottomProgress.progress = 100
-                    percent.text = "100%"
-                    if (check.ready) {
-                        CryonixMojoEngine(activity).launch(
-                            com.cryonix.launcher.minecraft.MinecraftInstallResult(
-                                versionId = version,
-                                instanceName = instance,
-                                gameDirectory = java.io.File(activity.filesDir, "minecraft/instances/" + instance + "/game"),
-                                versionJson = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + ".json"),
-                                clientJar = java.io.File(activity.filesDir, "minecraft/cache/versions/" + version + "/" + version + ".jar"),
-                                libraryCount = 0,
-                                assetCount = 0,
-                                totalBytes = 0L
-                            ),
-                            store.memoryMb,
-                            store.profileName
-                        ).onFailure { error -> status.text = "Engine blocked • " + (error.message ?: "unknown error") }
-                    }
-                }
-                return@thread
-            }
-
-            runCatching {
-                manager.install(instance, version, object : MinecraftDownloadManager.ProgressListener {
-                    override fun onStage(stage: String, completed: Int, total: Int) {
-                        val value = if (total <= 0) 0 else (completed * 100 / total).coerceIn(0, 100)
-                        activity.runOnUiThread {
-                            status.text = stage
-                            progress.progress = value
-                            bottomProgress.progress = value
-                            percent.text = value.toString() + "%"
-                        }
-                    }
-
-                    override fun onFile(name: String, completedBytes: Long, totalBytes: Long) {
-                        val value = if (totalBytes <= 0L) 0 else
-                            ((completedBytes * 100L) / totalBytes).toInt().coerceIn(0, 100)
-                        activity.runOnUiThread {
-                            status.text = "Downloading • " + name
-                            progress.progress = value
-                            bottomProgress.progress = value
-                            percent.text = value.toString() + "%"
-                        }
-                    }
-                })
-            }.onSuccess {
-                activity.runOnUiThread {
-                    title.text = "Minecraft files ready"
-                    val check = CryonixMojoEngine(activity).preflight(it)
-                    status.text = if (check.ready) "Runtime ready • starting Minecraft engine…" else
-                        "Installed • " + it.libraryCount + " libraries • " + it.assetCount + " assets • " + check.message
-                    progress.progress = 100
-                    bottomProgress.progress = 100
-                    percent.text = "100%"
-                    if (check.ready) {
-                        CryonixMojoEngine(activity).launch(it, store.memoryMb, store.profileName)
-                            .onFailure { error ->
-                                activity.runOnUiThread {
-                                    title.text = "Minecraft engine blocked"
-                                    status.text = error.message ?: "Native game engine is not available"
-                                }
-                            }
-                    }
-                }
-            }.onFailure {
-                activity.runOnUiThread {
-                    title.text = "Minecraft install failed"
-                    status.text = "Failed • " + (it.message ?: "unknown error")
-                    percent.text = "0%"
-                }
-            }
+        if (android.os.Build.VERSION.SDK_INT >= 26) {
+            activity.startForegroundService(intent)
+        } else {
+            activity.startService(intent)
         }
     }
 
