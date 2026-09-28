@@ -15,8 +15,6 @@ import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.model.RendererProfile
-import com.cryonix.launcher.instances.InstancesActivity
-import com.cryonix.launcher.downloads.DownloadsActivity
 
 class SettingsActivity : Activity() {
     private lateinit var store: MinecraftSettingsStore
@@ -42,16 +40,6 @@ class SettingsActivity : Activity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-        findViewById<ImageButton>(R.id.settings_versions).setOnClickListener { 
-            startActivity(Intent(this, InstancesActivity::class.java))
-        }
-        findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener { 
-            startActivity(Intent(this, AccountsActivity::class.java))
-        }
-        findViewById<ImageButton>(R.id.settings_download).setOnClickListener { 
-            startActivity(Intent(this, DownloadsActivity::class.java))
-        }
-
         findViewById<android.view.View>(R.id.settings_global_renderer).setOnClickListener { chooseRenderer() }
         findViewById<android.view.View>(R.id.settings_vulkan).setOnClickListener { chooseVulkan() }
         findViewById<android.view.View>(R.id.settings_graphics).setOnClickListener { chooseGraphics() }
@@ -66,11 +54,11 @@ class SettingsActivity : Activity() {
         findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
 
         bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer)
-        bindNav(R.id.settings_nav_game, R.id.settings_section_game)
-        bindNav(R.id.settings_nav_controls, R.id.settings_section_controls)
-        bindNav(R.id.settings_nav_gamepad, R.id.settings_section_gamepad)
-        bindNav(R.id.settings_nav_launcher, R.id.settings_section_launcher)
-        bindNav(R.id.settings_nav_java, R.id.settings_section_java)
+        findViewById<View>(R.id.settings_overview_general).setOnClickListener { scrollTo(R.id.settings_section_renderer) }
+        findViewById<View>(R.id.settings_overview_game).setOnClickListener { scrollTo(R.id.settings_section_game) }
+        findViewById<View>(R.id.settings_overview_display).setOnClickListener { scrollTo(R.id.settings_section_gamepad) }
+        findViewById<View>(R.id.settings_overview_controls).setOnClickListener { scrollTo(R.id.settings_section_controls) }
+        findViewById<View>(R.id.settings_overview_advanced).setOnClickListener { scrollTo(R.id.settings_section_launcher) }
         refresh()
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
