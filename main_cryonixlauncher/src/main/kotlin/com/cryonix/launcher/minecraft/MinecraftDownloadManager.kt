@@ -29,7 +29,8 @@ class MinecraftDownloadManager(private val context: Context) {
     fun install(
         instanceName: String,
         versionId: String,
-        listener: ProgressListener? = null
+        listener: ProgressListener? = null,
+        control: MinecraftTaskControl? = null
     ): MinecraftInstallResult {
         require(instanceName.isNotBlank()) { "Instance name is required" }
         require(versionId.isNotBlank()) { "Minecraft version is required" }
@@ -45,6 +46,7 @@ class MinecraftDownloadManager(private val context: Context) {
         val assetsDir = File(cache, "assets")
         listOf(cache, instances, instanceDir, gameDir, versionsDir, librariesDir, assetsDir).forEach { it.mkdirs() }
 
+        control?.awaitIfPaused()
         listener?.onStage("Fetching Mojang version metadata", 0, 1)
         val manifestEntry = VersionManifestService().fetchVersions()
             .firstOrNull { it.id == versionId }
@@ -56,7 +58,8 @@ class MinecraftDownloadManager(private val context: Context) {
             versionJson,
             manifestEntry.sha1.ifBlank { null },
             listener,
-            "version metadata"
+            "version metadata",
+            control
         )
 
         val metadata = JSONObject(versionJson.readText())
@@ -71,24 +74,24 @@ class MinecraftDownloadManager(private val context: Context) {
         val clientJar = File(versionDir, versionId + ".jar")
 
         val libraries = collectLibraries(metadata)
-        val assetObjects = collectAssetObjects(metadata, assetsDir)
+        val assetObjects = collectAssetObjects(metadata, assetsDir, control)
         val totalSteps = 1 + libraries.size + assetObjects.size
         var completed = 0
 
         listener?.onStage("Downloading Minecraft client", completed, totalSteps)
-        downloadVerified(clientUrl, clientJar, clientSha1, listener, versionId + " client")
+        downloadVerified(clientUrl, clientJar, clientSha1, listener, versionId + " client", control)
         completed++
 
         for (library in libraries) {
             val target = File(librariesDir, library.path)
-            downloadVerified(library.url, target, library.sha1, listener, library.path)
+            downloadVerified(library.url, target, library.sha1, listener, library.path, control)
             completed++
             listener?.onStage("Downloading libraries", completed, totalSteps)
         }
 
         for (asset in assetObjects) {
             val target = File(assetsDir, "objects/" + asset.sha1.take(2) + "/" + asset.sha1)
-            downloadVerified(asset.url, target, asset.sha1, listener, "asset " + asset.sha1)
+            downloadVerified(asset.url, target, asset.sha1, listener, "asset " + asset.sha1, control)
             completed++
             listener?.onStage("Downloading assets", completed, totalSteps)
         }
@@ -198,7 +201,8 @@ class MinecraftDownloadManager(private val context: Context) {
             indexFile,
             indexInfo.optString("sha1").ifBlank { null },
             null,
-            "asset index"
+            "asset index",
+            control
         )
 
         val objects = JSONObject(indexFile.readText()).optJSONObject("objects") ?: return emptyList()
@@ -258,7 +262,8 @@ class MinecraftDownloadManager(private val context: Context) {
         target: File,
         expectedSha1: String?,
         listener: ProgressListener?,
-        displayName: String
+        displayName: String,
+        control: MinecraftTaskControl? = null
     ) {
         require(urlString.startsWith("https://")) {
             "Refusing non-HTTPS download: " + urlString
@@ -291,6 +296,7 @@ class MinecraftDownloadManager(private val context: Context) {
             BufferedInputStream(connection.inputStream).use { input ->
                 FileOutputStream(temp).use { output ->
                     while (true) {
+                        control?.awaitIfPaused()
                         val read = input.read(buffer)
                         if (read < 0) break
                         output.write(buffer, 0, read)
