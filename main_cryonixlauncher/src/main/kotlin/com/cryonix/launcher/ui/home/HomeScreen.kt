@@ -45,7 +45,7 @@ object HomeScreen {
         }
         activity.findViewById<TextView>(R.id.home_profile).setOnClickListener { anchor ->
             val popup = PopupMenu(activity, anchor)
-            popup.menu.add("ishan1  •  Offline")
+            popup.menu.add("ishan1  •  Offline").isEnabled = false
             popup.menu.add("Accounts").setOnMenuItemClickListener {
                 activity.startActivity(Intent(activity, AccountsActivity::class.java))
                 true
