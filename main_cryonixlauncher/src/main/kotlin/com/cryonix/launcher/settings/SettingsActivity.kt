@@ -16,6 +16,8 @@ import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.minecraft.MinecraftActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.model.RendererProfile
+import com.cryonix.launcher.instances.InstancesActivity
+import com.cryonix.launcher.downloads.DownloadsActivity
 
 class SettingsActivity : Activity() {
     private lateinit var store: MinecraftSettingsStore
@@ -42,8 +44,7 @@ class SettingsActivity : Activity() {
             finish()
         }
         findViewById<ImageButton>(R.id.settings_versions).setOnClickListener { UiMotion.press(it);
-            startActivity(Intent(this, MinecraftActivity::class.java)
-                .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
+            startActivity(Intent(this, InstancesActivity::class.java))
         }
         findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener { UiMotion.press(it);
             startActivity(Intent(this, AccountsActivity::class.java))
@@ -58,6 +59,12 @@ class SettingsActivity : Activity() {
         findViewById<android.view.View>(R.id.settings_graphics).setOnClickListener { chooseGraphics() }
         findViewById<android.view.View>(R.id.settings_resolution_rule).setOnClickListener { chooseResolution() }
         findViewById<android.view.View>(R.id.settings_game_value).setOnClickListener { chooseGame() }
+        findViewById<android.view.View>(R.id.settings_sidebar_renderer).setOnClickListener { UiMotion.press(it); bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer) }
+        findViewById<android.view.View>(R.id.settings_sidebar_game).setOnClickListener { UiMotion.press(it); startActivity(Intent(this, InstancesActivity::class.java)); overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) }
+        findViewById<android.view.View>(R.id.settings_sidebar_controls).setOnClickListener { UiMotion.press(it); startActivity(Intent(this, ControlsActivity::class.java)); overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) }
+        findViewById<android.view.View>(R.id.settings_sidebar_launcher).setOnClickListener { UiMotion.press(it); startActivity(Intent(this, MainActivity::class.java)); overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) }
+        findViewById<android.view.View>(R.id.settings_sidebar_java).setOnClickListener { UiMotion.press(it); showInfo("Java", "Automatic runtime selection is enabled. Runtime management will be connected to the Java backend later.") }
+
         findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
 
         bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer)
