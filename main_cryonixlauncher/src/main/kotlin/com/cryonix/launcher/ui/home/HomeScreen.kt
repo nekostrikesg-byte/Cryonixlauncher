@@ -25,7 +25,6 @@ object HomeScreen {
         activity.findViewById<ImageButton>(R.id.home_versions).setOnClickListener {
             UiMotion.press(it)
             activity.startActivity(Intent(activity, InstancesActivity::class.java))
-            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         activity.findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
             UiMotion.press(it)
