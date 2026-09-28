@@ -5,6 +5,8 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.Switch
+import android.view.WindowManager
 import android.widget.ScrollView
 import android.widget.TextView
 import android.view.View
@@ -51,6 +53,22 @@ class SettingsActivity : Activity() {
         findViewById<android.view.View>(R.id.settings_sidebar_launcher).setOnClickListener {  scrollTo(R.id.settings_section_launcher) }
         findViewById<android.view.View>(R.id.settings_sidebar_java).setOnClickListener {  scrollTo(R.id.settings_section_java) }
 
+        val keepScreen = findViewById<Switch>(R.id.settings_keep_screen_on)
+        keepScreen.isChecked = store.keepScreenOn
+        keepScreen.setOnCheckedChangeListener { _, checked -> store.keepScreenOn = checked; window.keepScreenOn = checked }
+
+        val cutout = findViewById<Switch>(R.id.settings_cutout)
+        cutout.isChecked = store.useCutoutArea
+        cutout.setOnCheckedChangeListener { _, checked -> store.useCutoutArea = checked; applyCutoutMode() }
+
+        findViewById<View>(R.id.settings_cursor_studio).setOnClickListener {
+            startActivity(Intent(this, CursorStudioActivity::class.java))
+        }
+        findViewById<View>(R.id.settings_about).setOnClickListener {
+            startActivity(Intent(this, AboutActivity::class.java))
+        }
+
+        applyCutoutMode()
         findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
 
         bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer)
@@ -59,6 +77,7 @@ class SettingsActivity : Activity() {
         findViewById<View>(R.id.settings_overview_display).setOnClickListener { scrollTo(R.id.settings_section_gamepad) }
         findViewById<View>(R.id.settings_overview_controls).setOnClickListener { scrollTo(R.id.settings_section_controls) }
         findViewById<View>(R.id.settings_overview_advanced).setOnClickListener { scrollTo(R.id.settings_section_launcher) }
+        window.keepScreenOn = store.keepScreenOn
         refresh()
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
@@ -142,6 +161,18 @@ class SettingsActivity : Activity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    private fun applyCutoutMode() {
+        if (android.os.Build.VERSION.SDK_INT >= 28) {
+            window.attributes = window.attributes.apply {
+                layoutInDisplayCutoutMode = if (store.useCutoutArea) {
+                    WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                } else {
+                    WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER
+                }
+            }
+        }
     }
 
     private fun showInfo(title: String, message: String) {
