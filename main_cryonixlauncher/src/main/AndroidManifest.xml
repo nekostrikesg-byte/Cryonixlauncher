@@ -8,6 +8,11 @@
         android:theme="@style/CryonixTheme"
         android:supportsRtl="true">
 
+        <activity android:name=".instances.InstancesActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".downloads.DownloadsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".settings.ControlsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name=".settings.GamepadActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+
         <activity
             android:name=".accounts.AccountsActivity"
             android:screenOrientation="landscape"
