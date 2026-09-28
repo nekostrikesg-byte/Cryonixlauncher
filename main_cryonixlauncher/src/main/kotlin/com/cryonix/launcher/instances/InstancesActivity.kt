@@ -15,7 +15,15 @@ class InstancesActivity : Activity() {
         setContentView(R.layout.screen_instances)
         findViewById<TextView>(R.id.instances_back).setOnClickListener { UiMotion.press(it); finish() }
         findViewById<TextView>(R.id.instances_add).setOnClickListener { UiMotion.press(it); addInstance() }
+        bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
+    }
+
+    private fun bindPressAnimations(root: android.view.View) {
+        if (root.isClickable) UiMotion.bindPress(root)
+        if (root is android.view.ViewGroup) {
+            for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
+        }
     }
 
     private fun addInstance() {
