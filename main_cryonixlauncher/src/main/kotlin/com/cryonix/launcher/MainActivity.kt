@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.TextView
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.VersionManifestService
-import com.cryonix.launcher.settings.SettingsActivity
 import com.cryonix.launcher.ui.home.HomeScreen
 import kotlin.concurrent.thread
 
