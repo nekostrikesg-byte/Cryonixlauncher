@@ -37,7 +37,7 @@ class SettingsActivity : Activity() {
         resolutionValue = findViewById(R.id.settings_resolution_value)
         gameValue = findViewById(R.id.settings_game_value)
 
-        findViewById<ImageButton>(R.id.settings_back).setOnClickListener { UiMotion.press(it); finish() }
+        findViewById<ImageButton>(R.id.settings_back).setOnClickListener { finish() }
         findViewById<ImageButton>(R.id.settings_home).setOnClickListener { UiMotion.press(it);
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -73,7 +73,7 @@ class SettingsActivity : Activity() {
         bindNav(R.id.settings_nav_java, R.id.settings_section_java)
         refresh()
         bindPressAnimations(findViewById(android.R.id.content))
-        UiMotion.morphIn(findViewById(R.id.settings_scroll))
+        UiMotion.morphIn(findViewById(android.R.id.content))
     }
 
     private fun bindNav(navId: Int, targetId: Int) {
