@@ -15,6 +15,8 @@ import com.cryonix.launcher.ui.UiMotion
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
+import com.cryonix.launcher.settings.ControlsActivity
+import com.cryonix.launcher.settings.GamepadActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.model.RendererProfile
 
@@ -66,6 +68,12 @@ class SettingsActivity : Activity() {
         }
         findViewById<View>(R.id.settings_about).setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
+        }
+        findViewById<View>(R.id.settings_controls_screen).setOnClickListener {
+            startActivity(Intent(this, ControlsActivity::class.java))
+        }
+        findViewById<View>(R.id.settings_gamepad_screen).setOnClickListener {
+            startActivity(Intent(this, GamepadActivity::class.java))
         }
 
         applyCutoutMode()
