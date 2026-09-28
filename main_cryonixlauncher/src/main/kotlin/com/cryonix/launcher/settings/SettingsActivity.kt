@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ScrollView
 import android.widget.TextView
+import android.view.View
+import android.view.ViewGroup
+import com.cryonix.launcher.ui.UiMotion
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
@@ -33,19 +36,19 @@ class SettingsActivity : Activity() {
         resolutionValue = findViewById(R.id.settings_resolution_value)
         gameValue = findViewById(R.id.settings_game_value)
 
-        findViewById<ImageButton>(R.id.settings_back).setOnClickListener { finish() }
-        findViewById<ImageButton>(R.id.settings_home).setOnClickListener {
+        findViewById<ImageButton>(R.id.settings_back).setOnClickListener { UiMotion.press(it); finish() }
+        findViewById<ImageButton>(R.id.settings_home).setOnClickListener { UiMotion.press(it);
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-        findViewById<ImageButton>(R.id.settings_versions).setOnClickListener {
+        findViewById<ImageButton>(R.id.settings_versions).setOnClickListener { UiMotion.press(it);
             startActivity(Intent(this, MinecraftActivity::class.java)
                 .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
         }
-        findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener {
+        findViewById<ImageButton>(R.id.settings_accounts).setOnClickListener { UiMotion.press(it);
             startActivity(Intent(this, AccountsActivity::class.java))
         }
-        findViewById<ImageButton>(R.id.settings_download).setOnClickListener {
+        findViewById<ImageButton>(R.id.settings_download).setOnClickListener { UiMotion.press(it);
             startActivity(Intent(this, MinecraftActivity::class.java)
                 .putExtra(MinecraftActivity.EXTRA_SECTION, "versions"))
         }
@@ -68,7 +71,7 @@ class SettingsActivity : Activity() {
 
     private fun bindNav(navId: Int, targetId: Int) {
         val scroll = findViewById<ScrollView>(R.id.settings_scroll)
-        findViewById<android.view.View>(navId).setOnClickListener {
+        findViewById<android.view.View>(navId).setOnClickListener { UiMotion.press(it);
             val target = findViewById<android.view.View>(targetId)
             scroll.post { scroll.smoothScrollTo(0, target.top) }
         }
