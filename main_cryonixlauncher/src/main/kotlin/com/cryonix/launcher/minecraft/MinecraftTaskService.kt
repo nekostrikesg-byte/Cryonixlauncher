@@ -43,7 +43,6 @@ class MinecraftTaskService : Service() {
             }
         }
         refreshNotification()
-        if (intent?.action == MinecraftTaskNotification.ACTION_STOP) stopSelf()
         return START_NOT_STICKY
     }
 
