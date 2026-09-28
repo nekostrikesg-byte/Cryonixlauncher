@@ -57,7 +57,7 @@ class SettingsActivity : Activity() {
 
         val keepScreen = findViewById<Switch>(R.id.settings_keep_screen_on)
         keepScreen.isChecked = store.keepScreenOn
-        keepScreen.setOnCheckedChangeListener { _, checked -> store.keepScreenOn = checked; window.keepScreenOn = checked }
+        keepScreen.setOnCheckedChangeListener { _, checked -> store.keepScreenOn = checked; applyKeepScreenOn() }
 
         val cutout = findViewById<Switch>(R.id.settings_cutout)
         cutout.isChecked = store.useCutoutArea
@@ -85,7 +85,7 @@ class SettingsActivity : Activity() {
         findViewById<View>(R.id.settings_overview_display).setOnClickListener { scrollTo(R.id.settings_section_gamepad) }
         findViewById<View>(R.id.settings_overview_controls).setOnClickListener { scrollTo(R.id.settings_section_controls) }
         findViewById<View>(R.id.settings_overview_advanced).setOnClickListener { scrollTo(R.id.settings_section_launcher) }
-        window.keepScreenOn = store.keepScreenOn
+        applyKeepScreenOn()
         refresh()
         bindPressAnimations(findViewById(android.R.id.content))
         UiMotion.morphIn(findViewById(android.R.id.content))
@@ -169,6 +169,14 @@ class SettingsActivity : Activity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    private fun applyKeepScreenOn() {
+        if (store.keepScreenOn) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
     }
 
     private fun applyCutoutMode() {
