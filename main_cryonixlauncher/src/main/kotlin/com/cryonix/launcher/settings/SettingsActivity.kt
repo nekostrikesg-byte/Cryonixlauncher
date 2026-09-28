@@ -67,6 +67,8 @@ class SettingsActivity : Activity() {
         bindNav(R.id.settings_nav_launcher, R.id.settings_section_launcher)
         bindNav(R.id.settings_nav_java, R.id.settings_section_java)
         refresh()
+        bindPressAnimations(findViewById(android.R.id.content))
+        UiMotion.morphIn(findViewById(R.id.settings_scroll))
     }
 
     private fun bindNav(navId: Int, targetId: Int) {
@@ -152,7 +154,14 @@ class SettingsActivity : Activity() {
         vulkanValue.text = store.vulkanDriver
         graphicsValue.text = store.graphicsApi
         resolutionValue.text = store.resolutionRule
-        gameValue.text = "Version: Automatic\nLoader: undefined    •    Memory: undefined MB"
+        gameValue.text = "Version: Automatic\nLoader: ${store.loader.lowercase()}    •    Memory: ${store.memoryMb} MB"
+    }
+
+    private fun bindPressAnimations(root: View) {
+        if (root.isClickable) UiMotion.bindPress(root)
+        if (root is ViewGroup) {
+            for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
+        }
     }
 
     private fun rendererLabel(renderer: RendererProfile.Backend): String =
