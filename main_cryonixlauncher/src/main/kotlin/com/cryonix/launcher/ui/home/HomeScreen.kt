@@ -30,12 +30,9 @@ object HomeScreen {
         }
         activity.findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
             activity.startActivity(Intent(activity, DownloadsActivity::class.java))
-            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         activity.findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
-            UiMotion.press(it)
             activity.startActivity(Intent(activity, SettingsActivity::class.java))
-            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         activity.findViewById<TextView>(R.id.home_add_account).setOnClickListener {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
@@ -90,7 +87,6 @@ object HomeScreen {
             for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
         }
     }
-}
 
     private fun showInstanceDialog(activity: Activity, title: String, type: String) {
         AlertDialog.Builder(activity)
@@ -102,3 +98,4 @@ object HomeScreen {
             .setNegativeButton("Close", null)
             .show()
     }
+}
