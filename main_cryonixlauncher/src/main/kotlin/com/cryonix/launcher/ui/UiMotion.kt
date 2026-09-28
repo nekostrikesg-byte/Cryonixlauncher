@@ -41,7 +41,7 @@ object UiMotion {
         view.animate()
             .scaleX(1f)
             .scaleY(1f)
-             .setDuration(300)
+            .setDuration(300)
             .setInterpolator(jelly)
             .start()
     }
