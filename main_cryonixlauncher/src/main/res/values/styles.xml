@@ -8,5 +8,23 @@
         <item name="android:colorAccent">@color/cryonix_accent</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:alertDialogTheme">@style/CryonixDialogTheme</item>
+    </style>
+
+    <style name="CryonixDialogTheme" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorAccent">@color/cryonix_accent</item>
+        <item name="android:textColorPrimary">@color/cryonix_text</item>
+        <item name="android:textColorSecondary">@color/cryonix_text_secondary</item>
+        <item name="android:windowMinWidthMajor">72%</item>
+        <item name="android:windowMinWidthMinor">72%</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.62</item>
+        <item name="android:windowAnimationStyle">@style/CryonixDialogAnimation</item>
+    </style>
+
+    <style name="CryonixDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
 </resources>
