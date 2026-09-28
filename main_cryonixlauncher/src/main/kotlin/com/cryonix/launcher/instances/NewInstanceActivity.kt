@@ -115,6 +115,7 @@ class NewInstanceActivity : Activity() {
             status.text = "Select a valid Minecraft version first"
             return
         }
+        store.selectedInstanceName = name
         store.selectedVersionId = selectedVersion
         store.loader = selectedLoader
         store.loaderVersion = selectedLoaderVersion
