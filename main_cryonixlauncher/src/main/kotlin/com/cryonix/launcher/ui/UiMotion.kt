@@ -11,7 +11,7 @@ import android.view.animation.OvershootInterpolator
  */
 object UiMotion {
     private val settle = DecelerateInterpolator(1.6f)
-    private val jelly = OvershootInterpolator(1.35f)
+    private val jelly = OvershootInterpolator(1.45f)
 
     fun press(view: View) {
         view.animate().cancel()
@@ -35,13 +35,13 @@ object UiMotion {
     fun morphIn(view: View) {
         view.animate().cancel()
         view.alpha = 1f
-        view.scaleX = 0.88f
-        view.scaleY = 0.88f
+        view.scaleX = 0.84f
+        view.scaleY = 0.84f
         view.translationX = 0f
         view.animate()
             .scaleX(1f)
             .scaleY(1f)
-            .setDuration(260)
+             .setDuration(300)
             .setInterpolator(jelly)
             .start()
     }
