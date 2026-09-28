@@ -32,6 +32,10 @@ class MinecraftSettingsStore(context: Context) {
         get() = preferences.getString(KEY_VERSION, null)
         set(value) = preferences.edit().putString(KEY_VERSION, value).apply()
 
+    var selectedInstanceName: String?
+        get() = preferences.getString(KEY_SELECTED_INSTANCE, null)
+        set(value) = preferences.edit().putString(KEY_SELECTED_INSTANCE, value).apply()
+
     var profileName: String
         get() = preferences.getString(KEY_PROFILE_NAME, "Player") ?: "Player"
         set(value) = preferences.edit().putString(KEY_PROFILE_NAME, value).apply()
@@ -106,12 +110,16 @@ class MinecraftSettingsStore(context: Context) {
         val clean = name.trim().replace("|", "")
         if (clean.isEmpty() || instances.any { it.equals(clean, ignoreCase = true) }) return false
         instances = instances + clean
+        selectedInstanceName = clean
         saveInstanceConfig(defaultInstanceConfig(clean))
         return true
     }
 
     fun removeInstance(name: String) {
         instances = instances.filterNot { it == name }
+        if (selectedInstanceName == name) {
+            selectedInstanceName = instances.firstOrNull()
+        }
         preferences.edit().remove(instanceKey(name)).remove(serverKey(name)).apply()
     }
 
@@ -120,6 +128,7 @@ class MinecraftSettingsStore(context: Context) {
         if (clean.isEmpty() || instances.any { it.equals(clean, ignoreCase = true) }) return false
         val source = instanceConfig(name)
         instances = instances + clean
+        selectedInstanceName = clean
         saveInstanceConfig(source.copy(name = clean))
         servers(name).forEach { addServer(clean, it.copy(id = UUID.randomUUID().toString())) }
         return true
@@ -241,6 +250,7 @@ class MinecraftSettingsStore(context: Context) {
     private companion object {
         const val PREFS = "cryonix_launcher_settings"
         const val KEY_VERSION = "selected_version"
+        const val KEY_SELECTED_INSTANCE = "selected_instance"
         const val KEY_PROFILE_NAME = "profile_name"
         const val KEY_PROFILE_ID = "profile_id"
         const val KEY_LOADER = "loader"
