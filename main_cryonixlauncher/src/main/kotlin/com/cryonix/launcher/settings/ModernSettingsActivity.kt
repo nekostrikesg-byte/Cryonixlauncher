@@ -151,7 +151,7 @@ class ModernSettingsActivity : Activity() {
         })
         row.addView(text)
         row.addView(TextView(this).apply {
-            text = "›"
+            this.text = "›"
             textSize = 22f
             setTextColor(getColor(R.color.cryonix_muted))
             gravity = Gravity.CENTER
