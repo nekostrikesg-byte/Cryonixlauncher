@@ -3,6 +3,7 @@ package com.cryonix.launcher.ui.home
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.graphics.Color
 import android.view.Gravity
 import android.view.View
@@ -18,6 +19,7 @@ import com.cryonix.launcher.downloads.DownloadsActivity
 import com.cryonix.launcher.instances.InstancesActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.settings.SettingsActivity
+import com.cryonix.launcher.settings.ModernSettingsActivity
 import com.cryonix.launcher.ui.UiMotion
 
 object HomeScreen {
@@ -41,7 +43,16 @@ object HomeScreen {
             activity.startActivity(Intent(activity, DownloadsActivity::class.java))
         }
         activity.findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
-            activity.startActivity(Intent(activity, SettingsActivity::class.java))
+            activity.startActivity(Intent(activity, ModernSettingsActivity::class.java))
+        }
+        activity.findViewById<ImageButton>(R.id.home_home).setOnClickListener {
+            UiMotion.press(it)
+        }
+        activity.findViewById<TextView>(R.id.home_youtube).setOnClickListener {
+            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/")))
+        }
+        activity.findViewById<TextView>(R.id.home_discord).setOnClickListener {
+            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/")))
         }
         activity.findViewById<TextView>(R.id.home_profile).setOnClickListener { anchor ->
             val popup = PopupMenu(activity, anchor)
@@ -120,7 +131,7 @@ object HomeScreen {
         }
 
         val icon = ImageButton(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(activity, 48), dp(activity, 48))
+            layoutParams = LinearLayout.LayoutParams(dp(activity, 42), dp(activity, 42))
             setImageResource(R.drawable.ic_grass_block)
             background = null
             contentDescription = "Launch $name"
@@ -144,8 +155,8 @@ object HomeScreen {
         }
 
         val play = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(activity, 42), dp(activity, 42)).apply {
-                marginStart = dp(activity, 6)
+            layoutParams = LinearLayout.LayoutParams(dp(activity, 34), dp(activity, 34)).apply {
+                marginStart = dp(activity, 4)
             }
             text = "▶"
             gravity = Gravity.CENTER
@@ -160,8 +171,8 @@ object HomeScreen {
         }
 
         val delete = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(activity, 38), dp(activity, 42)).apply {
-                marginStart = dp(activity, 5)
+            layoutParams = LinearLayout.LayoutParams(dp(activity, 30), dp(activity, 34)).apply {
+                marginStart = dp(activity, 3)
             }
             text = "×"
             gravity = Gravity.CENTER
@@ -178,8 +189,8 @@ object HomeScreen {
         card.addView(title)
         card.addView(play)
         card.addView(delete)
-        card.layoutParams = LinearLayout.LayoutParams(dp(activity, 290), dp(activity, 72)).apply {
-            marginEnd = dp(activity, 10)
+        card.layoutParams = LinearLayout.LayoutParams(dp(activity, 176), dp(activity, 70)).apply {
+            bottomMargin = dp(activity, 7)
         }
         return card
     }
