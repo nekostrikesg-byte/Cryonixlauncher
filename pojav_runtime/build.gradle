@@ -74,16 +74,6 @@ android {
     }
 }
 
-afterEvaluate {
-    tasks.matching { it.name == 'mergeDebugAssets' || it.name == 'mergeReleaseAssets' }.configureEach {
-        dependsOn(
-            ':pojav_forge_installer:jar',
-            ':pojav_arc_dns_injector:jar',
-            ':pojav_jre_lwjgl3glfw:jar'
-        )
-    }
-}
-
 dependencies {
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
     implementation 'commons-codec:commons-codec:1.15'
