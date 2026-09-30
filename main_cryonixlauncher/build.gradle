@@ -33,10 +33,7 @@ android {
     sourceSets {
         main {
             // Pojav backend is physically inside the Cryonix launcher module.
-            java.srcDirs += file('src/main/java')
-            res.srcDirs += file('src/main/res_pojav')
             assets.srcDirs += file('src/main/assets')
-            jni.srcDirs += file('src/main/jni')
             jniLibs.srcDirs += file('src/main/jniLibs')
         }
     }
