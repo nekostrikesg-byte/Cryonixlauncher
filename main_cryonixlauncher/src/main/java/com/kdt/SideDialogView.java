@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.res.ResourcesCompat;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.Tools;
 
 /**

@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.R;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ClipboardManager;

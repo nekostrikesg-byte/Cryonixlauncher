@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch.customcontrols;
-import android.content.*;
+
+import com.cryonix.launcher.R;import android.content.*;
 
 import androidx.annotation.Keep;
 

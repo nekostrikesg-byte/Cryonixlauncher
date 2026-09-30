@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.R;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 import android.Manifest;
 import android.app.NotificationManager;

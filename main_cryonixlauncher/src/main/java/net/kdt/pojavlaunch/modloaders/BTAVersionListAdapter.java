@@ -8,7 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 
 import java.util.ArrayList;
 import java.util.List;

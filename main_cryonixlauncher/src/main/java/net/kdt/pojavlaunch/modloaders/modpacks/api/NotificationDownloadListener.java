@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import net.kdt.pojavlaunch.LauncherActivity;
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.modloaders.ModloaderDownloadListener;
 import net.kdt.pojavlaunch.modloaders.modpacks.ModloaderInstallTracker;

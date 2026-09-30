@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.R;
 import static net.kdt.pojavlaunch.Tools.currentDisplayMetrics;
 import static net.kdt.pojavlaunch.Tools.dialogForceClose;
 import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_ENABLE_GYRO;

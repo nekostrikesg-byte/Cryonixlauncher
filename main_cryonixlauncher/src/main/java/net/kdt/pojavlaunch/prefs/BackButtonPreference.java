@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 
 import androidx.preference.Preference;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
 

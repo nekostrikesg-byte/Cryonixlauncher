@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.R;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;

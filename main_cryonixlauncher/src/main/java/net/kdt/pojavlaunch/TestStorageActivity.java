@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.R;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;

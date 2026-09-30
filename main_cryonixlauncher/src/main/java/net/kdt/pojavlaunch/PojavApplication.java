@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.BuildConfig;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 import android.app.*;

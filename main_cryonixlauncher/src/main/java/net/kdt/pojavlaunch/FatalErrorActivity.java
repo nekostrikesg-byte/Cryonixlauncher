@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.R;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;

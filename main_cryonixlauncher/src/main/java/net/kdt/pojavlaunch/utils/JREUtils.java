@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch.utils;
 
+import com.cryonix.launcher.R;
 import static net.kdt.pojavlaunch.Architecture.ARCH_X86;
 import static net.kdt.pojavlaunch.Architecture.is64BitsDevice;
 import static net.kdt.pojavlaunch.Tools.LOCAL_RENDERER;

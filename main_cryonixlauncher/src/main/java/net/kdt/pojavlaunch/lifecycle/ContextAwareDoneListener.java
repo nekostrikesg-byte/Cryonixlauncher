@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import net.kdt.pojavlaunch.MainActivity;
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.lifecycle.ContextExecutor;
 import net.kdt.pojavlaunch.lifecycle.ContextExecutorTask;

@@ -9,7 +9,7 @@ import android.widget.SeekBar;
 
 import androidx.annotation.Nullable;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 
 /**
  * Seekbar with ability to handle ranges and increments

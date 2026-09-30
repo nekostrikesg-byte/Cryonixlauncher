@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch.modloaders;
 
+import com.cryonix.launcher.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

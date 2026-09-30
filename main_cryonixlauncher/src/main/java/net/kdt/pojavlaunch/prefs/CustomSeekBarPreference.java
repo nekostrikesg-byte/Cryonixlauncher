@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SeekBarPreference;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 
 public class CustomSeekBarPreference extends SeekBarPreference {
 

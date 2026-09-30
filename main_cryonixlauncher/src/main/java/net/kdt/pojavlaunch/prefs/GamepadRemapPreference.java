@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 
 import fr.spse.gamepad_remapper.Remapper;
 

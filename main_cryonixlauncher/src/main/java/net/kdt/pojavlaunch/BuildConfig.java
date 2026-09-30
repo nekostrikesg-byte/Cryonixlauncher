@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.BuildConfig;
 public final class BuildConfig {
     public static final boolean DEBUG = com.cryonix.launcher.BuildConfig.DEBUG;
     public static final String APPLICATION_ID = com.cryonix.launcher.BuildConfig.APPLICATION_ID;

@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.kdt.CustomSeekbar;
 
-import net.kdt.pojavlaunch.R;
+import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.utils.interfaces.SimpleSeekBarListener;
 

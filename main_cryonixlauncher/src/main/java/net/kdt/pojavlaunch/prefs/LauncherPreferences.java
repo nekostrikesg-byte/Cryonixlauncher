@@ -1,5 +1,6 @@
 package net.kdt.pojavlaunch.prefs;
 
+import com.cryonix.launcher.R;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.P;
 

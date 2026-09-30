@@ -1,5 +1,7 @@
 package net.kdt.pojavlaunch;
 
+import com.cryonix.launcher.BuildConfig;
+import com.cryonix.launcher.R;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.P;
 import static net.kdt.pojavlaunch.PojavApplication.sExecutorService;
