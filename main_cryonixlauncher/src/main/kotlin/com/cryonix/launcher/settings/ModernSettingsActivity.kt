@@ -2,16 +2,21 @@ package com.cryonix.launcher.settings
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
+import com.cryonix.launcher.accounts.AccountsActivity
+import com.cryonix.launcher.downloads.DownloadsActivity
+import com.cryonix.launcher.instances.InstancesActivity
 
 class ModernSettingsActivity : Activity() {
     override fun onCreate(state: Bundle?) {
@@ -23,144 +28,172 @@ class ModernSettingsActivity : Activity() {
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(getColor(R.color.cryonix_background))
-            setPadding(dp(8), dp(8), dp(8), dp(8))
         }
 
-        val nav = LinearLayout(this).apply {
-            gravity = Gravity.CENTER
-            setPadding(dp(4), dp(4), dp(4), dp(4))
-            setBackgroundResource(R.drawable.bg_nav)
+        val top = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setBackgroundResource(R.drawable.bg_top_bar)
+            setPadding(dp(18), 0, dp(10), 0)
         }
-        val navWidth = dp(330)
-        nav.layoutParams = LinearLayout.LayoutParams(navWidth, dp(46)).apply {
-            gravity = Gravity.CENTER_HORIZONTAL
-        }
-
-        fun navButton(icon: Int, label: String, action: () -> Unit): ImageButton {
-            return ImageButton(this).apply {
-                layoutParams = LinearLayout.LayoutParams(dp(52), dp(38)).apply { marginStart = dp(2) }
-                background = if (label == "settings") getDrawable(R.drawable.bg_nav_selected) else null
-                setImageResource(icon)
-                imageTintList = android.content.res.ColorStateList.valueOf(
-                    if (label == "settings") Color.WHITE else getColor(R.color.cryonix_icon)
-                )
-                contentDescription = label
-                setPadding(dp(10), dp(10), dp(10), dp(10))
-                setOnClickListener { action() }
-            }
-        }
-
-        nav.addView(navButton(R.drawable.ic_cube, "instances") {
-            startActivity(Intent(this, com.cryonix.launcher.instances.InstancesActivity::class.java))
-        })
-        nav.addView(navButton(R.drawable.ic_accounts, "accounts") {
-            startActivity(Intent(this, com.cryonix.launcher.accounts.AccountsActivity::class.java))
-        })
-        nav.addView(navButton(R.drawable.ic_download, "downloads") {
-            startActivity(Intent(this, com.cryonix.launcher.downloads.DownloadsActivity::class.java))
-        })
-        nav.addView(navButton(R.drawable.ic_settings, "settings") {})
-        nav.addView(navButton(R.drawable.ic_home, "home") {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        })
-        root.addView(nav)
-
-        val header = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(dp(8), dp(16), dp(8), dp(8))
-        }
-        header.addView(TextView(this).apply {
-            text = "Settings"
-            textSize = 22f
+        top.addView(TextView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(0, -1, 1f)
+            text = "+  Add account"
+            gravity = Gravity.CENTER_VERTICAL
+            textSize = 15f
             setTextColor(getColor(R.color.cryonix_text))
+            setOnClickListener {
+                startActivity(Intent(this@ModernSettingsActivity, AccountsActivity::class.java))
+            }
         })
-        header.addView(TextView(this).apply {
-            text = "Cryonix control center • choose a section"
-            textSize = 9f
-            setTextColor(getColor(R.color.cryonix_text_secondary))
+        top.addView(ImageButton(this).apply {
+            layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
+            background = android.graphics.drawable.ColorDrawable(Color.TRANSPARENT)
+            setImageResource(R.drawable.ic_home)
+            imageTintList = ColorStateList.valueOf(getColor(R.color.cryonix_text))
+            setPadding(dp(10), dp(10), dp(10), dp(10))
+            contentDescription = "Home"
+            setOnClickListener {
+                startActivity(Intent(this@ModernSettingsActivity, MainActivity::class.java))
+                finish()
+            }
         })
-        root.addView(header)
+        root.addView(top, LinearLayout.LayoutParams(-1, dp(54)))
 
-        val scroll = ScrollView(this).apply { isVerticalScrollBarEnabled = false }
+        root.addView(View(this).apply {
+            setBackgroundColor(getColor(R.color.cryonix_line))
+        }, LinearLayout.LayoutParams(-1, dp(2)))
+
+        val scroll = ScrollView(this).apply {
+            isVerticalScrollBarEnabled = false
+            overScrollMode = View.OVER_SCROLL_NEVER
+        }
         val list = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(8), 0, dp(8), dp(12))
+            setPadding(dp(28), dp(22), dp(28), dp(24))
         }
 
-        addSection(list, "GENERAL", "Launcher preferences, renderer and display options", R.drawable.ic_settings) {
+        list.addView(TextView(this).apply {
+            text = "Categories"
+            textSize = 14f
+            setTextColor(getColor(R.color.cryonix_cyan))
+            setPadding(dp(0), 0, 0, dp(12))
+        })
+
+        addSection(list, "Video and renderer", "Resolution, renderer and performance", R.drawable.ic_renderer) {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
-        addSection(list, "GAME", "Version, memory, loader and per-instance launch options", R.drawable.ic_rocket) {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-        addSection(list, "CONTROLS", "Touch layout, buttons, mouse and gamepad", R.drawable.ic_gamepad) {
+        addSection(list, "Control customization", "Gestures, buttons and scaling", R.drawable.ic_gamepad) {
             startActivity(Intent(this, ControlsActivity::class.java))
         }
-        addSection(list, "GAMEPAD", "Controller mapping and input presets", R.drawable.ic_gamepad) {
-            startActivity(Intent(this, GamepadActivity::class.java))
-        }
-        addSection(list, "CURSOR STUDIO", "Pointer presets and mobile desktop controls", R.drawable.ic_renderer) {
-            startActivity(Intent(this, CursorStudioActivity::class.java))
-        }
-        addSection(list, "JAVA & RUNTIME", "Runtime status, Java selection and engine preflight", R.drawable.ic_java) {
+        addSection(list, "Java tweaks", "Java runtimes, JVM arguments, RAM amount and sandbox", R.drawable.ic_java) {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
-        addSection(list, "ABOUT & CREDITS", "Version, source, licenses and project information", R.drawable.ic_home) {
-            startActivity(Intent(this, AboutActivity::class.java))
+        addSection(list, "Miscellaneous settings", "Version list, libraries check and launcher behavior", R.drawable.ic_settings) {
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
+        addSection(list, "Experimental stuff", "New Cryonix features and engine experiments", R.drawable.ic_rocket) {
+            startActivity(Intent(this, CursorStudioActivity::class.java))
+        }
+
+        val languageRow = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(dp(8), dp(7), dp(8), dp(7))
+            setBackgroundResource(R.drawable.bg_simple_row)
+            isClickable = true
+            isFocusable = true
+            setOnClickListener { startActivity(Intent(this@ModernSettingsActivity, SettingsActivity::class.java)) }
+        }
+        languageRow.addView(ImageView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
+            setPadding(dp(8), dp(8), dp(8), dp(8))
+            setImageResource(R.drawable.ic_home)
+            imageTintList = ColorStateList.valueOf(getColor(R.color.cryonix_text))
+        })
+        val langText = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(0, -2, 1f).apply { marginStart = dp(10) }
+        }
+        langText.addView(TextView(this).apply {
+            text = "Force language to English"
+            textSize = 13f
+            setTextColor(getColor(R.color.cryonix_text))
+        })
+        langText.addView(TextView(this).apply {
+            text = "Shows original launcher strings after restart"
+            textSize = 9f
+            setTextColor(getColor(R.color.cryonix_text_secondary))
+            maxLines = 1
+        })
+        languageRow.addView(langText)
+        languageRow.addView(TextView(this).apply {
+            text = "OFF"
+            textSize = 9f
+            setTextColor(getColor(R.color.cryonix_muted))
+            gravity = Gravity.CENTER
+            setPadding(dp(12), 0, dp(8), 0)
+        })
+        list.addView(languageRow, LinearLayout.LayoutParams(-1, dp(66)).apply { topMargin = dp(2) })
 
         scroll.addView(list)
         root.addView(scroll, LinearLayout.LayoutParams(-1, 0, 1f))
         return root
     }
 
-    private fun addSection(parent: LinearLayout, title: String, subtitle: String, icon: Int, action: () -> Unit) {
+    private fun addSection(
+        parent: LinearLayout,
+        title: String,
+        subtitle: String,
+        icon: Int,
+        action: () -> Unit
+    ) {
         val row = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
+            setPadding(dp(8), dp(7), dp(8), dp(7))
+            setBackgroundResource(R.drawable.bg_simple_row)
             isClickable = true
             isFocusable = true
-            setPadding(dp(12), dp(8), dp(10), dp(8))
-            setBackgroundResource(R.drawable.bg_reference_row)
             setOnClickListener { action() }
         }
-        val image = ImageButton(this).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(38), dp(38))
-            background = getDrawable(R.drawable.bg_nav)
+
+        row.addView(ImageView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
+            setPadding(dp(8), dp(8), dp(8), dp(8))
             setImageResource(icon)
-            imageTintList = android.content.res.ColorStateList.valueOf(getColor(R.color.cryonix_blue_bright))
-            setPadding(dp(9), dp(9), dp(9), dp(9))
-            contentDescription = title
-        }
-        row.addView(image)
-        val text = LinearLayout(this).apply {
+            imageTintList = ColorStateList.valueOf(getColor(R.color.cryonix_text))
+        })
+
+        val copy = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = LinearLayout.LayoutParams(0, -2, 1f).apply { marginStart = dp(10) }
         }
-        text.addView(TextView(this).apply {
-            this.text = title
-            textSize = 12f
+        copy.addView(TextView(this).apply {
+            text = title
+            textSize = 13f
             setTextColor(getColor(R.color.cryonix_text))
         })
-        text.addView(TextView(this).apply {
-            this.text = subtitle
-            textSize = 8f
+        copy.addView(TextView(this).apply {
+            text = subtitle
+            textSize = 9f
             setTextColor(getColor(R.color.cryonix_text_secondary))
             maxLines = 1
         })
-        row.addView(text)
+        row.addView(copy)
         row.addView(TextView(this).apply {
-            this.text = "›"
+            text = "›"
             textSize = 22f
             setTextColor(getColor(R.color.cryonix_muted))
             gravity = Gravity.CENTER
-            layoutParams = LinearLayout.LayoutParams(dp(26), -1)
+            layoutParams = LinearLayout.LayoutParams(dp(28), -1)
         })
-        parent.addView(row, LinearLayout.LayoutParams(-1, dp(62)).apply {
+
+        parent.addView(row, LinearLayout.LayoutParams(-1, dp(66)).apply {
             bottomMargin = dp(6)
         })
     }
 
-    private fun dp(value: Int): Int = (value * resources.displayMetrics.density).toInt()
+    private fun dp(value: Int): Int =
+        (value * resources.displayMetrics.density).toInt()
 }
