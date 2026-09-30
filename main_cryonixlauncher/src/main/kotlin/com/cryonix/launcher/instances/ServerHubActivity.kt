@@ -39,7 +39,7 @@ class ServerHubActivity : Activity() {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
                 setPadding(dp(12), dp(8), dp(8), dp(8))
-                setBackgroundResource(R.drawable.bg_reference_row)
+                setBackgroundResource(R.drawable.bg_pojav_row)
             }
             val info = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(0, dp(58), 1f)
@@ -51,19 +51,19 @@ class ServerHubActivity : Activity() {
             val refresh = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(dp(42), dp(42)).apply { marginStart = dp(6) }
                 text = "↻"; gravity = Gravity.CENTER; textSize = 18f
-                setTextColor(getColor(R.color.cryonix_text_secondary)); setBackgroundResource(R.drawable.bg_reference_pill)
+                setTextColor(getColor(R.color.cryonix_text_secondary)); setBackgroundResource(R.drawable.bg_pojav_row)
                 setOnClickListener { check(info, server.address, server.port) }
             }
             val edit = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(dp(42), dp(42)).apply { marginStart = dp(5) }
                 text = "⋯"; gravity = Gravity.CENTER; textSize = 18f
-                setTextColor(getColor(R.color.cryonix_text_secondary)); setBackgroundResource(R.drawable.bg_reference_pill)
+                setTextColor(getColor(R.color.cryonix_text_secondary)); setBackgroundResource(R.drawable.bg_pojav_row)
                 setOnClickListener { editServer(server) }
             }
             val remove = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(dp(42), dp(42)).apply { marginStart = dp(5) }
                 text = "×"; gravity = Gravity.CENTER; textSize = 18f
-                setTextColor(getColor(R.color.cryonix_text_secondary)); setBackgroundResource(R.drawable.bg_reference_pill)
+                setTextColor(getColor(R.color.cryonix_text_secondary)); setBackgroundResource(R.drawable.bg_pojav_row)
                 setOnClickListener { store.removeServer(instance, server.id); render() }
             }
             row.addView(info); row.addView(refresh); row.addView(edit); row.addView(remove)
