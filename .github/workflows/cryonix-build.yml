@@ -79,3 +79,39 @@ jobs:
           name: cryonix-debug-apk
           path: main_cryonixlauncher/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+      # The build sandboxes used by the project cannot reach GitHub's artifact
+      # CDN, so the APK is also published through git (dist/) and attached to a
+      # rolling pre-release. Both are optional extras: the step never fails the
+      # run when GitHub refuses the release upload.
+      - name: Publish the APK
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          APK=$(ls main_cryonixlauncher/build/outputs/apk/debug/*.apk | head -1)
+          echo "publishing $APK"
+          mkdir -p dist
+          cp -f "$APK" dist/cryonix-debug.apk
+          git add -f dist/cryonix-debug.apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "ci: publish the debug APK [skip ci]" || exit 0
+          git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
+
+      - name: Attach the APK to the rolling pre-release
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          APK=$(ls main_cryonixlauncher/build/outputs/apk/debug/*.apk | head -1)
+          if gh release view cryonix-debug >/dev/null 2>&1; then
+            gh release upload cryonix-debug "$APK" --clobber
+          else
+            gh release create cryonix-debug "$APK" \
+              --title "Cryonix debug builds" \
+              --notes "Rolling debug APK built from ${GITHUB_REF_NAME} (${GITHUB_SHA})." \
+              --prerelease
+          fi
