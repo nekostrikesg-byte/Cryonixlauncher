@@ -45,7 +45,6 @@ android {
             res.srcDirs += new File(pojavApp, 'src/main/res')
             assets.srcDirs += new File(pojavApp, 'src/main/assets')
             jniLibs.srcDirs += new File(pojavApp, 'src/main/jniLibs')
-            jni.srcDirs += new File(pojavApp, 'src/main/jni')
         }
     }
 
