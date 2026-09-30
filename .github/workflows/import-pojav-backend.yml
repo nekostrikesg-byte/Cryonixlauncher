@@ -41,7 +41,33 @@ jobs:
           rsync -a /tmp/pojav/app_pojavlauncher/libs/ main_cryonixlauncher/libs/
           mkdir -p main_cryonixlauncher/src/main/res_pojav
           rsync -a /tmp/pojav/app_pojavlauncher/src/main/res/ main_cryonixlauncher/src/main/res_pojav/
-          rm -f main_cryonixlauncher/src/main/res_pojav/values/strings.xml
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          base=Path("main_cryonixlauncher/src/main/res")
+          pojav=Path("main_cryonixlauncher/src/main/res_pojav")
+          for f in list(pojav.rglob("*.xml")):
+              rel=f.relative_to(pojav)
+              dest=base/rel
+              if not dest.exists():
+                  continue
+              if rel.parts[0].startswith("values"):
+                  try:
+                      a=ET.parse(dest); ar=a.getroot()
+                      b=ET.parse(f); br=b.getroot()
+                      for x in br:
+                          name=x.attrib.get("name")
+                          if name=="app_name":
+                              continue
+                          if name and any(y.tag==x.tag and y.attrib.get("name")==name for y in ar):
+                              continue
+                          ar.append(x)
+                      a.write(dest,encoding="utf-8",xml_declaration=True)
+                  except Exception:
+                      f.unlink()
+              else:
+                  f.unlink()
+          PY
           rm -rf engine/pojav pojav_runtime
           rm -f .gitmodules
           git add main_cryonixlauncher engine/pojav pojav_runtime .gitmodules
