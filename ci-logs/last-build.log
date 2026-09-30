@@ -19,12 +19,12 @@ Daemon will be stopped at the end of the build
 > Task :main_cryonixlauncher:checkDebugDuplicateClasses
 > Task :main_cryonixlauncher:generateDebugRFile
 > Task :main_cryonixlauncher:mergeLibDexDebug
-> Task :main_cryonixlauncher:checkDebugAarMetadata
 > Task :main_cryonixlauncher:mapDebugSourceSetPaths
+> Task :main_cryonixlauncher:checkDebugAarMetadata
 > Task :main_cryonixlauncher:compileDebugNavigationResources
+> Task :main_cryonixlauncher:desugarDebugFileDependencies
 > Task :main_cryonixlauncher:createDebugCompatibleScreenManifests
 > Task :main_cryonixlauncher:extractDeepLinksDebug
-> Task :main_cryonixlauncher:desugarDebugFileDependencies
 
 > Task :main_cryonixlauncher:processDebugMainManifest
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-105:12 Warning:
@@ -35,7 +35,6 @@ Daemon will be stopped at the end of the build
 > Task :main_cryonixlauncher:mergeDebugResources
 > Task :main_cryonixlauncher:processDebugManifest
 > Task :main_cryonixlauncher:configureNdkBuildDebug[arm64-v8a]
-> Task :main_cryonixlauncher:processDebugManifestForPackage
 
 > Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
 C/C++: rm: cannot remove '/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/../jniLibs/*/libawt_headless.so': No such file or directory
@@ -79,14 +78,6 @@ C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/sr
 C/C++: void free_char_array(JNIEnv *env, jobjectArray jstringArray, const char **charArray) {
 C/C++:                                                                           ^
 C/C++: 2 warnings generated.
-
-warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
-warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
-
-
-> Task :main_cryonixlauncher:processDebugResources
-
-> Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
 C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/awt_bridge.c:120:109: warning: incompatible pointer to integer conversion passing 'void *' to parameter of type 'jint' (aka 'int') [-Wint-conversion]
 C/C++:     (*runtimeJNIEnvPtr_GRAPHICS)->ReleaseIntArrayElements(runtimeJNIEnvPtr_GRAPHICS, jreRgbArray, rgbArray, NULL);
 C/C++:                                                                                                             ^~~~
@@ -95,21 +86,21 @@ C/C++: #  define NULL ((void*)0)
 C/C++:                ^~~~~~~~~~
 C/C++: 1 warning generated.
 
+> Task :main_cryonixlauncher:processDebugManifestForPackage
 > Task :main_cryonixlauncher:mergeDebugJniLibFolders
 > Task :main_cryonixlauncher:mergeDebugNativeLibs
+> Task :main_cryonixlauncher:stripDebugDebugSymbols
+warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
+warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
+
+> Task :main_cryonixlauncher:processDebugResources
 > Task :main_cryonixlauncher:mergeExtDexDebug
 > Task :main_cryonixlauncher:validateSigningDebug
 > Task :main_cryonixlauncher:writeDebugAppMetadata
 > Task :main_cryonixlauncher:writeDebugSigningConfigVersions
-> Task :main_cryonixlauncher:stripDebugDebugSymbols
 > Task :main_cryonixlauncher:compileDebugKotlin
 
 > Task :main_cryonixlauncher:compileDebugJavaWithJavac
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/net/kdt/pojavlaunch/customcontrols/ControlData.java:226: error: cannot find symbol
-        builder.get().expression(stringExpression);
-                     ^
-  symbol:   method expression(String)
-  location: class ExpressionBuilder
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/net/kdt/pojavlaunch/scoped/FolderProvider.java:84: error: cannot find symbol
         String summary = CryonixBuildInfo.VERSION_NAME;
                          ^
@@ -122,10 +113,10 @@ C/C++: 1 warning generated.
   location: class FolderProvider
 Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-3 errors
+2 errors
 
 > Task :main_cryonixlauncher:compileDebugJavaWithJavac FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790784391380.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790784591874.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/build/reports/problems/problems-report.html
 
@@ -146,12 +137,7 @@ Execution failed for task ':main_cryonixlauncher:compileDebugJavaWithJavac' (reg
     symbol:   variable CryonixBuildInfo
     location: class FolderProvider
   Note: Some input files use or override a deprecated API.
-  /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/net/kdt/pojavlaunch/customcontrols/ControlData.java:226: error: cannot find symbol
-          builder.get().expression(stringExpression);
-                       ^
-    symbol:   method expression(String)
-    location: class ExpressionBuilder
-  3 errors
+  2 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -193,11 +179,6 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cr
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/net/kdt/pojavlaunch/customcontrols/ControlData.java:226: error: cannot find symbol
-        builder.get().expression(stringExpression);
-                     ^
-  symbol:   method expression(String)
-  location: class ExpressionBuilder
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/net/kdt/pojavlaunch/scoped/FolderProvider.java:84: error: cannot find symbol
         String summary = CryonixBuildInfo.VERSION_NAME;
                          ^
@@ -210,7 +191,7 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
   location: class FolderProvider
 Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-3 errors
+2 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -351,5 +332,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 52s
+BUILD FAILED in 31s
 36 actionable tasks: 36 executed
