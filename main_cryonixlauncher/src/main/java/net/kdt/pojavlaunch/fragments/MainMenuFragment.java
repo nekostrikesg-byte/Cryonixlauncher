@@ -50,6 +50,20 @@ public class MainMenuFragment extends Fragment {
         Button mPlayButton = view.findViewById(R.id.play_button);
         mVersionSpinner = view.findViewById(R.id.mc_version_spinner);
 
+        View instancesShortcut = view.findViewById(R.id.home_instances);
+        if (instancesShortcut != null) {
+            instancesShortcut.setOnClickListener(v -> startActivity(new Intent(requireContext(), net.kdt.pojavlaunch.instances.InstancesActivity.class)));
+        }
+        View settingsShortcut = view.findViewById(R.id.home_settings);
+        if (settingsShortcut == null) settingsShortcut = view.findViewById(R.id.home_settings_shortcut);
+        if (settingsShortcut != null) {
+            settingsShortcut.setOnClickListener(v -> startActivity(new Intent(requireContext(), net.kdt.pojavlaunch.settings.SettingsActivity.class)));
+        }
+        View addAccount = view.findViewById(R.id.home_accounts);
+        if (addAccount != null) {
+            addAccount.setOnClickListener(v -> ExtraCore.setValue(ExtraConstants.SELECT_AUTH_METHOD, true));
+        }
+
         mNewsButton.setOnClickListener(v -> Tools.openURL(requireActivity(), Tools.URL_HOME));
         mDiscordButton.setOnClickListener(v -> Tools.openURL(requireActivity(), getString(R.string.discord_invite)));
         mCustomControlButton.setOnClickListener(v -> startActivity(new Intent(requireContext(), CustomControlsActivity.class)));
