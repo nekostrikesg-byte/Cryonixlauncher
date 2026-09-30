@@ -1,5 +1,8 @@
 name: Cryonix build
 
+permissions:
+  contents: write
+
 on:
   push:
     branches: [cryonix_v2sdl, 'arena/**']
@@ -90,7 +93,16 @@ jobs:
               size += len(line) + 1
           if chunk:
               print(f"::error title=gradle {announced}::" + '\n'.join(chunk))
+          with open('ci-logs/last-build.log', 'w') as out:
+              out.write('\n'.join(text[-4000:]))
           PY
+
+          mkdir -p ci-logs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f ci-logs/last-build.log
+          git commit -m "ci: capture the failing gradle log [skip ci]" || true
+          git push || true
 
       - name: Upload APK
         if: success()

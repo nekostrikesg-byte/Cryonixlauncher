@@ -62,7 +62,7 @@ android {
         }
     }
 
-    packagingOptions {
+    packaging {
         jniLibs {
             // The Pojav backend dlopen()s its own libraries, so they must stay
             // as real files inside the nativeLibraryDir.
