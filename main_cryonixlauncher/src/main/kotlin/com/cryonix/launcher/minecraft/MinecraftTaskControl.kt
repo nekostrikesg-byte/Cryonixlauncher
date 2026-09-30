@@ -1,7 +1,7 @@
 package com.cryonix.launcher.minecraft
 
 class MinecraftTaskControl {
-    private val lock = Object()
+    private val lock = Any()
 
     @Volatile var paused: Boolean = false
         private set
