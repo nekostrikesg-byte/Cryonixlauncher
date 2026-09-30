@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">Cryonixlauncher</string>
+    <!-- These values are source resources so IDE builders resolve them without Gradle resValue. -->
+    <string name="application_package">git.neko.cryonix</string>
+    <string name="storageProviderAuthorities">git.neko.cryonix.scoped.gamefolder</string>
+    <string name="shareProviderAuthority">git.neko.cryonix.scoped.controlfolder</string>
+    <string name="curseforge_api_key">DUMMY</string>
     <!-- Override the gamepad-remapper dependency's invalid unindexed format string. -->
     <string name="bind_process_waiting_joystick" formatted="false">Move the %s joystick to the %s</string>
 

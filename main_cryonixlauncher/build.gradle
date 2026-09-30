@@ -25,11 +25,6 @@ android {
         versionCode 1
         versionName '0.1.0'
 
-        resValue 'string', 'application_package', 'git.neko.cryonix'
-        resValue 'string', 'storageProviderAuthorities', 'git.neko.cryonix.scoped.gamefolder'
-        resValue 'string', 'shareProviderAuthority', 'git.neko.cryonix.scoped.controlfolder'
-        resValue 'string', 'curseforge_api_key', 'DUMMY'
-
         ndk {
             abiFilters(*defaultAbis.toArray(new String[0]))
         }
