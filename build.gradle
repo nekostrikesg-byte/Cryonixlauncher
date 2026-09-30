@@ -1,3 +1,27 @@
 plugins {
     id 'com.android.application' version '9.4.0' apply false
+    id 'com.android.library' version '9.4.0' apply false
+}
+
+ext.gitUsed = {
+    def proc = new ProcessBuilder('git', 'rev-parse', '--is-inside-work-tree')
+        .directory(rootDir)
+        .redirectErrorStream(true)
+        .start()
+    proc.waitFor() == 0 && proc.inputStream.text.trim() == 'true'
+}
+
+ext.getGitHash = { String projectPath ->
+    def proc = new ProcessBuilder('git', 'rev-list', '-1', 'HEAD', projectPath)
+        .directory(rootDir)
+        .redirectErrorStream(true)
+        .start()
+    proc.waitFor()
+    if (proc.exitValue() != 0) return 'unknown'
+    proc.inputStream.text.trim()
+}
+
+subprojects {
+    ext.gitUsed = { rootProject.ext.gitUsed.call() }
+    ext.getGitHash = { String projectPath -> rootProject.ext.getGitHash.call(projectPath) }
 }
