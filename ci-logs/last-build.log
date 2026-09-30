@@ -8,28 +8,136 @@ Daemon will be stopped at the end of the build
 > Task :main_cryonixlauncher:generateDebugBuildConfig
 > Task :main_cryonixlauncher:generateDebugResValues
 > Task :main_cryonixlauncher:generateDebugResources
-
-> Task :main_cryonixlauncher:packageDebugResources FAILED
-ERROR: [drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.xml [drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.png: Resource and asset merger: Duplicate resources
-ERROR: [drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.xml [drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.9.png: Resource and asset merger: Duplicate resources
-ERROR: [drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.xml [drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.9.png: Resource and asset merger: Duplicate resources
-ERROR: [drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.png [drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.xml: Resource and asset merger: Duplicate resources
-ERROR: [drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.webp [drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.xml: Resource and asset merger: Duplicate resources
-ERROR: [drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.png [drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.xml: Resource and asset merger: Duplicate resources
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790775754977.json
+> Task :main_cryonixlauncher:packageDebugResources
+> Task :main_cryonixlauncher:processDebugNavigationResources
+> Task :main_cryonixlauncher:generateDebugAssets UP-TO-DATE
+> Task :main_cryonixlauncher:javaPreCompileDebug
+> Task :main_cryonixlauncher:mergeDebugAssets
+> Task :main_cryonixlauncher:parseDebugLocalResources
+> Task :main_cryonixlauncher:compressDebugAssets
+> Task :main_cryonixlauncher:generateDebugGlobalSynthetics
+> Task :main_cryonixlauncher:checkDebugDuplicateClasses FAILED
+> Task :main_cryonixlauncher:generateDebugRFile
+> Task :main_cryonixlauncher:desugarDebugFileDependencies
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790775926436.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/build/reports/problems/problems-report.html
 
 FAILURE: Build failed with an exception.
 
 * What went wrong:
-Execution failed for task ':main_cryonixlauncher:packageDebugResources' (registered by plugin 'com.android.internal.application').
-> [drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.xml	[drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.png: Error: Duplicate resources
-  [drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.xml	[drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.9.png: Error: Duplicate resources
-  [drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.xml	[drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.9.png: Error: Duplicate resources
-  [drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.png	[drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.xml: Error: Duplicate resources
-  [drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.webp	[drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.xml: Error: Duplicate resources
-  [drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.png	[drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.xml: Error: Duplicate resources
+Execution failed for task ':main_cryonixlauncher:checkDebugDuplicateClasses' (registered by plugin 'com.android.internal.application').
+> A failure occurred while executing com.android.build.gradle.internal.tasks.CheckDuplicatesRunnable
+   > Duplicate class org.apache.commons.io.ByteOrderMark found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.Charsets found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.CopyUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.DirectoryWalker found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.DirectoryWalker$CancelException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.EndianUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileCleaner found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileCleaningTracker found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileCleaningTracker$Reaper found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileCleaningTracker$Tracker found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileDeleteStrategy found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileDeleteStrategy$ForceFileDeleteStrategy found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileExistsException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileSystemUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FileUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.FilenameUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.HexDump found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.IOCase found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.IOExceptionWithCause found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.IOUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.LineIterator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.TaggedIOException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.ThreadMonitor found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.AbstractFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.CompositeFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.DefaultFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.DirectoryFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.ExtensionFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.LastModifiedFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.NameFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.PathFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.comparator.SizeFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.AbstractFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.AgeFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.AndFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.CanReadFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.CanWriteFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.ConditionalFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.DelegateFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.DirectoryFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.EmptyFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.FalseFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.FileFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.FileFilterUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.HiddenFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.IOFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.MagicNumberFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.NameFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.NotFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.OrFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.PrefixFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.RegexFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.SizeFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.SuffixFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.TrueFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.WildcardFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.filefilter.WildcardFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.AutoCloseInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.BOMInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.BoundedInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.BrokenInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.CharSequenceInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.CharSequenceReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ClassLoaderObjectInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.CloseShieldInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ClosedInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.CountingInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.DemuxInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.NullInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.NullReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ProxyInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ProxyReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ReaderInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ReversedLinesFileReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ReversedLinesFileReader$1 found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.ReversedLinesFileReader$FilePart found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.SwappedDataInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.TaggedInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.Tailer found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.TailerListener found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.TailerListenerAdapter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.TeeInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.XmlStreamReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.input.XmlStreamReaderException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.monitor.FileAlterationListener found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.monitor.FileAlterationListenerAdaptor found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.monitor.FileAlterationMonitor found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.monitor.FileAlterationObserver found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.monitor.FileEntry found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.BrokenOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.ByteArrayOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.CloseShieldOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.ClosedOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.CountingOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.DeferredFileOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.DemuxOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.FileWriterWithEncoding found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.LockableFileWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.NullOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.NullWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.ProxyOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.ProxyWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.StringBuilderWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.TaggedOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.TeeOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.ThresholdingOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.WriterOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     Duplicate class org.apache.commons.io.output.XmlStreamWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+     
+     Learn how to fix dependency resolution errors at https://d.android.com/r/tools/classpath-sync-errors
 
 * Try:
 > Run with --info or --debug option to get more log output.
@@ -37,7 +145,7 @@ Execution failed for task ':main_cryonixlauncher:packageDebugResources' (registe
 > Get more help at https://help.gradle.org.
 
 * Exception is:
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cryonixlauncher:packageDebugResources' (registered by plugin 'com.android.internal.application').
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cryonixlauncher:checkDebugDuplicateClasses' (registered by plugin 'com.android.internal.application').
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
@@ -71,23 +179,24 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cr
 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: com.android.build.gradle.tasks.ResourceException: [drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.xml	[drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.png: Error: Duplicate resources
-[drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.xml	[drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.9.png: Error: Duplicate resources
-[drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.xml	[drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.9.png: Error: Duplicate resources
-[drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.png	[drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.xml: Error: Duplicate resources
-[drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.webp	[drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.xml: Error: Duplicate resources
-[drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.png	[drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.xml: Error: Duplicate resources
-	at com.android.build.gradle.tasks.MergeResources.doFullTaskAction(MergeResources.kt:282)
-	at com.android.build.gradle.tasks.MergeResources.doTaskAction(MergeResources.kt:311)
-	at com.android.build.gradle.internal.tasks.NewIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:75)
-	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
-	at com.android.build.gradle.internal.tasks.NewIncrementalTask.taskAction(NewIncrementalTask.kt:64)
-	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
-	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
-	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
-	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
-	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
-	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing com.android.build.gradle.internal.tasks.CheckDuplicatesRunnable
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:278)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:132)
+	at org.gradle.internal.Factories$1.create(Factories.java:30)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withoutLocksBlocking$3(DefaultWorkerLeaseService.java:410)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocksBlocking(DefaultWorkerLeaseService.java:405)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.blocking(DefaultWorkerLeaseService.java:255)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.blocking(DefaultWorkerLeaseService.java:237)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$3(DefaultAsyncWorkTracker.java:128)
+	at org.gradle.internal.Factories$1.create(Factories.java:30)
+	at org.gradle.internal.resources.AbstractResourceLockRegistry.whileDisallowingLockChanges(AbstractResourceLockRegistry.java:50)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.whileDisallowingProjectLockChanges(DefaultWorkerLeaseService.java:260)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:127)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:93)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:79)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:67)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:267)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
@@ -184,19 +293,149 @@ Caused by: com.android.build.gradle.tasks.ResourceException: [drawable/ic_mouse_
 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
 	... 30 more
-Caused by: [drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.xml	[drawable/ic_mouse_pointer] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_mouse_pointer.png: Error: Duplicate resources
-[drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.xml	[drawable/mine_button_unfocused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_unfocused.9.png: Error: Duplicate resources
-[drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.xml	[drawable/mine_button_focused] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/mine_button_focused.9.png: Error: Duplicate resources
-[drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.png	[drawable/spinner_arrow] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow.xml: Error: Duplicate resources
-[drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.webp	[drawable/ic_setting_sign_in_background] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/ic_setting_sign_in_background.xml: Error: Duplicate resources
-[drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.png	[drawable/spinner_arrow_right] /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/drawable/spinner_arrow_right.xml: Error: Duplicate resources
-	at com.android.ide.common.resources.DataSet.checkItems(DataSet.java:516)
-	at com.android.ide.common.resources.DataSet.loadFromFiles(DataSet.java:277)
-	at com.android.ide.common.resources.DataSet.loadFromFiles(DataSet.java:247)
-	at com.android.build.gradle.tasks.MergeResources$doFullTaskAction$1$1$1.invoke(MergeResources.kt:231)
-	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
-	at com.android.build.gradle.tasks.MergeResources.doFullTaskAction(MergeResources.kt:229)
-	... 135 more
+Caused by: java.lang.RuntimeException: Duplicate class org.apache.commons.io.ByteOrderMark found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.Charsets found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.CopyUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.DirectoryWalker found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.DirectoryWalker$CancelException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.EndianUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileCleaner found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileCleaningTracker found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileCleaningTracker$Reaper found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileCleaningTracker$Tracker found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileDeleteStrategy found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileDeleteStrategy$ForceFileDeleteStrategy found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileExistsException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileSystemUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FileUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.FilenameUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.HexDump found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.IOCase found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.IOExceptionWithCause found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.IOUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.LineIterator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.TaggedIOException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.ThreadMonitor found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.AbstractFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.CompositeFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.DefaultFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.DirectoryFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.ExtensionFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.LastModifiedFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.NameFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.PathFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.comparator.SizeFileComparator found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.AbstractFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.AgeFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.AndFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.CanReadFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.CanWriteFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.ConditionalFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.DelegateFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.DirectoryFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.EmptyFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.FalseFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.FileFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.FileFilterUtils found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.HiddenFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.IOFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.MagicNumberFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.NameFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.NotFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.OrFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.PrefixFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.RegexFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.SizeFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.SuffixFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.TrueFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.WildcardFileFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.filefilter.WildcardFilter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.AutoCloseInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.BOMInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.BoundedInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.BrokenInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.CharSequenceInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.CharSequenceReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ClassLoaderObjectInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.CloseShieldInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ClosedInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.CountingInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.DemuxInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.NullInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.NullReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ProxyInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ProxyReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ReaderInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ReversedLinesFileReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ReversedLinesFileReader$1 found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.ReversedLinesFileReader$FilePart found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.SwappedDataInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.TaggedInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.Tailer found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.TailerListener found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.TailerListenerAdapter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.TeeInputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.XmlStreamReader found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.input.XmlStreamReaderException found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.monitor.FileAlterationListener found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.monitor.FileAlterationListenerAdaptor found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.monitor.FileAlterationMonitor found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.monitor.FileAlterationObserver found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.monitor.FileEntry found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.BrokenOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.ByteArrayOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.CloseShieldOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.ClosedOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.CountingOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.DeferredFileOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.DemuxOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.FileWriterWithEncoding found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.LockableFileWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.NullOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.NullWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.ProxyOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.ProxyWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.StringBuilderWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.TaggedOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.TeeOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.ThresholdingOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.WriterOutputStream found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+Duplicate class org.apache.commons.io.output.XmlStreamWriter found in modules ExagearApacheCommons.jar -> ExagearApacheCommons (ExagearApacheCommons.jar) and commons-io-2.16.1.jar -> commons-io-2.16.1 (commons-io:commons-io:2.16.1)
+
+Learn how to fix dependency resolution errors at https://d.android.com/r/tools/classpath-sync-errors
+	at com.android.build.gradle.internal.tasks.CheckDuplicateClassesDelegate.run(CheckDuplicateClassesDelegate.kt:59)
+	at com.android.build.gradle.internal.tasks.CheckDuplicatesRunnable.execute(CheckDuplicateClassesDelegate.kt:85)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:64)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:61)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:102)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:61)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:58)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:174)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:191)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$500(DefaultConditionalExecutionQueue.java:112)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:168)
+	at org.gradle.internal.Factories$1.create(Factories.java:30)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:135)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:163)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:125)
+	... 2 more
 
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
@@ -205,5 +444,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 10s
-5 actionable tasks: 5 executed
+BUILD FAILED in 19s
+14 actionable tasks: 14 executed
