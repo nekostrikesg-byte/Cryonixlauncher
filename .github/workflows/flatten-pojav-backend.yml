@@ -54,3 +54,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Vendor Pojav runtime jars and bind backend to Cryonix resources [skip ci]" || exit 0
           git push origin HEAD:cryonix_v2sdl
+
+      # The vendored dalvik annotation is intentionally not imported: with the
+      # Java 17 source level javac refuses a source file for a package that the
+      # Android platform module already provides
+      # ("error: package exists in another module: java.base").
+      #      rm -f main_cryonixlauncher/src/main/java/dalvik/annotation/optimization/CriticalNative.java
