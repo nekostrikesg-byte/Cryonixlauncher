@@ -70,7 +70,7 @@ jobs:
           PY
           rm -rf engine/pojav pojav_runtime
           rm -f .gitmodules
-          git add main_cryonixlauncher engine/pojav pojav_runtime .gitmodules
+          git add -A
           if git diff --cached --quiet; then
             echo "Nothing to import"
             exit 0
