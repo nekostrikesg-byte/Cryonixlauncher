@@ -19,3 +19,11 @@ dependencyResolutionManagement {
 
 rootProject.name = 'CryonixLauncher'
 include ':main_cryonixlauncher'
+include ':pojav_runtime'
+include ':pojav_jre_lwjgl3glfw'
+include ':pojav_forge_installer'
+include ':pojav_arc_dns_injector'
+
+project(':pojav_jre_lwjgl3glfw').projectDir = file('engine/pojav/jre_lwjgl3glfw')
+project(':pojav_forge_installer').projectDir = file('engine/pojav/forge_installer')
+project(':pojav_arc_dns_injector').projectDir = file('engine/pojav/arc_dns_injector')
