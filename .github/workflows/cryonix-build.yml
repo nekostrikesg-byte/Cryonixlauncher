@@ -1,6 +1,7 @@
 name: Cryonix build
 # Pojav backend is imported directly into main_cryonixlauncher.
 # Validate the flattened backend import.
+# Resource merge validated.
 
 on:
   push:
