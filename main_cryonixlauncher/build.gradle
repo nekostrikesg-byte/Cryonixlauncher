@@ -33,6 +33,12 @@ android {
         prefab true
     }
 
+    // Pojav sources are kept in net.kdt.pojavlaunch and use an unqualified
+    // R reference. Generate an alias R class for that original package too.
+    aaptOptions {
+        additionalParameters '--extra-packages', 'net.kdt.pojavlaunch'
+    }
+
     // Keep the upstream Pojav source tree and filenames intact. Cryonix compiles
     // the backend from the checked-out submodule instead of copying/renaming it.
     sourceSets {
