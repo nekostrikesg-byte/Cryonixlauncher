@@ -63,6 +63,7 @@ jobs:
                               continue
                           ar.append(x)
                       a.write(dest,encoding="utf-8",xml_declaration=True)
+                      f.unlink()
                   except Exception:
                       f.unlink()
               else:
