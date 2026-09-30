@@ -1,5 +1,15 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+// Native ABIs packaged by default. The vendored Pojav/Mojo backend ships
+// prebuilt natives for arm64-v8a. Extra ABIs (armeabi-v7a, x86, x86_64) are
+// added by initializing the engine/pojav submodule and running the
+// syncPojavBackend task, or by passing -PcryonixAbis=...
+def defaultAbis = ['arm64-v8a']
+if (project.hasProperty('cryonixAbis')) {
+    defaultAbis = project.property('cryonixAbis').split(',').collect { it.trim() }
 }
 
 android {
@@ -17,12 +27,17 @@ android {
         resValue 'string', 'storageProviderAuthorities', 'git.neko.cryonix.scoped.gamefolder'
         resValue 'string', 'shareProviderAuthority', 'git.neko.cryonix.scoped.controlfolder'
         resValue 'string', 'curseforge_api_key', 'DUMMY'
+
+        ndk {
+            abiFilters(*defaultAbis.toArray(new String[0]))
+        }
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
 
     buildFeatures {
         buildConfig true
@@ -32,48 +47,13 @@ android {
 
     sourceSets {
         main {
-            // Pojav backend files live directly inside the Cryonix application module.
-            res.srcDirs += file('src/main/res_pojav')
+            java.srcDirs += 'src/main/kotlin'
             assets.srcDirs += file('src/main/assets')
             jni.srcDirs += file('src/main/jni')
             jniLibs.srcDirs += file('src/main/jniLibs')
         }
     }
 
-    def pojavCompatDir = layout.buildDirectory.dir('generated/source/pojavCompat').get().asFile
-
-    def generatePojavCompat = tasks.register('generatePojavCompat') {
-        dependsOn 'processDebugResources'
-        outputs.dir(pojavCompatDir)
-        doLast {
-            def generatedR = fileTree(layout.buildDirectory.dir('generated/not_namespaced_r_class_sources/debug/processDebugResources/r').get().asFile).matching {
-                include '**/R.java'
-            }.files.find { it.path.endsWith('/com/cryonix/launcher/R.java') }
-            if (generatedR == null || !generatedR.exists()) {
-                throw new GradleException('Cryonix generated R.java was not found')
-            }
-            def rText = generatedR.getText('UTF-8').replaceFirst('package com\\.cryonix\\.launcher;', 'package net.kdt.pojavlaunch;')
-            def rOut = new File(pojavCompatDir, 'net/kdt/pojavlaunch/R.java')
-            rOut.parentFile.mkdirs()
-            rOut.text = rText
-
-            def bcOut = new File(pojavCompatDir, 'net/kdt/pojavlaunch/BuildConfig.java')
-            bcOut.parentFile.mkdirs()
-            bcOut.text = '''package net.kdt.pojavlaunch;
-public final class BuildConfig {
-    public static final boolean DEBUG = com.cryonix.launcher.BuildConfig.DEBUG;
-    public static final String APPLICATION_ID = com.cryonix.launcher.BuildConfig.APPLICATION_ID;
-    public static final String BUILD_TYPE = com.cryonix.launcher.BuildConfig.BUILD_TYPE;
-    public static final String FLAVOR = com.cryonix.launcher.BuildConfig.FLAVOR;
-    public static final int VERSION_CODE = com.cryonix.launcher.BuildConfig.VERSION_CODE;
-    public static final String VERSION_NAME = com.cryonix.launcher.BuildConfig.VERSION_NAME;
-    private BuildConfig() {}
-}
-'''
-        }
-    }
-
-    sourceSets.main.java.srcDir(pojavCompatDir)
     ndkVersion = '25.2.9519653'
 
     externalNativeBuild {
@@ -84,13 +64,18 @@ public final class BuildConfig {
 
     packagingOptions {
         jniLibs {
+            // The Pojav backend dlopen()s its own libraries, so they must stay
+            // as real files inside the nativeLibraryDir.
             useLegacyPackaging = true
         }
         pickFirst '**/libbytehook.so'
+        pickFirst '**/libc++_shared.so'
         resources {
             excludes += [
                 'META-INF/AL2.0',
-                'META-INF/LGPL2.1'
+                'META-INF/LGPL2.1',
+                'META-INF/LICENSE*',
+                'META-INF/NOTICE*'
             ]
         }
     }
@@ -98,6 +83,79 @@ public final class BuildConfig {
     lint {
         abortOnError false
     }
+}
+
+// Java sources target Java 17; keep the Kotlin JVM target in sync.
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Vendored Pojav/Mojo backend
+//
+// The runtime pieces (native libraries, LWJGL3 classes, caciocavallo and
+// security components) are vendored under src/main so a plain clone builds a
+// working APK. Initializing the engine/pojav submodule additionally provides
+// the remaining ABIs; syncPojavBackend copies them in.
+// ---------------------------------------------------------------------------
+def pojavSubmodule = rootProject.file('engine/pojav')
+def backendNativesDir = file('src/main/jniLibs')
+def backendComponentsDir = file('src/main/assets/components')
+
+def requiredBackendFiles = [
+        'jniLibs/arm64-v8a/liblwjgl.so',
+        'jniLibs/arm64-v8a/libgl4es_114.so',
+        'jniLibs/arm64-v8a/libopenal.so',
+        'jniLibs/arm64-v8a/libunpack200.so',
+        'assets/components/lwjgl3/lwjgl-glfw-classes.jar',
+        'assets/components/caciocavallo/cacio-shared-1.10-SNAPSHOT.jar',
+        'assets/components/security/pro-grade.jar',
+        'assets/components/arc_dns_injector/arc_dns_injector.jar',
+        'assets/components/forge_installer/forge_installer.jar'
+]
+
+tasks.register('verifyPojavBackend') {
+    group = 'cryonix'
+    description = 'Fails early when a vendored Pojav backend runtime file is missing'
+    def missing = requiredBackendFiles.findAll { !file("src/main/$it").exists() }
+    doLast {
+        if (!missing.isEmpty()) {
+            throw new GradleException(
+                    "The vendored Pojav backend is incomplete. Missing:\n  - " +
+                            missing.join('\n  - ') +
+                            "\nRun: git submodule update --init engine/pojav && gradle :main_cryonixlauncher:syncPojavBackend")
+        }
+    }
+}
+
+tasks.register('syncPojavBackend') {
+    group = 'cryonix'
+    description = 'Copies native libraries and runtime components from the engine/pojav submodule'
+    onlyIf { new File(pojavSubmodule, 'app_pojavlauncher').isDirectory }
+    doLast {
+        def upstreamMain = new File(pojavSubmodule, 'app_pojavlauncher/src/main')
+        copy {
+            from new File(upstreamMain, 'jniLibs')
+            into backendNativesDir
+        }
+        copy {
+            from new File(upstreamMain, 'assets/components')
+            into backendComponentsDir
+            exclude '**/jre*/**'
+        }
+        copy {
+            from new File(upstreamMain, 'assets')
+            into file('src/main/assets')
+            include 'default.json', 'options.txt', 'resolv.conf', 'launcher_profiles.json'
+        }
+        logger.lifecycle("Pojav backend synced from engine/pojav (commit ${project.pojavBackendCommit})")
+    }
+}
+
+tasks.named('preBuild').configure {
+    dependsOn 'verifyPojavBackend'
 }
 
 dependencies {
@@ -123,5 +181,8 @@ dependencies {
     implementation 'org.tukaani:xz:1.8'
     implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.6.1'
     implementation 'com.bytedance:bytehook:1.0.9'
+    // Vendored backend jars, plus the optional LTW renderer plugin
+    // (PojavLauncherTeam/LTW) that CI drops into libs/. The system OpenGL
+    // renderer works without LTW.
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 }

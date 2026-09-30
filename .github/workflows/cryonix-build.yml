@@ -2,18 +2,18 @@ name: Cryonix build
 
 on:
   push:
-    branches: [cryonix_v2sdl]
+    branches: [cryonix_v2sdl, 'arena/**']
   pull_request:
     branches: [cryonix_v2sdl]
+  workflow_dispatch:
 
 jobs:
   assemble:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Cryonix with Pojav backend
+      - name: Checkout Cryonix
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 1
 
       - name: Set up JDK 17
@@ -35,10 +35,65 @@ jobs:
         with:
           gradle-version: '9.6.0'
 
+      - name: Fetch optional LTW renderer plugin
+        continue-on-error: true
+        run: |
+          wget -q -O main_cryonixlauncher/libs/ltw-release.aar \
+            https://github.com/PojavLauncherTeam/LTW/releases/latest/download/ltw-release.aar
+          ls -la main_cryonixlauncher/libs
+
+      - name: Fetch optional extra backend ABIs from engine/pojav
+        continue-on-error: true
+        run: |
+          git submodule update --init --depth 1 engine/pojav
+          if [ -d engine/pojav/app_pojavlauncher/src/main ]; then
+            gradle :main_cryonixlauncher:syncPojavBackend --no-daemon
+            echo "CRYONIX_EXTRA_ABIS=armeabi-v7a,x86,x86_64" >> "$GITHUB_ENV"
+          fi
+
+      - name: Verify backend reference integrity
+        run: python3 tools/verify_backend_refs.py
+
       - name: Assemble Cryonix debug APK
-        run: gradle :main_cryonixlauncher:assembleDebug --stacktrace --no-daemon
+        run: |
+          set -o pipefail
+          gradle :main_cryonixlauncher:assembleDebug --stacktrace --no-daemon \
+            ${CRYONIX_EXTRA_ABIS:+-PcryonixAbis=arm64-v8a,$CRYONIX_EXTRA_ABIS} 2>&1 | tee build.log
+
+      - name: Publish build diagnostics
+        if: failure()
+        run: |
+          python3 - <<'PY'
+          import os, pathlib
+
+          log = pathlib.Path('build.log')
+          if not log.exists():
+              print("::error::gradle produced no log file")
+              raise SystemExit(0)
+          text = log.read_text(errors='replace').splitlines()
+          interesting = [i for i, line in enumerate(text)
+                         if 'error:' in line or 'FAILURE' in line or 'What went wrong' in line
+                         or 'Execution failed' in line or 'Unresolved reference' in line]
+          wanted = set()
+          for i in interesting:
+              wanted.update(range(max(0, i - 4), min(len(text), i + 12)))
+          emit = [text[i] for i in sorted(wanted)] or text[-120:]
+          chunk = []
+          size = 0
+          announced = 0
+          for line in emit:
+              if size + len(line) > 3500:
+                  print(f"::error title=gradle {announced}::" + '\n'.join(chunk))
+                  chunk, size = [], 0
+                  announced += 1
+              chunk.append(line)
+              size += len(line) + 1
+          if chunk:
+              print(f"::error title=gradle {announced}::" + '\n'.join(chunk))
+          PY
 
       - name: Upload APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: cryonix-debug-apk

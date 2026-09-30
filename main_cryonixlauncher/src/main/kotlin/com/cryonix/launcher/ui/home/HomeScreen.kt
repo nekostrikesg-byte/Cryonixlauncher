@@ -24,9 +24,9 @@ object HomeScreen {
         render: () -> Unit
     ) {
         activity.findViewById<TextView>(R.id.home_launch).setOnClickListener {
-            if (!PojavRuntimeBridge.openLauncher(activity)) {
-                LaunchTaskManager.start(activity, store)
-            }
+            // Real start: the Pojav/Mojo backend downloads/verifies the game,
+            // extracts natives, picks the Java runtime and opens the game process.
+            LaunchTaskManager.start(activity, store)
         }
         activity.findViewById<TextView>(R.id.home_accounts).setOnClickListener {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
