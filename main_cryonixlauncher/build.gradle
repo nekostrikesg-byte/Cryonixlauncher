@@ -4,6 +4,28 @@ plugins {
 
 def pojavRoot = file('../engine/pojav')
 def pojavApp = file('../engine/pojav/app_pojavlauncher')
+def pojavResDir = layout.buildDirectory.dir('generated/pojav-res/main').get().asFile
+
+def preparePojavResources = tasks.register('preparePojavResources') {
+    outputs.dir(pojavResDir)
+    doLast {
+        project.delete(pojavResDir)
+        project.copy {
+            from new File(pojavApp, 'src/main/res')
+            into pojavResDir
+            exclude 'drawable/ic_folder.xml'
+            exclude 'values/strings.xml'
+        }
+
+        // Keep every upstream string except the single app_name that conflicts
+        // with Cryonix's own launcher name. Upstream source files are untouched.
+        def upstreamStrings = new File(pojavApp, 'src/main/res/values/strings.xml')
+        def mergedStrings = new File(pojavResDir, 'values/strings.xml')
+        mergedStrings.parentFile.mkdirs()
+        mergedStrings.text = upstreamStrings.getText('UTF-8')
+            .replaceFirst(/(?s)\s*<string name="app_name">.*?<\/string>/, '')
+    }
+}
 
 android {
     namespace 'com.cryonix.launcher'
@@ -49,7 +71,7 @@ android {
                 new File(pojavRoot, 'arc_dns_injector/src/main/java'),
                 new File(pojavRoot, 'forge_installer/src/main/java')
             ]
-            res.srcDirs += new File(pojavApp, 'src/main/res')
+            res.srcDirs += pojavResDir
             assets.srcDirs += new File(pojavApp, 'src/main/assets')
             jniLibs.srcDirs += new File(pojavApp, 'src/main/jniLibs')
         }
@@ -74,6 +96,10 @@ android {
             ]
         }
     }
+}
+
+tasks.matching { it.name == 'preBuild' }.configureEach {
+    dependsOn preparePojavResources
 }
 
 dependencies {
