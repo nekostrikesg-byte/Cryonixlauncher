@@ -58,51 +58,19 @@ jobs:
         run: python3 tools/verify_backend_refs.py
 
       - name: Assemble Cryonix debug APK
+        id: assemble
+        continue-on-error: true
         run: |
-          set -o pipefail
           gradle :main_cryonixlauncher:assembleDebug --stacktrace --no-daemon \
             ${CRYONIX_EXTRA_ABIS:+-PcryonixAbis=arm64-v8a,$CRYONIX_EXTRA_ABIS} 2>&1 | tee build.log
 
       - name: Publish build diagnostics
-        if: failure()
-        run: |
-          python3 - <<'PY'
-          import os, pathlib
+        if: always()
+        run: python3 tools/ci-report-build.py
 
-          log = pathlib.Path('build.log')
-          if not log.exists():
-              print("::error::gradle produced no log file")
-              raise SystemExit(0)
-          text = log.read_text(errors='replace').splitlines()
-          interesting = [i for i, line in enumerate(text)
-                         if 'error:' in line or 'FAILURE' in line or 'What went wrong' in line
-                         or 'Execution failed' in line or 'Unresolved reference' in line]
-          wanted = set()
-          for i in interesting:
-              wanted.update(range(max(0, i - 4), min(len(text), i + 12)))
-          emit = [text[i] for i in sorted(wanted)] or text[-120:]
-          chunk = []
-          size = 0
-          announced = 0
-          for line in emit:
-              if size + len(line) > 3500:
-                  print(f"::error title=gradle {announced}::" + '\n'.join(chunk))
-                  chunk, size = [], 0
-                  announced += 1
-              chunk.append(line)
-              size += len(line) + 1
-          if chunk:
-              print(f"::error title=gradle {announced}::" + '\n'.join(chunk))
-          with open('ci-logs/last-build.log', 'w') as out:
-              out.write('\n'.join(text[-4000:]))
-          PY
-
-          mkdir -p ci-logs
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f ci-logs/last-build.log
-          git commit -m "ci: capture the failing gradle log [skip ci]" || true
-          git push || true
+      - name: Fail when the build failed
+        if: steps.assemble.outcome == 'failure'
+        run: exit 1
 
       - name: Upload APK
         if: success()
