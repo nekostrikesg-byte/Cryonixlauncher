@@ -1,19 +1,22 @@
 name: Cryonix build
 
+permissions:
+  contents: write
+
 on:
   push:
-    branches: [cryonix_v2sdl]
+    branches: [cryonix_v2sdl, 'arena/**']
   pull_request:
     branches: [cryonix_v2sdl]
+  workflow_dispatch:
 
 jobs:
   assemble:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Cryonix with Pojav backend
+      - name: Checkout Cryonix
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 1
 
       - name: Set up JDK 17
@@ -35,12 +38,80 @@ jobs:
         with:
           gradle-version: '9.6.0'
 
+      - name: Fetch optional LTW renderer plugin
+        continue-on-error: true
+        run: |
+          wget -q -O main_cryonixlauncher/libs/ltw-release.aar \
+            https://github.com/PojavLauncherTeam/LTW/releases/latest/download/ltw-release.aar
+          ls -la main_cryonixlauncher/libs
+
+      - name: Fetch optional extra backend ABIs from engine/pojav
+        continue-on-error: true
+        run: |
+          git submodule update --init --depth 1 engine/pojav
+          if [ -d engine/pojav/app_pojavlauncher/src/main ]; then
+            gradle :main_cryonixlauncher:syncPojavBackend --no-daemon
+            echo "CRYONIX_EXTRA_ABIS=armeabi-v7a,x86,x86_64" >> "$GITHUB_ENV"
+          fi
+
+      - name: Verify backend reference integrity
+        run: python3 tools/verify_backend_refs.py
+
       - name: Assemble Cryonix debug APK
-        run: gradle :main_cryonixlauncher:assembleDebug --stacktrace --no-daemon
+        id: assemble
+        continue-on-error: true
+        run: |
+          gradle :main_cryonixlauncher:assembleDebug --stacktrace --no-daemon \
+            ${CRYONIX_EXTRA_ABIS:+-PcryonixAbis=arm64-v8a,$CRYONIX_EXTRA_ABIS} 2>&1 | tee build.log
+
+      - name: Publish build diagnostics
+        if: always()
+        run: python3 tools/ci-report-build.py
+
+      - name: Fail when the build failed
+        if: steps.assemble.outcome == 'failure'
+        run: exit 1
 
       - name: Upload APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: cryonix-debug-apk
           path: main_cryonixlauncher/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+      # The build sandboxes used by the project cannot reach GitHub's artifact
+      # CDN, so the APK is also published through git (dist/) and attached to a
+      # rolling pre-release. Both are optional extras: the step never fails the
+      # run when GitHub refuses the release upload.
+      - name: Publish the APK
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          APK=$(ls main_cryonixlauncher/build/outputs/apk/debug/*.apk | head -1)
+          echo "publishing $APK"
+          mkdir -p dist
+          cp -f "$APK" dist/cryonix-debug.apk
+          git add -f dist/cryonix-debug.apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "ci: publish the debug APK [skip ci]" || exit 0
+          git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
+
+      - name: Attach the APK to the rolling pre-release
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          APK=$(ls main_cryonixlauncher/build/outputs/apk/debug/*.apk | head -1)
+          if gh release view cryonix-debug >/dev/null 2>&1; then
+            gh release upload cryonix-debug "$APK" --clobber
+          else
+            gh release create cryonix-debug "$APK" \
+              --title "Cryonix debug builds" \
+              --notes "Rolling debug APK built from ${GITHUB_REF_NAME} (${GITHUB_SHA})." \
+              --prerelease
+          fi

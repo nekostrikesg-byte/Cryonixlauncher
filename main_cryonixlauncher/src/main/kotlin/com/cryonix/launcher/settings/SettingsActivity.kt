@@ -77,7 +77,9 @@ class SettingsActivity : Activity() {
         }
 
         applyCutoutMode()
-        findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener { showInfo("Java", "Automatic runtime selection is enabled. Java runtime installation/management will be added when the runtime backend is connected.") }
+        findViewById<android.view.View>(R.id.settings_java_value).setOnClickListener {
+            startActivity(Intent(this, JavaRuntimeActivity::class.java))
+        }
 
         bindNav(R.id.settings_nav_renderer, R.id.settings_section_renderer)
         findViewById<View>(R.id.settings_overview_general).setOnClickListener { scrollTo(R.id.settings_section_renderer) }

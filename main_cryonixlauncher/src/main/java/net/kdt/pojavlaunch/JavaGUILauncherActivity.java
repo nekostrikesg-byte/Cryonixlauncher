@@ -293,28 +293,24 @@ public class JavaGUILauncherActivity extends BaseActivity implements View.OnTouc
                 return false;
         }
         
-        switch (v.getId()) {
-            case R.id.installmod_mouse_pri:
-                AWTInputBridge.sendMousePress(AWTInputEvent.BUTTON1_DOWN_MASK, isDown);
-                break;
-                
-            case R.id.installmod_mouse_sec:
-                AWTInputBridge.sendMousePress(AWTInputEvent.BUTTON3_DOWN_MASK, isDown);
-                break;
+        // Resource ids are not compile-time constants with AGP 9, so the
+        // original switch statements are expressed as if/else chains.
+        int viewId = v.getId();
+        if (viewId == R.id.installmod_mouse_pri) {
+            AWTInputBridge.sendMousePress(AWTInputEvent.BUTTON1_DOWN_MASK, isDown);
+        } else if (viewId == R.id.installmod_mouse_sec) {
+            AWTInputBridge.sendMousePress(AWTInputEvent.BUTTON3_DOWN_MASK, isDown);
         }
-        if(isDown) switch(v.getId()) {
-            case R.id.installmod_window_moveup:
+        if (isDown) {
+            if (viewId == R.id.installmod_window_moveup) {
                 AWTInputBridge.nativeMoveWindow(0, -10);
-                break;
-            case R.id.installmod_window_movedown:
+            } else if (viewId == R.id.installmod_window_movedown) {
                 AWTInputBridge.nativeMoveWindow(0, 10);
-                break;
-            case R.id.installmod_window_moveleft:
+            } else if (viewId == R.id.installmod_window_moveleft) {
                 AWTInputBridge.nativeMoveWindow(-10, 0);
-                break;
-            case R.id.installmod_window_moveright:
+            } else if (viewId == R.id.installmod_window_moveright) {
                 AWTInputBridge.nativeMoveWindow(10, 0);
-                break;
+            }
         }
         return true;
     }

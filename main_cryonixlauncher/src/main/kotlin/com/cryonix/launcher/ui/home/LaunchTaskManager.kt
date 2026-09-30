@@ -6,12 +6,20 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.cryonix.launcher.R
-import com.cryonix.launcher.minecraft.MinecraftDownloadManager
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
-import com.cryonix.launcher.runtime.CryonixMojoEngine
+import com.cryonix.launcher.minecraft.PojavLaunchController
+import com.cryonix.launcher.settings.JavaRuntimeActivity
 import com.cryonix.launcher.ui.UiMotion
-import kotlin.concurrent.thread
 
+/**
+ * Play button flow.
+ *
+ * Everything that starts Minecraft goes through the vendored Pojav backend:
+ * the backend downloads/verifies the version, extracts its natives, picks the
+ * Java runtime and then starts the game in its own `:game` process. The panel
+ * below the button reports what the backend is doing — and, when a
+ * prerequisite is missing, exactly which one.
+ */
 object LaunchTaskManager {
     fun start(activity: Activity, store: MinecraftSettingsStore) {
         val panel = activity.findViewById<View>(R.id.task_manager_panel)
@@ -23,48 +31,48 @@ object LaunchTaskManager {
         val percent = activity.findViewById<TextView>(R.id.task_manager_percent)
 
         panel.visibility = View.VISIBLE
-        title.text = "Minecraft task"
-        val instance = store.selectedInstanceName?.takeIf { it in store.instances } ?: store.instances.firstOrNull()
-        val version = store.selectedVersionId ?: instance?.let { store.instanceConfig(it).versionId }
+        title.text = "Minecraft"
+
+        val instance = store.selectedInstanceName?.takeIf { it in store.instances }
+            ?: store.instances.firstOrNull()
+        val version = instance?.let { PojavLaunchController.versionFor(store, it) }
+
         details.text = "Instance: " + (instance ?: "none") +
             "\nVersion: " + (version ?: "not selected") +
             "\nProfile: " + store.profileName +
-            "\nLoader: " + store.loader.lowercase() +
             "\nRenderer: " + store.renderer.name.lowercase() +
             "\nMemory: " + store.memoryMb + " MB"
 
-        if (instance.isNullOrBlank()) {
-            status.text = "Blocked • Create an instance first"
-            progress.progress = 0
-            bottomProgress.progress = 0
-            percent.text = "0%"
-            UiMotion.morphIn(panel)
-            return
-        }
-
-        if (version.isNullOrBlank()) {
-            status.text = "Blocked • Select a Minecraft version first"
-            progress.progress = 0
-            bottomProgress.progress = 0
-            percent.text = "0%"
-            UiMotion.morphIn(panel)
-            return
-        }
-
         progress.max = 100
         bottomProgress.max = 100
-        status.text = "Starting background task…"
-        percent.text = "0%"
         UiMotion.morphIn(panel)
 
-        val intent = Intent(activity, com.cryonix.launcher.minecraft.MinecraftTaskService::class.java)
-            .putExtra(com.cryonix.launcher.minecraft.MinecraftTaskService.EXTRA_INSTANCE, instance)
-            .putExtra(com.cryonix.launcher.minecraft.MinecraftTaskService.EXTRA_VERSION, version)
+        when (val outcome = PojavLaunchController.start(activity, store)) {
+            is PojavLaunchController.Outcome.Launching -> {
+                status.text = "Starting Minecraft " + outcome.versionId + "…"
+                progress.progress = 100
+                bottomProgress.progress = 100
+                percent.text = "100%"
+                details.text = details.text.toString() +
+                    "\n\nBackend: downloading/verifying game files, then the game window opens."
+            }
 
-        if (android.os.Build.VERSION.SDK_INT >= 26) {
-            activity.startForegroundService(intent)
-        } else {
-            activity.startService(intent)
+            is PojavLaunchController.Outcome.Blocked -> {
+                status.text = "Blocked • " + outcome.message
+                progress.progress = 0
+                bottomProgress.progress = 0
+                percent.text = "0%"
+                if (outcome.reason == PojavLaunchController.BlockedReason.NO_RUNTIME) {
+                    details.text = details.text.toString() +
+                        "\n\nOpen the Java runtime manager to install a runtime."
+                    activity.findViewById<View>(R.id.task_manager_title).setOnClickListener {
+                        activity.startActivity(Intent(activity, JavaRuntimeActivity::class.java))
+                    }
+                    status.setOnClickListener {
+                        activity.startActivity(Intent(activity, JavaRuntimeActivity::class.java))
+                    }
+                }
+            }
         }
     }
 

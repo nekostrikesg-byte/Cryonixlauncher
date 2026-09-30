@@ -10,5 +10,9 @@ data class LaunchRequest(
     val account: GameAccount,
     val loader: LoaderProfile,
     val renderer: RendererProfile,
-    val memoryMb: Int
+    val memoryMb: Int,
+    /** Cryonix instance (mods/config folder) the backend should launch. */
+    val instanceName: String = "default",
+    /** Extra JVM arguments forwarded to the Android Java runtime. */
+    val jvmArgs: String? = null
 )

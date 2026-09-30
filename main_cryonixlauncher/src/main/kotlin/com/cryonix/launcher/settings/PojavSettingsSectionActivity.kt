@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.*
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
+import com.cryonix.launcher.core.PojavBridge
 import com.cryonix.launcher.instances.InstancesActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 
@@ -93,13 +94,18 @@ class PojavSettingsSectionActivity : Activity() {
 
     private fun java(parent: LinearLayout) {
         title(parent, "Java Tweaks")
-        setting(parent, "Java Runtime", "Select the Android-compatible Java runtime") {
-            val values = arrayOf("Default", "Java 8", "Java 17", "Java 21")
-            choose("Java Runtime", values, prefs.getInt("java", 0)) { which ->
-                prefs.edit().putInt("java", which).apply()
-            }
+        val installed = PojavBridge.runtimes()
+        val runtimeSubtitle = if (installed.isEmpty()) {
+            "No runtime installed — tap to install one"
+        } else {
+            installed.joinToString { it.name + " (Java " + it.major + ")" } + " — tap to manage"
         }
-        seekSetting(parent, "RAM Allocation", "Amount of memory available to Minecraft.", "ram", 512, 6144, 2048, " MB")
+        setting(parent, "Java Runtime", runtimeSubtitle) {
+            startActivity(Intent(this, JavaRuntimeActivity::class.java))
+        }
+        seekSetting(parent, "RAM Allocation", "Amount of memory available to Minecraft.", "ram", 512, 6144, 2048, " MB") { value ->
+            PojavBridge.applyPreferences(memoryMb = value)
+        }
         val args = EditText(this).apply {
             setSingleLine(false)
             minLines = 2
@@ -113,8 +119,10 @@ class PojavSettingsSectionActivity : Activity() {
         }
         parent.addView(args, LinearLayout.LayoutParams(-1, dp(68)).apply { topMargin = dp(7) })
         button(parent, "SAVE", R.drawable.bg_pojav_button) {
-            prefs.edit().putString("jvm_args", args.text.toString()).apply()
-            Toast.makeText(this, "Java settings saved", Toast.LENGTH_SHORT).show()
+            val jvmArgs = args.text.toString()
+            prefs.edit().putString("jvm_args", jvmArgs).apply()
+            PojavBridge.applyPreferences(jvmArgs = jvmArgs)
+            Toast.makeText(this, "Java settings saved to the backend", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -196,7 +204,17 @@ class PojavSettingsSectionActivity : Activity() {
         parent.addView(row, LinearLayout.LayoutParams(-1, dp(66)).apply { bottomMargin = dp(6) })
     }
 
-    private fun seekSetting(parent: LinearLayout, title: String, subtitle: String, key: String, min: Int, max: Int, default: Int, suffix: String) {
+    private fun seekSetting(
+        parent: LinearLayout,
+        title: String,
+        subtitle: String,
+        key: String,
+        min: Int,
+        max: Int,
+        default: Int,
+        suffix: String,
+        onChanged: ((Int) -> Unit)? = null
+    ) {
         val row = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(12), dp(7), dp(12), dp(7))
@@ -224,13 +242,16 @@ class PojavSettingsSectionActivity : Activity() {
         seek.max = max - min
         seek.progress = (prefs.getInt(key, default) - min).coerceIn(0, seek.max)
         fun update() {
-            value.text = (min + seek.progress).toString() + suffix
-            prefs.edit().putInt(key, min + seek.progress).apply()
+            val current = min + seek.progress
+            value.text = current.toString() + suffix
+            prefs.edit().putInt(key, current).apply()
         }
         seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(s: SeekBar?, p: Int, fromUser: Boolean) = update()
             override fun onStartTrackingTouch(s: SeekBar?) {}
-            override fun onStopTrackingTouch(s: SeekBar?) {}
+            override fun onStopTrackingTouch(s: SeekBar?) {
+                onChanged?.invoke(min + seek.progress)
+            }
         })
         update()
         row.addView(seek)
