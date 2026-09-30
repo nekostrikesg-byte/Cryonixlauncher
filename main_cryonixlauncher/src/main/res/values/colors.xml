@@ -22,4 +22,6 @@
     <color name="cryonix_divider">#202B3A</color>
     <color name="cryonix_border">#2A394D</color>
     <color name="cryonix_muted">#6F7C8F</color>
+    <color name="cryonix_line">#21C7FF</color>
+    <color name="cryonix_top">#0B0F14</color>
 </resources>
