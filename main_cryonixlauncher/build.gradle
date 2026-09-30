@@ -41,6 +41,45 @@ android {
         }
     }
 
+    def pojavCompatDir = layout.buildDirectory.dir('generated/source/pojavCompat').get().asFile
+
+    def generatePojavCompat = tasks.register('generatePojavCompat') {
+        dependsOn 'processDebugResources'
+        outputs.dir(pojavCompatDir)
+        doLast {
+            def generatedR = fileTree(layout.buildDirectory.dir('generated/not_namespaced_r_class_sources/debug/processDebugResources/r').get().asFile).matching {
+                include '**/R.java'
+            }.files.find { it.path.endsWith('/com/cryonix/launcher/R.java') }
+            if (generatedR == null || !generatedR.exists()) {
+                throw new GradleException('Cryonix generated R.java was not found; cannot expose Pojav R compatibility class')
+            }
+            def rText = generatedR.getText('UTF-8').replaceFirst('package com\\.cryonix\\.launcher;', 'package net.kdt.pojavlaunch;')
+            def rOut = new File(pojavCompatDir, 'net/kdt/pojavlaunch/R.java')
+            rOut.parentFile.mkdirs()
+            rOut.text = rText
+
+            def bcOut = new File(pojavCompatDir, 'net/kdt/pojavlaunch/BuildConfig.java')
+            bcOut.parentFile.mkdirs()
+            bcOut.text = '''package net.kdt.pojavlaunch;
+public final class BuildConfig {
+    public static final boolean DEBUG = com.cryonix.launcher.BuildConfig.DEBUG;
+    public static final String APPLICATION_ID = com.cryonix.launcher.BuildConfig.APPLICATION_ID;
+    public static final String BUILD_TYPE = com.cryonix.launcher.BuildConfig.BUILD_TYPE;
+    public static final String FLAVOR = com.cryonix.launcher.BuildConfig.FLAVOR;
+    public static final int VERSION_CODE = com.cryonix.launcher.BuildConfig.VERSION_CODE;
+    public static final String VERSION_NAME = com.cryonix.launcher.BuildConfig.VERSION_NAME;
+    private BuildConfig() {}
+}
+'''
+        }
+    }
+
+    sourceSets.main.java.srcDir(pojavCompatDir)
+
+    tasks.named('compileDebugJavaWithJavac').configure {
+        dependsOn generatePojavCompat
+    }
+
     ndkVersion = '25.2.9519653'
 
     externalNativeBuild {
