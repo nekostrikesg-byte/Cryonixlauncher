@@ -1,42 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical" android:background="@color/cryonix_background" android:padding="8dp">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="54dp" android:gravity="center">
-        <LinearLayout android:layout_width="330dp" android:layout_height="46dp" android:background="@drawable/bg_nav" android:gravity="center" android:padding="4dp">
-            <TextView android:id="@+id/accounts_back" android:layout_width="52dp" android:layout_height="38dp" android:gravity="center" android:text="‹" android:textColor="@color/cryonix_icon" android:textSize="24sp"/>
-            <ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_cube" android:tint="@color/cryonix_icon"/>
-            <ImageView android:layout_width="52dp" android:layout_height="38dp" android:background="@drawable/bg_nav_selected" android:padding="10dp" android:src="@drawable/ic_accounts" android:tint="@color/cryonix_button_text"/>
-            <ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_download" android:tint="@color/cryonix_icon"/>
-            <ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_settings" android:tint="@color/cryonix_icon"/>
-            <ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_home" android:tint="@color/cryonix_icon"/>
-        </LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cryonix_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical"
+        android:background="@color/cryonix_top"
+        android:paddingStart="18dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/accounts_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="@color/cryonix_text"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="+  Add account"
+            android:textColor="@color/cryonix_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Accounts"
+            android:textColor="@color/cryonix_muted"
+            android:textSize="9sp" />
     </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp" android:gravity="center_vertical">
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Accounts" android:textColor="@color/cryonix_text" android:textSize="19sp" android:textStyle="bold"/>
-            <TextView android:id="@+id/accounts_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No local profiles" android:textColor="@color/cryonix_text_secondary" android:textSize="8sp"/>
-        </LinearLayout>
-        <TextView android:layout_width="110dp" android:layout_height="32dp" android:gravity="center" android:background="@drawable/bg_reference_row"
-            android:text="LOCAL + MICROSOFT" android:textColor="@color/cryonix_accent_soft" android:textSize="8sp"/>
-    </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:paddingEnd="5dp">
-            <TextView android:layout_width="match_parent" android:layout_height="30dp" android:text="Saved profiles" android:textColor="@color/cryonix_text_secondary" android:textSize="9sp"/>
-            <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:scrollbars="none">
-                <LinearLayout android:id="@+id/accounts_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cryonix_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="18dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:orientation="vertical"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:id="@+id/accounts_status"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:gravity="center_vertical"
+                android:text="No local profiles"
+                android:textColor="@color/cryonix_text_secondary"
+                android:textSize="10sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/accounts_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
             </ScrollView>
         </LinearLayout>
-        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.05" android:paddingStart="5dp" android:orientation="vertical">
-            <TextView android:layout_width="match_parent" android:layout_height="30dp" android:text="Add account" android:textColor="@color/cryonix_text" android:textSize="14sp" android:textStyle="bold"/>
-            <EditText android:id="@+id/accounts_profile_name" android:layout_width="match_parent" android:layout_height="42dp" android:background="@drawable/bg_reference_row"
-                android:hint="player_name" android:paddingStart="12dp" android:paddingEnd="12dp" android:textColor="@color/cryonix_text" android:textColorHint="@color/cryonix_muted" android:textSize="10sp" android:singleLine="true"/>
-            <TextView android:id="@+id/accounts_add_button" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginTop="6dp"
-                android:background="@drawable/bg_reference_launch" android:gravity="center" android:text="CREATE LOCAL PROFILE" android:textColor="@color/cryonix_button_text" android:textSize="9sp"/>
-            <TextView android:id="@+id/accounts_microsoft_button" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginTop="6dp"
-                android:background="@drawable/bg_reference_row" android:gravity="center" android:text="SIGN IN WITH MICROSOFT" android:textColor="@color/cryonix_text" android:textSize="9sp"/>
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp"
-                android:text="Microsoft authentication is not simulated. Cryonix only uses a real provider when the backend is configured."
-                android:textColor="@color/cryonix_muted" android:textSize="8sp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical"
+                android:text="Choose an account type"
+                android:textColor="@color/cryonix_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/accounts_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_simple_row"
+                android:hint="player_name"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="@color/cryonix_text"
+                android:textColorHint="@color/cryonix_muted"
+                android:textSize="10sp"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/accounts_add_button"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/bg_reference_launch"
+                android:gravity="center"
+                android:text="LOCAL ACCOUNT"
+                android:textColor="@color/cryonix_button_text"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/accounts_microsoft_button"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/bg_reference_launch"
+                android:gravity="center"
+                android:text="MICROSOFT ACCOUNT"
+                android:textColor="@color/cryonix_button_text"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/bg_reference_launch"
+                android:gravity="center"
+                android:text="ELY.BY ACCOUNT"
+                android:textColor="@color/cryonix_button_text"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Microsoft authentication stays real-only; Cryonix does not collect passwords or simulate login."
+                android:textColor="@color/cryonix_muted"
+                android:textSize="8sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
