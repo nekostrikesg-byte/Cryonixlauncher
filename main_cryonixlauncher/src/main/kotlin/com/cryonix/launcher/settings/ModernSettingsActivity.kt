@@ -2,21 +2,15 @@ package com.cryonix.launcher.settings
 
 import android.app.Activity
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 import com.cryonix.launcher.MainActivity
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
-import com.cryonix.launcher.downloads.DownloadsActivity
-import com.cryonix.launcher.instances.InstancesActivity
 
 class ModernSettingsActivity : Activity() {
     override fun onCreate(state: Bundle?) {
@@ -33,137 +27,123 @@ class ModernSettingsActivity : Activity() {
         val top = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setBackgroundResource(R.drawable.bg_top_bar)
-            setPadding(dp(18), 0, dp(10), 0)
+            setBackgroundColor(getColor(R.color.cryonix_top))
+            setPadding(dp(18), 0, dp(8), 0)
         }
+
         top.addView(TextView(this).apply {
             layoutParams = LinearLayout.LayoutParams(0, -1, 1f)
-            text = "+  Add account"
             gravity = Gravity.CENTER_VERTICAL
+            text = "+  Add account"
             textSize = 15f
             setTextColor(getColor(R.color.cryonix_text))
             setOnClickListener {
                 startActivity(Intent(this@ModernSettingsActivity, AccountsActivity::class.java))
             }
         })
+
         top.addView(ImageButton(this).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
-            background = android.graphics.drawable.ColorDrawable(Color.TRANSPARENT)
+            layoutParams = LinearLayout.LayoutParams(dp(46), dp(46))
+            background = null
             setImageResource(R.drawable.ic_home)
-            imageTintList = ColorStateList.valueOf(getColor(R.color.cryonix_text))
-            setPadding(dp(10), dp(10), dp(10), dp(10))
+            setColorFilter(getColor(R.color.cryonix_text))
+            setPadding(dp(9), dp(9), dp(9), dp(9))
             contentDescription = "Home"
             setOnClickListener {
                 startActivity(Intent(this@ModernSettingsActivity, MainActivity::class.java))
                 finish()
             }
         })
-        root.addView(top, LinearLayout.LayoutParams(-1, dp(54)))
 
+        root.addView(top, LinearLayout.LayoutParams(-1, dp(54)))
         root.addView(View(this).apply {
             setBackgroundColor(getColor(R.color.cryonix_line))
         }, LinearLayout.LayoutParams(-1, dp(2)))
 
-        val scroll = ScrollView(this).apply {
-            isVerticalScrollBarEnabled = false
-            overScrollMode = View.OVER_SCROLL_NEVER
-        }
-        val list = LinearLayout(this).apply {
+        val body = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(28), dp(22), dp(28), dp(24))
+            setPadding(dp(28), dp(18), dp(28), dp(18))
         }
 
-        list.addView(TextView(this).apply {
+        body.addView(TextView(this).apply {
             text = "Categories"
             textSize = 14f
             setTextColor(getColor(R.color.cryonix_cyan))
-            setPadding(dp(0), 0, 0, dp(12))
+            setPadding(0, 0, 0, dp(10))
         })
 
-        addSection(list, "Video and renderer", "Resolution, renderer and performance", R.drawable.ic_renderer) {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-        addSection(list, "Control customization", "Gestures, buttons and scaling", R.drawable.ic_gamepad) {
-            startActivity(Intent(this, ControlsActivity::class.java))
-        }
-        addSection(list, "Java tweaks", "Java runtimes, JVM arguments, RAM amount and sandbox", R.drawable.ic_java) {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-        addSection(list, "Miscellaneous settings", "Version list, libraries check and launcher behavior", R.drawable.ic_settings) {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-        addSection(list, "Experimental stuff", "New Cryonix features and engine experiments", R.drawable.ic_rocket) {
-            startActivity(Intent(this, CursorStudioActivity::class.java))
-        }
+        row(body, "Video and renderer", "Resolution, renderer and performance", "video")
+        row(body, "Control customization", "Gestures, buttons and scaling", "controls")
+        row(body, "Java Tweaks", "Java runtimes, JVM arguments, RAM amount and sandbox", "java")
+        row(body, "Miscellaneous settings", "Version list and libraries check", "misc")
+        row(body, "Experimental Stuff", "Use new Cryonix engine options with consideration", "experimental")
 
-        val languageRow = LinearLayout(this).apply {
+        val language = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(dp(8), dp(7), dp(8), dp(7))
-            setBackgroundResource(R.drawable.bg_simple_row)
-            isClickable = true
-            isFocusable = true
-            setOnClickListener { startActivity(Intent(this@ModernSettingsActivity, SettingsActivity::class.java)) }
+            setPadding(dp(8), dp(5), dp(8), dp(5))
+            setBackgroundResource(R.drawable.bg_pojav_row)
         }
-        languageRow.addView(ImageView(this).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
-            setPadding(dp(8), dp(8), dp(8), dp(8))
-            setImageResource(R.drawable.ic_home)
-            imageTintList = ColorStateList.valueOf(getColor(R.color.cryonix_text))
-        })
-        val langText = LinearLayout(this).apply {
+        val languageCopy = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            layoutParams = LinearLayout.LayoutParams(0, -2, 1f).apply { marginStart = dp(10) }
+            layoutParams = LinearLayout.LayoutParams(0, -2, 1f)
         }
-        langText.addView(TextView(this).apply {
+        languageCopy.addView(TextView(this).apply {
             text = "Force language to English"
             textSize = 13f
             setTextColor(getColor(R.color.cryonix_text))
         })
-        langText.addView(TextView(this).apply {
-            text = "Shows original launcher strings after restart"
+        languageCopy.addView(TextView(this).apply {
+            text = "Allows original launcher strings. Requires a restart."
             textSize = 9f
             setTextColor(getColor(R.color.cryonix_text_secondary))
-            maxLines = 1
         })
-        languageRow.addView(langText)
-        languageRow.addView(TextView(this).apply {
-            text = "OFF"
-            textSize = 9f
-            setTextColor(getColor(R.color.cryonix_muted))
-            gravity = Gravity.CENTER
-            setPadding(dp(12), 0, dp(8), 0)
-        })
-        list.addView(languageRow, LinearLayout.LayoutParams(-1, dp(66)).apply { topMargin = dp(2) })
+        language.addView(languageCopy)
+        val forceEnglish = android.widget.Switch(this).apply {
+            isChecked = getPreferences(MODE_PRIVATE).getBoolean("force_english", false)
+            setOnCheckedChangeListener { _, checked ->
+                getPreferences(MODE_PRIVATE).edit().putBoolean("force_english", checked).apply()
+            }
+        }
+        language.addView(forceEnglish)
+        body.addView(language, LinearLayout.LayoutParams(-1, dp(66)).apply { topMargin = dp(2) })
 
-        scroll.addView(list)
+        val scroll = android.widget.ScrollView(this).apply {
+            isVerticalScrollBarEnabled = false
+            addView(body)
+        }
         root.addView(scroll, LinearLayout.LayoutParams(-1, 0, 1f))
         return root
     }
 
-    private fun addSection(
-        parent: LinearLayout,
-        title: String,
-        subtitle: String,
-        icon: Int,
-        action: () -> Unit
-    ) {
+    private fun row(parent: LinearLayout, title: String, subtitle: String, section: String) {
         val row = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(dp(8), dp(7), dp(8), dp(7))
-            setBackgroundResource(R.drawable.bg_simple_row)
+            setPadding(dp(8), dp(6), dp(8), dp(6))
+            setBackgroundResource(R.drawable.bg_pojav_row)
             isClickable = true
             isFocusable = true
-            setOnClickListener { action() }
+            setOnClickListener {
+                startActivity(Intent(this@ModernSettingsActivity, PojavSettingsSectionActivity::class.java)
+                    .putExtra("section", section))
+            }
         }
 
-        row.addView(ImageView(this).apply {
+        val icon = TextView(this).apply {
             layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
-            setPadding(dp(8), dp(8), dp(8), dp(8))
-            setImageResource(icon)
-            imageTintList = ColorStateList.valueOf(getColor(R.color.cryonix_text))
-        })
+            gravity = Gravity.CENTER
+            text = when (section) {
+                "video" -> "▣"
+                "controls" -> "✚"
+                "java" -> "▱"
+                "misc" -> "☷"
+                else -> "♟"
+            }
+            textSize = 22f
+            setTextColor(getColor(R.color.cryonix_text))
+        }
+        row.addView(icon)
 
         val copy = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -186,9 +166,7 @@ class ModernSettingsActivity : Activity() {
             textSize = 22f
             setTextColor(getColor(R.color.cryonix_muted))
             gravity = Gravity.CENTER
-            layoutParams = LinearLayout.LayoutParams(dp(28), -1)
-        })
-
+        }, LinearLayout.LayoutParams(dp(28), -1))
         parent.addView(row, LinearLayout.LayoutParams(-1, dp(66)).apply {
             bottomMargin = dp(6)
         })
