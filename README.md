@@ -1,6 +1,6 @@
 # Cryonix Launcher
 
-Cryonix Launcher is an Android launcher focused on low overhead, fast navigation, and Minecraft Java support on mobile.
+Cryonix Launcher is an Android Minecraft Launcher For Mobile user Developed By NekoDev aka (NekoStrikeSG)
 
 ## Performance
 
