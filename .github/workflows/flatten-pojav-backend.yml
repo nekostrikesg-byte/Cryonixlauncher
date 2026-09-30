@@ -1,0 +1,56 @@
+name: Flatten Pojav backend
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [cryonix_v2sdl]
+    paths:
+      - .github/workflows/flatten-pojav-backend.yml
+
+permissions:
+  contents: write
+
+jobs:
+  flatten:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get pinned Pojav backend
+        run: |
+          git clone --depth 1 https://github.com/PojavLauncherTeam/PojavLauncher.git /tmp/pojav
+          cd /tmp/pojav
+          git fetch --depth 1 origin b12ad048157b3aa255d078c235dd4571e1900309
+          git checkout b12ad048157b3aa255d078c235dd4571e1900309
+
+      - name: Vendor required backend jars and adapt only Android R imports
+        run: |
+          set -e
+          mkdir -p main_cryonixlauncher/libs
+          cp -f /tmp/pojav/app_pojavlauncher/libs/* main_cryonixlauncher/libs/
+
+          python3 - <<'PY'
+          from pathlib import Path
+          root=Path("main_cryonixlauncher/src/main/java")
+          for f in root.rglob("*.java"):
+              s=f.read_text(encoding="utf-8")
+              old=s
+              s=s.replace("import net.kdt.pojavlaunch.R;", "import com.cryonix.launcher.R;")
+              s=s.replace("import net.kdt.pojavlaunch.BuildConfig;", "import com.cryonix.launcher.BuildConfig;")
+              if "package net.kdt.pojavlaunch" in s:
+                  pkg=s.find("package net.kdt.pojavlaunch")
+                  end=s.find(";\n",pkg)
+                  if end>=0:
+                      imports=s[end+2:]
+                      if "R." in imports and "import com.cryonix.launcher.R;" not in imports:
+                          s=s[:end+2]+"\nimport com.cryonix.launcher.R;"+s[end+2:]
+                      if "BuildConfig." in imports and "import com.cryonix.launcher.BuildConfig;" not in imports:
+                          s=s[:end+2]+"\nimport com.cryonix.launcher.BuildConfig;"+s[end+2:]
+              if s!=old:
+                  f.write_text(s,encoding="utf-8")
+          PY
+
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Vendor Pojav runtime jars and bind backend to Cryonix resources [skip ci]" || exit 0
+          git push origin HEAD:cryonix_v2sdl
