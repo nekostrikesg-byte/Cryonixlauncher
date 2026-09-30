@@ -161,10 +161,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
     implementation 'commons-codec:commons-codec:1.15'
-    // Core Pojav launcher libraries vendored in libs/.
-    implementation files('libs/gson-2.8.6.jar')
-    implementation files('libs/ExagearApacheCommons.jar')
-    implementation files('libs/exp4j-0.4.9-SNAPSHOT.jar')
+    // Core Pojav launcher libraries. Maven artifacts are resolved reliably by
+    // Android Studio and CodeAssist without relying on local JAR indexing.
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'commons-io:commons-io:2.15.1'
+    implementation 'net.objecthunter:exp4j:0.4.8'
     implementation 'com.github.duanhong169:checkerboarddrawable:1.0.2'
     implementation 'com.github.PojavLauncherTeam:portrait-sdp:ed33e89cbc'
     implementation 'com.github.PojavLauncherTeam:portrait-ssp:6c02fd739b'
@@ -174,8 +175,6 @@ dependencies {
     implementation 'org.tukaani:xz:1.8'
     implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.6.1'
     implementation 'com.bytedance:bytehook:1.0.9'
-    // Vendored backend jars, plus the optional LTW renderer plugin
-    // (PojavLauncherTeam/LTW) that CI drops into libs/. The system OpenGL
-    // renderer works without LTW.
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    // Backend runtime components are loaded from src/main/assets/components.
+    // Do not blanket-import the legacy libs/ directory.
 }
