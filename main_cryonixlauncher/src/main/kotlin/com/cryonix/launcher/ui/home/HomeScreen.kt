@@ -36,7 +36,7 @@ object HomeScreen {
         activity.findViewById<ImageButton>(R.id.home_versions).setOnClickListener {
             activity.startActivity(Intent(activity, InstancesActivity::class.java))
         }
-        activity.findViewById<ImageButton>(R.id.home_accounts).setOnClickListener {
+        activity.findViewById<TextView>(R.id.home_accounts).setOnClickListener {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
         }
         activity.findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
