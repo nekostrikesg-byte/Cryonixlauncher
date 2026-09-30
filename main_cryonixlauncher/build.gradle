@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
 }
 
+def pojavRoot = file('../engine/pojav')
+def pojavApp = file('../engine/pojav/app_pojavlauncher')
+
 android {
     namespace 'com.cryonix.launcher'
     compileSdk 37
@@ -12,6 +15,12 @@ android {
         targetSdk 34
         versionCode 1
         versionName '0.1.0'
+
+        // Pojav runtime compatibility values used by the upstream source.
+        resValue 'string', 'application_package', 'git.neko.cryonix'
+        resValue 'string', 'storageProviderAuthorities', 'git.neko.cryonix.scoped.gamefolder'
+        resValue 'string', 'shareProviderAuthority', 'git.neko.cryonix.scoped.controlfolder'
+        resValue 'string', 'curseforge_api_key', 'DUMMY'
     }
 
     compileOptions {
@@ -21,11 +30,42 @@ android {
 
     buildFeatures {
         buildConfig true
+        prefab true
     }
 
+    // Keep the upstream Pojav source tree and filenames intact. Cryonix compiles
+    // the backend from the checked-out submodule instead of copying/renaming it.
+    sourceSets {
+        main {
+            java.srcDirs += [
+                new File(pojavApp, 'src/main/java'),
+                new File(pojavRoot, 'arc_dns_injector/src/main/java'),
+                new File(pojavRoot, 'forge_installer/src/main/java')
+            ]
+            res.srcDirs += new File(pojavApp, 'src/main/res')
+            assets.srcDirs += new File(pojavApp, 'src/main/assets')
+            jniLibs.srcDirs += new File(pojavApp, 'src/main/jniLibs')
+            jni.srcDirs += new File(pojavApp, 'src/main/jni')
+        }
+    }
+
+    ndkVersion = "25.2.9519653"
+
     externalNativeBuild {
-        cmake {
-            path file('src/main/cpp/CMakeLists.txt')
+        ndkBuild {
+            path file('../engine/pojav/app_pojavlauncher/src/main/jni/Android.mk')
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+        resources {
+            excludes += [
+                'META-INF/AL2.0',
+                'META-INF/LGPL2.1'
+            ]
         }
     }
 }
@@ -33,4 +73,26 @@ android {
 dependencies {
     implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
+
+    // Pojav runtime dependencies, kept at the upstream coordinates.
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-beta01'
+    implementation 'androidx.annotation:annotation:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.fragment:fragment:1.8.5'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'com.github.duanhong169:checkerboarddrawable:1.0.2'
+    implementation 'com.github.PojavLauncherTeam:portrait-sdp:ed33e89cbc'
+    implementation 'com.github.PojavLauncherTeam:portrait-ssp:6c02fd739b'
+    implementation 'com.github.Mathias-Boulay:ExtendedView:1.0.0'
+    implementation 'com.github.Mathias-Boulay:android_gamepad_remapper:2.0.3'
+    implementation 'com.github.Mathias-Boulay:virtual-joystick-android:1.14'
+    implementation 'org.tukaani:xz:1.8'
+    implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.6.1'
+    implementation 'com.bytedance:bytehook:1.0.9'
+    implementation fileTree(dir: '../engine/pojav/app_pojavlauncher/libs', include: ['*.jar', '*.aar'])
 }
