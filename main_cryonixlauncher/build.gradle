@@ -67,9 +67,7 @@ android {
     sourceSets {
         main {
             java.srcDirs += [
-                new File(pojavApp, 'src/main/java'),
-                new File(pojavRoot, 'arc_dns_injector/src/main/java'),
-                new File(pojavRoot, 'forge_installer/src/main/java')
+                new File(pojavApp, 'src/main/java')
             ]
             res.srcDirs += pojavResDir
             assets.srcDirs += new File(pojavApp, 'src/main/assets')
