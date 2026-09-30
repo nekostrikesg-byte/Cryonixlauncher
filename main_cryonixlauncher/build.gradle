@@ -7,7 +7,7 @@ def pojavApp = file('../engine/pojav/app_pojavlauncher')
 
 android {
     namespace 'com.cryonix.launcher'
-    compileSdk 37
+    compileSdk 35
 
     defaultConfig {
         applicationId 'git.neko.cryonix'
