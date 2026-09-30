@@ -1,28 +1,21 @@
 package com.cryonix.launcher.ui.home
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
-import android.graphics.Color
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.PopupMenu
 import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
-import com.cryonix.launcher.downloads.DownloadsActivity
 import com.cryonix.launcher.instances.InstancesActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
-import com.cryonix.launcher.settings.SettingsActivity
 import com.cryonix.launcher.settings.ModernSettingsActivity
+import com.cryonix.launcher.settings.ControlsActivity
 import com.cryonix.launcher.ui.UiMotion
 
 object HomeScreen {
+    private const val PICK_JAR = 4101
+
     fun bind(
         activity: Activity,
         store: MinecraftSettingsStore,
@@ -32,222 +25,73 @@ object HomeScreen {
         activity.findViewById<TextView>(R.id.home_launch).setOnClickListener {
             LaunchTaskManager.start(activity, store)
         }
-
-        activity.findViewById<ImageButton>(R.id.home_versions).setOnClickListener {
-            activity.startActivity(Intent(activity, InstancesActivity::class.java))
-        }
         activity.findViewById<TextView>(R.id.home_accounts).setOnClickListener {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
         }
-        activity.findViewById<ImageButton>(R.id.home_refresh).setOnClickListener {
-            activity.startActivity(Intent(activity, DownloadsActivity::class.java))
+        activity.findViewById<TextView>(R.id.home_profile).setOnClickListener {
+            activity.startActivity(Intent(activity, AccountsActivity::class.java))
         }
-        activity.findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
+        activity.findViewById<View>(R.id.home_settings).setOnClickListener {
             activity.startActivity(Intent(activity, ModernSettingsActivity::class.java))
         }
-        activity.findViewById<ImageButton>(R.id.home_home).setOnClickListener {
-            UiMotion.press(it)
-        }
-        activity.findViewById<TextView>(R.id.home_youtube).setOnClickListener {
-            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/")))
+        activity.findViewById<TextView>(R.id.home_wiki).setOnClickListener {
+            openUrl(activity, "https://github.com/nekostrikesg-byte/Cryonixlauncher/wiki")
         }
         activity.findViewById<TextView>(R.id.home_discord).setOnClickListener {
-            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/")))
+            openUrl(activity, "https://discord.com/")
         }
-        activity.findViewById<TextView>(R.id.home_profile).setOnClickListener { anchor ->
-            val popup = PopupMenu(activity, anchor)
-            popup.menu.add("ishan1  •  Offline").isEnabled = false
-            popup.menu.add("Accounts").setOnMenuItemClickListener {
-                activity.startActivity(Intent(activity, AccountsActivity::class.java))
-                true
-            }
-            popup.menu.add("Edit Profile").setOnMenuItemClickListener {
-                activity.startActivity(Intent(activity, AccountsActivity::class.java))
-                true
-            }
-            popup.menu.add("Settings").setOnMenuItemClickListener {
-                activity.startActivity(Intent(activity, SettingsActivity::class.java))
-                true
-            }
-            popup.show()
+        activity.findViewById<TextView>(R.id.home_custom_controls).setOnClickListener {
+            activity.startActivity(Intent(activity, ControlsActivity::class.java))
         }
-        activity.findViewById<View>(R.id.home_add_instance).setOnClickListener {
-            showAddInstanceDialog(activity, store)
+        activity.findViewById<TextView>(R.id.home_execute_jar).setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                type = "application/java-archive"
+                addCategory(Intent.CATEGORY_OPENABLE)
+            }
+            activity.startActivityForResult(intent, PICK_JAR)
+        }
+        activity.findViewById<TextView>(R.id.home_share_log).setOnClickListener {
+            val selected = store.selectedInstanceName ?: "No instance selected"
+            val text = "Cryonix Launcher log\nBackend: Android Minecraft runtime\nStatus: " + selected
+            activity.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, text)
+                putExtra(Intent.EXTRA_SUBJECT, "Cryonix Launcher log")
+            }, "Share log"))
+        }
+        activity.findViewById<TextView>(R.id.home_open_directory).setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            }
+            activity.startActivity(intent)
+        }
+        activity.findViewById<View>(R.id.home_edit_profile).setOnClickListener {
+            activity.startActivity(Intent(activity, InstancesActivity::class.java))
         }
         activity.findViewById<TextView>(R.id.task_manager_close).setOnClickListener {
             LaunchTaskManager.close(activity)
         }
-
-        bindPressAnimations(activity.findViewById(android.R.id.content))
         renderInstances(activity, store)
         render()
+        bindPressAnimations(activity.findViewById(android.R.id.content))
         if (store.autoRefresh) refresh()
     }
 
     fun renderInstances(activity: Activity, store: MinecraftSettingsStore) {
-        val list = activity.findViewById<LinearLayout>(R.id.home_instances_list)
         val count = activity.findViewById<TextView>(R.id.home_instance_count)
         val selectedLabel = activity.findViewById<TextView>(R.id.home_selected_label)
-        list.removeAllViews()
-
-        val names = store.instances
-        count.text = names.size.toString()
-        selectedLabel.text = store.selectedInstanceName ?: names.firstOrNull() ?: "No instance"
-
-        if (names.isEmpty()) {
-            val empty = TextView(activity).apply {
-                text = "No instances yet\nTap + New Instance to create one"
-                textSize = 12f
-                setTextColor(activity.getColor(R.color.cryonix_text_secondary))
-                gravity = Gravity.CENTER
-                setPadding(dp(activity, 20), dp(activity, 10), dp(activity, 20), dp(activity, 10))
-            }
-            list.addView(
-                empty,
-                LinearLayout.LayoutParams(dp(activity, 250), dp(activity, 72))
-            )
-        } else {
-            names.forEach { name ->
-                list.addView(createInstanceCard(activity, store, name))
-            }
-        }
-
-        bindPressAnimations(list)
+        val selected = store.selectedInstanceName ?: store.instances.firstOrNull()
+        count.text = store.instances.size.toString()
+        selectedLabel.text = selected ?: "No instance"
+        activity.findViewById<TextView>(R.id.home_profile).text =
+            if (selected == null) "" else "offline • " + selected
     }
 
-    private fun createInstanceCard(
-        activity: Activity,
-        store: MinecraftSettingsStore,
-        name: String
-    ): View {
-        val card = LinearLayout(activity).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            isClickable = true
-            setPadding(dp(activity, 12), dp(activity, 8), dp(activity, 8), dp(activity, 8))
-            setBackgroundResource(R.drawable.bg_reference_row)
-            setOnClickListener {
-                store.selectedInstanceName = name
-                LaunchTaskManager.start(activity, store)
-            }
-        }
-
-        val icon = ImageButton(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(activity, 42), dp(activity, 42))
-            setImageResource(R.drawable.ic_grass_block)
-            background = null
-            contentDescription = "Launch $name"
-            setPadding(dp(activity, 6), dp(activity, 6), dp(activity, 6), dp(activity, 6))
-            setOnClickListener {
-                UiMotion.press(this)
-                store.selectedInstanceName = name
-                LaunchTaskManager.start(activity, store)
-            }
-        }
-
-        val title = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(0, -2, 1f).apply {
-                marginStart = dp(activity, 8)
-            }
-            text = name
-            textSize = 13f
-            setTextColor(activity.getColor(R.color.cryonix_text))
-            maxLines = 1
-            ellipsize = android.text.TextUtils.TruncateAt.END
-        }
-
-        val play = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(activity, 34), dp(activity, 34)).apply {
-                marginStart = dp(activity, 4)
-            }
-            text = "▶"
-            gravity = Gravity.CENTER
-            textSize = 13f
-            setTextColor(Color.WHITE)
-            setBackgroundResource(R.drawable.bg_reference_launch)
-            contentDescription = "Launch $name"
-            setOnClickListener {
-                store.selectedInstanceName = name
-                LaunchTaskManager.start(activity, store)
-            }
-        }
-
-        val delete = TextView(activity).apply {
-            layoutParams = LinearLayout.LayoutParams(dp(activity, 30), dp(activity, 34)).apply {
-                marginStart = dp(activity, 3)
-            }
-            text = "×"
-            gravity = Gravity.CENTER
-            textSize = 20f
-            setTextColor(activity.getColor(R.color.cryonix_text_secondary))
-            setBackgroundResource(R.drawable.bg_reference_pill)
-            contentDescription = "Delete $name"
-            setOnClickListener {
-                showDeleteDialog(activity, store, name)
-            }
-        }
-
-        card.addView(icon)
-        card.addView(title)
-        card.addView(play)
-        card.addView(delete)
-        card.layoutParams = LinearLayout.LayoutParams(dp(activity, 176), dp(activity, 70)).apply {
-            bottomMargin = dp(activity, 7)
-        }
-        return card
+    private fun openUrl(activity: Activity, url: String) {
+        runCatching { activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
     }
-
-    private fun showAddInstanceDialog(activity: Activity, store: MinecraftSettingsStore) {
-        val input = EditText(activity).apply {
-            hint = "Instance name"
-            setSingleLine(true)
-            setTextColor(activity.getColor(R.color.cryonix_text))
-            setHintTextColor(activity.getColor(R.color.cryonix_text_secondary))
-        }
-        val dialog = AlertDialog.Builder(activity)
-            .setTitle("New Instance")
-            .setView(input)
-            .setPositiveButton("Create") { _, _ ->
-                if (store.addInstance(input.text.toString())) {
-                    renderInstances(activity, store)
-                }
-            }
-            .setNegativeButton("Cancel", null)
-            .create()
-        showCompactDialog(activity, dialog)
-    }
-
-    private fun showDeleteDialog(
-        activity: Activity,
-        store: MinecraftSettingsStore,
-        name: String
-    ) {
-        val dialog = AlertDialog.Builder(activity)
-            .setTitle("Delete instance?")
-            .setMessage(name)
-            .setPositiveButton("Delete") { _, _ ->
-                store.removeInstance(name)
-                renderInstances(activity, store)
-            }
-            .setNegativeButton("Cancel", null)
-            .create()
-        showCompactDialog(activity, dialog)
-    }
-
-    private fun showCompactDialog(activity: Activity, dialog: AlertDialog) {
-        dialog.setOnShowListener {
-            dialog.window?.setLayout(dp(activity, 340), ViewGroup.LayoutParams.WRAP_CONTENT)
-        }
-        dialog.show()
-    }
-
-    private fun dp(activity: Activity, value: Int): Int =
-        (value * activity.resources.displayMetrics.density).toInt()
 
     private fun bindPressAnimations(root: View) {
-        if (root.isClickable) UiMotion.bindPress(root)
-        if (root is ViewGroup) {
-            for (i in 0 until root.childCount) bindPressAnimations(root.getChildAt(i))
-        }
+        UiMotion.bindPress(root)
     }
 }
