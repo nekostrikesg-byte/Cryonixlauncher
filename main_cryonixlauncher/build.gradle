@@ -31,6 +31,7 @@ android {
     buildFeatures {
         buildConfig true
         prefab true
+        resValues true
     }
 
     // Pojav sources are kept in net.kdt.pojavlaunch and use an unqualified
