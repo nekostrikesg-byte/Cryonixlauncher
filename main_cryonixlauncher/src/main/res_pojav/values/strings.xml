@@ -1,82 +1,45 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Cryonixlauncher</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!-- App name part -->
+    <string name="app_name">PojavLauncher (Minecraft: Java Edition for Android)</string>
+    <string name="app_short_name">PojavLauncher</string>
 
-    <string name="home_title">Home</string>
-    <string name="home">Home</string>
-    <string name="search_apps">Search apps</string>
-    <string name="all_apps">All apps</string>
-    <string name="favorites">Favorites</string>
-    <string name="settings">Settings</string>
-    <string name="settings_1">Settings</string>
-    <string name="personalization">Personalization</string>
-    <string name="wallpaper">Wallpaper</string>
-    <string name="widgets">Widgets</string>
-    <string name="app_info">App info</string>
-    <string name="about_cryonix">About Cryonix Launcher</string>
-    <string name="appearance">Appearance</string>
-    <string name="icons">Icons</string>
-    <string name="gestures">Gestures</string>
-    <string name="search">Search</string>
-    <string name="dock">Dock</string>
-    <string name="privacy">Privacy</string>
-    <string name="version">Version</string>
+    <!-- Action bar part -->
 
-    <string name="instances">Instances</string>
-    <string name="accounts">Accounts</string>
-    <string name="downloads">Downloads</string>
-    <string name="cryonix_logo">Cryonix logo</string>
-    <string name="cryonix_launcher">Cryonix Launcher</string>
-    <string name="youtube">YouTube</string>
-    <string name="discord">Discord</string>
-    <string name="ishan1">Ishan profile</string>
-    <string name="cryonix_player_logo">Cryonix player logo</string>
-    <string name="launch">Launch</string>
-    <string name="instances_1">Instances</string>
-    <string name="_0">0</string>
-    <string name="_8">8</string>
-    <string name="text_1">Text</string>
-    <string name="launch_tasks">Launch Tasks</string>
-    <string name="text">Text</string>
-    <string name="preparing_launch_metadata">Preparing launch metadata…</string>
-    <string name="version_not_selected_10_profile_player_1">Version: not selected, Profile: Player</string>
-    <string name="overall_task_progress">Overall task progress</string>
-<string name="app_short_name">PojavLauncher</string>
+    <!-- Languages list part -->
 
-    
-
-    
-
-    
+    <!-- Login strings -->
     <string name="login_online_username_hint">Username</string>
     <string name="login_online_login_label">Login</string>
 
-    
+    <!-- Hint -->
     <string name="hint_control_mapping">"Touch the top center cogwheel to open the context menu ⚙\nTap a button to customize: edit, resize, remove, or change its keybinds."</string>
 
-    
+    <!-- Warnings -->
     <string name="warning_remove_account">This account will be removed!</string>
 
-    
+    <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Select a mod installer</string>
 
-    
+    <!-- Error messages -->
     <string name="error_fatal">PojavLauncher has unexpectedly crashed</string>
     <string name="error_no_version">No version!</string>
     <string name="error_show_more">Show more</string>
     <string name="error_show_less">Show less</string>
 
-    
+    <!-- Toast messages -->
     <string name="toast_permission_denied">The read/write to storage permission is required!</string>
     <string name="toast_optifine_success">Install successful</string>
-    
+    <!--
+    <string name="toast_3">Exit</string>
+    -->
 
-    
+    <!-- MCLauncherActivity: Tabs -->
     <string name="mcl_tab_wiki">Wiki</string>
 
-    
+    <!-- MCLauncherActivity: Account status -->
 
-    
+    <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Cleaning cache files</string>
     <string name="mcl_launch_downloading">Downloading %s</string>
     <string name="mcl_launch_downloading_progress">"Downloading %s (%.2f MB / %.2f MB)"</string>
@@ -112,7 +75,7 @@
     <string name="mcl_setting_java_sandbox_subtitle">Control the availability of the sandbox security manager when executing a .jar file.</string>
     <string name="mcl_version_clone">Clone</string>
 
-    
+    <!-- Global strings -->
     <string name="global_edit">Edit</string>
     <string name="global_error">Error</string>
     <string name="global_load">Load</string>
@@ -128,13 +91,13 @@
     <string name="global_retry">Retry</string>
     <string name="global_default">Default</string>
 
-    
+    <!-- MainActivity: strings -->
     <string name="mcn_exit_title">Application/Game exited with code %d, check latestlog.txt for more details.</string>
     <string name="mcn_signal_title">Application/Game aborted by fatal signal %d, check latestlog.txt for more details.</string>
     <string name="mcn_exit_confirm">Are you sure want to force close?</string>
     <string name="mcn_check_fail_vulkan_support">Zink (Vulkan) renderer is not supported on this device!</string>
 
-    
+    <!-- MainActivity: Control buttons -->
     <string name="control_chat">Chat</string>
     <string name="control_debug">Debug</string>
     <string name="control_primary">Pri</string>
@@ -152,20 +115,23 @@
     <string name="control_mouseoff">Mouse: off</string>
     <string name="control_mouseon">Mouse: on </string>
 
-    
+    <!-- MainActivity: Menu advanced controls -->
     <string name="control_forceclose">Force close</string>
     <string name="control_viewout">Log output</string>
     <string name="control_adebug">Input Debug</string>
     <string name="control_customkey">Send custom keycode</string>
 
-    
+    <!-- ImportControlActivity Strings -->
     <string name="import_control_label">Import controls</string>
     <string name="import_control_invalid_file">Invalid or corrupted file</string>
     <string name="import_control_import_button">import controls</string>
     <string name="import_control_verifying_file">File is being verified, please wait and try again…</string>
     <string name="import_control_invalid_name">Invalid name or file already exists</string>
     <string name="import_control_done">Importation done</string>
-    
+    <!--
+    <string name="control_more3"></string>
+    <string name="control_more4"></string>
+-->
 
     <string name="customctrl_toggle">Toggleable</string>
     <string name="customctrl_size">Size</string>
@@ -378,10 +344,10 @@
     <string name="notif_error_occured_desc">Click to see more details</string>
     <string name="fabric_dl_only_stable">Show only stable versions</string>
     <string name="dl_tampered_manifest_title">File verification warning</string>
-    <string name="dl_tampered_manifest">The game version manifest on the mirror does not match the official Mojang version manifest, which means it may have been tampered with.&lt;br/&gt;
-        &lt;b&gt;This is not safe. Your personal information may be at risk if you continue.&lt;/b&gt;&lt;br/&gt;
-        If you still want to use the mirror, press \"Turn off manifest checks\" and start the download again.&lt;br/&gt;
-        If you want to use the official download source, press \"Switch to official site\" and start the download again.&lt;br/&gt;
+    <string name="dl_tampered_manifest"><![CDATA[The game version manifest on the mirror does not match the official Mojang version manifest, which means it may have been tampered with.<br/>
+        <b>This is not safe. Your personal information may be at risk if you continue.</b><br/>
+        If you still want to use the mirror, press \"Turn off manifest checks\" and start the download again.<br/>
+        If you want to use the official download source, press \"Switch to official site\" and start the download again.<br/>]]>
     </string>
     <string name="dl_turn_off_manifest_checks">Turn off manifest checks</string>
     <string name="dl_switch_to_official_site">Switch to official site</string>
