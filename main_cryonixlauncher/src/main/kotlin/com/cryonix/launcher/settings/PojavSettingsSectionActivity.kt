@@ -104,7 +104,7 @@ class PojavSettingsSectionActivity : Activity() {
             setSingleLine(false)
             minLines = 2
             hint = "JVM Arguments"
-            text = prefs.getString("jvm_args", "")
+            setText(prefs.getString("jvm_args", ""))
             setTextColor(getColor(R.color.cryonix_text))
             setHintTextColor(getColor(R.color.cryonix_muted))
             setPadding(dp(12), dp(8), dp(12), dp(8))
