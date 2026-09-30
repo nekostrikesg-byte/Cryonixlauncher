@@ -18,12 +18,12 @@ jobs:
         with:
           fetch-depth: 1
 
-      - uses: actions/checkout@v4
-        with:
-          repository: PojavLauncherTeam/PojavLauncher
-          ref: b12ad048157b3aa255d078c235dd4571e1900309
-          path: /tmp/pojav
-          fetch-depth: 1
+      - name: Download pinned Pojav source
+        run: |
+          git clone --depth 1 https://github.com/PojavLauncherTeam/PojavLauncher.git /tmp/pojav
+          cd /tmp/pojav
+          git fetch --depth 1 origin b12ad048157b3aa255d078c235dd4571e1900309
+          git checkout b12ad048157b3aa255d078c235dd4571e1900309
 
       - name: Copy Pojav backend files into Cryonix main module
         shell: bash
