@@ -87,10 +87,12 @@ object HomeScreen {
     fun renderInstances(activity: Activity, store: MinecraftSettingsStore) {
         val list = activity.findViewById<LinearLayout>(R.id.home_instances_list)
         val count = activity.findViewById<TextView>(R.id.home_instance_count)
+        val selectedLabel = activity.findViewById<TextView>(R.id.home_selected_label)
         list.removeAllViews()
 
         val names = store.instances
         count.text = names.size.toString()
+        selectedLabel.text = store.selectedInstanceName ?: names.firstOrNull() ?: "No instance"
 
         if (names.isEmpty()) {
             val empty = TextView(activity).apply {
