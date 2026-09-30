@@ -47,7 +47,7 @@ class InstancesActivity : Activity() {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
                 setPadding(dp(12), dp(8), dp(8), dp(8))
-                setBackgroundResource(R.drawable.bg_reference_row)
+                setBackgroundResource(R.drawable.bg_pojav_row)
                 isClickable = true
                 setOnClickListener { openDetail(name) }
             }
@@ -62,14 +62,14 @@ class InstancesActivity : Activity() {
                 layoutParams = LinearLayout.LayoutParams(dp(48), dp(44)).apply { marginStart = dp(6) }
                 text = "›"; gravity = Gravity.CENTER; textSize = 22f
                 setTextColor(getColor(R.color.cryonix_text))
-                setBackgroundResource(R.drawable.bg_reference_pill)
+                setBackgroundResource(R.drawable.bg_pojav_row)
                 setOnClickListener { openDetail(name) }
             }
             val delete = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(dp(44), dp(44)).apply { marginStart = dp(5) }
                 text = "×"; gravity = Gravity.CENTER; textSize = 19f
                 setTextColor(getColor(R.color.cryonix_text_secondary))
-                setBackgroundResource(R.drawable.bg_reference_pill)
+                setBackgroundResource(R.drawable.bg_pojav_row)
                 setOnClickListener { confirmDelete(name) }
             }
             row.addView(title); row.addView(open); row.addView(delete)
