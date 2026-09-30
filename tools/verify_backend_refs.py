@@ -133,6 +133,23 @@ def is_library_resource(res_type: str, name: str) -> bool:
     return False
 
 
+# Extensions that can appear on resource files. `.9.png` is checked before
+# `.png` so a nine-patch defines the same resource name as a plain drawable.
+RESOURCE_EXTENSIONS = (
+    ".9.png", ".png", ".webp", ".jpg", ".jpeg", ".gif", ".bmp",
+    ".ttf", ".otf", ".ttc", ".xml.json",
+)
+
+
+def resource_name(filename: str) -> str:
+    """Resource name defined by `filename` (``foo.9.png`` -> ``foo``)."""
+    lowered = filename.lower()
+    for ext in RESOURCE_EXTENSIONS:
+        if lowered.endswith(ext):
+            return filename[: -len(ext)]
+    return os.path.splitext(filename)[0]
+
+
 # --------------------------------------------------------------------------
 # resource definitions
 # --------------------------------------------------------------------------
@@ -187,7 +204,7 @@ def collect_defined_resources():
                                 defined["attr"].add(attr.get("name"))
                 continue
             if base_folder in FILE_TYPES:
-                defined[base_folder].add(os.path.splitext(name)[0])
+                defined[base_folder].add(resource_name(name))
     return defined
 
 
@@ -355,12 +372,15 @@ def main() -> int:
                         continue
                     for child in root:
                         res_type = child.tag
+                        if res_type == "item":
+                            # <item name="x" type="id" /> declares an id, not an item
+                            res_type = child.get("type") or "item"
                         if res_type in ARRAY_ALIASES:
                             res_type = "array"
                         if child.get("name"):
                             upstream[res_type].add(child.get("name"))
                 elif folder in FILE_TYPES:
-                    upstream[folder].add(os.path.splitext(name)[0])
+                    upstream[folder].add(resource_name(name))
         gaps = [
             f"{res_type}/{name}"
             for res_type, names in upstream.items()
