@@ -25,3 +25,28 @@ subprojects {
     ext.gitUsed = { rootProject.ext.gitUsed.call() }
     ext.getGitHash = { String projectPath -> rootProject.ext.getGitHash.call(projectPath) }
 }
+
+
+def preparePojavComponents = tasks.register('preparePojavComponents', Exec) {
+    workingDir file('engine/pojav')
+    commandLine './gradlew',
+        ':jre_lwjgl3glfw:jar',
+        ':forge_installer:jar',
+        ':arc_dns_injector:jar',
+        '--no-daemon'
+    doFirst {
+        File wrapper = file('engine/pojav/gradlew')
+        if (!wrapper.exists()) {
+            throw new GradleException(
+                'Pojav submodule is not initialized. Run: git submodule update --init --recursive'
+            )
+        }
+        wrapper.setExecutable(true)
+    }
+}
+
+project(':pojav_runtime').afterEvaluate {
+    tasks.matching { it.name == 'preBuild' }.configureEach {
+        dependsOn rootProject.tasks.named('preparePojavComponents')
+    }
+}
