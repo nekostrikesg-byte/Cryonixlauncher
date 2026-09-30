@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import com.cryonix.launcher.R
 import com.cryonix.launcher.accounts.AccountsActivity
+import com.cryonix.launcher.core.PojavRuntimeBridge
 import com.cryonix.launcher.instances.InstancesActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.settings.ModernSettingsActivity
@@ -23,7 +24,9 @@ object HomeScreen {
         render: () -> Unit
     ) {
         activity.findViewById<TextView>(R.id.home_launch).setOnClickListener {
-            LaunchTaskManager.start(activity, store)
+            if (!PojavRuntimeBridge.openLauncher(activity)) {
+                LaunchTaskManager.start(activity, store)
+            }
         }
         activity.findViewById<TextView>(R.id.home_accounts).setOnClickListener {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
