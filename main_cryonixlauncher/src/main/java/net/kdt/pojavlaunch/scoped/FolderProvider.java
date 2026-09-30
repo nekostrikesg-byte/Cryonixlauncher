@@ -19,6 +19,7 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.Nullable;
 
 import com.cryonix.launcher.R;
+import net.kdt.pojavlaunch.CryonixBuildInfo;
 import net.kdt.pojavlaunch.Tools;
 
 import org.apache.commons.io.FileUtils;
