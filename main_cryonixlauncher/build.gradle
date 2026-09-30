@@ -1,6 +1,8 @@
 plugins {
+    // AGP 9 compiles Kotlin itself (built-in Kotlin): applying
+    // org.jetbrains.kotlin.android here would register a second `kotlin`
+    // extension and fail the build.
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 // Native ABIs packaged by default. The vendored Pojav/Mojo backend ships
@@ -82,13 +84,6 @@ android {
 
     lint {
         abortOnError false
-    }
-}
-
-// Java sources target Java 17; keep the Kotlin JVM target in sync.
-kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
 
