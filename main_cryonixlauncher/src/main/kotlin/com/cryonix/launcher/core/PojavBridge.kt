@@ -356,10 +356,10 @@ object PojavBridge {
 
     /** Pushes the Cryonix launcher settings into the backend preferences. */
     fun applyPreferences(
-        rendererId: String,
-        memoryMb: Int,
-        resolutionPercent: Int,
-        jvmArgs: String?
+        rendererId: String = "",
+        memoryMb: Int = 0,
+        resolutionPercent: Int = 0,
+        jvmArgs: String? = null
     ) {
         val editor = LauncherPreferences.DEFAULT_PREF.edit()
         if (rendererId.isNotBlank()) {

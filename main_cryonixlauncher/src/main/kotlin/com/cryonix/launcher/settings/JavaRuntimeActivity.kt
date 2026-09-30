@@ -81,7 +81,7 @@ class JavaRuntimeActivity : Activity() {
             }
             val remove = TextView(this).apply {
                 layoutParams = LinearLayout.LayoutParams(dp(44), dp(44))
-                text = "×"
+                this.text = "×"
                 gravity = android.view.Gravity.CENTER
                 textSize = 20f
                 setTextColor(getColor(R.color.cryonix_text_secondary))
