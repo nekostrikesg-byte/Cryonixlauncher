@@ -1,0 +1,55 @@
+name: Import Pojav backend into Cryonix
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [cryonix_v2sdl]
+    paths:
+      - .github/workflows/import-pojav-backend.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/checkout@v4
+        with:
+          repository: PojavLauncherTeam/PojavLauncher
+          ref: b12ad048157b3aa255d078c235dd4571e1900309
+          path: /tmp/pojav
+          fetch-depth: 1
+
+      - name: Copy Pojav backend files into Cryonix main module
+        shell: bash
+        run: |
+          set -e
+          mkdir -p main_cryonixlauncher/src/main/java
+          mkdir -p main_cryonixlauncher/src/main/jni
+          mkdir -p main_cryonixlauncher/src/main/jniLibs
+          mkdir -p main_cryonixlauncher/src/main/assets
+          mkdir -p main_cryonixlauncher/libs
+          rsync -a /tmp/pojav/app_pojavlauncher/src/main/java/ main_cryonixlauncher/src/main/java/
+          rsync -a /tmp/pojav/app_pojavlauncher/src/main/jni/ main_cryonixlauncher/src/main/jni/
+          rsync -a /tmp/pojav/app_pojavlauncher/src/main/jniLibs/ main_cryonixlauncher/src/main/jniLibs/
+          rsync -a /tmp/pojav/app_pojavlauncher/src/main/assets/ main_cryonixlauncher/src/main/assets/
+          rsync -a /tmp/pojav/app_pojavlauncher/libs/ main_cryonixlauncher/libs/
+          mkdir -p main_cryonixlauncher/src/main/res_pojav
+          rsync -a /tmp/pojav/app_pojavlauncher/src/main/res/ main_cryonixlauncher/src/main/res_pojav/
+          rm -f main_cryonixlauncher/src/main/res_pojav/values/strings.xml
+          rm -rf engine/pojav pojav_runtime
+          rm -f .gitmodules
+          git add main_cryonixlauncher engine/pojav pojav_runtime .gitmodules
+          if git diff --cached --quiet; then
+            echo "Nothing to import"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Import Pojav backend files directly into Cryonix main module [skip ci]"
+          git push origin HEAD:cryonix_v2sdl
