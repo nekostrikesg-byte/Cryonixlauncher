@@ -28,6 +28,14 @@ jobs:
           mkdir -p main_cryonixlauncher/libs
           cp -f /tmp/pojav/app_pojavlauncher/libs/* main_cryonixlauncher/libs/
 
+          # The vendored dalvik annotation cannot be compiled with a Java 17
+          # source level: javac rejects a source file for a package that the
+          # Android platform module already provides
+          # ("error: package exists in another module: java.base"). The
+          # annotation is provided by the platform at compile time and by ART
+          # at runtime, so the copy is dropped after flattening.
+          rm -f main_cryonixlauncher/src/main/java/dalvik/annotation/optimization/CriticalNative.java
+
           python3 - <<'PY'
           from pathlib import Path
           root=Path("main_cryonixlauncher/src/main/java")
@@ -54,9 +62,3 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Vendor Pojav runtime jars and bind backend to Cryonix resources [skip ci]" || exit 0
           git push origin HEAD:cryonix_v2sdl
-
-      # The vendored dalvik annotation is intentionally not imported: with the
-      # Java 17 source level javac refuses a source file for a package that the
-      # Android platform module already provides
-      # ("error: package exists in another module: java.base").
-      #      rm -f main_cryonixlauncher/src/main/java/dalvik/annotation/optimization/CriticalNative.java
