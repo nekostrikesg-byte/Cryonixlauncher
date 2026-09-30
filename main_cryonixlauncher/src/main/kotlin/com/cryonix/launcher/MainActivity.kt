@@ -5,15 +5,12 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.widget.TextView
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
 import com.cryonix.launcher.minecraft.VersionManifestService
 import com.cryonix.launcher.ui.home.HomeScreen
 import kotlin.concurrent.thread
 
 class MainActivity : Activity() {
-    private lateinit var versionText: TextView
-    private lateinit var statusText: TextView
     private lateinit var store: MinecraftSettingsStore
 
     override fun onCreate(state: Bundle?) {
@@ -25,9 +22,6 @@ class MainActivity : Activity() {
         }
 
         store = MinecraftSettingsStore(this)
-        versionText = findViewById(R.id.home_version)
-        statusText = findViewById(R.id.home_status)
-
 
         HomeScreen.bind(
             activity = this,
@@ -43,16 +37,10 @@ class MainActivity : Activity() {
     }
 
     private fun renderState() {
-        versionText.text = if (store.selectedVersionId == null) {
-            "No installed versions"
-        } else {
-            store.selectedVersionId
-        }
         HomeScreen.renderInstances(this, store)
     }
 
     private fun refreshMetadata() {
-        statusText.text = "Refreshing"
         thread {
             val result = runCatching {
                 VersionManifestService().fetchVersions()
@@ -63,10 +51,8 @@ class MainActivity : Activity() {
             runOnUiThread {
                 result.onSuccess {
                     store.selectedVersionId = it.id
-                    statusText.text = "Ready"
                     renderState()
                 }.onFailure {
-                    statusText.text = "Ready"
                 }
             }
         }
