@@ -1,0 +1,4 @@
+[submodule "engine/pojav"]
+	path = engine/pojav
+	url = https://github.com/PojavLauncherTeam/PojavLauncher.git
+	branch = v3_openjdk
