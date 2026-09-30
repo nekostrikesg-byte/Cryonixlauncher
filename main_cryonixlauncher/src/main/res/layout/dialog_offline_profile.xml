@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="22dp"
-    android:background="@drawable/bg_reference_card">
+    android:background="@drawable/bg_pojav_row">
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="18dp"
-        android:background="@drawable/bg_reference_row"
+        android:background="@drawable/bg_pojav_row"
         android:hint="Profile name"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
@@ -57,7 +57,7 @@
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:gravity="center"
-            android:background="@drawable/bg_reference_launch"
+            android:background="@drawable/bg_pojav_button"
             android:text="Create"
             android:textColor="@color/cryonix_button_text"
             android:textSize="14sp"
