@@ -23,8 +23,6 @@ Daemon will be stopped at the end of the build
 > Task :main_cryonixlauncher:checkDebugAarMetadata
 > Task :main_cryonixlauncher:compileDebugNavigationResources
 > Task :main_cryonixlauncher:desugarDebugFileDependencies
-> Task :main_cryonixlauncher:createDebugCompatibleScreenManifests
-> Task :main_cryonixlauncher:extractDeepLinksDebug
 
 > Task :main_cryonixlauncher:mergeDebugResources
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fil/strings.xml:121:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
@@ -37,11 +35,19 @@ Daemon will be stopped at the end of the build
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values/strings.xml:366:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values/strings.xml:367:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values/strings.xml:374:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-af/strings.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values/strings.xml:411:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values/strings.xml:409:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values/strings.xml:408:4: Multiple substitutions specified in non-positional format of string resource string/newdl_extracting_native_libraries. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-af/strings.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ba/strings.xml:34:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:229:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:282:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:283:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fa-rIR/strings.xml:142:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fa-rIR/strings.xml:212:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fa-rIR/strings.xml:244:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
@@ -57,78 +63,7 @@ Daemon will be stopped at the end of the build
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-de/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-de/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-de/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-
-> Task :main_cryonixlauncher:processDebugMainManifest
-> Task :main_cryonixlauncher:processDebugManifest
-> Task :main_cryonixlauncher:processDebugManifestForPackage
-
-> Task :main_cryonixlauncher:mergeDebugResources
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:233:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:287:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:288:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:295:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-no/strings.xml:96:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-no/strings.xml:98:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-rpr/strings.xml:117:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-rpr/strings.xml:119:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-iw/strings.xml:139:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-iw/strings.xml:218:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:229:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:282:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:283:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lol-rAA/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-mn-rMN/strings.xml:34:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ca/strings.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ca/strings.xml:183:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ca/strings.xml:190:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:229:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:282:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:283:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:148:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:236:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:289:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:290:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:298:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-it/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-hu/strings.xml:31:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/.gradle/caches/9.6.0/transforms/a588b7ea65b8e0fb7b55533286fa5d47/transformed/material-1.12.0/res/values-hu/values-hu.xml:32:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-it/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-it/strings.xml:238:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-it/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
@@ -146,64 +81,42 @@ Daemon will be stopped at the end of the build
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ar/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ar/strings.xml:332:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ar/strings.xml:330:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:232:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:287:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:294:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ja/strings.xml:131:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ja/strings.xml:202:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:233:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:287:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:288:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-el/strings.xml:295:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ro/strings.xml:125:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ro/strings.xml:180:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ms/strings.xml:115:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/.gradle/caches/9.6.0/transforms/a588b7ea65b8e0fb7b55533286fa5d47/transformed/material-1.12.0/res/values-ms/values-ms.xml:32:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-no/strings.xml:96:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-no/strings.xml:98:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ru/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:14:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:150:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:236:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:290:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:299:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:334:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:332:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-kk/strings.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:232:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:287:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:294:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sr/strings.xml:113:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/.gradle/caches/9.6.0/transforms/a588b7ea65b8e0fb7b55533286fa5d47/transformed/material-1.12.0/res/values-sr/values-sr.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-da/strings.xml:22:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tt/strings.xml:107:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-rpr/strings.xml:117:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-rpr/strings.xml:119:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sv/strings.xml:67:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/.gradle/caches/9.6.0/transforms/a588b7ea65b8e0fb7b55533286fa5d47/transformed/material-1.12.0/res/values-sv/values-sv.xml:32:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-bn-rBD/strings.xml:34:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pl/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:136:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:202:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:235:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:240:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
@@ -212,6 +125,80 @@ Daemon will be stopped at the end of the build
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-cs/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-hu/strings.xml:31:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/.gradle/caches/9.6.0/transforms/a588b7ea65b8e0fb7b55533286fa5d47/transformed/material-1.12.0/res/values-hu/values-hu.xml:32:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-in/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-iw/strings.xml:139:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-iw/strings.xml:218:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ja/strings.xml:131:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ja/strings.xml:202:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-mn-rMN/strings.xml:34:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-kk/strings.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:231:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ca/strings.xml:33:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ca/strings.xml:183:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ca/strings.xml:190:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:232:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:287:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-th/strings.xml:294:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:229:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:282:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:283:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-sk-rSK/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:148:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:236:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:289:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:290:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ko/strings.xml:298:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-da/strings.xml:22:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tt/strings.xml:107:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:230:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:283:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:136:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:202:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:235:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-lt/strings.xml:240:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-pt-rBR/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-uk/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-uk/strings.xml:232:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-uk/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
@@ -234,6 +221,12 @@ Daemon will be stopped at the end of the build
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-nl/strings.xml:231:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-nl/strings.xml:232:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-nl/strings.xml:239:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:147:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:232:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:287:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-tr/strings.xml:294:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fr/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fr/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fr/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
@@ -243,29 +236,36 @@ Daemon will be stopped at the end of the build
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fr/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fr/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
 /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-fr/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rTW/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:231:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:286:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-az-rAZ/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:146:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:230:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:283:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:284:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:285:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-en-rGB/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-ms/strings.xml:115:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/.gradle/caches/9.6.0/transforms/a588b7ea65b8e0fb7b55533286fa5d47/transformed/material-1.12.0/res/values-ms/values-ms.xml:32:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:14:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:150:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:236:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:290:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:299:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:334:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-es/strings.xml:332:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
 
+> Task :main_cryonixlauncher:createDebugCompatibleScreenManifests
+> Task :main_cryonixlauncher:extractDeepLinksDebug
+
+> Task :main_cryonixlauncher:mergeDebugResources
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:15:4: Multiple substitutions specified in non-positional format of string resource string/address_memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:151:4: Multiple substitutions specified in non-positional format of string resource string/mcl_launch_downloading_progress. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:237:4: Multiple substitutions specified in non-positional format of string resource string/memory_warning_msg. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:291:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_applying_overrides. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:292:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_metadata. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:293:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:300:4: Multiple substitutions specified in non-positional format of string resource string/modpack_download_downloading_mods_fc. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:335:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files. Did you mean to add the formatted="false" attribute?
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/res/values-zh-rCN/strings.xml:333:4: Multiple substitutions specified in non-positional format of string resource string/newdl_downloading_game_files_size. Did you mean to add the formatted="false" attribute?
+
+> Task :main_cryonixlauncher:processDebugMainManifest
+> Task :main_cryonixlauncher:processDebugManifest
 > Task :main_cryonixlauncher:configureNdkBuildDebug[arm64-v8a]
+> Task :main_cryonixlauncher:processDebugManifestForPackage
 
 > Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
 C/C++: rm: cannot remove '/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/../jniLibs/*/libawt_headless.so': No such file or directory
@@ -287,14 +287,6 @@ C/C++:                                                                          
 C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/input_bridge_v3.c:39:16: note: expanded from macro 'TRY_ATTACH_ENV'
 C/C++:         printf(error_message);                                             \
 C/C++:                ^~~~~~~~~~~~~
-
-warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
-warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
-
-
-> Task :main_cryonixlauncher:processDebugResources
-
-> Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
 C/C++: 1 warning generated.
 C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/jre_launcher.c:119:69: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
 C/C++:             printf("Failed to set signal hander for signal %i: %s", i, strerror(errno));
@@ -317,6 +309,14 @@ C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/sr
 C/C++: void free_char_array(JNIEnv *env, jobjectArray jstringArray, const char **charArray) {
 C/C++:                                                                           ^
 C/C++: 2 warnings generated.
+
+warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
+warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
+
+
+> Task :main_cryonixlauncher:processDebugResources
+
+> Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
 C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/awt_bridge.c:120:109: warning: incompatible pointer to integer conversion passing 'void *' to parameter of type 'jint' (aka 'int') [-Wint-conversion]
 C/C++:     (*runtimeJNIEnvPtr_GRAPHICS)->ReleaseIntArrayElements(runtimeJNIEnvPtr_GRAPHICS, jreRgbArray, rgbArray, NULL);
 C/C++:                                                                                                             ^~~~
@@ -327,39 +327,44 @@ C/C++: 1 warning generated.
 
 > Task :main_cryonixlauncher:mergeDebugJniLibFolders
 > Task :main_cryonixlauncher:mergeDebugNativeLibs
+> Task :main_cryonixlauncher:mergeExtDexDebug
 > Task :main_cryonixlauncher:validateSigningDebug
 > Task :main_cryonixlauncher:writeDebugAppMetadata
 > Task :main_cryonixlauncher:writeDebugSigningConfigVersions
-> Task :main_cryonixlauncher:mergeExtDexDebug
 > Task :main_cryonixlauncher:stripDebugDebugSymbols
+> Task :main_cryonixlauncher:compileDebugKotlin
 
-> Task :main_cryonixlauncher:compileDebugKotlin FAILED
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/JavaRuntimeActivity.kt:84:17 'val' cannot be reassigned.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/JavaRuntimeActivity.kt:84:24 Assignment type mismatch: actual type is 'String', but 'TextView' was expected.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/PojavSettingsSectionActivity.kt:107:42 No value passed for parameter 'rendererId'.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/PojavSettingsSectionActivity.kt:107:42 No value passed for parameter 'resolutionPercent'.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/PojavSettingsSectionActivity.kt:107:42 No value passed for parameter 'jvmArgs'.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/PojavSettingsSectionActivity.kt:124:42 No value passed for parameter 'rendererId'.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/PojavSettingsSectionActivity.kt:124:42 No value passed for parameter 'memoryMb'.
-e: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/PojavSettingsSectionActivity.kt:124:42 No value passed for parameter 'resolutionPercent'.
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790776100043.json
+> Task :main_cryonixlauncher:compileDebugJavaWithJavac
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/dalvik/annotation/optimization/CriticalNative.java:1: error: package exists in another module: java.base
+package dalvik.annotation.optimization;
+^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+
+> Task :main_cryonixlauncher:compileDebugJavaWithJavac FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790776234241.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/build/reports/problems/problems-report.html
 
 FAILURE: Build failed with an exception.
 
 * What went wrong:
-Execution failed for task ':main_cryonixlauncher:compileDebugKotlin' (registered by plugin 'com.android.internal.application').
-> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
-   > Compilation error. See log for more details
+Execution failed for task ':main_cryonixlauncher:compileDebugJavaWithJavac' (registered by plugin 'com.android.internal.application').
+> Compilation failed; see the compiler output below.
+  Note: Recompile with -Xlint:deprecation for details.
+  /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/dalvik/annotation/optimization/CriticalNative.java:1: error: package exists in another module: java.base
+  package dalvik.annotation.optimization;
+  ^
+  Note: Some input files use or override a deprecated API.
+  1 error
 
 * Try:
-> Run with --info or --debug option to get more log output.
+> Check your code and dependencies to fix the compilation error(s)
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
-> Get more help at https://help.gradle.org.
 
 * Exception is:
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cryonixlauncher:compileDebugKotlin' (registered by plugin 'com.android.internal.application').
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cryonixlauncher:compileDebugJavaWithJavac' (registered by plugin 'com.android.internal.application').
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
@@ -391,12 +396,34 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cr
 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
-	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
-	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/java/dalvik/annotation/optimization/CriticalNative.java:1: error: package exists in another module: java.base
+package dalvik.annotation.optimization;
+^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+	at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:38)
+	at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+	at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+	at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
+	at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:206)
+	at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:55)
+	at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
+	at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$CompileOperation.call(CompileJavaBuildOperationReportingCompiler.java:78)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$CompileOperation.call(CompileJavaBuildOperationReportingCompiler.java:52)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
@@ -404,44 +431,16 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':main_cr
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
-	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$11(DefaultBuildLifecycleController.java:323)
-	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:304)
-	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$9(StateTransitionController.java:215)
-	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
-	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:215)
-	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:314)
-	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
-	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
-	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:182)
-	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:199)
-	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
-	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:199)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
-	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:278)
-	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:132)
-	at org.gradle.internal.Factories$1.create(Factories.java:30)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$withoutLocksBlocking$3(DefaultWorkerLeaseService.java:410)
-	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocksBlocking(DefaultWorkerLeaseService.java:405)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.blocking(DefaultWorkerLeaseService.java:255)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.blocking(DefaultWorkerLeaseService.java:237)
-	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$3(DefaultAsyncWorkTracker.java:128)
-	at org.gradle.internal.Factories$1.create(Factories.java:30)
-	at org.gradle.internal.resources.AbstractResourceLockRegistry.whileDisallowingLockChanges(AbstractResourceLockRegistry.java:50)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.whileDisallowingProjectLockChanges(DefaultWorkerLeaseService.java:260)
-	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:127)
-	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:93)
-	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:79)
-	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:67)
-	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:267)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:49)
+	at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:224)
+	at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:165)
+	at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:150)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
@@ -537,42 +536,7 @@ Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionExcept
 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
-	... 61 more
-Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
-	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:21)
-	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:119)
-	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:74)
-	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
-	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:64)
-	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:61)
-	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:102)
-	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:61)
-	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
-	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
-	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
-	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:58)
-	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:174)
-	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:191)
-	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$500(DefaultConditionalExecutionQueue.java:112)
-	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:168)
-	at org.gradle.internal.Factories$1.create(Factories.java:30)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
-	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:135)
-	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:163)
-	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:125)
-	... 2 more
+	... 30 more
 
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
@@ -581,5 +545,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 39s
-35 actionable tasks: 35 executed
+BUILD FAILED in 54s
+36 actionable tasks: 36 executed
