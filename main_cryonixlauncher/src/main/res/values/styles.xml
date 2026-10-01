@@ -1,19 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <style name="CryonixTheme" parent="android:style/Theme.Material.NoActionBar">
+    <style name="CryonixTheme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/cryonix_background_2</item>
+        <item name="colorPrimaryDark">@color/cryonix_background</item>
+        <item name="colorAccent">@color/cryonix_accent</item>
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/cryonix_background</item>
         <item name="android:navigationBarColor">@color/cryonix_background</item>
-        <item name="android:colorAccent">@color/cryonix_accent</item>
         <item name="android:windowActionModeOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="alertDialogTheme">@style/CryonixDialogTheme</item>
         <item name="android:alertDialogTheme">@style/CryonixDialogTheme</item>
     </style>
 
-    <style name="CryonixDialogTheme" parent="android:style/Theme.Material.Dialog.Alert">
+    <style name="CryonixDialogTheme" parent="@style/Theme.AppCompat.Dialog.Alert">
         <item name="android:windowBackground">@drawable/bg_dialog</item>
-        <item name="android:colorAccent">@color/cryonix_accent</item>
+        <item name="colorAccent">@color/cryonix_accent</item>
         <item name="android:textColorPrimary">@color/cryonix_text</item>
         <item name="android:textColorSecondary">@color/cryonix_text_secondary</item>
         <item name="android:windowMinWidthMajor">56%</item>
