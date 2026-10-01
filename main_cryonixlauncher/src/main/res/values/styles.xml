@@ -6,8 +6,6 @@
         <item name="colorAccent">@color/cryonix_accent</item>
         <item name="android:textColorPrimary">@color/cryonix_text</item>
         <item name="android:textColorSecondary">@color/cryonix_text_secondary</item>
-        <item name="textColorPrimary">@color/cryonix_text</item>
-        <item name="textColorSecondary">@color/cryonix_text_secondary</item>
         <item name="android:windowBackground">@color/cryonix_background</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="android:fontFamily">sans</item>
