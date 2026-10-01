@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition skirta Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition skirta Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Pasirinkite modifikacijų įdiegimui</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher netikėtai išsijungė arba užlužo</string>
+    <string name="error_fatal">Cryonixlauncher netikėtai išsijungė arba užlužo</string>
     <string name="error_no_version">Nėra versijos!</string>
     <string name="error_show_more">Rodyti daugiau</string>
     <string name="error_show_less">Rodyti mažiau</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Valomi nereikalingi failai</string>
     <string name="mcl_launch_downloading">Atsisiunčiama %s</string>
-    <string name="mcl_launch_downloading_progress">"Atsisiunčiama %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Atsisiunčiama %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Rengiamasi atsisiųsti resursus</string>
     <string name="mcl_options">Nustatymai</string>
     <string name="mcl_option_customcontrol">Kontrolės</string>
@@ -133,7 +133,7 @@
     <string name="customctrl_passthru">Pelės praileidimas</string>
     <string name="customctrl_swipeable">Perbraukiamas</string>
     <string name="customctrl_forward_lock">Ėjimo į priekį fiksavimas</string>
-    <string name="memory_warning_msg">Dabartinis kiekis laisvo RAM (%d) yra mažesnis negu paskirtas RAM (%d), kas gali baigtis išsijungimais. Pakeiskite paskirtą kiekį jeigu išsijungia žaidimas.</string>
+    <string name="memory_warning_msg" formatted="false">Dabartinis kiekis laisvo RAM (%d) yra mažesnis negu paskirtas RAM (%d), kas gali baigtis išsijungimais. Pakeiskite paskirtą kiekį jeigu išsijungia žaidimas.</string>
     <string name="mcl_memory_allocation">Atminties skirtstymas</string>
     <string name="multirt_runtime_corrupt">Sugadintas Java Modulis</string>
     <string name="multirt_runtime_incompatiblearch">Netinkama architektūra: %s</string>
@@ -179,7 +179,7 @@
     <string name="arc_capes_title">\"Cosmetica\" apvalkalai</string>
     <string name="arc_capes_desc">Įjungia apvalkalus iš \"Cosmetica\" (anksčiau \"Arc\"). Daugiau informacijos rasite https://cosmetica.cc. Reikalingas OptiFine.</string>
     <string name="notif_channel_name">Pagrindinis</string>
-    <string name="lazy_service_default_title">Pojav foninis servisas</string>
+    <string name="lazy_service_default_title">Cryonixlauncher foninis servisas</string>
     <string name="mcl_setting_veroption_installed">Instaliuota</string>
     <string name="notification_terminate">Nutraukti</string>
     <string name="notification_game_runs">Žaidimas bėga!</string>
@@ -233,9 +233,9 @@
     <string name="generic_debug">Taisyti</string>
     <string name="search_modpack_no_result">Nerasta modpacks</string>
     <string name="search_modpack_error">Nepavyksta rasti modpacks</string>
-    <string name="modpack_download_downloading_mods_fc">Atsiunčiamos modifikacijos (Failas %d iš %d)</string>
-    <string name="modpack_download_applying_overrides">Taikyti perašymus (%d/%d)</string>
-    <string name="modpack_install_notification_title">Pojav Modpack diegėjas</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Atsiunčiamos modifikacijos (Failas %d iš %d)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Taikyti perašymus (%d/%d)</string>
+    <string name="modpack_install_notification_title">Cryonixlauncher Modpack diegėjas</string>
     <string name="modpack_install_notification_success">Paspausk čia norint pabaigti Modpack instaliaciją</string>
     <string name="modpack_install_notification_data_not_available">Klaida atsiunčiant modifikacijų paleidėjo informaciją</string>
     <string name="modpack_install_button">Sukurti Modpack profilį</string>

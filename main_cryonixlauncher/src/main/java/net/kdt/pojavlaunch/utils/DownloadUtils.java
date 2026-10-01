@@ -10,7 +10,6 @@ import java.nio.charset.*;
 import java.util.concurrent.Callable;
 
 import net.kdt.pojavlaunch.*;
-import org.apache.commons.io.*;
 
 @SuppressWarnings("IOStreamConstructor")
 public class DownloadUtils {
@@ -36,7 +35,7 @@ public class DownloadUtils {
                         + ": " + conn.getResponseMessage());
             }
             is = conn.getInputStream();
-            IOUtils.copy(is, os);
+            FileUtils.copy(is, os);
         } catch (IOException e) {
             throw new IOException("Unable to download from " + url, e);
         } finally {

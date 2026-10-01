@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_marginTop="7dp"
-                android:background="@drawable/bg_pojav_button"
+                android:background="@drawable/bg_cryonix_button"
                 android:gravity="center"
                 android:text="INSTALL FROM FILE (.tar.xz)"
                 android:textColor="@color/cryonix_button_text"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="12dp" android:background="@color/cryonix_background">
 <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical">
-<TextView android:id="@+id/server_hub_back" android:layout_width="70dp" android:layout_height="40dp" android:gravity="center" android:text="‹ Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_pojav_row"/>
+<TextView android:id="@+id/server_hub_back" android:layout_width="70dp" android:layout_height="40dp" android:gravity="center" android:text="‹ Back" android:textColor="@color/cryonix_text" android:background="@drawable/bg_cryonix_row"/>
 <TextView android:id="@+id/server_hub_title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Server Hub" android:textColor="@color/cryonix_text" android:textSize="18sp" android:textStyle="bold"/>
-<TextView android:id="@+id/server_hub_add" android:layout_width="110dp" android:layout_height="40dp" android:gravity="center" android:text="+ Add Server" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_pojav_button" android:textSize="10sp"/>
+<TextView android:id="@+id/server_hub_add" android:layout_width="110dp" android:layout_height="40dp" android:gravity="center" android:text="+ Add Server" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_cryonix_button" android:textSize="10sp"/>
 </LinearLayout>
 <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="8dp" android:scrollbars="none"><LinearLayout android:id="@+id/server_hub_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/></ScrollView>
 </LinearLayout>

@@ -11,9 +11,9 @@ import android.util.Log;
 import com.kdt.mcgui.ProgressLayout;
 
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.FileUtils;
 import net.kdt.pojavlaunch.multirt.MultiRTUtils;
 
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -63,35 +63,44 @@ public class AsyncAssetManager {
         ProgressLayout.setProgress(ProgressLayout.EXTRACT_SINGLE_FILES, 0);
         sExecutorService.execute(() -> {
             try {
-                Tools.copyAssetFile(ctx, "options.txt", Tools.DIR_GAME_NEW, false);
-                Tools.copyAssetFile(ctx, "default.json", Tools.CTRLMAP_PATH, false);
-
-                Tools.copyAssetFile(ctx, "launcher_profiles.json", Tools.DIR_GAME_NEW, false);
-                Tools.copyAssetFile(ctx,"resolv.conf",Tools.DIR_DATA, false);
+                unpackSingleFilesNow(ctx);
             } catch (IOException e) {
-                Log.e("AsyncAssetManager", "Failed to unpack critical components !");
+                Log.e("AsyncAssetManager", "Failed to unpack critical components", e);
             }
             ProgressLayout.clearProgress(ProgressLayout.EXTRACT_SINGLE_FILES);
         });
+    }
+
+    /** Copy default configuration files before the game process needs them. */
+    public static void unpackSingleFilesNow(Context ctx) throws IOException {
+        Tools.copyAssetFile(ctx, "options.txt", Tools.DIR_GAME_NEW, false);
+        Tools.copyAssetFile(ctx, "default.json", Tools.CTRLMAP_PATH, false);
+        Tools.copyAssetFile(ctx, "launcher_profiles.json", Tools.DIR_GAME_NEW, false);
+        Tools.copyAssetFile(ctx, "resolv.conf", Tools.DIR_DATA, false);
     }
 
     public static void unpackComponents(Context ctx){
         ProgressLayout.setProgress(ProgressLayout.EXTRACT_COMPONENTS, 0);
         sExecutorService.execute(() -> {
             try {
-                unpackComponent(ctx, "caciocavallo", false);
-                unpackComponent(ctx, "caciocavallo17", false);
-                // Since the Java module system doesn't allow multiple JARs to declare the same module,
-                // we repack them to a single file here
-                unpackComponent(ctx, "lwjgl3", false);
-                unpackComponent(ctx, "security", true);
-                unpackComponent(ctx, "arc_dns_injector", true);
-                unpackComponent(ctx, "forge_installer", true);
+                unpackComponentsNow(ctx);
             } catch (IOException e) {
-                Log.e("AsyncAssetManager", "Failed o unpack components !",e );
+                Log.e("AsyncAssetManager", "Failed to unpack components", e);
             }
             ProgressLayout.clearProgress(ProgressLayout.EXTRACT_COMPONENTS);
         });
+    }
+
+    /** Extract required runtime components synchronously before a game process starts. */
+    public static void unpackComponentsNow(Context ctx) throws IOException {
+        unpackComponent(ctx, "caciocavallo", false);
+        unpackComponent(ctx, "caciocavallo17", false);
+        // Since the Java module system doesn't allow multiple JARs to declare the same module,
+        // we repack them to a single file here.
+        unpackComponent(ctx, "lwjgl3", false);
+        unpackComponent(ctx, "security", true);
+        unpackComponent(ctx, "arc_dns_injector", true);
+        unpackComponent(ctx, "forge_installer", true);
     }
 
     private static void unpackComponent(Context ctx, String component, boolean privateDirectory) throws IOException {

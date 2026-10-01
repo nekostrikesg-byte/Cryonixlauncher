@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:versionCode="1"
+    android:versionName="0.1.0"
+    tools:replace="android:versionCode,android:versionName">
 
     <uses-feature android:glEsVersion="0x00020000" />
     <uses-feature android:name="android.hardware.type.pc" android:required="false" />
@@ -38,22 +42,32 @@
             android:exported="false"
             android:foregroundServiceType="dataSync"/>
 
-        <activity android:name=".instances.NewInstanceActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
-        <activity android:name=".instances.InstanceDetailActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="net.kdt.pojavlaunch.instances.NewInstanceActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="net.kdt.pojavlaunch.instances.InstanceDetailActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".instances.ServerHubActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.CursorStudioActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".runtime.MinecraftEngineActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.AboutActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
-        <activity android:name=".instances.InstancesActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="net.kdt.pojavlaunch.instances.InstancesActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="com.cryonix.launcher.instances.InstancesActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="com.cryonix.launcher.instances.InstanceDetailActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="com.cryonix.launcher.instances.NewInstanceActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".downloads.DownloadsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.ControlsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.GamepadActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".accounts.AccountsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
-        <activity android:name=".settings.SettingsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
+        <activity android:name="com.cryonix.launcher.settings.RuntimeSettingsActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
         <activity android:name=".settings.JavaRuntimeActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="false"/>
 
         <!-- Upstream Pojav runtime components kept under their original package/class names. -->
-        <activity android:name="net.kdt.pojavlaunch.LauncherActivity" android:screenOrientation="sensorLandscape" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|navigation|uiMode" android:exported="false"/>
+        <activity android:name="net.kdt.pojavlaunch.LauncherActivity" android:screenOrientation="landscape" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|navigation|uiMode" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity android:name="net.kdt.pojavlaunch.ImportControlActivity" android:configChanges="keyboard|keyboardHidden" android:exported="true" android:launchMode="singleInstance" android:windowSoftInputMode="stateVisible">
             <intent-filter android:label="@string/import_control_label">
                 <action android:name="android.intent.action.VIEW" />
@@ -85,18 +99,6 @@
             <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Minecraft Java runtime persistence service" />
         </service>
 
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="landscape"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.HOME"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
 
     </application>
 

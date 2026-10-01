@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import net.kdt.pojavlaunch.*;
-import net.kdt.pojavlaunch.utils.FileUtils;
 
 import java.io.*;
 import com.google.gson.*;
@@ -14,7 +13,6 @@ import android.util.Base64;
 
 import androidx.annotation.Keep;
 
-import org.apache.commons.io.IOUtils;
 
 @SuppressWarnings("IOStreamConstructor")
 @Keep

@@ -1,7 +1,6 @@
 package net.kdt.pojavlaunch.multirt;
 
 import static net.kdt.pojavlaunch.Tools.NATIVE_LIB_DIR;
-import static org.apache.commons.io.FileUtils.listFiles;
 
 import android.system.Os;
 import android.util.Log;
@@ -10,13 +9,10 @@ import com.kdt.mcgui.ProgressLayout;
 
 import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.FileUtils;
 import net.kdt.pojavlaunch.utils.MathUtils;
+import static net.kdt.pojavlaunch.utils.FileUtils.listFiles;
 
-import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
-import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
-import org.apache.commons.compress.compressors.xz.XZCompressorInputStream;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -205,7 +201,7 @@ public class MultiRTUtils {
         File fileLib = new File(dest, "/"+libFolder + "/" + name);
         FileInputStream is = new FileInputStream(new File(NATIVE_LIB_DIR, name));
         FileOutputStream os = new FileOutputStream(fileLib);
-        IOUtils.copy(is, os);
+        FileUtils.copy(is, os);
         is.close();
         os.close();
     }
@@ -216,40 +212,205 @@ public class MultiRTUtils {
     }
 
     private static void uncompressTarXZ(final InputStream tarFileInputStream, final File dest) throws IOException {
-        net.kdt.pojavlaunch.utils.FileUtils.ensureDirectory(dest);
-
+        FileUtils.ensureDirectory(dest);
+        File root = dest.getCanonicalFile();
+        byte[] block = new byte[512];
         byte[] buffer = new byte[8192];
-        TarArchiveInputStream tarIn = new TarArchiveInputStream(
-                new XZCompressorInputStream(tarFileInputStream)
-        );
-        TarArchiveEntry tarEntry = tarIn.getNextTarEntry();
-        // tarIn is a TarArchiveInputStream
-        while (tarEntry != null) {
+        String pendingName = null;
+        String pendingLink = null;
 
-            final String tarEntryName = tarEntry.getName();
-            // publishProgress(null, "Unpacking " + tarEntry.getName());
-            ProgressLayout.setProgress(ProgressLayout.UNPACK_RUNTIME, 100, R.string.global_unpacking, tarEntryName);
+        try (org.tukaani.xz.XZInputStream tarIn = new org.tukaani.xz.XZInputStream(tarFileInputStream)) {
+            while (readTarBlock(tarIn, block)) {
+                if (isZeroBlock(block)) break;
 
-            File destPath = new File(dest, tarEntry.getName());
-            net.kdt.pojavlaunch.utils.FileUtils.ensureParentDirectory(destPath);
-            if (tarEntry.isSymbolicLink()) {
-                try {
-                    // android.system.Os
-                    // Libcore one support all Android versions
-                    Os.symlink(tarEntry.getName(), tarEntry.getLinkName());
-                } catch (Throwable e) {
-                    Log.e("MultiRT", e.toString());
+                String name = readTarString(block, 0, 100);
+                String prefix = readTarString(block, 345, 155);
+                if (!prefix.isEmpty()) name = prefix + "/" + name;
+                String linkName = readTarString(block, 157, 100);
+                long size = readTarNumber(block, 124, 12);
+                int type = block[156] & 0xff;
+
+                if (type == 'L' || type == 'K' || type == 'x' || type == 'g') {
+                    byte[] metadata = readTarMetadata(tarIn, size);
+                    skipTarPadding(tarIn, size);
+                    if (type == 'L') pendingName = trimTarMetadata(metadata);
+                    else if (type == 'K') pendingLink = trimTarMetadata(metadata);
+                    else {
+                        String[] pax = parsePaxMetadata(metadata);
+                        if (pax[0] != null) pendingName = pax[0];
+                        if (pax[1] != null) pendingLink = pax[1];
+                    }
+                    continue;
                 }
 
-            } else if (tarEntry.isDirectory()) {
-                net.kdt.pojavlaunch.utils.FileUtils.ensureDirectory(destPath);
-            } else if (!destPath.exists() || destPath.length() != tarEntry.getSize()) {
-                FileOutputStream os = new FileOutputStream(destPath);
-                IOUtils.copyLarge(tarIn, os, buffer);
-                os.close();
+                if (pendingName != null) name = pendingName;
+                if (pendingLink != null) linkName = pendingLink;
+                pendingName = null;
+                pendingLink = null;
+
+                File destPath = new File(root, name).getCanonicalFile();
+                String rootPath = root.getPath();
+                if (!destPath.getPath().equals(rootPath)
+                        && !destPath.getPath().startsWith(rootPath + File.separator)) {
+                    throw new IOException("Tar entry escapes destination: " + name);
+                }
+                ProgressLayout.setProgress(ProgressLayout.UNPACK_RUNTIME, 100, R.string.global_unpacking, name);
+                FileUtils.ensureParentDirectory(destPath);
+
+                if (type == '5' || name.endsWith("/")) {
+                    FileUtils.ensureDirectory(destPath);
+                    skipTarEntryData(tarIn, size, buffer);
+                } else if (type == '2') {
+                    skipTarEntryData(tarIn, size, buffer);
+                    if (!destPath.exists()) {
+                        try {
+                            Os.symlink(linkName, destPath.getAbsolutePath());
+                        } catch (Throwable e) {
+                            Log.e("MultiRT", "Unable to create symlink " + destPath + " -> " + linkName, e);
+                        }
+                    }
+                } else {
+                    boolean shouldWrite = !destPath.exists() || destPath.length() != size;
+                    if (shouldWrite) {
+                        try (FileOutputStream output = new FileOutputStream(destPath)) {
+                            copyTarBytes(tarIn, output, size, buffer);
+                        }
+                    } else {
+                        skipTarBytes(tarIn, size, buffer);
+                    }
+                }
+                skipTarPadding(tarIn, size);
             }
-            tarEntry = tarIn.getNextTarEntry();
         }
-        tarIn.close();
+    }
+
+    private static boolean readTarBlock(InputStream input, byte[] block) throws IOException {
+        int offset = 0;
+        while (offset < block.length) {
+            int count = input.read(block, offset, block.length - offset);
+            if (count < 0) {
+                if (offset == 0) return false;
+                throw new IOException("Truncated TAR header");
+            }
+            if (count == 0) continue;
+            offset += count;
+        }
+        return true;
+    }
+
+    private static boolean isZeroBlock(byte[] block) {
+        for (byte value : block) if (value != 0) return false;
+        return true;
+    }
+
+    private static String readTarString(byte[] block, int offset, int length) {
+        int end = offset;
+        while (end < offset + length && block[end] != 0) end++;
+        return new String(block, offset, end - offset, java.nio.charset.StandardCharsets.UTF_8);
+    }
+
+    private static long readTarNumber(byte[] block, int offset, int length) throws IOException {
+        if ((block[offset] & 0x80) != 0) {
+            long value = block[offset] & 0x7f;
+            for (int i = 1; i < length; i++) value = (value << 8) | (block[offset + i] & 0xff);
+            return value;
+        }
+        int end = offset + length;
+        int start = offset;
+        while (start < end && (block[start] == 0 || block[start] == ' ')) start++;
+        long value = 0;
+        for (int i = start; i < end && block[i] >= '0' && block[i] <= '7'; i++) {
+            value = (value << 3) + (block[i] - '0');
+        }
+        return value;
+    }
+
+    private static byte[] readTarMetadata(InputStream input, long size) throws IOException {
+        if (size < 0 || size > 1024 * 1024) throw new IOException("Invalid TAR metadata size: " + size);
+        byte[] data = new byte[(int) size];
+        int offset = 0;
+        while (offset < data.length) {
+            int count = input.read(data, offset, data.length - offset);
+            if (count < 0) throw new IOException("Truncated TAR metadata");
+            if (count == 0) continue;
+            offset += count;
+        }
+        return data;
+    }
+
+    private static String trimTarMetadata(byte[] data) {
+        int end = data.length;
+        while (end > 0 && (data[end - 1] == 0 || data[end - 1] == '\n' || data[end - 1] == '\r')) end--;
+        return new String(data, 0, end, java.nio.charset.StandardCharsets.UTF_8);
+    }
+
+    private static String[] parsePaxMetadata(byte[] data) {
+        String path = null;
+        String linkPath = null;
+        int offset = 0;
+        while (offset < data.length) {
+            int space = offset;
+            while (space < data.length && data[space] != ' ') space++;
+            if (space == data.length) break;
+            int recordLength;
+            try {
+                recordLength = Integer.parseInt(new String(data, offset, space - offset,
+                        java.nio.charset.StandardCharsets.US_ASCII));
+            } catch (NumberFormatException e) {
+                break;
+            }
+            int end = Math.min(data.length, offset + recordLength);
+            int valueStart = space + 1;
+            int equals = valueStart;
+            while (equals < end && data[equals] != '=') equals++;
+            if (equals < end) {
+                String key = new String(data, valueStart, equals - valueStart,
+                        java.nio.charset.StandardCharsets.UTF_8);
+                int valueEnd = end;
+                if (valueEnd > equals + 1 && data[valueEnd - 1] == '\n') valueEnd--;
+                String value = new String(data, equals + 1, valueEnd - equals - 1,
+                        java.nio.charset.StandardCharsets.UTF_8);
+                if ("path".equals(key)) path = value;
+                else if ("linkpath".equals(key)) linkPath = value;
+            }
+            if (recordLength <= 0) break;
+            offset += recordLength;
+        }
+        return new String[]{path, linkPath};
+    }
+
+    private static void copyTarBytes(InputStream input, FileOutputStream output, long size, byte[] buffer) throws IOException {
+        long remaining = size;
+        while (remaining > 0) {
+            int count = input.read(buffer, 0, (int) Math.min(buffer.length, remaining));
+            if (count < 0) throw new IOException("Truncated TAR file entry");
+            if (count == 0) continue;
+            output.write(buffer, 0, count);
+            remaining -= count;
+        }
+    }
+
+    private static void skipTarBytes(InputStream input, long size, byte[] buffer) throws IOException {
+        long remaining = size;
+        while (remaining > 0) {
+            int count = input.read(buffer, 0, (int) Math.min(buffer.length, remaining));
+            if (count < 0) throw new IOException("Truncated TAR entry");
+            if (count == 0) continue;
+            remaining -= count;
+        }
+    }
+
+    private static void skipTarEntryData(InputStream input, long size, byte[] buffer) throws IOException {
+        skipTarBytes(input, size, buffer);
+    }
+
+    private static void skipTarPadding(InputStream input, long size) throws IOException {
+        int padding = (int) ((512 - (size % 512)) % 512);
+        while (padding > 0) {
+            long skipped = input.skip(padding);
+            if (skipped > 0) padding -= (int) skipped;
+            else if (input.read() < 0) throw new IOException("Truncated TAR padding");
+            else padding--;
+        }
     }
 }

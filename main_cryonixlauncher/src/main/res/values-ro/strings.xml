@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition pentru Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition pentru Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Selectează un instalator de mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher s-a oprit neașteptat</string>
+    <string name="error_fatal">Cryonixlauncher s-a oprit neașteptat</string>
     <string name="error_no_version">Fără versiune!</string>
     <string name="error_show_more">Arată mai mult</string>
     <string name="error_show_less">Arată mai puțin</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Se șterg fișierele cache</string>
     <string name="mcl_launch_downloading">Se descarcă %s</string>
-    <string name="mcl_launch_downloading_progress">"Se descarcă %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Se descarcă %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Se pregătește pentru descărcarea resurselor</string>
     <string name="mcl_options">Opțiuni</string>
     <string name="mcl_option_customcontrol">Controale personalizate</string>
@@ -122,7 +122,7 @@
     <string name="mcl_setting_title_mousespeed">Viteza mouse-ului</string>
     <string name="customctrl_passthru">Mouse pass-thru</string>
     <string name="customctrl_swipeable">Glisabil</string>
-    <string name="memory_warning_msg">Cantitatea curentă de RAM liber (%d) este mai mică decât cantitatea alocată de RAM (%d), care ar putea duce la oprire. Schimbă cantitatea alocată dacă jocul se oprește.</string>
+    <string name="memory_warning_msg" formatted="false">Cantitatea curentă de RAM liber (%d) este mai mică decât cantitatea alocată de RAM (%d), care ar putea duce la oprire. Schimbă cantitatea alocată dacă jocul se oprește.</string>
     <string name="mcl_memory_allocation">Memorie alocată</string>
     <string name="multirt_runtime_corrupt">Java Runtime Corupt</string>
     <string name="multirt_runtime_incompatiblearch">Arhitectură incompatibilă: %s</string>
@@ -156,7 +156,7 @@
     <string name="arc_capes_title">Pelerine Cosmetica</string>
     <string name="arc_capes_desc">Activează pelerinele de la Cosmetica (anterior Arc). Pentru mai multe informații, vizitează https://cosmetica.cc. Necesită OptiFine.</string>
     <string name="notif_channel_name">General</string>
-    <string name="lazy_service_default_title">Serviciu Pojav prim-plan</string>
+    <string name="lazy_service_default_title">Serviciu Cryonixlauncher prim-plan</string>
     <string name="mcl_setting_veroption_installed">Instalat</string>
     <string name="use_global_default">(Utilizare implicită globală)</string>
     <string name="progresslayout_tasks_in_progress">%d sarcini în curs</string>

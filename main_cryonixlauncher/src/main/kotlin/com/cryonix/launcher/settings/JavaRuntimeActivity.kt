@@ -66,7 +66,7 @@ class JavaRuntimeActivity : Activity() {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = android.view.Gravity.CENTER_VERTICAL
                 setPadding(dp(12), dp(8), dp(8), dp(8))
-                setBackgroundResource(if (isDefault) R.drawable.bg_pojav_button else R.drawable.bg_pojav_row)
+                setBackgroundResource(if (isDefault) R.drawable.bg_cryonix_button else R.drawable.bg_cryonix_row)
                 isClickable = true
                 setOnClickListener { selectDefault(runtime.name) }
             }
@@ -85,7 +85,7 @@ class JavaRuntimeActivity : Activity() {
                 gravity = android.view.Gravity.CENTER
                 textSize = 20f
                 setTextColor(getColor(R.color.cryonix_text_secondary))
-                setBackgroundResource(R.drawable.bg_pojav_row)
+                setBackgroundResource(R.drawable.bg_cryonix_row)
                 setOnClickListener { confirmRemove(runtime.name) }
             }
             row.addView(text)
@@ -102,7 +102,7 @@ class JavaRuntimeActivity : Activity() {
                 textSize = 11f
                 gravity = android.view.Gravity.CENTER_VERTICAL
                 setPadding(dp(12), 0, dp(12), 0)
-                setBackgroundResource(if (isInstalled) R.drawable.bg_pojav_row else R.drawable.bg_pojav_button)
+                setBackgroundResource(if (isInstalled) R.drawable.bg_cryonix_row else R.drawable.bg_cryonix_button)
                 setTextColor(getColor(if (isInstalled) R.color.cryonix_text_secondary else R.color.cryonix_button_text))
                 isClickable = !isInstalled
                 if (!isInstalled) setOnClickListener { install(pkg) }

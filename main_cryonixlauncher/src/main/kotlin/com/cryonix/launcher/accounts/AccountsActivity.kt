@@ -52,7 +52,7 @@ class AccountsActivity : Activity() {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = android.view.Gravity.CENTER_VERTICAL
                 setPadding(dp(12), dp(8), dp(8), dp(8))
-                setBackgroundResource(if (isActive) R.drawable.bg_pojav_button else R.drawable.bg_pojav_row)
+                setBackgroundResource(if (isActive) R.drawable.bg_cryonix_button else R.drawable.bg_cryonix_row)
                 isClickable = true
                 setOnClickListener { settings.setActiveProfile(profile); render() }
             }
@@ -69,7 +69,7 @@ class AccountsActivity : Activity() {
                 gravity = android.view.Gravity.CENTER
                 textSize = 20f
                 setTextColor(getColor(if (isActive) R.color.cryonix_button_text else R.color.cryonix_text_secondary))
-                setBackgroundResource(R.drawable.bg_pojav_row)
+                setBackgroundResource(R.drawable.bg_cryonix_row)
                 setOnClickListener { confirmRemove(profile.id, profile.name) }
             }
             row.addView(text)

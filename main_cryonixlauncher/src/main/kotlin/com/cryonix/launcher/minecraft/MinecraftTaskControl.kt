@@ -1,7 +1,8 @@
 package com.cryonix.launcher.minecraft
 
 class MinecraftTaskControl {
-    private val lock = Object()
+    @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
+    private val lock = java.lang.Object()
 
     @Volatile var paused: Boolean = false
         private set

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition Android üçün)</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition Android üçün)</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Mod quraşdırıcısını seçin</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher gözlənilmədən çökdü</string>
+    <string name="error_fatal">Cryonixlauncher gözlənilmədən çökdü</string>
     <string name="error_no_version">Versiya yoxdur!</string>
     <string name="error_show_more">Daha çox göstər</string>
     <string name="error_show_less">Daha az göstər</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Keş faylları təmizlənir</string>
     <string name="mcl_launch_downloading">Endirilir %s</string>
-    <string name="mcl_launch_downloading_progress">"Endirilir %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Endirilir %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Resursları endirməyə hazırlanır</string>
     <string name="mcl_options">Seçimlər</string>
     <string name="mcl_option_customcontrol">Fərdi idarəetmələr</string>
@@ -143,7 +143,7 @@
     <string name="customctrl_swipeable">Sürüşdürülə bilər</string>
     <string name="customctrl_forward_lock">İrəli kilid</string>
     <string name="customctrl_absolute_tracking">Mütləq barmaq izləmə</string>
-    <string name="memory_warning_msg">Boş RAM-ın cari miqdarı (%d) ayrılmış RAM-dan (%d) azdır və bu, çökmələrə səbəb ola bilər. Oyun qəzaya uğrayarsa, yeri dəyişdirin.</string>
+    <string name="memory_warning_msg" formatted="false">Boş RAM-ın cari miqdarı (%d) ayrılmış RAM-dan (%d) azdır və bu, çökmələrə səbəb ola bilər. Oyun qəzaya uğrayarsa, yeri dəyişdirin.</string>
     <string name="mcl_memory_allocation">Yaddaşın ayrılması</string>
     <string name="mcl_memory_allocation_subtitle">Minecraft-a nə qədər yaddaş verildiyinə nəzarət edir.</string>
     <string name="multirt_runtime_corrupt">Zədələnmiş Java Runtime</string>
@@ -200,7 +200,7 @@
     <string name="arc_capes_title">Cosmetica Capes</string>
     <string name="arc_capes_desc">Cosmetica-dan (əvvəllər Arc) qapaqları işə salır. Əlavə məlumat üçün https://cosmetica.cc saytına daxil olun. OptiFine tələb edir.</string>
     <string name="notif_channel_name">Ümumi</string>
-    <string name="lazy_service_default_title">Pojav Önplan Xidməti</string>
+    <string name="lazy_service_default_title">Cryonixlauncher Önplan Xidməti</string>
     <string name="mcl_setting_veroption_installed">Quraşdırıldı</string>
     <string name="use_global_default">(Qlobal defoltdan istifadə edin)</string>
     <string name="default_control">Defolt controlmap</string>
@@ -230,7 +230,7 @@
     <string name="preference_gyro_sample_rate_title">Gyroskopdan nümunə götürmə dərəcəsi</string>
     <string name="preference_gyro_sample_rate_description">Giroskop idarəetmələri ilə bağlı performans probleminiz varsa, bunu artırın.</string>
     <string name="microsoft_login_retry_later">Həddindən artıq sorğu var, sonra yenidən cəhd edin.</string>
-    <string name="storage_required">PojavLauncher xarici yaddaşın əlavə edilməsini tələb edir. Lütfən, onu yenidən qoşun və proqramı yenidən başladın.</string>
+    <string name="storage_required">Cryonixlauncher xarici yaddaşın əlavə edilməsini tələb edir. Lütfən, onu yenidən qoşun və proqramı yenidən başladın.</string>
     <string name="mcl_setting_title_buttonallcaps">Düymə etiketlərində yalnız böyük hərflərdən istifadə edin</string>
     <string name="mcl_setting_subtitle_buttonallcaps">İdarəetmə elementlərində kiçik hərflərdən istifadə etmək istəyirsinizsə, bunu söndürün.</string>
     <string name="create_profile">Yeni profil yaradın</string>
@@ -282,11 +282,11 @@
     <string name="search_modpack_no_result">Heç bir modpaket tapılmadı</string>
     <string name="search_modpack_error">Mod paketləri tapmaq alınmadı</string>
     <string name="search_modpack_download_error">Modpack metadatasını endirmək alınmadı</string>
-    <string name="modpack_download_downloading_metadata">Modpack metadatası endirilir (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods">Modlar endirilir (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">Modlar endirilir (%d fayldan %d fayl)</string>
-    <string name="modpack_download_applying_overrides">Ləğvetmələr tətbiq edilir (%d/%d)</string>
-    <string name="modpack_install_notification_title">Pojav Mod paket quraşdırıcısı</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">Modpack metadatası endirilir (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">Modlar endirilir (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Modlar endirilir (%d fayldan %d fayl)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Ləğvetmələr tətbiq edilir (%d/%d)</string>
+    <string name="modpack_install_notification_title">Cryonixlauncher Mod paket quraşdırıcısı</string>
     <string name="modpack_install_notification_success">Modpack quraşdırılmasını başa çatdırmaq üçün bura klikləyin</string>
     <string name="modpack_install_notification_data_not_available">Mod yükləyicisi məlumatını endirmək alınmadı</string>
     <string name="modpack_install_modloader_download_failed">Mod yükləyici fayllarını endirmək alınmadı</string>
@@ -316,7 +316,7 @@
     <string name="preference_category_miscellaneous">Müxtəlif parametrlər</string>
     <string name="preference_category_video">Video parametrləri</string>
     <string name="notification_permission_dialog_title">İcazə sorğusu</string>
-    <string name="notification_permission_dialog_text">PojavLauncher, proqramı tərk etdiyiniz zaman oyun/mod paketi yükləmələrinin dayandırılmasının qarşısını almaq məqsədilə bildirişlər göndərmək üçün icazə tələb edir. Bu icazə olmadan PojavLauncher-i fon rejiminə keçirdiyiniz zaman Android, yükləmələrinizi bağlaya bilər.</string>
+    <string name="notification_permission_dialog_text">Cryonixlauncher, proqramı tərk etdiyiniz zaman oyun/mod paketi yükləmələrinin dayandırılmasının qarşısını almaq məqsədilə bildirişlər göndərmək üçün icazə tələb edir. Bu icazə olmadan Cryonixlauncher-i fon rejiminə keçirdiyiniz zaman Android, yükləmələrinizi bağlaya bilər.</string>
     <string name="notification_permission_toast">Daha sonra Parametrlərə daxil olaraq fikrinizi dəyişə bilərsiniz</string>
     <string name="preference_ask_for_notification_title">Bildirişlərə icazə verin</string>
     <string name="preference_ask_for_notification_description">Oyun/modpack fon yükləmələrinin düzgün işləməsi üçün tələb olunan bildiriş icazəsini yenidən tələb etmək üçün klikləyin.</string>

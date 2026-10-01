@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Android өсөн Minecraft: Java Edition)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Android өсөн Minecraft: Java Edition)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Мода ҡуйыусыһын һайлағыҙ</string>
     <!-- Error messages -->
-    <string name="error_fatal">Көтмәгәндә PojavLauncher программаһының эше боҙолоп китә</string>
+    <string name="error_fatal">Көтмәгәндә Cryonixlauncher программаһының эше боҙолоп китә</string>
     <string name="error_no_version">Версиялар юҡ!</string>
     <string name="error_show_more">Күберәк</string>
     <string name="error_show_less">Әҙерәк</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Кэш файлдарын таҙартыу</string>
     <string name="mcl_launch_downloading">Йөкләү %s</string>
-    <string name="mcl_launch_downloading_progress">"Йөкләү %s (%.2f МБ/%.2f МБ)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Йөкләү %s (%.2f МБ/%.2f МБ)"</string>
     <string name="mcl_launch_download_assets">Ресурстарҙы йөкләүгә әҙерлек</string>
     <string name="mcl_options">Опциялар</string>
     <string name="mcl_option_customcontrol">Ҡулланыусы идара итеү элементтары</string>

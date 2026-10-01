@@ -36,11 +36,9 @@ public class ControlData {
 
     private static ControlData[] SPECIAL_BUTTONS;
     private static List<String> SPECIAL_BUTTON_NAME_ARRAY;
-    private static WeakReference<ExpressionBuilder> builder = new WeakReference<>(null);
     private static WeakReference<ArrayMap<String, String>> conversionMap = new WeakReference<>(null);
 
     static {
-        buildExpressionBuilder();
         buildConversionMap();
     }
 
@@ -186,21 +184,7 @@ public class ControlData {
     }
 
     private static float calculate(String math) {
-        setExpression(math);
-        return (float) builder.get().build().evaluate();
-    }
-
-    private static int[] inflateKeycodeArray(int[] keycodes) {
-        int[] inflatedArray = new int[]{GLFW_KEY_UNKNOWN, GLFW_KEY_UNKNOWN, GLFW_KEY_UNKNOWN, GLFW_KEY_UNKNOWN};
-        System.arraycopy(keycodes, 0, inflatedArray, 0, keycodes.length);
-        return inflatedArray;
-    }
-
-    /**
-     * Create a builder, keep a weak reference to it to use it with all views on first inflation
-     */
-    private static void buildExpressionBuilder() {
-        ExpressionBuilder expressionBuilder = new ExpressionBuilder("1 + 1")
+        return (float) new ExpressionBuilder(math)
                 .function(new Function("dp", 1) {
                     @Override
                     public double apply(double... args) {
@@ -212,18 +196,15 @@ public class ControlData {
                     public double apply(double... args) {
                         return Tools.dpToPx((float) args[0]);
                     }
-                });
-        builder = new WeakReference<>(expressionBuilder);
+                })
+                .build()
+                .evaluate();
     }
 
-    /**
-     * wrapper for the WeakReference to the expressionField.
-     *
-     * @param stringExpression the expression to set.
-     */
-    private static void setExpression(String stringExpression) {
-        if (builder.get() == null) buildExpressionBuilder();
-        builder.get().expression(stringExpression);
+    private static int[] inflateKeycodeArray(int[] keycodes) {
+        int[] inflatedArray = new int[]{GLFW_KEY_UNKNOWN, GLFW_KEY_UNKNOWN, GLFW_KEY_UNKNOWN, GLFW_KEY_UNKNOWN};
+        System.arraycopy(keycodes, 0, inflatedArray, 0, keycodes.length);
+        return inflatedArray;
     }
 
     /**

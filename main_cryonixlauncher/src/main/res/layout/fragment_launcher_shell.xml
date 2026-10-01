@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cryonix_background">
+
+    <LinearLayout
+        android:id="@+id/launcher_navigation_rail"
+        android:layout_width="56dp"
+        android:layout_height="0dp"
+        android:background="@color/cryonix_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:contentDescription="Cryonixlauncher"
+            android:padding="3dp"
+            android:src="@drawable/cryonix_logo" />
+        <View android:layout_width="32dp" android:layout_height="1dp" android:layout_marginTop="8dp" android:layout_marginBottom="7dp" android:background="@color/cryonix_divider" />
+
+        <ImageButton android:id="@+id/nav_home" style="@style/CryonixIconNavButton" android:contentDescription="Home" android:src="@drawable/ic_nav_home" />
+        <ImageButton android:id="@+id/nav_accounts" style="@style/CryonixIconNavButton" android:contentDescription="Accounts" android:src="@drawable/ic_nav_account" />
+        <ImageButton android:id="@+id/nav_settings" style="@style/CryonixIconNavButton" android:contentDescription="Settings" android:src="@drawable/ic_nav_settings" />
+        <ImageButton android:id="@+id/nav_game" style="@style/CryonixIconNavButton" android:contentDescription="Minecraft" android:src="@drawable/ic_nav_game" />
+        <ImageButton android:id="@+id/nav_about" style="@style/CryonixIconNavButton" android:contentDescription="About" android:src="@drawable/ic_nav_about" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/launcher_tab_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintStart_toEndOf="@id/launcher_navigation_rail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
