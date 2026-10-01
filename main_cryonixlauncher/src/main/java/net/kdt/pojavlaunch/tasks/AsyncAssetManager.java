@@ -63,16 +63,20 @@ public class AsyncAssetManager {
         ProgressLayout.setProgress(ProgressLayout.EXTRACT_SINGLE_FILES, 0);
         sExecutorService.execute(() -> {
             try {
-                Tools.copyAssetFile(ctx, "options.txt", Tools.DIR_GAME_NEW, false);
-                Tools.copyAssetFile(ctx, "default.json", Tools.CTRLMAP_PATH, false);
-
-                Tools.copyAssetFile(ctx, "launcher_profiles.json", Tools.DIR_GAME_NEW, false);
-                Tools.copyAssetFile(ctx,"resolv.conf",Tools.DIR_DATA, false);
+                unpackSingleFilesNow(ctx);
             } catch (IOException e) {
-                Log.e("AsyncAssetManager", "Failed to unpack critical components !");
+                Log.e("AsyncAssetManager", "Failed to unpack critical components", e);
             }
             ProgressLayout.clearProgress(ProgressLayout.EXTRACT_SINGLE_FILES);
         });
+    }
+
+    /** Copy default configuration files before the game process needs them. */
+    public static void unpackSingleFilesNow(Context ctx) throws IOException {
+        Tools.copyAssetFile(ctx, "options.txt", Tools.DIR_GAME_NEW, false);
+        Tools.copyAssetFile(ctx, "default.json", Tools.CTRLMAP_PATH, false);
+        Tools.copyAssetFile(ctx, "launcher_profiles.json", Tools.DIR_GAME_NEW, false);
+        Tools.copyAssetFile(ctx, "resolv.conf", Tools.DIR_DATA, false);
     }
 
     public static void unpackComponents(Context ctx){

@@ -65,6 +65,7 @@ public class PojavApplication extends Application {
                 // The launcher entry point skips the legacy storage-wizard activity, so install
                 // runtime components here before the separate game process builds its classpath.
                 AsyncAssetManager.unpackComponentsNow(this);
+                AsyncAssetManager.unpackSingleFilesNow(this);
             } else {
 				// In other cases, only initialize enough for the basicmost basics to work
 				// and not explode.
