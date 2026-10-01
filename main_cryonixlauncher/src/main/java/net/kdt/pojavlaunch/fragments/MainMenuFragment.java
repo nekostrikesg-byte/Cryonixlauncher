@@ -57,7 +57,7 @@ public class MainMenuFragment extends Fragment {
         View settingsShortcut = view.findViewById(R.id.home_settings);
         if (settingsShortcut == null) settingsShortcut = view.findViewById(R.id.home_settings_shortcut);
         if (settingsShortcut != null) {
-            settingsShortcut.setOnClickListener(v -> startActivity(new Intent(requireContext(), net.kdt.pojavlaunch.settings.SettingsActivity.class)));
+            settingsShortcut.setOnClickListener(v -> startActivity(new Intent(requireContext(), com.cryonix.launcher.settings.SettingsActivity.class)));
         }
         View addAccount = view.findViewById(R.id.home_accounts);
         if (addAccount != null) {

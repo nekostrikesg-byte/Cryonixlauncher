@@ -10,7 +10,7 @@ import com.cryonix.launcher.accounts.AccountsActivity
 import com.cryonix.launcher.core.PojavRuntimeBridge
 import com.cryonix.launcher.instances.InstancesActivity
 import com.cryonix.launcher.minecraft.MinecraftSettingsStore
-import com.cryonix.launcher.settings.ModernSettingsActivity
+import com.cryonix.launcher.settings.SettingsActivity
 import com.cryonix.launcher.settings.ControlsActivity
 import com.cryonix.launcher.ui.UiMotion
 
@@ -35,7 +35,7 @@ object HomeScreen {
             activity.startActivity(Intent(activity, AccountsActivity::class.java))
         }
         activity.findViewById<View>(R.id.home_settings).setOnClickListener {
-            activity.startActivity(Intent(activity, ModernSettingsActivity::class.java))
+            activity.startActivity(Intent(activity, SettingsActivity::class.java))
         }
         activity.findViewById<TextView>(R.id.home_wiki).setOnClickListener {
             openUrl(activity, "https://github.com/nekostrikesg-byte/Cryonixlauncher/wiki")

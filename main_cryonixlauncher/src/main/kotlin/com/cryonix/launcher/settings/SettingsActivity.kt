@@ -69,6 +69,10 @@ class SettingsActivity : Activity() {
         findViewById<View>(R.id.settings_about).setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
         }
+        findViewById<View>(R.id.settings_pojav_backend).setOnClickListener {
+            startActivity(Intent(this, PojavSettingsActivity::class.java))
+        }
+        findViewById<View>(R.id.settings_search).setOnClickListener { showSettingsSearch() }
         findViewById<View>(R.id.settings_controls_screen).setOnClickListener {
             startActivity(Intent(this, ControlsActivity::class.java))
         }
@@ -105,6 +109,32 @@ class SettingsActivity : Activity() {
             val target = findViewById<android.view.View>(targetId)
             scroll.post { scroll.smoothScrollTo(0, target.top) }
         }
+    }
+
+    private fun showSettingsSearch() {
+        val labels = arrayOf(
+            "General and renderer", "Game version and memory", "Display", "Touch controls",
+            "Gamepad", "Advanced launcher settings", "Java runtime", "Pojav backend settings",
+            "Cursor Studio", "About Cryonix"
+        )
+        AlertDialog.Builder(this)
+            .setTitle("Find a settings screen")
+            .setItems(labels) { _, index ->
+                when (index) {
+                    0 -> scrollTo(R.id.settings_section_renderer)
+                    1 -> scrollTo(R.id.settings_section_game)
+                    2 -> scrollTo(R.id.settings_section_gamepad)
+                    3 -> startActivity(Intent(this, ControlsActivity::class.java))
+                    4 -> startActivity(Intent(this, GamepadActivity::class.java))
+                    5 -> scrollTo(R.id.settings_section_launcher)
+                    6 -> startActivity(Intent(this, JavaRuntimeActivity::class.java))
+                    7 -> startActivity(Intent(this, PojavSettingsActivity::class.java))
+                    8 -> startActivity(Intent(this, CursorStudioActivity::class.java))
+                    9 -> startActivity(Intent(this, AboutActivity::class.java))
+                }
+            }
+            .setNegativeButton("CANCEL", null)
+            .show()
     }
 
     private fun chooseRenderer() {

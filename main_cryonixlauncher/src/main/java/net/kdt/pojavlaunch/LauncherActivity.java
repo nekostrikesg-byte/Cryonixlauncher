@@ -97,7 +97,7 @@ public class LauncherActivity extends BaseActivity {
     private final View.OnClickListener mSettingButtonListener = v -> {
         Fragment fragment = getSupportFragmentManager().findFragmentById(mFragmentView.getId());
         if(fragment instanceof MainMenuFragment){
-            startActivity(new Intent(this, net.kdt.pojavlaunch.settings.SettingsActivity.class));
+            startActivity(new Intent(this, com.cryonix.launcher.settings.SettingsActivity.class));
         } else{
             // The setting button doubles as a home button now
             Tools.backToMainMenu(this);

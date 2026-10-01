@@ -4,6 +4,12 @@
         <item name="colorPrimary">@color/cryonix_background_2</item>
         <item name="colorPrimaryDark">@color/cryonix_background</item>
         <item name="colorAccent">@color/cryonix_accent</item>
+        <item name="android:textColorPrimary">@color/cryonix_text</item>
+        <item name="android:textColorSecondary">@color/cryonix_text_secondary</item>
+        <item name="textColorPrimary">@color/cryonix_text</item>
+        <item name="textColorSecondary">@color/cryonix_text_secondary</item>
+        <item name="android:windowBackground">@color/cryonix_background</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/cryonix_background</item>
@@ -26,7 +32,22 @@
         <item name="android:backgroundDimAmount">0.62</item>
     </style>
 
-<style name="AppTheme" parent="@style/Theme.AppCompat.NoActionBar">
+    <style name="CryonixSettingsNav">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">@drawable/bg_settings_nav</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:drawablePadding">7dp</item>
+        <item name="android:drawableTint">@color/cryonix_icon</item>
+        <item name="android:textColor">@color/cryonix_text_secondary</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowContentOverlay">@null</item>
