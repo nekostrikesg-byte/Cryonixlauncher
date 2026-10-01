@@ -79,19 +79,24 @@ public class AsyncAssetManager {
         ProgressLayout.setProgress(ProgressLayout.EXTRACT_COMPONENTS, 0);
         sExecutorService.execute(() -> {
             try {
-                unpackComponent(ctx, "caciocavallo", false);
-                unpackComponent(ctx, "caciocavallo17", false);
-                // Since the Java module system doesn't allow multiple JARs to declare the same module,
-                // we repack them to a single file here
-                unpackComponent(ctx, "lwjgl3", false);
-                unpackComponent(ctx, "security", true);
-                unpackComponent(ctx, "arc_dns_injector", true);
-                unpackComponent(ctx, "forge_installer", true);
+                unpackComponentsNow(ctx);
             } catch (IOException e) {
-                Log.e("AsyncAssetManager", "Failed o unpack components !",e );
+                Log.e("AsyncAssetManager", "Failed to unpack components", e);
             }
             ProgressLayout.clearProgress(ProgressLayout.EXTRACT_COMPONENTS);
         });
+    }
+
+    /** Extract required runtime components synchronously before a game process starts. */
+    public static void unpackComponentsNow(Context ctx) throws IOException {
+        unpackComponent(ctx, "caciocavallo", false);
+        unpackComponent(ctx, "caciocavallo17", false);
+        // Since the Java module system doesn't allow multiple JARs to declare the same module,
+        // we repack them to a single file here.
+        unpackComponent(ctx, "lwjgl3", false);
+        unpackComponent(ctx, "security", true);
+        unpackComponent(ctx, "arc_dns_injector", true);
+        unpackComponent(ctx, "forge_installer", true);
     }
 
     private static void unpackComponent(Context ctx, String component, boolean privateDirectory) throws IOException {

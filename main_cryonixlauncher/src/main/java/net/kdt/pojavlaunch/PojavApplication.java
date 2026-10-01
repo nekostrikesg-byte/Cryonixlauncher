@@ -58,11 +58,14 @@ public class PojavApplication extends Application {
 		
 		try {
 			super.onCreate();
-			if(Tools.checkStorageRoot(this)){
-				// Implicitly initializes early constants and storage constants.
-				// Required to run the main activity properly.
-				LauncherPreferences.loadPreferences(this);
-			} else {
+            if(Tools.checkStorageRoot(this)){
+                // Implicitly initializes early constants and storage constants.
+                // Required to run the main activity properly.
+                LauncherPreferences.loadPreferences(this);
+                // The launcher entry point skips the legacy storage-wizard activity, so install
+                // runtime components here before the separate game process builds its classpath.
+                AsyncAssetManager.unpackComponentsNow(this);
+            } else {
 				// In other cases, only initialize enough for the basicmost basics to work
 				// and not explode.
 				Tools.initEarlyConstants(this);

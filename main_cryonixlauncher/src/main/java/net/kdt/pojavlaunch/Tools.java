@@ -563,7 +563,12 @@ public final class Tools {
                 }
             }
         }
-        // Remove the ':' at the end
+        // Remove the ':' at the end. An empty or unreadable component directory used to
+        // produce setLength(-1), obscuring the missing-JAR cause with a StringIndexOutOfBoundsException.
+        if (libStr.length() == 0) {
+            throw new IllegalStateException("LWJGL 3 classpath is empty; launcher components were not installed in "
+                    + lwjgl3Folder.getAbsolutePath());
+        }
         libStr.setLength(libStr.length() - 1);
         return libStr.toString();
     }
