@@ -21,8 +21,8 @@ import androidx.annotation.Nullable;
 import com.cryonix.launcher.R;
 import net.kdt.pojavlaunch.CryonixBuildInfo;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.FileUtils;
 
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

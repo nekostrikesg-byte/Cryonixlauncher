@@ -11,9 +11,9 @@ import android.util.Log;
 import com.kdt.mcgui.ProgressLayout;
 
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.FileUtils;
 import net.kdt.pojavlaunch.multirt.MultiRTUtils;
 
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

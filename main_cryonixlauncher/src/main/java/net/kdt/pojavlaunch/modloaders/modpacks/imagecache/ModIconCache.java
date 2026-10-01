@@ -4,8 +4,8 @@ import android.util.Base64;
 import android.util.Log;
 
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.FileUtils;
 
-import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -96,7 +96,7 @@ public class ModIconCache {
         }
         try {
             try(FileInputStream fileInputStream = new FileInputStream(imagePath)) {
-                byte[] imageBytes = IOUtils.toByteArray(fileInputStream);
+                byte[] imageBytes = FileUtils.toByteArray(fileInputStream);
                 // reencode to png? who cares! our profile icon cache is an omnivore!
                 // if some other launcher parses this and dies it is not our problem :troll:
                 return "data:image/png;base64,"+ Base64.encodeToString(imageBytes, Base64.DEFAULT);

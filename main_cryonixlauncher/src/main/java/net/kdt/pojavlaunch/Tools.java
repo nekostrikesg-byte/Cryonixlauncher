@@ -74,7 +74,6 @@ import net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles;
 import net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile;
 
 import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.io.IOUtils;
 import org.lwjgl.glfw.CallbackBridge;
 
 import java.io.BufferedInputStream;
@@ -689,7 +688,7 @@ public final class Tools {
         if(!destinationFile.exists() || overwrite){
             try(InputStream inputStream = ctx.getAssets().open(fileName)) {
                 try (OutputStream outputStream = new FileOutputStream(destinationFile)){
-                    IOUtils.copy(inputStream, outputStream);
+                    FileUtils.copy(inputStream, outputStream);
                 }
             }
         }
@@ -997,7 +996,7 @@ public final class Tools {
     }
 
     public static String read(InputStream is) throws IOException {
-        String readResult = IOUtils.toString(is, StandardCharsets.UTF_8);
+        String readResult = FileUtils.toString(is, StandardCharsets.UTF_8);
         is.close();
         return readResult;
     }
@@ -1014,7 +1013,7 @@ public final class Tools {
         File file = new File(path);
         FileUtils.ensureParentDirectory(file);
         try(FileOutputStream outStream = new FileOutputStream(file)) {
-            IOUtils.write(content, outStream);
+            FileUtils.write(content, outStream);
         }
     }
 
