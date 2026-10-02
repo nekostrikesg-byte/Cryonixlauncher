@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition für Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition für Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -15,7 +15,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Wähle einen Mod-Installer</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher ist unerwartet abgestürzt</string>
+    <string name="error_fatal">Cryonixlauncher ist unerwartet abgestürzt</string>
     <string name="error_no_version">Keine Version!</string>
     <string name="error_show_more">Mehr anzeigen</string>
     <string name="error_show_less">Weniger anzeigen</string>
@@ -31,7 +31,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Cache-Dateien bereinigen</string>
     <string name="mcl_launch_downloading">Lade %s herunter</string>
-    <string name="mcl_launch_downloading_progress">"Lade %s herunter (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Lade %s herunter (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Bereite das Herunterladen der Ressourcen vor</string>
     <string name="mcl_options">Optionen</string>
     <string name="mcl_option_customcontrol">Benutzerdefinierte Steuerung</string>
@@ -147,8 +147,8 @@
     <string name="customctrl_swipeable">Wischbar</string>
     <string name="customctrl_forward_lock">Weiterleitungssperre</string>
     <string name="customctrl_absolute_tracking">Absolutes Finger-Tracking</string>
-    <string name="memory_warning_msg">Die aktuelle Menge an freiem RAM (%d) ist niedriger als zugewiesener RAM (%d), was zu Abstürzen führen kann. Ändere die Zuordnung, wenn das Spiel abstürzt.</string>
-    <string name="address_memory_warning_msg">Der aktuelle freie adressierbare RAM-Speicherplatz (%d) ist niedriger als der zugewiesene RAM (%d), was zu Abstürzen führen wird. Sollte das Spiel abstürzen, ändere die Zuweisung.</string>
+    <string name="memory_warning_msg" formatted="false">Die aktuelle Menge an freiem RAM (%d) ist niedriger als zugewiesener RAM (%d), was zu Abstürzen führen kann. Ändere die Zuordnung, wenn das Spiel abstürzt.</string>
+    <string name="address_memory_warning_msg" formatted="false">Der aktuelle freie adressierbare RAM-Speicherplatz (%d) ist niedriger als der zugewiesene RAM (%d), was zu Abstürzen führen wird. Sollte das Spiel abstürzen, ändere die Zuweisung.</string>
     <string name="mcl_memory_allocation">Zugewiesener RAM</string>
     <string name="mcl_memory_allocation_subtitle">Legt fest, wie viel Arbeitsspeicher Minecraft zugewiesen wird.</string>
     <string name="multirt_runtime_corrupt">Beschädigte Java-Runtime</string>
@@ -206,7 +206,7 @@
     <string name="arc_capes_title">Cosmetica-Umhänge</string>
     <string name="arc_capes_desc">Aktiviert Umhänge von Cosmetica (früher Arc). Für weitere Informationen, siehe https://cosmetica.cc. OptiFine wird benötigt.</string>
     <string name="notif_channel_name">Allgemein</string>
-    <string name="lazy_service_default_title">Pojav-Vordergrunddienst</string>
+    <string name="lazy_service_default_title">Cryonixlauncher-Vordergrunddienst</string>
     <string name="mcl_setting_veroption_installed">Installiert</string>
     <string name="use_global_default">(Standardvorgaben verwenden)</string>
     <string name="default_control">Standard-Steuerung</string>
@@ -236,7 +236,7 @@
     <string name="preference_gyro_sample_rate_title">Gyroskop-Abtastrate</string>
     <string name="preference_gyro_sample_rate_description">Erhöhen bei Leistungsproblemen mit Gyroscope-Steuerung.</string>
     <string name="microsoft_login_retry_later">Zu viele Anfragen – bitte versuche es später erneut.</string>
-    <string name="storage_required">PojavLauncher benötigt einen verbundenen externen Speicher. Bitte verbinde ihn erneut und starte dann die App neu.</string>
+    <string name="storage_required">Cryonixlauncher benötigt einen verbundenen externen Speicher. Bitte verbinde ihn erneut und starte dann die App neu.</string>
     <string name="mcl_setting_title_buttonallcaps">Nur Großbuchstaben in Tastenbeschriftungen verwenden</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Deaktivieren, um Kleinbuchstaben für die Steuerung zu verwenden.</string>
     <string name="create_profile">Neues Profil erstellen</string>
@@ -289,11 +289,11 @@
     <string name="search_modpack_no_result">Keine Modpacks gefunden</string>
     <string name="search_modpack_error">Es konnten keine Modpacks gefunden werden</string>
     <string name="search_modpack_download_error">Fehler beim Herunterladen der Modpack-Metadaten</string>
-    <string name="modpack_download_downloading_metadata">Herunterladen von Modpack-Metadaten (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods">Lade Mods herunter (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">Lade Mods herunter ( %d von %d)</string>
-    <string name="modpack_download_applying_overrides">Wende Overrides an (%d/%d)</string>
-    <string name="modpack_install_notification_title">Pojav-Modpack-Installer</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">Herunterladen von Modpack-Metadaten (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">Lade Mods herunter (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Lade Mods herunter ( %d von %d)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Wende Overrides an (%d/%d)</string>
+    <string name="modpack_install_notification_title">Cryonixlauncher-Modpack-Installer</string>
     <string name="modpack_install_notification_success">Klicke hier, um die Installation des Modpack abzuschließen</string>
     <string name="modpack_install_notification_data_not_available">Fehler beim Herunterladen der Mod-Loader-Informationen</string>
     <string name="modpack_install_modloader_download_failed">Fehler beim Herunterladen der Mod-Loader-Dateien</string>
@@ -323,7 +323,7 @@ Um die offizielle Download-Quelle zu verwenden, drücke \"Auf offizielle Seite u
     <string name="preference_category_miscellaneous">Sonstige Einstellungen</string>
     <string name="preference_category_video">Grafik-Einstellungen</string>
     <string name="notification_permission_dialog_title">Berechtigungsanfrage</string>
-    <string name="notification_permission_dialog_text">PojavLauncher benötigt eine Berechtigung, um Benachrichtigungen anzuzeigen, damit Spiel-/Modpack-Downloads nicht abgebrochen werden, wenn die App verlassen wird. Ohne diese Berechtigung könnte Android Downloads stoppen, wenn PojavLauncher nicht mehr im Vordergrund ist.</string>
+    <string name="notification_permission_dialog_text">Cryonixlauncher benötigt eine Berechtigung, um Benachrichtigungen anzuzeigen, damit Spiel-/Modpack-Downloads nicht abgebrochen werden, wenn die App verlassen wird. Ohne diese Berechtigung könnte Android Downloads stoppen, wenn Cryonixlauncher nicht mehr im Vordergrund ist.</string>
     <string name="notification_permission_toast">Dies kann jederzeit in den Einstellungen geändert werden</string>
     <string name="preference_ask_for_notification_title">Benachrichtigungen erlauben</string>
     <string name="preference_ask_for_notification_description">Klicken, um die Benachrichtigungs-Berechtigung erneut anzufragen, damit Spiel-/Modpack-Downloads im Hintergrund richtig funktionieren.</string>
@@ -332,8 +332,8 @@ Um die offizielle Download-Quelle zu verwenden, drücke \"Auf offizielle Seite u
     <string name="exception_failed_to_unpack_jre17">Konnte JRE 17 nicht installieren</string>
     <string name="newdl_starting">Lese Spiel-Metadaten…</string>
     <string name="newdl_downloading_metadata">Lade Spiel-Metadaten herunter (%s)</string>
-    <string name="newdl_downloading_game_files">Lade das Spiel herunter… (%d/%d, %.2f MB)</string>
-    <string name="newdl_downloading_game_files_size">Lade das Spiel herunter… (%.2f/%.2f MB, %.2f MB/s)</string>
+    <string name="newdl_downloading_game_files" formatted="false">Lade das Spiel herunter… (%d/%d, %.2f MB)</string>
+    <string name="newdl_downloading_game_files_size" formatted="false">Lade das Spiel herunter… (%.2f/%.2f MB, %.2f MB/s)</string>
     <string name="cropper_title">Bildbereich auswählen</string>
     <string name="cropper_lock_vertical">Vertikaler Lock</string>
     <string name="cropper_lock_horizontal">Horizontaler Lock</string>

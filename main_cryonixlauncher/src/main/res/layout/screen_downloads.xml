@@ -1,20 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="8dp" android:background="@color/cryonix_background">
-<LinearLayout android:layout_width="match_parent" android:layout_height="54dp" android:gravity="center">
-<LinearLayout android:layout_width="330dp" android:layout_height="46dp" android:background="@drawable/bg_pojav_row" android:gravity="center" android:padding="4dp">
-<TextView android:id="@+id/downloads_back" android:layout_width="52dp" android:layout_height="38dp" android:gravity="center" android:text="‹" android:textColor="@color/cryonix_icon" android:textSize="24sp"/>
-<ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_cube" android:tint="@color/cryonix_icon"/>
-<ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_accounts" android:tint="@color/cryonix_icon"/>
-<ImageView android:layout_width="52dp" android:layout_height="38dp" android:background="@drawable/bg_pojav_button" android:padding="10dp" android:src="@drawable/ic_download" android:tint="@color/cryonix_button_text"/>
-<ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_settings" android:tint="@color/cryonix_icon"/>
-<ImageView android:layout_width="52dp" android:layout_height="38dp" android:padding="10dp" android:src="@drawable/ic_home" android:tint="@color/cryonix_icon"/>
-</LinearLayout></LinearLayout>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Downloads &amp; Tasks" android:textColor="@color/cryonix_text" android:textSize="20sp" android:textStyle="bold"/>
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Official Minecraft metadata, verified files and task progress" android:textColor="@color/cryonix_text_secondary" android:textSize="8sp"/>
-<TextView android:id="@+id/downloads_status" android:layout_width="match_parent" android:layout_height="82dp" android:layout_marginTop="12dp" android:background="@drawable/bg_pojav_row" android:gravity="center_vertical" android:padding="14dp" android:text="No active downloads" android:textColor="@color/cryonix_text" android:textSize="11sp"/>
-<ProgressBar android:id="@+id/downloads_progress" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="9dp" android:visibility="gone" style="?android:attr/progressBarStyleHorizontal"/>
-<TextView android:id="@+id/downloads_install" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="10dp" android:gravity="center"
-android:text="INSTALL SELECTED MINECRAFT" android:textColor="@color/cryonix_button_text" android:background="@drawable/bg_pojav_button" android:textSize="9sp"/>
-<TextView android:id="@+id/downloads_refresh" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="7dp" android:gravity="center"
-android:text="REFRESH OFFICIAL METADATA" android:textColor="@color/cryonix_text" android:background="@drawable/bg_pojav_row" android:textSize="9sp"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cryonix_background"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/downloads_back"
+            android:layout_width="38dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_cryonix_row"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="@color/cryonix_text"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/downloads_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="Downloads and tasks"
+            android:textColor="@color/cryonix_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/downloads_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_cryonix_row"
+            android:gravity="center"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:text="Refresh"
+            android:textColor="@color/cryonix_text_secondary"
+            android:textSize="9sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/downloads_status"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="Pojav engine task status"
+        android:textColor="@color/cryonix_text_secondary"
+        android:textSize="9sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/downloads_tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:gravity="center_vertical"
+        android:text="Install and version-download tasks are run by the integrated Minecraft engine."
+        android:textColor="@color/cryonix_muted"
+        android:textSize="8sp" />
 </LinearLayout>

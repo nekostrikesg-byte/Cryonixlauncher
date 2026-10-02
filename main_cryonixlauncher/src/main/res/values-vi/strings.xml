@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition cho Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition cho Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -15,7 +15,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Chọn một trình cài đặt mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher đã bất ngờ bị rớt</string>
+    <string name="error_fatal">Cryonixlauncher đã bất ngờ bị rớt</string>
     <string name="error_no_version">Không có phiên bản nào!</string>
     <string name="error_show_more">Hiển thị thêm</string>
     <string name="error_show_less">Hiển thị ít hơn</string>
@@ -31,7 +31,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Đang làm sạch bộ nhớ đệm</string>
     <string name="mcl_launch_downloading">Đang tải xuống %s</string>
-    <string name="mcl_launch_downloading_progress">"Đang tải %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Đang tải %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Chuẩn bị để tải xuống gói tài nguyên</string>
     <string name="mcl_options">Tùy chọn</string>
     <string name="mcl_option_customcontrol">Tùy chỉnh điều khiển</string>
@@ -147,8 +147,8 @@
     <string name="customctrl_swipeable">Có thể vuốt</string>
     <string name="customctrl_forward_lock">Khoá di chuyển lên</string>
     <string name="customctrl_absolute_tracking">Theo dõi chuyển động tuyệt đối của ngón tay</string>
-    <string name="memory_warning_msg">Số lượng RAM trống hiện tại (%d) thấp hơn số lượng RAM được phân bổ (%d), có thể dẫn đến sự cố. Thay đổi số lượng phân bổ nếu trò chơi bị sập.</string>
-    <string name="address_memory_warning_msg">Bộ nhớ trống hiện có (%d) thấp hơn bộ nhớ được phân bổ (%d), điều này có thể gây ra sự cố. Thay đổi lượng bộ nhớ được phân bổ nếu trò chơi bị văng.</string>
+    <string name="memory_warning_msg" formatted="false">Số lượng RAM trống hiện tại (%d) thấp hơn số lượng RAM được phân bổ (%d), có thể dẫn đến sự cố. Thay đổi số lượng phân bổ nếu trò chơi bị sập.</string>
+    <string name="address_memory_warning_msg" formatted="false">Bộ nhớ trống hiện có (%d) thấp hơn bộ nhớ được phân bổ (%d), điều này có thể gây ra sự cố. Thay đổi lượng bộ nhớ được phân bổ nếu trò chơi bị văng.</string>
     <string name="mcl_memory_allocation">Phân bổ bộ nhớ</string>
     <string name="mcl_memory_allocation_subtitle">Điều khiển lượng bộ nhớ tạm được đưa vào Minecraft.</string>
     <string name="multirt_runtime_corrupt">Java đã gặp xung đột</string>
@@ -206,7 +206,7 @@
     <string name="arc_capes_title">Áo choàng Cosmetica</string>
     <string name="arc_capes_desc">Sử dụng áo choàng từ dịch vụ Cosmetica (trước đây là Arc). Để biết thêm thông tin, truy cập https://cosmetica.cc. Yêu cầu có OptiFine.</string>
     <string name="notif_channel_name">Chung</string>
-    <string name="lazy_service_default_title">Dịch vụ tiền cảnh Pojav</string>
+    <string name="lazy_service_default_title">Dịch vụ tiền cảnh Cryonixlauncher</string>
     <string name="mcl_setting_veroption_installed">Đã cài đặt</string>
     <string name="use_global_default">(Sử dụng mặc định chung)</string>
     <string name="default_control">Bố cục bố cục điều khiển mặc định</string>
@@ -236,7 +236,7 @@
     <string name="preference_gyro_sample_rate_title">Tốc độ lấy mẫu con quay hồi chuyển</string>
     <string name="preference_gyro_sample_rate_description">..</string>
     <string name="microsoft_login_retry_later">Có quá nhiều yêu cầu, vui lòng thử lại sau.</string>
-    <string name="storage_required">PojavLauncher cần kho dữ liệu bên ngoài để gắn vào. Vui lòng kết nối lại và khởi động lại ứng dụng.</string>
+    <string name="storage_required">Cryonixlauncher cần kho dữ liệu bên ngoài để gắn vào. Vui lòng kết nối lại và khởi động lại ứng dụng.</string>
     <string name="mcl_setting_title_buttonallcaps">Chỉ được dùng những chữ cái in hoa trong các nhãn nút</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Tắt đi nếu bạn muốn sử dụng chữ cái thường trong mục điều khiển.</string>
     <string name="create_profile">Tạo cấu hình mới</string>
@@ -289,10 +289,10 @@
     <string name="search_modpack_no_result">Không có modpack được tìm thấy</string>
     <string name="search_modpack_error">Không thể tìm modpack</string>
     <string name="search_modpack_download_error">Không thể tải dữ liệu modpack</string>
-    <string name="modpack_download_downloading_metadata">Đang tải dữ liệu modpack (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods">Đang tải mod (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">Đang tải mod (Tệp %d trên %d)</string>
-    <string name="modpack_download_applying_overrides">Áp dụng các thay đổi (%d/%d)</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">Đang tải dữ liệu modpack (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">Đang tải mod (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Đang tải mod (Tệp %d trên %d)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Áp dụng các thay đổi (%d/%d)</string>
     <string name="modpack_install_notification_title">Trình cài đặt modpack</string>
     <string name="modpack_install_notification_success">Nhấn để hoàn thành cài đặt modpack</string>
     <string name="modpack_install_notification_data_not_available">Không thể tải thông tin trình cài đặt mod</string>
@@ -326,7 +326,7 @@ Nếu bạn muốn sử dụng nguồn tải xuống chính thức, nhấn vào 
     <string name="preference_category_miscellaneous">Các cài đặt khác</string>
     <string name="preference_category_video">Cài Đặt Đồ Họa</string>
     <string name="notification_permission_dialog_title">Yêu Cầu Quyền Truy Cập</string>
-    <string name="notification_permission_dialog_text">PojavLauncher yêu cầu quyền để gửi thông báo để ngăn chặn trò chơi/modpacks tải xuống mà không dừng lại khi bạn rời khỏi ứng dụng. Nếu không cấp quyền, Android có thể ngắt quá trình tải khi bạn để PojavLauncher ở chế độ nền.</string>
+    <string name="notification_permission_dialog_text">Cryonixlauncher yêu cầu quyền để gửi thông báo để ngăn chặn trò chơi/modpacks tải xuống mà không dừng lại khi bạn rời khỏi ứng dụng. Nếu không cấp quyền, Android có thể ngắt quá trình tải khi bạn để Cryonixlauncher ở chế độ nền.</string>
     <string name="notification_permission_toast">Bạn luôn có thể thay đổi ý định của mình bằng cách vào Cài đặt</string>
     <string name="preference_ask_for_notification_title">Cho phép Gửi thông báo</string>
     <string name="preference_ask_for_notification_description">Nhấp để yêu cầu lại quyền thông báo, điều này là cần thiết để trò chơi/gói tích hợp tải xuống bình thường ở chế độ nền.</string>
@@ -335,8 +335,8 @@ Nếu bạn muốn sử dụng nguồn tải xuống chính thức, nhấn vào 
     <string name="exception_failed_to_unpack_jre17">Cài Đặt thất bại JRE 17</string>
     <string name="newdl_starting">Đang đọc siêu dữ liệu trò chơi…</string>
     <string name="newdl_downloading_metadata">Đang tải xuống siêu dữ liệu trò chơi (%s)</string>
-    <string name="newdl_downloading_game_files">Đang tải xuống trò chơi… (%d/%d, %.2f MB)</string>
-    <string name="newdl_downloading_game_files_size">Đang tải xuống trò chơi… (%.2f/%.2f MB, %.2f MB)</string>
+    <string name="newdl_downloading_game_files" formatted="false">Đang tải xuống trò chơi… (%d/%d, %.2f MB)</string>
+    <string name="newdl_downloading_game_files_size" formatted="false">Đang tải xuống trò chơi… (%.2f/%.2f MB, %.2f MB)</string>
     <string name="cropper_title">Chọn vùng hình ảnh</string>
     <string name="cropper_lock_vertical">Khóa trục dọc</string>
     <string name="cropper_lock_horizontal">Khóa trục ngang</string>

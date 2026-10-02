@@ -1,6 +1,5 @@
 package net.kdt.pojavlaunch;
 
-import com.cryonix.launcher.BuildConfig;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 import android.app.*;
@@ -45,7 +44,7 @@ public class PojavApplication extends Application {
 				crashStream.append(" - Device: ").append(Build.PRODUCT).append(" ").append(Build.MODEL).append("\n");
 				crashStream.append(" - Android version: ").append(Build.VERSION.RELEASE).append("\n");
 				crashStream.append(" - Crash stack trace:\n");
-				crashStream.append(" - Launcher version: " + BuildConfig.VERSION_NAME + "\n");
+				crashStream.append(" - Launcher version: " + CryonixBuildInfo.VERSION_NAME + "\n");
 				crashStream.append(Log.getStackTraceString(th));
 				crashStream.close();
 			} catch (Throwable throwable) {
@@ -59,11 +58,15 @@ public class PojavApplication extends Application {
 		
 		try {
 			super.onCreate();
-			if(Tools.checkStorageRoot(this)){
-				// Implicitly initializes early constants and storage constants.
-				// Required to run the main activity properly.
-				LauncherPreferences.loadPreferences(this);
-			} else {
+            if(Tools.checkStorageRoot(this)){
+                // Implicitly initializes early constants and storage constants.
+                // Required to run the main activity properly.
+                LauncherPreferences.loadPreferences(this);
+                // The launcher entry point skips the legacy storage-wizard activity, so install
+                // runtime components here before the separate game process builds its classpath.
+                AsyncAssetManager.unpackComponentsNow(this);
+                AsyncAssetManager.unpackSingleFilesNow(this);
+            } else {
 				// In other cases, only initialize enough for the basicmost basics to work
 				// and not explode.
 				Tools.initEarlyConstants(this);

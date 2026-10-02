@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition para Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition para Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -15,7 +15,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Selecione um instalador de mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">O PojavLauncher parou de funcionar inesperadamente</string>
+    <string name="error_fatal">O Cryonixlauncher parou de funcionar inesperadamente</string>
     <string name="error_no_version">Nenhuma versão!</string>
     <string name="error_show_more">Mostrar mais</string>
     <string name="error_show_less">Mostrar menos</string>
@@ -31,7 +31,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Limpando arquivos em cache</string>
     <string name="mcl_launch_downloading">Baixando %s</string>
-    <string name="mcl_launch_downloading_progress">"Baixando %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Baixando %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Preparando para baixar os recursos</string>
     <string name="mcl_options">Opções</string>
     <string name="mcl_option_customcontrol">Controles personalizados</string>
@@ -147,8 +147,8 @@
     <string name="customctrl_swipeable">Deslizável</string>
     <string name="customctrl_forward_lock">Trava para correr</string>
     <string name="customctrl_absolute_tracking">Movimento absoluto</string>
-    <string name="memory_warning_msg">A quantidade atual de RAM livre (%d) é menor que a RAM alocada (%d), no qual pode causar falhas. Altere a quantidade se o jogo apresentar alguma falha.</string>
-    <string name="address_memory_warning_msg">A quantidade atual de RAM livre (%d) é menor que a RAM alocada (%d), no qual pode causar falhas. Altere a quantidade se o jogo apresentar alguma falha.</string>
+    <string name="memory_warning_msg" formatted="false">A quantidade atual de RAM livre (%d) é menor que a RAM alocada (%d), no qual pode causar falhas. Altere a quantidade se o jogo apresentar alguma falha.</string>
+    <string name="address_memory_warning_msg" formatted="false">A quantidade atual de RAM livre (%d) é menor que a RAM alocada (%d), no qual pode causar falhas. Altere a quantidade se o jogo apresentar alguma falha.</string>
     <string name="mcl_memory_allocation">Alocação de memória</string>
     <string name="mcl_memory_allocation_subtitle">Controla o quanto de RAM será disponibilizado para o Minecraft.</string>
     <string name="multirt_runtime_corrupt">Java Runtime corrompido</string>
@@ -236,7 +236,7 @@
     <string name="preference_gyro_sample_rate_title">Taxa de amostragem do giroscópio</string>
     <string name="preference_gyro_sample_rate_description">Se você tiver problemas de desempenho com os controles por giroscópio, aumente isto.</string>
     <string name="microsoft_login_retry_later">Você fez muitas solicitações. Por favor, tente novamente mais tarde.</string>
-    <string name="storage_required">O PojavLauncher requer que o armazenamento externo seja conectado. Por favor, reconecte-o e reinicie o aplicativo.</string>
+    <string name="storage_required">O Cryonixlauncher requer que o armazenamento externo seja conectado. Por favor, reconecte-o e reinicie o aplicativo.</string>
     <string name="mcl_setting_title_buttonallcaps">Somente use letras maiúsculas em rótulos de botões</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Desative isso se você quiser usar letras minúsculas em seus controles.</string>
     <string name="create_profile">Criar novo perfil</string>
@@ -289,11 +289,11 @@
     <string name="search_modpack_no_result">Nenhum modpack encontrado</string>
     <string name="search_modpack_error">Falha ao encontrar modpacks</string>
     <string name="search_modpack_download_error">Falha ao baixar os metadados do modpack</string>
-    <string name="modpack_download_downloading_metadata">Baixando metadados do modpack (%.2f MB /%.2f MB)</string>
-    <string name="modpack_download_downloading_mods">Baixando mods (%.2f MB /%.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">Baixando mods (Arquivo %d de %d)</string>
-    <string name="modpack_download_applying_overrides">Aplicando substituições (%d/%d)</string>
-    <string name="modpack_install_notification_title">Instalador de Modpack do Pojav</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">Baixando metadados do modpack (%.2f MB /%.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">Baixando mods (%.2f MB /%.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Baixando mods (Arquivo %d de %d)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Aplicando substituições (%d/%d)</string>
+    <string name="modpack_install_notification_title">Instalador de Modpack do Cryonixlauncher</string>
     <string name="modpack_install_notification_success">Clique aqui para finalizar a instalação do modpack</string>
     <string name="modpack_install_notification_data_not_available">Falha ao baixar informações do mod loader</string>
     <string name="modpack_install_modloader_download_failed">Falha ao baixar os arquivos do mod loader</string>
@@ -323,7 +323,7 @@
     <string name="preference_category_miscellaneous">Configurações diversas</string>
     <string name="preference_category_video">Configurações de vídeo</string>
     <string name="notification_permission_dialog_title">Solicitação de permissão</string>
-    <string name="notification_permission_dialog_text">O PojavLauncher requer a permissão de mandar notificações para impedir que o download do jogo/modpack pare quando você sair do aplicativo. Sem essa permissão, o Android pode cancelar seus downloads quando você colocar o PojavLauncher em segundo plano.</string>
+    <string name="notification_permission_dialog_text">O Cryonixlauncher requer a permissão de mandar notificações para impedir que o download do jogo/modpack pare quando você sair do aplicativo. Sem essa permissão, o Android pode cancelar seus downloads quando você colocar o Cryonixlauncher em segundo plano.</string>
     <string name="notification_permission_toast">Você sempre pode mudar de ideia mais tarde entrando em Configurações</string>
     <string name="preference_ask_for_notification_title">Permitir notificações</string>
     <string name="preference_ask_for_notification_description">Clique para solicitar novamente a permissão de notificação necessária para que os downloads em segundo plano de jogo/modpack funcionem corretamente.</string>
@@ -332,8 +332,8 @@
     <string name="exception_failed_to_unpack_jre17">Falha ao instalar o JRE 17</string>
     <string name="newdl_starting">Lendo metadados do jogo…</string>
     <string name="newdl_downloading_metadata">Baixando metadados do jogo (%s)</string>
-    <string name="newdl_downloading_game_files">Baixando o jogo… (%d/%d, %.2f MB/s)</string>
-    <string name="newdl_downloading_game_files_size">Baixando o jogo… (%.2f/%.2f MB, %.2f MB/s)</string>
+    <string name="newdl_downloading_game_files" formatted="false">Baixando o jogo… (%d/%d, %.2f MB/s)</string>
+    <string name="newdl_downloading_game_files_size" formatted="false">Baixando o jogo… (%.2f/%.2f MB, %.2f MB/s)</string>
     <string name="cropper_title">Selecionar região da imagem</string>
     <string name="cropper_lock_vertical">Bloqueio V.</string>
     <string name="cropper_lock_horizontal">Bloqueio H.</string>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:text="Accounts"
+        android:textColor="@color/cryonix_text"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/account_tab_status"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:text="Manage saved Minecraft accounts"
+        android:textColor="@color/cryonix_text_secondary"
+        android:textSize="9sp" />
+    <TextView
+        android:id="@+id/account_tab_add"
+        android:layout_width="220dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_cryonix_button"
+        android:gravity="center"
+        android:text="Add / sign in"
+        android:textColor="@color/cryonix_button_text"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/account_tab_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+</LinearLayout>

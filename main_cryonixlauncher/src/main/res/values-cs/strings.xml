@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition pro Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition pro Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -15,7 +15,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Vyberte instalátor módů</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher neočekávaně spadl</string>
+    <string name="error_fatal">Cryonixlauncher neočekávaně spadl</string>
     <string name="error_no_version">Žádná verze!</string>
     <string name="error_show_more">Zobrazit více</string>
     <string name="error_show_less">Zobrazit méně</string>
@@ -31,7 +31,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Čištění mezipaměti</string>
     <string name="mcl_launch_downloading">Stahování %s</string>
-    <string name="mcl_launch_downloading_progress">"Stahování %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Stahování %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Příprava ke stažení prostředků</string>
     <string name="mcl_options">Možnosti</string>
     <string name="mcl_option_customcontrol">Vlastní ovládací prvky</string>
@@ -147,8 +147,8 @@
     <string name="customctrl_swipeable">Povolit přejíždění</string>
     <string name="customctrl_forward_lock">Uzamknout chození vpřed</string>
     <string name="customctrl_absolute_tracking">Absolutní následování prstu</string>
-    <string name="memory_warning_msg">Aktuální množství volné paměti RAM (%d) je nižší než přidělená paměť RAM (%d), což může vést k pádu. Spadne-li hra, snižte přidělení paměti.</string>
-    <string name="address_memory_warning_msg">Aktuální množství volné přístupné paměti RAM (%d) je nižší než přidělená paměť RAM (%d), což povede k pádu. Spadne-li hra, sniž přidělení paměti.</string>
+    <string name="memory_warning_msg" formatted="false">Aktuální množství volné paměti RAM (%d) je nižší než přidělená paměť RAM (%d), což může vést k pádu. Spadne-li hra, snižte přidělení paměti.</string>
+    <string name="address_memory_warning_msg" formatted="false">Aktuální množství volné přístupné paměti RAM (%d) je nižší než přidělená paměť RAM (%d), což povede k pádu. Spadne-li hra, sniž přidělení paměti.</string>
     <string name="mcl_memory_allocation">Přidělení paměti</string>
     <string name="mcl_memory_allocation_subtitle">Určuje množství paměti přidělené Minecraftu.</string>
     <string name="multirt_runtime_corrupt">Poškozená Java Runtime</string>
@@ -206,7 +206,7 @@
     <string name="arc_capes_title">Kápě z Cosmeticy</string>
     <string name="arc_capes_desc">Zapne kápě z Cosmeticy (dříve Arc) Pro více informací navštivte https://cosmetica.cc. Vyžaduje OptiFine.</string>
     <string name="notif_channel_name">Všeobecné</string>
-    <string name="lazy_service_default_title">Služba Popředí Pojavu</string>
+    <string name="lazy_service_default_title">Služba Popředí Cryonixlauncheru</string>
     <string name="mcl_setting_veroption_installed">Nainstalováno</string>
     <string name="use_global_default">(Užít globální výchozí nastavení)</string>
     <string name="default_control">Výchozí ovládání</string>
@@ -236,7 +236,7 @@
     <string name="preference_gyro_sample_rate_title">Vzorkovací kmitočet gyroskopu</string>
     <string name="preference_gyro_sample_rate_description">Zvyšte toto, máte-li problém s výkonem užívajíce gyroskopového ovládání.</string>
     <string name="microsoft_login_retry_later">Příliš mnoho požadavků, zkuste to znovu později.</string>
-    <string name="storage_required">PojavLauncher vyžaduje přípojené externí úložiště. Připojte jej prosím znovu a restartujte tuto aplikaci.</string>
+    <string name="storage_required">Cryonixlauncher vyžaduje přípojené externí úložiště. Připojte jej prosím znovu a restartujte tuto aplikaci.</string>
     <string name="mcl_setting_title_buttonallcaps">Zobrazovat pouze velká písmena na popiscích tlačítek</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Vypněte toto, chcete-li užívat malá písmena ve vlastních ovládání.</string>
     <string name="create_profile">Vytvořit nový profil</string>
@@ -289,11 +289,11 @@
     <string name="search_modpack_no_result">Nebyly nalezeny žádné modpacky</string>
     <string name="search_modpack_error">Nepodařilo se nalézt modpacky</string>
     <string name="search_modpack_download_error">Stahování metadat modpacku selhalo</string>
-    <string name="modpack_download_downloading_metadata">Stahování metadat modpacku (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods">Stahování módů (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">Stahování módů (Soubor %d z %d)</string>
-    <string name="modpack_download_applying_overrides">Provádení přepisů (%d/%d)</string>
-    <string name="modpack_install_notification_title">Instalátor Modpacků Pojavu</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">Stahování metadat modpacku (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">Stahování módů (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Stahování módů (Soubor %d z %d)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Provádení přepisů (%d/%d)</string>
+    <string name="modpack_install_notification_title">Instalátor Modpacků Cryonixlauncheru</string>
     <string name="modpack_install_notification_success">Klikněte zde k dokončení instalace modpacku</string>
     <string name="modpack_install_notification_data_not_available">Stahování informací načítače módů selhalo</string>
     <string name="modpack_install_modloader_download_failed">Stahování souborů načítače módů selhalo</string>
@@ -323,7 +323,7 @@
     <string name="preference_category_miscellaneous">Jiná nastavení</string>
     <string name="preference_category_video">Nastavení videa</string>
     <string name="notification_permission_dialog_title">Žádost o oprávnění</string>
-    <string name="notification_permission_dialog_text">PojavLauncher vyžaduje oprávnění k odesílání oznámení, aby se zabránilo zastavení stahování hry/modpacku při opuštění aplikace. Bez tohoto oprávnění může Android přerušit vaše stahování, když přepnete PojavLauncher do režimu na pozadí.</string>
+    <string name="notification_permission_dialog_text">Cryonixlauncher vyžaduje oprávnění k odesílání oznámení, aby se zabránilo zastavení stahování hry/modpacku při opuštění aplikace. Bez tohoto oprávnění může Android přerušit vaše stahování, když přepnete Cryonixlauncher do režimu na pozadí.</string>
     <string name="notification_permission_toast">Později si můžete změnit svůj názor v nastavení</string>
     <string name="preference_ask_for_notification_title">Povolit oznámení</string>
     <string name="preference_ask_for_notification_description">Kliknutím znovu požádáte o oprávnění pro posílání oznámení, které je vyžadováno pro správné fungování stahování hry/modpacku na pozadí.</string>
@@ -332,8 +332,8 @@
     <string name="exception_failed_to_unpack_jre17">Instalace JRE 17 selhala</string>
     <string name="newdl_starting">Čtení metadat hry…</string>
     <string name="newdl_downloading_metadata">Stahování metadat hry (%s)</string>
-    <string name="newdl_downloading_game_files">Stahování hry… (%d/%d, %.2f MB)</string>
-    <string name="newdl_downloading_game_files_size">Stahování hry… (%.2f/%.2f MB, %.2f MB/s)</string>
+    <string name="newdl_downloading_game_files" formatted="false">Stahování hry… (%d/%d, %.2f MB)</string>
+    <string name="newdl_downloading_game_files_size" formatted="false">Stahování hry… (%.2f/%.2f MB, %.2f MB/s)</string>
     <string name="cropper_title">Vyberte oblast oříznutí</string>
     <string name="cropper_lock_vertical">Zamknout svisle</string>
     <string name="cropper_lock_horizontal">Zamknout Vodorovně</string>

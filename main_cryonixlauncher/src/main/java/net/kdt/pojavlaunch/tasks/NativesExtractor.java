@@ -98,7 +98,7 @@ public class NativesExtractor {
             if(realSize == expectedSize && realCrc32 == expectedCrc32) return;
         }
         // copyInputStreamToFile copies the stream to a file and then closes it.
-        org.apache.commons.io.FileUtils.copyInputStreamToFile(sourceStream, entryDestination);
+        FileUtils.copyInputStreamToFile(sourceStream, entryDestination);
     }
 
 

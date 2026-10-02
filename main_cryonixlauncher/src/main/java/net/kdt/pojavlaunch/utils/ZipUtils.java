@@ -1,6 +1,5 @@
 package net.kdt.pojavlaunch.utils;
 
-import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,7 +47,7 @@ public class ZipUtils {
             FileUtils.ensureParentDirectory(zipDestination);
             try (InputStream inputStream = zipFile.getInputStream(zipEntry);
                  OutputStream outputStream = new FileOutputStream(zipDestination)) {
-                IOUtils.copy(inputStream, outputStream);
+                FileUtils.copy(inputStream, outputStream);
             }
         }
     }

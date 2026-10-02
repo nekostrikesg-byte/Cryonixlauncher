@@ -1,6 +1,8 @@
 package net.kdt.pojavlaunch;
 
 import com.cryonix.launcher.R;
+import com.kdt.mcgui.ProgressLayout;
+
 import static net.kdt.pojavlaunch.Architecture.archAsString;
 
 import android.app.Activity;
@@ -13,26 +15,90 @@ import net.kdt.pojavlaunch.utils.MathUtils;
 import net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles;
 import net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
+import net.kdt.pojavlaunch.utils.DownloadUtils;
+import net.kdt.pojavlaunch.utils.FileUtils;
 
 public class NewJREUtil {
     private static boolean checkInternalRuntime(AssetManager assetManager, InternalRuntime internalRuntime) {
-        String launcher_runtime_version;
-        String installed_runtime_version = MultiRTUtils.readInternalRuntimeVersion(internalRuntime.name);
+        String installedRuntimeVersion = MultiRTUtils.readInternalRuntimeVersion(internalRuntime.name);
+        boolean installedRuntimeValid = installedRuntimeVersion != null
+                && MultiRTUtils.forceReread(internalRuntime.name).javaVersion >= internalRuntime.majorVersion;
+        String bundledRuntimeVersion;
         try {
-            launcher_runtime_version = Tools.read(assetManager.open(internalRuntime.path+"/version"));
-        }catch (IOException exc) {
-            //we don't have a runtime included!
-            //if we have one installed -> return true -> proceed (no updates but the current one should be functional)
-            //if we don't -> return false -> Cannot find compatible Java runtime
-            return installed_runtime_version != null;
+            bundledRuntimeVersion = Tools.read(assetManager.open(internalRuntime.path + "/version"));
+        } catch (IOException missingBundledRuntime) {
+            // Runtime archives are intentionally excluded from the APK to keep it small. An
+            // existing runtime is still valid; otherwise fetch the matching runtime on demand.
+            if (installedRuntimeValid) return true;
+            return downloadAndInstallRuntime(internalRuntime);
         }
-        // this implicitly checks for null, so it will unpack the runtime even if we don't have one installed
-        if(!launcher_runtime_version.equals(installed_runtime_version))
-            return unpackInternalRuntime(assetManager, internalRuntime, launcher_runtime_version);
-        else return true;
+
+        if (bundledRuntimeVersion.equals(installedRuntimeVersion) && installedRuntimeValid) return true;
+        if (unpackInternalRuntime(assetManager, internalRuntime, bundledRuntimeVersion)) return true;
+
+        // A partial/mismatched bundled runtime should not make supported game versions
+        // unlaunchable when the official rolling runtime archive is available.
+        return downloadAndInstallRuntime(internalRuntime);
+    }
+
+    private static boolean downloadAndInstallRuntime(InternalRuntime internalRuntime) {
+        String archiveName = "jre" + internalRuntime.majorVersion + "-pojav.zip";
+        String archiveUrl = "https://github.com/MojoLauncher/android-openjdk-build-17-25"
+                + "/releases/download/rolling/" + archiveName;
+        File archive = new File(Tools.DIR_CACHE, "runtimes/" + archiveName);
+        try {
+            File parent = archive.getParentFile();
+            if (parent == null) throw new IOException("Unable to create JRE download directory");
+            FileUtils.ensureDirectory(parent);
+
+            ProgressLayout.setProgress(ProgressLayout.DOWNLOAD_MINECRAFT, 0,
+                    R.string.newdl_downloading_metadata, archiveName);
+            DownloadUtils.downloadFile(archiveUrl, archive);
+
+            try (ZipFile runtimeZip = new ZipFile(archive)) {
+                ZipEntry universal = runtimeZip.getEntry("universal.tar.xz");
+                ZipEntry platform = runtimeZip.getEntry("bin-" + archAsString(Tools.DEVICE_ARCHITECTURE) + ".tar.xz");
+                if (universal == null || platform == null) {
+                    throw new IOException("The Java " + internalRuntime.majorVersion
+                            + " archive does not contain the files for " + archAsString(Tools.DEVICE_ARCHITECTURE));
+                }
+
+                try (InputStream universalStream = runtimeZip.getInputStream(universal);
+                     InputStream platformStream = runtimeZip.getInputStream(platform)) {
+                    MultiRTUtils.installRuntimeNamedBinpack(universalStream, platformStream,
+                            internalRuntime.name, "mojo-openjdk-" + internalRuntime.majorVersion + "-rolling");
+                }
+            }
+
+            MultiRTUtils.postPrepare(internalRuntime.name);
+            Runtime installedRuntime = MultiRTUtils.forceReread(internalRuntime.name);
+            if (installedRuntime.javaVersion < internalRuntime.majorVersion) {
+                MultiRTUtils.removeRuntimeNamed(internalRuntime.name);
+                throw new IOException("Downloaded runtime does not provide Java " + internalRuntime.majorVersion);
+            }
+            Log.i("NewJREAuto", "Installed Java " + internalRuntime.majorVersion + " from " + archiveUrl);
+            return true;
+        } catch (IOException | RuntimeException e) {
+            Log.e("NewJREAuto", "Unable to download or install Java " + internalRuntime.majorVersion, e);
+            try {
+                MultiRTUtils.removeRuntimeNamed(internalRuntime.name);
+            } catch (IOException cleanupError) {
+                Log.w("NewJREAuto", "Unable to remove incomplete runtime", cleanupError);
+            }
+            return false;
+        } finally {
+            if (archive.exists() && !archive.delete()) {
+                Log.w("NewJREAuto", "Unable to remove downloaded runtime archive " + archive);
+            }
+        }
     }
 
     private static boolean unpackInternalRuntime(AssetManager assetManager, InternalRuntime internalRuntime, String version) {

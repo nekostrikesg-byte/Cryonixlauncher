@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition для Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition для Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Выберите установщикъ модификаціи</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher былъ остановленъ въ результатѣ курьёза</string>
+    <string name="error_fatal">Cryonixlauncher былъ остановленъ въ результатѣ курьёза</string>
     <string name="error_no_version">Нѣтъ версій!</string>
     <string name="error_show_more">Развернуть</string>
     <string name="error_show_less">Свернуть</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Очистка файловъ кэша</string>
     <string name="mcl_launch_downloading">Загрузка %s</string>
-    <string name="mcl_launch_downloading_progress">"Загрузка %s (%.2f МБайтъ / %.2f МБайтъ)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Загрузка %s (%.2f МБайтъ / %.2f МБайтъ)"</string>
     <string name="mcl_launch_download_assets">Подготовка къ загрузкѣ ресурсовъ</string>
     <string name="mcl_options">Настройки</string>
     <string name="mcl_option_customcontrol">Пользовательское управленіе</string>
@@ -114,7 +114,7 @@
     <string name="mcl_setting_title_mousespeed">Чувствительность мыши</string>
     <string name="customctrl_passthru">Указатель мыши</string>
     <string name="customctrl_swipeable">Пролистываемый</string>
-    <string name="memory_warning_msg">Текущій объёмъ свободной оперативной памяти (%d) меньше выдѣленной (%d), что может привести къ сбоямъ приложенія. Измѣните количество выдѣленной памяти при сбоѣ игры.</string>
+    <string name="memory_warning_msg" formatted="false">Текущій объёмъ свободной оперативной памяти (%d) меньше выдѣленной (%d), что может привести къ сбоямъ приложенія. Измѣните количество выдѣленной памяти при сбоѣ игры.</string>
     <string name="mcl_memory_allocation">Выдѣленіе памяти</string>
     <string name="multirt_runtime_corrupt">Java Runtime поврежденъ</string>
     <string name="multirt_config_add">Добавить новую</string>

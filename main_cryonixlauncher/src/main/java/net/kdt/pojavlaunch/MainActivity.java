@@ -224,6 +224,11 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
 
     private void loadControls() {
         try {
+            // A first-run launch can reach this game process before the legacy storage wizard
+            // has copied its default layout. Restore it from APK assets without overwriting edits.
+            if (!new File(Tools.CTRLDEF_FILE).isFile()) {
+                Tools.copyAssetFile(this, "default.json", Tools.CTRLMAP_PATH, false);
+            }
             // Load keys
             mControlLayout.loadLayout(
                     minecraftProfile.controlFile == null

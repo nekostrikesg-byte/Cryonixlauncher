@@ -25,10 +25,10 @@ import net.kdt.pojavlaunch.customcontrols.keyboard.TouchCharInput;
 import net.kdt.pojavlaunch.multirt.MultiRTUtils;
 import net.kdt.pojavlaunch.multirt.Runtime;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
+import net.kdt.pojavlaunch.utils.FileUtils;
 import net.kdt.pojavlaunch.utils.JREUtils;
 import net.kdt.pojavlaunch.utils.MathUtils;
 
-import org.apache.commons.io.IOUtils;
 import org.lwjgl.glfw.CallbackBridge;
 
 import java.io.File;
@@ -189,7 +189,7 @@ public class JavaGUILauncherActivity extends BaseActivity implements View.OnTouc
             InputStream contentStream = getContentResolver().openInputStream(uri);
             if(contentStream == null) throw new IOException("Failed to open content stream");
             try (FileOutputStream fileOutputStream = new FileOutputStream(cacheFile)) {
-                IOUtils.copy(contentStream, fileOutputStream);
+                FileUtils.copy(contentStream, fileOutputStream);
             }
             contentStream.close();
             startModInstaller(cacheFile, null);
