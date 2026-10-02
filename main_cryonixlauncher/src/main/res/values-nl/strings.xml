@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition voor Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition voor Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Selecteer een mod installatie</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher is onverwacht gecrasht</string>
+    <string name="error_fatal">Cryonixlauncher is onverwacht gecrasht</string>
     <string name="error_no_version">Geen versie!</string>
     <string name="error_show_more">Meer weergeven</string>
     <string name="error_show_less">Minder weergeven</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Cache bestanden opschonen</string>
     <string name="mcl_launch_downloading">Downloaden %s</string>
-    <string name="mcl_launch_downloading_progress">"%s downloaden (%.2fMB / %.2fMB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"%s downloaden (%.2fMB / %.2fMB)"</string>
     <string name="mcl_launch_download_assets">Voorbereiden om bronnen te downloaden</string>
     <string name="mcl_options">Opties</string>
     <string name="mcl_option_customcontrol">Aangepaste controles</string>
@@ -143,7 +143,7 @@
     <string name="customctrl_swipeable">Sleepbaar</string>
     <string name="customctrl_forward_lock">Vooruit vergrendelen</string>
     <string name="customctrl_absolute_tracking">Absolute vingertracking</string>
-    <string name="memory_warning_msg">De huidige hoeveelheid vrije RAM (%d) is lager dan toegewezen RAM (%d), wat kan leiden tot crashes. Verander de toewijzing als het spel crasht.</string>
+    <string name="memory_warning_msg" formatted="false">De huidige hoeveelheid vrije RAM (%d) is lager dan toegewezen RAM (%d), wat kan leiden tot crashes. Verander de toewijzing als het spel crasht.</string>
     <string name="mcl_memory_allocation">Geheugen toewijzen</string>
     <string name="mcl_memory_allocation_subtitle">Bepaalt hoeveel werkgeheugen er aan Minecraft wordt gegeven.</string>
     <string name="multirt_runtime_corrupt">Corrupte Java Runtime</string>
@@ -197,7 +197,7 @@
     <string name="arc_capes_title">Cosmetica Capes</string>
     <string name="arc_capes_desc">Schakelt capes van Cosmetica in (voorheen Arc). Voor meer informatie ga naar https://cosmetica.cc. Vereist OptiFine.</string>
     <string name="notif_channel_name">Algemeen</string>
-    <string name="lazy_service_default_title">Pojav voorgrond Service</string>
+    <string name="lazy_service_default_title">Cryonixlauncher voorgrond Service</string>
     <string name="use_global_default">(Gebruik globale standaardwaarde)</string>
     <string name="default_control">Standaard controlmap</string>
     <string name="progresslayout_tasks_in_progress">%d taken in uitvoering</string>
@@ -228,11 +228,11 @@
     <string name="search_modpack_no_result">Geen modpacks gevonden</string>
     <string name="search_modpack_error">Kan modpacks niet vinden</string>
     <string name="search_modpack_download_error">Downloaden van modpack metadata mislukt</string>
-    <string name="modpack_download_downloading_metadata">Modpack metadata downloaden (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods">Mods downloaden (%.2f MB / %.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">Mods downloaden (File %d van de %d)</string>
-    <string name="modpack_download_applying_overrides">Toepassen van overrides (%d/%d)</string>
-    <string name="modpack_install_notification_title">Pojav Modpack Installer</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">Modpack metadata downloaden (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">Mods downloaden (%.2f MB / %.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">Mods downloaden (File %d van de %d)</string>
+    <string name="modpack_download_applying_overrides" formatted="false">Toepassen van overrides (%d/%d)</string>
+    <string name="modpack_install_notification_title">Cryonixlauncher Modpack Installer</string>
     <string name="modpack_install_notification_success">Klik hier om de installatie van modpack te voltooien</string>
     <string name="modpack_install_notification_data_not_available">Downloaden van mod loader gegevens mislukt</string>
     <string name="modpack_install_modloader_download_failed">Downloaden van mod laader bestanden mislukt</string>
@@ -262,7 +262,7 @@
     <string name="preference_category_miscellaneous">Overige instellingen</string>
     <string name="preference_category_video">Video-instellingen</string>
     <string name="notification_permission_dialog_title">Verzoek om toestemming</string>
-    <string name="notification_permission_dialog_text">PojavLauncher heeft toestemming nodig om meldingen te plaatsen om te voorkomen dat downloads van game/modpack stoppen wanneer je de app verlaat. Zonder deze toestemming kan Android je downloads afsluiten als je PojavLauncher in de achtergrondmodus plaatst.</string>
+    <string name="notification_permission_dialog_text">Cryonixlauncher heeft toestemming nodig om meldingen te plaatsen om te voorkomen dat downloads van game/modpack stoppen wanneer je de app verlaat. Zonder deze toestemming kan Android je downloads afsluiten als je Cryonixlauncher in de achtergrondmodus plaatst.</string>
     <string name="notification_permission_toast">U kunt later altijd van gedachten veranderen door naar Instellingen te gaan</string>
     <string name="preference_ask_for_notification_title">Meldingen toestaan</string>
     <string name="preference_ask_for_notification_description">Klik om de meldingsmachtiging opnieuw op te vragen, vereist voor game/modpack achtergrond downloads om correct te werken.</string>

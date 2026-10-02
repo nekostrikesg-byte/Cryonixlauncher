@@ -1,6 +1,5 @@
 package net.kdt.pojavlaunch;
 
-import com.cryonix.launcher.BuildConfig;
 import com.cryonix.launcher.R;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.P;
@@ -75,7 +74,6 @@ import net.kdt.pojavlaunch.value.launcherprofiles.LauncherProfiles;
 import net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile;
 
 import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.io.IOUtils;
 import org.lwjgl.glfw.CallbackBridge;
 
 import java.io.BufferedInputStream;
@@ -103,7 +101,7 @@ import java.util.Map;
 public final class Tools {
     public  static final float BYTE_TO_MB = 1024 * 1024;
     public static final Handler MAIN_HANDLER = new Handler(Looper.getMainLooper());
-    public static String APP_NAME = "PojavLauncher";
+    public static String APP_NAME = "Cryonixlauncher";
 
     public static final Gson GLOBAL_GSON = new GsonBuilder().setPrettyPrinting().create();
 
@@ -565,7 +563,12 @@ public final class Tools {
                 }
             }
         }
-        // Remove the ':' at the end
+        // Remove the ':' at the end. An empty or unreadable component directory used to
+        // produce setLength(-1), obscuring the missing-JAR cause with a StringIndexOutOfBoundsException.
+        if (libStr.length() == 0) {
+            throw new IllegalStateException("LWJGL 3 classpath is empty; launcher components were not installed in "
+                    + lwjgl3Folder.getAbsolutePath());
+        }
         libStr.setLength(libStr.length() - 1);
         return libStr.toString();
     }
@@ -690,7 +693,7 @@ public final class Tools {
         if(!destinationFile.exists() || overwrite){
             try(InputStream inputStream = ctx.getAssets().open(fileName)) {
                 try (OutputStream outputStream = new FileOutputStream(destinationFile)){
-                    IOUtils.copy(inputStream, outputStream);
+                    FileUtils.copy(inputStream, outputStream);
                 }
             }
         }
@@ -998,7 +1001,7 @@ public final class Tools {
     }
 
     public static String read(InputStream is) throws IOException {
-        String readResult = IOUtils.toString(is, StandardCharsets.UTF_8);
+        String readResult = FileUtils.toString(is, StandardCharsets.UTF_8);
         is.close();
         return readResult;
     }
@@ -1015,7 +1018,7 @@ public final class Tools {
         File file = new File(path);
         FileUtils.ensureParentDirectory(file);
         try(FileOutputStream outStream = new FileOutputStream(file)) {
-            IOUtils.write(content, outStream);
+            FileUtils.write(content, outStream);
         }
     }
 
@@ -1033,7 +1036,7 @@ public final class Tools {
     }
 
     public static void printLauncherInfo(String gameVersion, String javaArguments) {
-        Logger.appendToLog("Info: Launcher version: " + BuildConfig.VERSION_NAME);
+        Logger.appendToLog("Info: Launcher version: " + CryonixBuildInfo.VERSION_NAME);
         Logger.appendToLog("Info: Architecture: " + Architecture.archAsString(DEVICE_ARCHITECTURE));
         Logger.appendToLog("Info: Device model: " + Build.MANUFACTURER + " " +Build.MODEL);
         Logger.appendToLog("Info: API version: " + SDK_INT);

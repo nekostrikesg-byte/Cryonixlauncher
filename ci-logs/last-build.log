@@ -1,0 +1,126 @@
+# build log of the failing run
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :main_cryonixlauncher:verifyPojavBackend
+> Task :main_cryonixlauncher:preBuild
+> Task :main_cryonixlauncher:preDebugBuild
+> Task :main_cryonixlauncher:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :main_cryonixlauncher:generateDebugBuildConfig
+> Task :main_cryonixlauncher:generateDebugResValues
+> Task :main_cryonixlauncher:generateDebugResources
+> Task :main_cryonixlauncher:packageDebugResources
+> Task :main_cryonixlauncher:processDebugNavigationResources
+> Task :main_cryonixlauncher:generateDebugAssets UP-TO-DATE
+> Task :main_cryonixlauncher:javaPreCompileDebug
+> Task :main_cryonixlauncher:mergeDebugAssets
+> Task :main_cryonixlauncher:parseDebugLocalResources
+> Task :main_cryonixlauncher:compressDebugAssets
+> Task :main_cryonixlauncher:generateDebugGlobalSynthetics
+> Task :main_cryonixlauncher:desugarDebugFileDependencies
+> Task :main_cryonixlauncher:generateDebugRFile
+> Task :main_cryonixlauncher:checkDebugDuplicateClasses
+> Task :main_cryonixlauncher:checkDebugAarMetadata
+> Task :main_cryonixlauncher:mapDebugSourceSetPaths
+> Task :main_cryonixlauncher:mergeLibDexDebug
+> Task :main_cryonixlauncher:compileDebugNavigationResources
+> Task :main_cryonixlauncher:createDebugCompatibleScreenManifests
+> Task :main_cryonixlauncher:extractDeepLinksDebug
+> Task :main_cryonixlauncher:mergeDebugResources
+> Task :main_cryonixlauncher:mergeExtDexDebug
+
+> Task :main_cryonixlauncher:processDebugMainManifest
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-89:12 Warning:
+	manifest@android:versionCode was tagged at AndroidManifest.xml:2 to replace other declarations but no other declaration present
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-89:12 Warning:
+	manifest@android:versionName was tagged at AndroidManifest.xml:2 to replace other declarations but no other declaration present
+
+> Task :main_cryonixlauncher:processDebugManifest
+> Task :main_cryonixlauncher:configureNdkBuildDebug[arm64-v8a]
+> Task :main_cryonixlauncher:processDebugManifestForPackage
+warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
+warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
+
+
+> Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
+C/C++: rm: cannot remove '/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/../jniLibs/*/libawt_headless.so': No such file or directory
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/ctxbridges/gl_bridge.c:87:65: warning: format specifies type 'void *' but the argument has type 'EGLint' (aka 'int') [-Wformat]
+C/C++:         if (!bindResult) printf("EGLBridge: bind failed: %p\n", eglGetError_p());
+C/C++:                                                          ~~     ^~~~~~~~~~~~~~~
+C/C++:                                                          %d
+C/C++: 1 warning generated.
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/ctxbridges/swap_interval_no_egl.c:238:29: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+C/C++:                             sizeof(struct ANativeWindow_real), nativeWindowReal->common.version);
+C/C++:                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/log.h:15:65: note: expanded from macro 'LOGW'
+C/C++: #define LOGW(...) __android_log_print(ANDROID_LOG_WARN,    TAG, __VA_ARGS__)
+C/C++:                                                                 ^~~~~~~~~~~
+C/C++: 1 warning generated.
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/input_bridge_v3.c:467:94: warning: more '%' conversions than data arguments [-Wformat-insufficient-args]
+C/C++:     TRY_ATTACH_ENV(jvm_env, pojav_environ->runtimeJavaVMPtr, "nativeSetWindowAttrib failed: %i", return;);
+C/C++:                                                                                             ~^
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/input_bridge_v3.c:39:16: note: expanded from macro 'TRY_ATTACH_ENV'
+C/C++:         printf(error_message);                                             \
+C/C++:                ^~~~~~~~~~~~~
+C/C++: 1 warning generated.
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/jre_launcher.c:119:69: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+C/C++:             printf("Failed to set signal hander for signal %i: %s", i, strerror(errno));
+C/C++:                                                            ~~       ^
+C/C++:                                                            %zu
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/jre_launcher.c:202:37: warning: passing 'char **' to parameter of type 'const char **' discards qualifiers in nested pointer types [-Wincompatible-pointer-types-discards-qualifiers]
+C/C++:     free_char_array(env, argsArray, argv);
+C/C++:                                     ^~~~
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/utils.h:11:75: note: passing argument to parameter 'charArray' here
+C/C++: void free_char_array(JNIEnv *env, jobjectArray jstringArray, const char **charArray);
+C/C++:                                                                           ^
+C/C++: 2 warnings generated.
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/utils.c:103:33: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+C/C++:         android_update_LD_LIBRARY_PATH(ldLibPathUtf);
+C/C++:                                        ^~~~~~~~~~~~
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/utils.c:156:32: warning: passing 'char **' to parameter of type 'const char **' discards qualifiers in nested pointer types [-Wincompatible-pointer-types-discards-qualifiers]
+C/C++:         free_char_array(env, cmdArgs, cmd_args_c);
+C/C++:                                       ^~~~~~~~~~
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/utils.c:41:75: note: passing argument to parameter 'charArray' here
+C/C++: void free_char_array(JNIEnv *env, jobjectArray jstringArray, const char **charArray) {
+C/C++:                                                                           ^
+C/C++: 2 warnings generated.
+C/C++: /home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/awt_bridge.c:120:109: warning: incompatible pointer to integer conversion passing 'void *' to parameter of type 'jint' (aka 'int') [-Wint-conversion]
+C/C++:     (*runtimeJNIEnvPtr_GRAPHICS)->ReleaseIntArrayElements(runtimeJNIEnvPtr_GRAPHICS, jreRgbArray, rgbArray, NULL);
+C/C++:                                                                                                             ^~~~
+C/C++: /usr/local/lib/android/sdk/ndk/25.2.9519653/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/14.0.7/include/stddef.h:89:16: note: expanded from macro 'NULL'
+C/C++: #  define NULL ((void*)0)
+C/C++:                ^~~~~~~~~~
+C/C++: 1 warning generated.
+
+> Task :main_cryonixlauncher:processDebugResources
+> Task :main_cryonixlauncher:mergeDebugJniLibFolders
+> Task :main_cryonixlauncher:mergeDebugNativeLibs
+> Task :main_cryonixlauncher:validateSigningDebug
+> Task :main_cryonixlauncher:writeDebugAppMetadata
+> Task :main_cryonixlauncher:writeDebugSigningConfigVersions
+> Task :main_cryonixlauncher:stripDebugDebugSymbols
+> Task :main_cryonixlauncher:compileDebugKotlin
+
+> Task :main_cryonixlauncher:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :main_cryonixlauncher:processDebugJavaRes
+> Task :main_cryonixlauncher:mergeDebugJavaResource
+> Task :main_cryonixlauncher:dexBuilderDebug
+> Task :main_cryonixlauncher:mergeProjectDexDebug
+> Task :main_cryonixlauncher:packageDebug
+> Task :main_cryonixlauncher:createDebugApkListingFileRedirect
+> Task :main_cryonixlauncher:assembleDebug
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790936765234.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 50s
+42 actionable tasks: 42 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.0/userguide/configuration_cache_enabling.html

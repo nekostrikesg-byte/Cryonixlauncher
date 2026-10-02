@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher (Minecraft: Java Edition for Android)</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher (Minecraft: Java Edition for Android)</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">בחר מתקין mod</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher קרס באופן בלתי צפוי</string>
+    <string name="error_fatal">Cryonixlauncher קרס באופן בלתי צפוי</string>
     <string name="error_no_version">אין גרסה!</string>
     <string name="error_show_more">הצג עוד</string>
     <string name="error_show_less">הצג פחות</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">מנקה קבצי מטמון</string>
     <string name="mcl_launch_downloading">מוריד %s</string>
-    <string name="mcl_launch_downloading_progress">"מתקין %s (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"מתקין %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">מתכונן להורדת משאבים</string>
     <string name="mcl_options">אפשרויות</string>
     <string name="mcl_option_customcontrol">פקדים מותאמים אישית</string>
@@ -136,7 +136,7 @@
     <string name="customctrl_passthru">עכבר עובר דרך</string>
     <string name="customctrl_swipeable">ניתן להחלקה</string>
     <string name="customctrl_forward_lock">נעילת קדימה</string>
-    <string name="memory_warning_msg">הכמות הנוכחית של RAM פנוי (%d) נמוכה מכמות ה-RAM שהוקצתה (%d), מה שעלול לגרום למשחק לקרוס. הנך מתבקש לשנות את ההקצאה במידה והמשחק קורס.</string>
+    <string name="memory_warning_msg" formatted="false">הכמות הנוכחית של RAM פנוי (%d) נמוכה מכמות ה-RAM שהוקצתה (%d), מה שעלול לגרום למשחק לקרוס. הנך מתבקש לשנות את ההקצאה במידה והמשחק קורס.</string>
     <string name="mcl_memory_allocation">הקצאת זיכרון</string>
     <string name="mcl_memory_allocation_subtitle">שולט בכמה זיכרון ניתן ל מיינקראפט.</string>
     <string name="multirt_runtime_corrupt">Java Runtime פגומה</string>
@@ -188,7 +188,7 @@
     <string name="arc_capes_title">שכמיות אסתטיות</string>
     <string name="arc_capes_desc">מאפשר שכמיות מאת Cosmetica (לשעבר Arc). לקבלת מידע נוסף, בקרו ב- https://cosmetica.cc. דורש OptiFine.</string>
     <string name="notif_channel_name">כללי</string>
-    <string name="lazy_service_default_title">שירות הרקע של Pojav</string>
+    <string name="lazy_service_default_title">שירות הרקע של Cryonixlauncher</string>
     <string name="use_global_default">(השתמש בהגדרות ברירת המחדל הגלובליות)</string>
     <string name="default_control">מפת בקר ברירת מחדל</string>
     <string name="progresslayout_tasks_in_progress">משימות בתהליך%d</string>
@@ -217,7 +217,7 @@
     <string name="preference_gyro_sample_rate_title">קצב דגימת חיישן הכיוון</string>
     <string name="preference_gyro_sample_rate_description">אם אתם חווים בעיות ביצועים עם בקרי חיישן הכיוון, הגדילו ערך זה.</string>
     <string name="microsoft_login_retry_later">יותר מדי בקשות, נסו שוב מאוחר יותר.</string>
-    <string name="storage_required">PojavLauncher דורש אחסון חיצוני מחובר. אנא חבר אותו מחדש והפעל מחדש את האפליקציה.</string>
+    <string name="storage_required">Cryonixlauncher דורש אחסון חיצוני מחובר. אנא חבר אותו מחדש והפעל מחדש את האפליקציה.</string>
     <string name="mcl_setting_title_buttonallcaps">השתמש באותיות גדולות בלבד בתוויות הכפתורים.</string>
     <string name="mcl_setting_subtitle_buttonallcaps">השבת אפשרות זו אם ברצונך להשתמש באותיות קטנות בבקרים שלך.</string>
     <string name="create_profile">צור פרופיל חדש</string>

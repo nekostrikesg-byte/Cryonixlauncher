@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">PojavLauncher（適用於 Android 的 Minecraft Java 版）</string>
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_name">Cryonixlauncher（適用於 Android 的 Minecraft Java 版）</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -15,7 +15,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">選擇模組安裝程式</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher 非預期的崩潰</string>
+    <string name="error_fatal">Cryonixlauncher 非預期的崩潰</string>
     <string name="error_no_version">沒有版本！</string>
     <string name="error_show_more">顯示更多</string>
     <string name="error_show_less">顯示較少</string>
@@ -31,7 +31,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">正在清理快取</string>
     <string name="mcl_launch_downloading">正在下載 %s</string>
-    <string name="mcl_launch_downloading_progress">"正在下載 %s（%.2f MB/%.2f MB）"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"正在下載 %s（%.2f MB/%.2f MB）"</string>
     <string name="mcl_launch_download_assets">正在準備下載資源</string>
     <string name="mcl_options">選項</string>
     <string name="mcl_option_customcontrol">自訂控制鍵</string>
@@ -147,8 +147,8 @@
     <string name="customctrl_swipeable">可滑動</string>
     <string name="customctrl_forward_lock">疾走鎖定</string>
     <string name="customctrl_absolute_tracking">絕對手指追蹤</string>
-    <string name="memory_warning_msg">目前可用記憶體 (%d) 低於已配置記憶體 (%d)，這可能會導致遊戲崩潰。如果遊戲崩潰，請變更記憶體配置設定。</string>
-    <string name="address_memory_warning_msg">目前可用的可定址記憶體空間 (%d) 低於已配置的記憶體 (%d) ，這將導致遊戲崩潰。如果遊戲崩潰，請變更記憶體配置設定。</string>
+    <string name="memory_warning_msg" formatted="false">目前可用記憶體 (%d) 低於已配置記憶體 (%d)，這可能會導致遊戲崩潰。如果遊戲崩潰，請變更記憶體配置設定。</string>
+    <string name="address_memory_warning_msg" formatted="false">目前可用的可定址記憶體空間 (%d) 低於已配置的記憶體 (%d) ，這將導致遊戲崩潰。如果遊戲崩潰，請變更記憶體配置設定。</string>
     <string name="mcl_memory_allocation">記憶體配置</string>
     <string name="mcl_memory_allocation_subtitle">控制配置給 Minecraft 的記憶體容量。</string>
     <string name="multirt_runtime_corrupt">Java 執行環境毀損</string>
@@ -206,7 +206,7 @@
     <string name="arc_capes_title">Cosmetica 披風</string>
     <string name="arc_capes_desc">透過 Cosmetica（前身為 Arc）啟用披風。需要 OptiFine。如需更多資訊請至 https://cosmetica.cc。</string>
     <string name="notif_channel_name">一般設定</string>
-    <string name="lazy_service_default_title">Pojav 背景服務</string>
+    <string name="lazy_service_default_title">Cryonixlauncher 背景服務</string>
     <string name="mcl_setting_veroption_installed">已安裝</string>
     <string name="use_global_default">（使用全域預設控制鍵）</string>
     <string name="default_control">預設控制鍵位</string>
@@ -236,7 +236,7 @@
     <string name="preference_gyro_sample_rate_title">陀螺儀取樣率</string>
     <string name="preference_gyro_sample_rate_description">如果你在陀螺儀控制上遇到效能問題，請增加此值。</string>
     <string name="microsoft_login_retry_later">你的操作過於頻繁，請稍後再試！</string>
-    <string name="storage_required">PojavLauncher 需要連接外部儲存空間，請重新連接並重新啟動應用程式。</string>
+    <string name="storage_required">Cryonixlauncher 需要連接外部儲存空間，請重新連接並重新啟動應用程式。</string>
     <string name="mcl_setting_title_buttonallcaps">在按鈕標籤中僅使用大寫字母</string>
     <string name="mcl_setting_subtitle_buttonallcaps">如果你想在控制鍵中使用並顯示小寫字母，請關閉此設定。</string>
     <string name="create_profile">新增設定檔</string>
@@ -289,11 +289,11 @@
     <string name="search_modpack_no_result">找不到模組包</string>
     <string name="search_modpack_error">尋找模組包失敗</string>
     <string name="search_modpack_download_error">模組包中繼資料下載失敗</string>
-    <string name="modpack_download_downloading_metadata">正在下載模組包中繼資料 (%.2f MB/%.2f MB)</string>
-    <string name="modpack_download_downloading_mods">正在下載模組 (%.2f MB/%.2f MB)</string>
-    <string name="modpack_download_downloading_mods_fc">正在下載模組（第 %d/%d 個檔案）</string>
-    <string name="modpack_download_applying_overrides">正在套用覆蓋（%d/%d）</string>
-    <string name="modpack_install_notification_title">Pojav 模組包安裝程式</string>
+    <string name="modpack_download_downloading_metadata" formatted="false">正在下載模組包中繼資料 (%.2f MB/%.2f MB)</string>
+    <string name="modpack_download_downloading_mods" formatted="false">正在下載模組 (%.2f MB/%.2f MB)</string>
+    <string name="modpack_download_downloading_mods_fc" formatted="false">正在下載模組（第 %d/%d 個檔案）</string>
+    <string name="modpack_download_applying_overrides" formatted="false">正在套用覆蓋（%d/%d）</string>
+    <string name="modpack_install_notification_title">Cryonixlauncher 模組包安裝程式</string>
     <string name="modpack_install_notification_success">按這裡完成模組包安裝</string>
     <string name="modpack_install_notification_data_not_available">模組載入器資訊下載失敗！</string>
     <string name="modpack_install_modloader_download_failed">模組載入器檔案下載失敗！</string>
@@ -323,7 +323,7 @@
     <string name="preference_category_miscellaneous">其他設定</string>
     <string name="preference_category_video">顯示設定</string>
     <string name="notification_permission_dialog_title">權限要求</string>
-    <string name="notification_permission_dialog_text">PojavLauncher 需要通知權限，以防止你離開應用程式時，遊戲/模組包的下載停止。如果沒有這個權限，當你將 PojavLauncher 置於背景模式時，Android 可能會停止你的下載內容。</string>
+    <string name="notification_permission_dialog_text">Cryonixlauncher 需要通知權限，以防止你離開應用程式時，遊戲/模組包的下載停止。如果沒有這個權限，當你將 Cryonixlauncher 置於背景模式時，Android 可能會停止你的下載內容。</string>
     <string name="notification_permission_toast">你隨時可以進入設定變更你的決定。</string>
     <string name="preference_ask_for_notification_title">允許通知</string>
     <string name="preference_ask_for_notification_description">按一下重新請求通知權限，這是遊戲/模組包背景下載正常運作所必需的。</string>
@@ -332,8 +332,8 @@
     <string name="exception_failed_to_unpack_jre17">無法安裝 JRE 17</string>
     <string name="newdl_starting">正在讀取遊戲中繼資料……</string>
     <string name="newdl_downloading_metadata">正在下載遊戲中繼資料 (%s)</string>
-    <string name="newdl_downloading_game_files">正在下載遊戲……（%d/%d, %.2f MB/秒）</string>
-    <string name="newdl_downloading_game_files_size">正在下載遊戲……（%.2f/%.2f MB, %.2f MB/秒）</string>
+    <string name="newdl_downloading_game_files" formatted="false">正在下載遊戲……（%d/%d, %.2f MB/秒）</string>
+    <string name="newdl_downloading_game_files_size" formatted="false">正在下載遊戲……（%.2f/%.2f MB, %.2f MB/秒）</string>
     <string name="cropper_title">選擇圖片區域</string>
     <string name="cropper_lock_vertical">垂直鎖定</string>
     <string name="cropper_lock_horizontal">水平鎖定</string>

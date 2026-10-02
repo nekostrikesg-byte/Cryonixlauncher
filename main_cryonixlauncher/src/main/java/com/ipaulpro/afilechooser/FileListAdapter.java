@@ -21,7 +21,7 @@ import android.view.*;
 import android.widget.*;
 import java.io.*;
 import java.util.*;
-import net.kdt.pojavlaunch.*;
+import com.cryonix.launcher.R;
 
 /**
  * List adapter for Files.

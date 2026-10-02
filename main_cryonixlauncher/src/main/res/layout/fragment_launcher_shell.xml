@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_cryonix_dashboard">
+
+    <LinearLayout
+        android:id="@+id/launcher_navigation_rail"
+        android:layout_width="54dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/bg_cryonix_row"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="12dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/nav_home"
+            style="@style/CryonixIconNavButton"
+            android:contentDescription="Home"
+            android:src="@drawable/ic_nav_home" />
+        <ImageButton
+            android:id="@+id/nav_accounts"
+            style="@style/CryonixIconNavButton"
+            android:contentDescription="Accounts"
+            android:src="@drawable/ic_nav_account" />
+        <ImageButton
+            android:id="@+id/nav_game"
+            style="@style/CryonixIconNavButton"
+            android:contentDescription="Minecraft instances"
+            android:src="@drawable/ic_nav_game" />
+        <ImageButton
+            android:id="@+id/nav_settings"
+            style="@style/CryonixIconNavButton"
+            android:contentDescription="Settings"
+            android:src="@drawable/ic_nav_settings" />
+        <View
+            android:layout_width="28dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <ImageButton
+            android:id="@+id/nav_about"
+            style="@style/CryonixIconNavButton"
+            android:contentDescription="About"
+            android:src="@drawable/ic_nav_about" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/launcher_main_column"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/launcher_navigation_rail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/launcher_header"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:contentDescription="Cryonix logo"
+                android:src="@drawable/cryonix_logo" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.12"
+                        android:text="CRYONIX LAUNCHER"
+                        android:textColor="@color/cryonix_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:letterSpacing="0.1"
+                        android:text="PLUS"
+                        android:textColor="@color/cryonix_blue_bright"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="Play   /   Customize   /   Explore"
+                    android:textColor="@color/cryonix_muted"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/header_profile"
+                android:layout_width="112dp"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_cryonix_row"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+                <ImageView
+                    android:id="@+id/header_account_avatar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_cryonix_avatar"
+                    android:clipToOutline="true"
+                    android:padding="2dp"
+                    android:src="@drawable/cryonix_logo" />
+                <TextView
+                    android:id="@+id/header_account_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Select account"
+                    android:textColor="@color/cryonix_text"
+                    android:textSize="9sp" />
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_chevron_down"
+                    android:tint="@color/cryonix_text_secondary" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/header_folder"
+                style="@style/CryonixHeaderIconButton"
+                android:layout_marginStart="7dp"
+                android:contentDescription="Open Minecraft folder"
+                android:src="@drawable/ic_folder" />
+            <ImageButton
+                android:id="@+id/header_accounts"
+                style="@style/CryonixHeaderIconButton"
+                android:contentDescription="Manage accounts"
+                android:src="@drawable/ic_accounts" />
+            <ImageButton
+                android:id="@+id/header_downloads"
+                style="@style/CryonixHeaderIconButton"
+                android:contentDescription="Downloads"
+                android:src="@drawable/ic_download" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/cryonix_divider" />
+
+        <FrameLayout
+            android:id="@+id/launcher_tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="2dp"
+            android:paddingBottom="1dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

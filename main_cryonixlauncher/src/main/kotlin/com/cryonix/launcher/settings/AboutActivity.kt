@@ -7,14 +7,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.cryonix.launcher.R
-import com.cryonix.launcher.core.LauncherInfo
 
 class AboutActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.screen_about)
         findViewById<View>(R.id.about_back).setOnClickListener { finish() }
-        findViewById<TextView>(R.id.about_version).text = "Version " + LauncherInfo().version
+        findViewById<TextView>(R.id.about_version).text = "Version " + packageManager.getPackageInfo(packageName, 0).versionName
         findViewById<View>(R.id.about_github).setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/nekostrikesg-byte/Cryonixlauncher")))
         }

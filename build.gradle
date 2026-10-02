@@ -21,7 +21,10 @@ ext.getGitHash = { String projectPath ->
     proc.inputStream.text.trim()
 }
 
+ext.pojavBackendCommit = 'b12ad048157b3aa255d078c235dd4571e1900309'
+
 subprojects {
     ext.gitUsed = { rootProject.ext.gitUsed.call() }
     ext.getGitHash = { String projectPath -> rootProject.ext.getGitHash.call(projectPath) }
+    ext.pojavBackendCommit = rootProject.ext.pojavBackendCommit
 }

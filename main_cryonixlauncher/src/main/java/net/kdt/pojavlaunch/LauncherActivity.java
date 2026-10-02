@@ -5,11 +5,10 @@ import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 import android.Manifest;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -21,6 +20,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.kdt.mcgui.ProgressLayout;
 import com.kdt.mcgui.mcAccountSpinner;
@@ -29,7 +30,6 @@ import net.kdt.pojavlaunch.contracts.OpenDocumentWithExtension;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
 import net.kdt.pojavlaunch.extra.ExtraListener;
-import net.kdt.pojavlaunch.fragments.MainMenuFragment;
 import net.kdt.pojavlaunch.fragments.MicrosoftLoginFragment;
 import net.kdt.pojavlaunch.fragments.SelectAuthFragment;
 import net.kdt.pojavlaunch.lifecycle.ContextAwareDoneListener;
@@ -37,7 +37,6 @@ import net.kdt.pojavlaunch.lifecycle.ContextExecutor;
 import net.kdt.pojavlaunch.modloaders.modpacks.ModloaderInstallTracker;
 import net.kdt.pojavlaunch.modloaders.modpacks.imagecache.IconCacheJanitor;
 import net.kdt.pojavlaunch.prefs.LauncherPreferences;
-import net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceFragment;
 import net.kdt.pojavlaunch.progresskeeper.ProgressKeeper;
 import net.kdt.pojavlaunch.progresskeeper.TaskCountListener;
 import net.kdt.pojavlaunch.services.ProgressServiceKeeper;
@@ -52,7 +51,7 @@ import net.kdt.pojavlaunch.value.launcherprofiles.MinecraftProfile;
 import java.lang.ref.WeakReference;
 import java.text.ParseException;
 
-public class LauncherActivity extends BaseActivity {
+public class LauncherActivity extends BaseActivity implements PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
     public static final String SETTING_FRAGMENT_TAG = "SETTINGS_FRAGMENT";
 
     public final ActivityResultLauncher<Object> modInstallerLauncher =
@@ -62,20 +61,10 @@ public class LauncherActivity extends BaseActivity {
 
     private mcAccountSpinner mAccountSpinner;
     private FragmentContainerView mFragmentView;
-    private ImageButton mSettingsButton;
     private ProgressLayout mProgressLayout;
     private ProgressServiceKeeper mProgressServiceKeeper;
     private ModloaderInstallTracker mInstallTracker;
     private NotificationManager mNotificationManager;
-
-    /* Allows to switch from one button "type" to another */
-    private final FragmentManager.FragmentLifecycleCallbacks mFragmentCallbackListener = new FragmentManager.FragmentLifecycleCallbacks() {
-        @Override
-        public void onFragmentResumed(@NonNull FragmentManager fm, @NonNull Fragment f) {
-            mSettingsButton.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), f instanceof MainMenuFragment
-                    ? R.drawable.ic_menu_settings : R.drawable.ic_menu_home));
-        }
-    };
 
     /* Listener for the back button in settings */
     private final ExtraListener<String> mBackPreferenceListener = (key, value) -> {
@@ -86,22 +75,11 @@ public class LauncherActivity extends BaseActivity {
     /* Listener for the auth method selection screen */
     private final ExtraListener<Boolean> mSelectAuthMethod = (key, value) -> {
         Fragment fragment = getSupportFragmentManager().findFragmentById(mFragmentView.getId());
-        // Allow starting the add account only from the main menu, should it be moved to fragment itself ?
-        if(!(fragment instanceof MainMenuFragment)) return false;
+        // Account sign-in can be started from the Cryonix account tab.
+        if (!(fragment instanceof com.cryonix.launcher.ui.launcher.LauncherShellFragment)) return false;
 
         Tools.swapFragment(this, SelectAuthFragment.class, SelectAuthFragment.TAG, null);
         return false;
-    };
-
-    /* Listener for the settings fragment */
-    private final View.OnClickListener mSettingButtonListener = v -> {
-        Fragment fragment = getSupportFragmentManager().findFragmentById(mFragmentView.getId());
-        if(fragment instanceof MainMenuFragment){
-            Tools.swapFragment(this, LauncherPreferenceFragment.class, SETTING_FRAGMENT_TAG, null);
-        } else{
-            // The setting button doubles as a home button now
-            Tools.backToMainMenu(this);
-        }
     };
 
     private final ExtraListener<Boolean> mLaunchGameListener = (key, value) -> {
@@ -180,7 +158,7 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pojav_launcher);
+        setContentView(R.layout.activity_cryonix_launcher);
         FragmentManager fragmentManager = getSupportFragmentManager();
         // If we don't have a back stack root yet...
         if(fragmentManager.getBackStackEntryCount() < 1) {
@@ -190,7 +168,7 @@ public class LauncherActivity extends BaseActivity {
             fragmentManager.beginTransaction()
                     .setReorderingAllowed(true)
                     .addToBackStack("ROOT")
-                    .add(R.id.container_fragment, MainMenuFragment.class, null, "ROOT").commit();
+                    .add(R.id.container_fragment, com.cryonix.launcher.ui.launcher.LauncherShellFragment.class, null, "ROOT").commit();
         }
 
 
@@ -212,13 +190,7 @@ public class LauncherActivity extends BaseActivity {
         ProgressKeeper.addTaskCountListener(mDoubleLaunchPreventionListener);
         ProgressKeeper.addTaskCountListener((mProgressServiceKeeper = new ProgressServiceKeeper(this)));
 
-        mSettingsButton.setOnClickListener(mSettingButtonListener);
         ProgressKeeper.addTaskCountListener(mProgressLayout);
-        ExtraCore.addExtraListener(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
-        ExtraCore.addExtraListener(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);
-
-        ExtraCore.addExtraListener(ExtraConstants.LAUNCH_GAME, mLaunchGameListener);
-
         new AsyncVersionList().getVersionList(versions -> ExtraCore.setValue(ExtraConstants.RELEASE_TABLE, versions), false);
 
         mInstallTracker = new ModloaderInstallTracker(this);
@@ -247,7 +219,17 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        getSupportFragmentManager().registerFragmentLifecycleCallbacks(mFragmentCallbackListener, true);
+        ExtraCore.addExtraListener(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
+        ExtraCore.addExtraListener(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);
+        ExtraCore.addExtraListener(ExtraConstants.LAUNCH_GAME, mLaunchGameListener);
+    }
+
+    @Override
+    protected void onStop() {
+        ExtraCore.removeExtraListenerFromValue(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
+        ExtraCore.removeExtraListenerFromValue(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);
+        ExtraCore.removeExtraListenerFromValue(ExtraConstants.LAUNCH_GAME, mLaunchGameListener);
+        super.onStop();
     }
 
     @Override
@@ -256,11 +238,6 @@ public class LauncherActivity extends BaseActivity {
         mProgressLayout.cleanUpObservers();
         ProgressKeeper.removeTaskCountListener(mProgressLayout);
         ProgressKeeper.removeTaskCountListener(mProgressServiceKeeper);
-        ExtraCore.removeExtraListenerFromValue(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
-        ExtraCore.removeExtraListenerFromValue(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);
-        ExtraCore.removeExtraListenerFromValue(ExtraConstants.LAUNCH_GAME, mLaunchGameListener);
-
-        getSupportFragmentManager().unregisterFragmentLifecycleCallbacks(mFragmentCallbackListener);
     }
 
     /** Custom implementation to feel more natural when a backstack isn't present */
@@ -280,6 +257,19 @@ public class LauncherActivity extends BaseActivity {
         }
 
         super.onBackPressed();
+    }
+
+    @Override
+    public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference preference) {
+        String fragmentName = preference.getFragment();
+        if (fragmentName == null) return false;
+        Fragment fragment = Fragment.instantiate(this, fragmentName, preference.getExtras());
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.container_fragment, fragment, fragmentName)
+                .addToBackStack(fragmentName)
+                .commit();
+        return true;
     }
 
     @Override
@@ -354,7 +344,6 @@ public class LauncherActivity extends BaseActivity {
     /** Stuff all the view boilerplate here */
     private void bindViews(){
         mFragmentView = findViewById(R.id.container_fragment);
-        mSettingsButton = findViewById(R.id.setting_button);
         mAccountSpinner = findViewById(R.id.account_spinner);
         mProgressLayout = findViewById(R.id.progress_layout);
     }

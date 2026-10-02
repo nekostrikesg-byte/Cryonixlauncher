@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_short_name">PojavLauncher</string>
+    <string name="app_short_name">Cryonixlauncher</string>
     <!-- Action bar part -->
     <!-- Languages list part -->
     <!-- Login strings -->
@@ -12,7 +12,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">Wahlweise einen Mod-Installer</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher ist unerwartet abgestürzt</string>
+    <string name="error_fatal">Cryonixlauncher ist unerwartet abgestürzt</string>
     <string name="error_no_version">Keine Version!</string>
     <string name="error_show_more">Mehr anzeigen</string>
     <string name="error_show_less">Weniger anzeigen</string>
@@ -28,7 +28,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">Cache-Dateien bereinigen</string>
     <string name="mcl_launch_downloading">Lade %s herunter</string>
-    <string name="mcl_launch_downloading_progress">"Lade %s herunter (%.2f MB / %.2f MB)"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"Lade %s herunter (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Bereite das Herunterladen der Ressourcen vor</string>
     <string name="mcl_options">Optionen</string>
     <string name="mcl_option_customcontrol">Benutzerdefinierte Steuerung</string>

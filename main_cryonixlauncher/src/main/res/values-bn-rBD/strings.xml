@@ -13,7 +13,7 @@
     <!-- AlertDialog title -->
     <string name="alerttitle_installmod">একটি মোড ইনস্টলার নির্বাচন করুন</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLuncher অপ্রত্যাশিতভাবে ক্র্যাশ হয়েছে</string>
+    <string name="error_fatal">CryonixlauncherLuncher অপ্রত্যাশিতভাবে ক্র্যাশ হয়েছে</string>
     <string name="error_no_version">কোন ভার্সন নেই!</string>
     <string name="error_show_more">আরো দেখুন</string>
     <string name="error_show_less">কম দেখান</string>
@@ -29,7 +29,7 @@
     <!-- MCLauncherActivity: Strings -->
     <string name="mcl_launch_cleancache">ক্যাশ ফাইল পরিষ্কার করা হচ্ছে</string>
     <string name="mcl_launch_downloading">%s ডাউনলোড হচ্ছে</string>
-    <string name="mcl_launch_downloading_progress">"%s (%.2f এমবি / %.2f এমবি) ডাউনলোড হচ্ছে"</string>
+    <string name="mcl_launch_downloading_progress" formatted="false">"%s (%.2f এমবি / %.2f এমবি) ডাউনলোড হচ্ছে"</string>
     <string name="mcl_launch_download_assets">রিসোর্স ডাউনলোড করার জন্য প্রস্তুতি করা হচ্ছে</string>
     <string name="mcl_options">অপশনসমূহ</string>
     <string name="mcl_option_customcontrol">কাস্টম কন্ট্রোল</string>

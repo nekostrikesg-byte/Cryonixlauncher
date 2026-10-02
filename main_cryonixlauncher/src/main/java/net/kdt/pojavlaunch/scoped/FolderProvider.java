@@ -18,11 +18,11 @@ import android.webkit.MimeTypeMap;
 
 import androidx.annotation.Nullable;
 
-import com.cryonix.launcher.BuildConfig;
 import com.cryonix.launcher.R;
+import net.kdt.pojavlaunch.CryonixBuildInfo;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.utils.FileUtils;
 
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -82,8 +82,8 @@ public class FolderProvider extends DocumentsProvider {
         final MatrixCursor result = new MatrixCursor(projection != null ? projection : DEFAULT_ROOT_PROJECTION);
         final String applicationName = getContext().getString(R.string.app_short_name);
 
-        String summary = BuildConfig.VERSION_NAME;
-        if (BuildConfig.DEBUG) {
+        String summary = CryonixBuildInfo.VERSION_NAME;
+        if (CryonixBuildInfo.DEBUG) {
             summary = "(" + getContext().getString(R.string.generic_debug) + ") " + summary;
         }
 
