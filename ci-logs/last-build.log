@@ -17,25 +17,29 @@ Daemon will be stopped at the end of the build
 > Task :main_cryonixlauncher:compressDebugAssets
 > Task :main_cryonixlauncher:generateDebugGlobalSynthetics
 > Task :main_cryonixlauncher:desugarDebugFileDependencies
-> Task :main_cryonixlauncher:checkDebugDuplicateClasses
 > Task :main_cryonixlauncher:generateDebugRFile
+> Task :main_cryonixlauncher:checkDebugDuplicateClasses
 > Task :main_cryonixlauncher:checkDebugAarMetadata
 > Task :main_cryonixlauncher:mapDebugSourceSetPaths
 > Task :main_cryonixlauncher:mergeLibDexDebug
 > Task :main_cryonixlauncher:compileDebugNavigationResources
 > Task :main_cryonixlauncher:createDebugCompatibleScreenManifests
 > Task :main_cryonixlauncher:extractDeepLinksDebug
-> Task :main_cryonixlauncher:mergeExtDexDebug
 > Task :main_cryonixlauncher:mergeDebugResources
+> Task :main_cryonixlauncher:mergeExtDexDebug
 
 > Task :main_cryonixlauncher:processDebugMainManifest
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-108:12 Warning:
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-89:12 Warning:
 	manifest@android:versionCode was tagged at AndroidManifest.xml:2 to replace other declarations but no other declaration present
-/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-108:12 Warning:
+/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/AndroidManifest.xml:2:1-89:12 Warning:
 	manifest@android:versionName was tagged at AndroidManifest.xml:2 to replace other declarations but no other declaration present
 
 > Task :main_cryonixlauncher:processDebugManifest
 > Task :main_cryonixlauncher:configureNdkBuildDebug[arm64-v8a]
+> Task :main_cryonixlauncher:processDebugManifestForPackage
+warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
+warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
+
 
 > Task :main_cryonixlauncher:buildNdkBuildDebug[arm64-v8a]
 C/C++: rm: cannot remove '/home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/jni/../jniLibs/*/libawt_headless.so': No such file or directory
@@ -87,20 +91,14 @@ C/C++: #  define NULL ((void*)0)
 C/C++:                ^~~~~~~~~~
 C/C++: 1 warning generated.
 
+> Task :main_cryonixlauncher:processDebugResources
 > Task :main_cryonixlauncher:mergeDebugJniLibFolders
 > Task :main_cryonixlauncher:mergeDebugNativeLibs
 > Task :main_cryonixlauncher:validateSigningDebug
 > Task :main_cryonixlauncher:writeDebugAppMetadata
-> Task :main_cryonixlauncher:processDebugManifestForPackage
-> Task :main_cryonixlauncher:stripDebugDebugSymbols
 > Task :main_cryonixlauncher:writeDebugSigningConfigVersions
-warn: removing resource git.neko.cryonix:string/login_error_invalid_username without required default value.
-warn: removing resource git.neko.cryonix:string/login_microsoft without required default value.
-
-> Task :main_cryonixlauncher:processDebugResources
+> Task :main_cryonixlauncher:stripDebugDebugSymbols
 > Task :main_cryonixlauncher:compileDebugKotlin
-w: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/RuntimeSettingsActivity.kt:73:33 'static fun instantiate(p0: Context, p1: String, p2: Bundle?): Fragment' is deprecated. Deprecated in Java.
-w: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/main_cryonixlauncher/src/main/kotlin/com/cryonix/launcher/settings/RuntimeSettingsActivity.kt:109:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
 
 > Task :main_cryonixlauncher:compileDebugJavaWithJavac
 Note: Some input files use or override a deprecated API.
@@ -113,7 +111,7 @@ Note: Recompile with -Xlint:deprecation for details.
 > Task :main_cryonixlauncher:packageDebug
 > Task :main_cryonixlauncher:createDebugApkListingFileRedirect
 > Task :main_cryonixlauncher:assembleDebug
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790871005673.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/assemble-1790936765234.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Cryonixlauncher/Cryonixlauncher/build/reports/problems/problems-report.html
 
@@ -123,6 +121,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1m 3s
+BUILD SUCCESSFUL in 50s
 42 actionable tasks: 42 executed
 Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.0/userguide/configuration_cache_enabling.html
